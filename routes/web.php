@@ -19,8 +19,16 @@ Route::get('/vehicle', function () {
     return view('vehicle');
 });
 
+Route::get('/construction-machinery', function () {
+    return view('construction-machinery');
+});
+
 Route::get('/warehouse', function () {
     return view('warehouse');
+});
+
+Route::get('/bulk-buying', function () {
+    return view('bulk-buying');
 });
 
 Route::get('/services', function () {
