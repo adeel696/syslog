@@ -280,7 +280,7 @@ h1, h2, h3, h4, h5,
 
 .site-footer {
   padding: 4em 0;
-  background: #000; }
+  background: #00ABC4; }
   @media (min-width: 768px) {
     .site-footer {
       padding: 8em 0; } }
@@ -1439,4 +1439,20 @@ h1, h2, h3, h4, h5,
 }
 .zoomImg:hover {
   transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+.btn-outline-light {
+    color: #f8f9fa;
+    background-color: transparent;
+    background-image: none;
+    border-color: #f8f9fa;
+	width: 200px;
+	padding:20px;
+}
+
+.btn-outline-light:hover {
+    background-color: #00ABC4;
+    border-color: #00ABC4;
+    color: #fff;
 }

@@ -10,7 +10,7 @@
                     <div class="container">
                       <div class="row align-items-center justify-content-center">
                         <div class="col-lg-9 text-center">
-                            <h1><a href="{{ url('/vehicle') }}" style="color:#FFF">Vehicle</a></h1>
+                            <h1><a class="btn btn-outline-light" href="{{ url('/vehicle') }}" style="color:#FFF">Vehicle</a></h1>
                       </div>
                     </div>
                   </div>
@@ -20,7 +20,7 @@
                     <div class="container">
                       <div class="row align-items-center justify-content-center">
                         <div class="col-lg-9 text-center">
-                            <h1><a href="{{ url('/warehouse') }}" style="color:#FFF">Warehouse</a></h1>
+                            <h1><a class="btn btn-outline-light" href="{{ url('/warehouse') }}">Warehouse</a></h1>
                       </div>
                     </div>
                   </div>

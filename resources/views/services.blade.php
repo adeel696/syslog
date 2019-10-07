@@ -6,8 +6,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-6 text-center">
-          <h1>Services</h1>
-          <p>Description</p>
+          <h1>Prestations de service</h1>
         </div>
       </div>
     </div>
@@ -15,133 +14,125 @@
 </div>
 
 
-<div class="site-section">
+<div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 mb-5 mb-lg-0">
+      <div class="col-lg-4">
         <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
       </div>
-      <div class="col-lg-4 ml-auto">
-        <h2>Our History</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit suscipit, repudiandae similique accusantium eius nulla quam laudantium sequi.</p>
-        <p>Debitis voluptates corporis saepe molestias tenetur ab quae, quo earum commodi, laborum dolore, fuga aliquid delectus cum ipsa?</p>
+      <div class="col-lg-8">
+        <h2>
+        	<?php echo utf8_encode("Location véhicule de transport"); ?>
+        </h2>
+        <p><?php echo utf8_encode("Nous vous louons des véhicules de tout type pour le transport de vos produits et marchandises . Vous pourrez utiliser ces actifs à votre guise dans le respect des conditions et clauses convenues."); ?></p>
+        <p><a href="{{ url('contact') }}">Pour plus information veuillez nous contacter au</a></p>
       </div>
     </div>
   </div>
 </div>
 
-
-<div class="site-section">
+<div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
-        <img src="{{ url('home/images/hero_2.jpg') }}" alt="Image" class="img-fluid">
+      <div class="col-lg-4">
+        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
       </div>
-      <div class="col-lg-4 mr-auto">
-        <h2>Competitive Company</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit suscipit, repudiandae similique accusantium eius nulla quam laudantium sequi.</p>
-        <p>Debitis voluptates corporis saepe molestias tenetur ab quae, quo earum commodi, laborum dolore, fuga aliquid delectus cum ipsa?</p>
+      <div class="col-lg-8">
+        <h2>
+        	<?php echo utf8_encode("Location d'engins divers"); ?>
+        </h2>
+        <p><?php echo utf8_encode("Vous pourrez auprès de nos services louer des engins pour des travaux divers. En l'occurrence nous disposons d'engins de chantier tels que des compacteurs , pelleteuses , chargeurs ,Bull , décapeuses , etc.  et d'engins de manutention divers ( chariots élévateurs , grues , etc.)"); ?></p>
+        <p><a href="{{ url('contact') }}">Pour plus information veuillez nous contacter au</a></p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="site-section bg-light">
+<div class="mt-5">
   <div class="container">
-    <div class="row justify-content-center text-center mb-5 section-2-title">
-      <div class="col-md-6">
-        <span class="text-primary">Our Team</span>
-        <h2 class="mb-4">Meet Our Team</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis provident eius ratione velit, voluptas laborum nemo quas ad necessitatibus placeat?</p>
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
       </div>
-    </div>
-    <div class="row align-items-stretch">
-
-      <div class="col-lg-4 col-md-6 mb-5">
-        <div class="post-entry-1 h-100">
-          <a href="#">
-            <img src="{{ url('home/images/person_1.jpg') }}" alt="Image"
-             class="img-fluid">
-          </a>
-          <div class="post-entry-1-contents">
-            <span class="meta">Founder</span>
-            <h2>James Doe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-          </div>
-        </div>
+      <div class="col-lg-8">
+        <h2>
+        	<?php echo utf8_encode("Transport de Marchandises et produits divers"); ?>
+        </h2>
+        <p><?php echo utf8_encode("SYSLOG assure le transport de vos marchandises et produits dans le respect des normes HSEQ de niveau international garantissant ainsi la sécurité et la viabilité des opérations."); ?></p>
+        <p><a href="{{ url('contact') }}">Pour plus information veuillez nous contacter au</a></p>
       </div>
-      <div class="col-lg-4 col-md-6 mb-5">
-        <div class="post-entry-1 h-100">
-          <a href="#">
-            <img src="{{ url('home/images/person_2.jpg') }}" alt="Image"
-             class="img-fluid">
-          </a>
-          <div class="post-entry-1-contents">
-            <span class="meta">Founder</span>
-            <h2>James Doe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-5">
-        <div class="post-entry-1 h-100">
-          <a href="#">
-            <img src="{{ url('home/images/person_3.jpg') }}" alt="Image"
-             class="img-fluid">
-          </a>
-          <div class="post-entry-1-contents">
-            <span class="meta">Founder</span>
-            <h2>James Doe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-5">
-        <div class="post-entry-1 h-100">
-          <a href="#">
-            <img src="{{ url('home/images/person_4.jpg') }}" alt="Image"
-             class="img-fluid">
-          </a>
-          <div class="post-entry-1-contents">
-            <span class="meta">Founder</span>
-            <h2>James Doe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-5">
-        <div class="post-entry-1 h-100">
-          <a href="#">
-            <img src="{{ url('home/images/person_5.jpg') }}" alt="Image"
-             class="img-fluid">
-          </a>
-          <div class="post-entry-1-contents">
-            <span class="meta">Founder</span>
-            <h2>James Doe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-5">
-        <div class="post-entry-1 h-100">
-          <a href="#">
-            <img src="{{ url('home/images/person_1.jpg') }}" alt="Image"
-             class="img-fluid">
-          </a>
-          <div class="post-entry-1-contents">
-            <span class="meta">Founder</span>
-            <h2>James Doe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-          </div>
-        </div>
-      </div>
-
-
     </div>
   </div>
 </div>
+
+<div class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
+      </div>
+      <div class="col-lg-8">
+        <h2>
+        	<?php echo utf8_encode("Déménagement"); ?>
+        </h2>
+        <p><?php echo utf8_encode("Pour vos besoins de déménagement urbain, inter interurbains et internationaux , nous mettons à votre disposition plusieurs types de véhicules avec des tarifs compétitifs tout en vous garantissant un service sécurisé et de qualité"); ?></p>
+        <p><a href="{{ url('contact') }}">Pour plus information veuillez nous contacter au</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
+      </div>
+      <div class="col-lg-8">
+        <h2>
+        	<?php echo utf8_encode("Gestion de flotte"); ?>
+        </h2>
+        <p><?php echo utf8_encode("Vous avez des camions ou engins divers, vous avez des difficultés d'exploitation notamment de gestion et des difficultés commerciales ou opérationnelles, N'attendez pas! en nous contactant pour la gestion de vos actifs. Notre objectif est d'optimiser la rentabilité, l'utilisation et la préservation de vos engins."); ?></p>
+        <p><a href="{{ url('contact') }}">Pour plus information veuillez nous contacter au</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
+      </div>
+      <div class="col-lg-8">
+        <h2>
+        	<?php echo utf8_encode("Location d'espace d'entreposage"); ?>
+        </h2>
+        <p><?php echo utf8_encode("Nous mettons à votre disposition des espaces d'entreposages de vos produits selon vos besoins. Il pourrait s'agir d'entrepôts entiers que vous désireriez louer ou des espaces à la carte dans des entrepôts. Nous vous aidons ainsi à réduire les coûts de stockage en optimisant les frais opérationnels par une offre d'espace sur mesure. A partir de 10 m2"); ?></p>
+        <p><a href="{{ url('contact') }}">Pour plus information veuillez nous contacter au</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
+      </div>
+      <div class="col-lg-8">
+        <h2>
+        	<?php echo utf8_encode("Achats groupés"); ?>
+        </h2>
+        <p><?php echo utf8_encode("Notre service d'achats groupés vous permettra de réduire vos coûts d'acquisitions des assurances, de lubrifiants et de pièces détachés."); ?></p>
+    	<p><?php echo utf8_encode("Nous mutualisons les besoins  et du fait de l'échelle nous avons des tarifs négociés et très compétitifs dont pour pourriez bénéficier."); ?></p>
+        <p><a href="{{ url('contact') }}">Pour plus information veuillez nous contacter au</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-5"></div>
 @endsection

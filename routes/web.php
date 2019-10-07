@@ -31,6 +31,10 @@ Route::get('/gooddeals', function () {
     return view('gooddeals');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 Route::get('/cms', function () {
     return view('cms.home');
 });

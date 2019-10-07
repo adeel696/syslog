@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 
   <head>
     <title>Noveo Tech</title>
@@ -52,10 +52,11 @@
             <div class="col-lg-8">
               <nav class="site-navigation text-left mr-auto " role="navigation"  style="float:right;">
                 <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                  <li><a href="{{ url('/services') }}" class="nav-link">Our Services</a></li>
-                  <li><a href="{{ url('/gooddeals') }}" class="nav-link">Good Deals</a></li>
-                  <li><a href="{{ url('/login') }}" class="nav-link">Login</a></li>
-                  <li><a href="{{ url('/register') }}" class="nav-link">Register</a></li>
+                  <li class="{{ (request()->is('services')) ? 'active' : '' }}"><a href="{{ url('/services') }}" class="nav-link">Our Services</a></li>
+                  <li class="{{ (request()->is('gooddeals')) ? 'active' : '' }}"><a href="{{ url('/gooddeals') }}" class="nav-link">Good Deals</a></li>
+                  <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{ url('/contact') }}" class="nav-link">Contact</a></li>
+                  <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{ url('/login') }}" class="nav-link">Login</a></li>
+                  <li class="{{ (request()->is('register')) ? 'active' : '' }}"><a href="{{ url('/register') }}" class="nav-link">Register</a></li>
                 </ul>
               </nav>
             </div>
@@ -80,6 +81,7 @@
                 <ul class="list-unstyled">
                   <li><a href="{{ url('/services') }}">Our Services</a></li>
                   <li><a href="{{ url('/gooddeals') }}">Good Deals</a></li>
+                  <li><a href="{{ url('/contact') }}">Contact</a></li>
                   <li><a href="{{ url('/login') }}">Login</a></li>
                   <li><a href="{{ url('/register') }}">Register</a></li>
                 </ul>
