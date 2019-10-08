@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="row" id="default">
+    	<div class="row" id="default">
          <div class="col-lg-6" >
             <form action="#" method="post">
                <div class="form-group row">
@@ -82,11 +82,8 @@
                
                <div class="form-group row">
                   <div class="col-md-12">
-                     <label><?php echo utf8_encode("Préférences:"); ?></label>
-                     <select name="needed_space" class="form-control">
-                     	<option><?php echo utf8_encode("Villes"); ?></option>
-                        <option><?php echo utf8_encode("Autres exigences"); ?></option>
-                     </select>
+                  	<textarea name="preferences" class="form-control" placeholder="<?php echo utf8_encode("Préférences:"); ?>"></textarea>
+
                   </div>
                </div>
                
@@ -98,7 +95,7 @@
             </form>
          </div>
          <div class="col-lg-6" >
-            <img id="catImage" src="{{ url('/home/img/warehousebk.jpg') }}" width="100%" />
+            <img id="catImage" src="{{ url('/home/img/hero-warehouse.png') }}" width="100%" />
          </div>
       </div>
     </div>
@@ -106,29 +103,6 @@
 @endsection
 @push('scripts') 
 <script>
-	getData();
-	function getData()
-	{
-		$("#catName").html("Warehouse");
-		var data = "";
-		for(i=0; i<20; i++)
-		{
-			var data = data + '<div class="col-lg-3 col-md-6 mb-5">' +
-					   '<div class="post-entry-1 h-100" style="background:#fff">' +
-						  '<a href="#">' +
-						  '<img src="{{ url("home/img/warehousebk.jpg") }}" alt="Image" class="img-fluid">' +
-						 '</a>' +
-						 '<div class="post-entry-1-contents">' +
-							 '<a href="#">' +
-								'<h2>Best Warehouse</h2>' +
-							 '</a>' +
-							 '<p>$10/Day</p>' +
-							 '<a href="#" class="more">Book</a>' +
-						  '</div>' +
-					   '</div>' +
-					'</div>';
-		}
-		$("#contentDetail").html(data)
-	}
+	$("html, body").animate({ scrollTop: $('#default').offset().top-200 }, 600);
 </script>
 @endpush
