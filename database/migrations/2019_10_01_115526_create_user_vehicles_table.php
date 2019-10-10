@@ -15,8 +15,8 @@ class CreateUserVehiclesTable extends Migration
     {
         Schema::create('user_vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('vehicle_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('vehicle_id')->unsigned();
             $table->string('fare');
             $table->string('description');
             $table->timestamps();

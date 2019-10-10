@@ -15,8 +15,8 @@ class CreateCityDistancesTable extends Migration
     {
         Schema::create('city_distances', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('city_id_1')->unsigned();
-            $table->integer('city_id_2')->unsigned();
+            $table->bigInteger('city_id_1')->unsigned();
+            $table->bigInteger('city_id_2')->unsigned();
             $table->string('distances');
             $table->timestamps();
         });

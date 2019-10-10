@@ -15,7 +15,7 @@ class CreateUserVehicleImagesTable extends Migration
     {
         Schema::create('user_vehicle_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_vehicle_id')->unsigned();
+            $table->bigInteger('user_vehicle_id')->unsigned();
             $table->string('source');
             $table->timestamps();
         });

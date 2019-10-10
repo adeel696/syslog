@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,10 @@ class City extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','country_id'];
    
+    public function Country()
+   {
+      return $this->belongsTo('App\Models\Country' , 'country_id');
+    }
 }

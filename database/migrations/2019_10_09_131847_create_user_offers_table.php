@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWarehousesTable extends Migration
+class CreateUserOffersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CreateWarehousesTable extends Migration
      */
     public function up()
     {
-        Schema::create('warehouses', function (Blueprint $table) {
+        Schema::create('user_offers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('address');
-            $table->string('space_available');
-            $table->string('fare');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->bigInteger('offer_id')->unsigned()->nullable();
             $table->timestamps();
         });
-        Schema::table('warehouses', function(Blueprint $table) {
+        Schema::table('user_offers', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+        Schema::table('user_offers', function(Blueprint $table) {
+			$table->foreign('offer_id')->references('id')->on('offers')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });
@@ -36,6 +38,6 @@ class CreateWarehousesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('warehouses');
+        Schema::dropIfExists('user_offers');
     }
 }
