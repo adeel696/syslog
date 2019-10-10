@@ -95,8 +95,14 @@
                
                <div class="form-group row">
                   <div class="col-md-12">
-                  	<textarea name="preferences" class="form-control" placeholder="<?php echo utf8_encode("Préférences:"); ?>"></textarea>
-
+					<input type="radio" name="preferences" value="1" checked/>&nbsp;&nbsp;Villes &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="preferences" value="2" />&nbsp;&nbsp;Autres exigences
+                  </div>
+               </div>
+               
+               <div class="form-group row">
+                  <div class="col-md-12" id="preferencesDiv">
+						
                   </div>
                </div>
                
@@ -117,5 +123,28 @@
 @push('scripts') 
 <script>
 	$("html, body").animate({ scrollTop: $('#default').offset().top-200 }, 600);
+	
+	var City = '<label>Ville</label>' +
+				 '<select name="city" class="form-control">' +
+					'<option><?php echo utf8_encode("Aribinda"); ?></option>' +
+					'<option><?php echo utf8_encode("Bagré"); ?></option>' +
+					'<option><?php echo utf8_encode("Banfora"); ?></option>' +
+					'<option><?php echo utf8_encode("Batié"); ?></option>' +
+					'<option><?php echo utf8_encode("Bobo Dioulasso"); ?></option>' +
+					'<option><?php echo utf8_encode("Bogandé"); ?></option>' +
+					'<option><?php echo utf8_encode("Boromo"); ?></option>' +
+				 '</select>';
+	var Others = '<textarea name="preferences_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences:"); ?>"></textarea>';
+	$("#preferencesDiv").html(City);
+	$('input[name=preferences]').change(function() {
+		switch ($(this).val()) {
+			case '1':
+				$("#preferencesDiv").html(City);
+			break;
+			case '2':
+				$("#preferencesDiv").html(Others);
+			break;
+		}
+	});
 </script>
 @endpush
