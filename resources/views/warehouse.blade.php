@@ -49,7 +49,20 @@
                
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="packaging" class="form-control" placeholder="<?php echo utf8_encode("Conditionnement"); ?>">
+                     <label><?php echo utf8_encode("Type de Conditionnement"); ?>:</label>
+                     <select name="product_type" class="form-control">
+                        <option><?php echo utf8_encode("Carton"); ?></option>
+                        <option><?php echo utf8_encode("Palette"); ?></option>
+                        <option><?php echo utf8_encode("Caisse en bois"); ?></option>
+                        <option><?php echo utf8_encode("Caisse metallique"); ?></option>
+                        <option><?php echo utf8_encode("Fût plastique"); ?></option>
+                        <option><?php echo utf8_encode("Fût metallique"); ?></option>
+                        <option><?php echo utf8_encode("Pack Filmé en plastique"); ?></option>
+                        <option><?php echo utf8_encode("Conteneur"); ?></option>
+                        <option><?php echo utf8_encode("Sac( jute, plastique...)"); ?></option>
+                        <option><?php echo utf8_encode("Bidon"); ?></option>
+                        <option><?php echo utf8_encode("Autres"); ?></option>
+                     </select>
                   </div>
                </div>
                

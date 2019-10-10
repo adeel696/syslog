@@ -92,8 +92,18 @@
          <div class="col-lg-6" >
             <form action="#" method="post">
                <div class="form-group row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                      <input name="capacity" class="form-control" placeholder="<?php echo utf8_encode("Capacité"); ?>">
+                  </div>
+                  <div class="col-md-6">
+                      <select name="unit" class="form-control">
+                        <option><?php echo utf8_encode("Citerne"); ?></option>
+                        <option><?php echo utf8_encode("Marchandises divers"); ?></option>
+                        <option><?php echo utf8_encode("Plateau"); ?></option>
+                        <option><?php echo utf8_encode("Bennes"); ?></option>
+                        <option><?php echo utf8_encode("Demenagement "); ?></option>
+                        <option><?php echo utf8_encode("Autres"); ?></option>
+                      </select>
                   </div>
                </div>
                
@@ -256,12 +266,17 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
+                     <input name="information_product" class="form-control" placeholder="<?php echo utf8_encode("Information sur les produit"); ?>">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-md-12">
                      <textarea name="preferences" class="form-control" placeholder="Preferences"></textarea>
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-4">
-                     <input name="insurances" type="checkbox" /> Assurances
+                     <input name="insurances" type="checkbox" id="insurances1"/> Assurances
                   </div>
                   <div class="col-md-4">
                      <input name="loading" type="checkbox" /> Chargement
@@ -269,6 +284,11 @@
                   <div class="col-md-4">
                      <input name="offloading" type="checkbox" /> Dechargement
                   </div>
+               </div>
+               <div class="form-group row">
+               		<div class="col-md-6">
+                    	<input style="display:none" name="value_product" class="form-control" id="insurances_value1" placeholder="<?php echo utf8_encode("Valeur de la marchandise"); ?>">
+                    </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
@@ -462,12 +482,17 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
+                     <input name="information_product" class="form-control" placeholder="<?php echo utf8_encode("Information sur les produit"); ?>">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <div class="col-md-12">
                      <textarea name="preferences" class="form-control" placeholder="<?php echo utf8_encode("Préférences:"); ?>"></textarea>
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-4">
-                     <input name="insurances" type="checkbox" /> Assurances
+                     <input name="insurances" type="checkbox" id="insurances2"/> Assurances
                   </div>
                   <div class="col-md-4">
                      <input name="loading" type="checkbox" /> Chargement
@@ -475,6 +500,11 @@
                   <div class="col-md-4">
                      <input name="offloading" type="checkbox" /> Dechargement
                   </div>
+               </div>
+               <div class="form-group row">
+               		<div class="col-md-6">
+                    	<input style="display:none" name="value_product" class="form-control" id="insurances_value2" placeholder="<?php echo utf8_encode("Valeur de la marchandise"); ?>">
+                    </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
@@ -516,5 +546,39 @@
 			break;
 		}
 	}
+	
+	$( ".insurances" ).click(function() {
+		getData($(this).data("id"), $(this).data("val"), $(this).data("img"))
+		$("html, body").animate({ scrollTop: $('#contentDetail').offset().top-200 }, 600);
+		
+	});
+	
+	$('#insurances1').change(function(){
+        
+		if(this.checked)
+        {   
+			$('#insurances_value1').fadeIn();
+			$('#insurances_value1').focus();
+		}
+        else
+		{
+            $('#insurances_value1').fadeOut();
+		}
+
+    });
+	
+	$('#insurances2').change(function(){
+        
+		if(this.checked)
+        {   
+			$('#insurances_value2').fadeIn();
+			$('#insurances_value2').focus();
+		}
+        else
+		{
+            $('#insurances_value2').fadeOut();
+		}
+
+    });
 </script>
 @endpush

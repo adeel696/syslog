@@ -22,8 +22,10 @@ class CreateTruckBookingsTable extends Migration
             $table->bigInteger('place_of_arrival_city_id')->unsigned()->nullable();
             $table->string('capacity');
             $table->string('capacity_type');
+			$table->string('information_product');
             $table->boolean('others');
             $table->boolean('insurances');
+			$table->string('value_product');
             $table->boolean('loading');
             $table->boolean('offloading');
             $table->timestamps();
