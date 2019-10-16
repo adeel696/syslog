@@ -103,10 +103,26 @@
                       
                </div>
                <div class="form-group row">
-                  <div class="col-md-12">
-                  	  <label><?php echo utf8_encode("Capacité"); ?></label>
+                  <div class="col-md-6">
+                  	  <label><?php echo utf8_encode("Capacitï¿½"); ?></label>
                       <div id="capacityDiv">
                       
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div id="citerne">
+                      </div>
+                     <div id="marchandises">
+                      </div>
+                     <div id="plateau">
+                      </div>
+                      <div id="frigorifique">
+                      </div>
+                     <div id="bennes">
+                      </div>
+                      <div id="demenagement">
+                      </div>
+                      <div id="mini_bus">
                       </div>
                   </div>
                </div>
@@ -122,42 +138,42 @@
                      <label>Ville</label>
                      <select name="city" class="form-control">
                      	<option><?php echo utf8_encode("Aribinda"); ?></option>
-                        <option><?php echo utf8_encode("Bagré"); ?></option>
+                        <option><?php echo utf8_encode("Bagrï¿½"); ?></option>
                         <option><?php echo utf8_encode("Banfora"); ?></option>
-                        <option><?php echo utf8_encode("Batié"); ?></option>
+                        <option><?php echo utf8_encode("Batiï¿½"); ?></option>
                         <option><?php echo utf8_encode("Bobo Dioulasso"); ?></option>
-                        <option><?php echo utf8_encode("Bogandé"); ?></option>
+                        <option><?php echo utf8_encode("Bogandï¿½"); ?></option>
                         <option><?php echo utf8_encode("Boromo"); ?></option>
                         <option><?php echo utf8_encode("Boulsa"); ?></option>
-                        <option><?php echo utf8_encode("Boussé"); ?></option>
+                        <option><?php echo utf8_encode("Boussï¿½"); ?></option>
                         <option><?php echo utf8_encode("Dano"); ?></option>
-                        <option><?php echo utf8_encode("Dédougou"); ?></option>
+                        <option><?php echo utf8_encode("Dï¿½dougou"); ?></option>
                         <option><?php echo utf8_encode("Diapaga"); ?></option>
-                        <option><?php echo utf8_encode("Diébougou"); ?></option>
+                        <option><?php echo utf8_encode("Diï¿½bougou"); ?></option>
                         <option><?php echo utf8_encode("Djibo"); ?></option>
                         <option><?php echo utf8_encode("Dori"); ?></option>
                         <option><?php echo utf8_encode("Fada N'gourma"); ?></option>
                         <option><?php echo utf8_encode("Gaoua"); ?></option>
                         <option><?php echo utf8_encode("Garango"); ?></option>
-                        <option><?php echo utf8_encode("Gayéri"); ?></option>
+                        <option><?php echo utf8_encode("Gayï¿½ri"); ?></option>
                         <option><?php echo utf8_encode("Gorom-Gorom"); ?></option>
                         <option><?php echo utf8_encode("Gourcy"); ?></option>
-                        <option><?php echo utf8_encode("Houndé"); ?></option>
+                        <option><?php echo utf8_encode("Houndï¿½"); ?></option>
                         <option><?php echo utf8_encode("Kantchari"); ?></option>
                         <option><?php echo utf8_encode("Kaya"); ?></option>
                         <option><?php echo utf8_encode("Kindi"); ?></option>
                         <option><?php echo utf8_encode("Kokologo"); ?></option>
                         <option><?php echo utf8_encode("Kombissiri"); ?></option>
                         <option><?php echo utf8_encode("Kongoussi"); ?></option>
-                        <option><?php echo utf8_encode("Kordié"); ?></option>
+                        <option><?php echo utf8_encode("Kordiï¿½"); ?></option>
                         <option><?php echo utf8_encode("Koudougou"); ?></option>
                         <option><?php echo utf8_encode("Kouka, Bam"); ?></option>
                         <option><?php echo utf8_encode("Kouka, Banwa"); ?></option>
-                        <option><?php echo utf8_encode("Koupéla"); ?></option>
-                        <option><?php echo utf8_encode("Léo"); ?></option>
+                        <option><?php echo utf8_encode("Koupï¿½la"); ?></option>
+                        <option><?php echo utf8_encode("Lï¿½o"); ?></option>
                         <option><?php echo utf8_encode("Loropeni"); ?></option>
                         <option><?php echo utf8_encode("Manga"); ?></option>
-                        <option><?php echo utf8_encode("Méguet"); ?></option>
+                        <option><?php echo utf8_encode("Mï¿½guet"); ?></option>
                         <option><?php echo utf8_encode("Mogtedo"); ?></option>
                         <option><?php echo utf8_encode("Niangoloko"); ?></option>
                         <option><?php echo utf8_encode("Nouna"); ?></option>
@@ -167,24 +183,24 @@
                         <option><?php echo utf8_encode("Ouargaye"); ?></option>
                         <option><?php echo utf8_encode("Pama"); ?></option>
                         <option><?php echo utf8_encode("Pissila"); ?></option>
-                        <option><?php echo utf8_encode("Pô"); ?></option>
+                        <option><?php echo utf8_encode("Pï¿½"); ?></option>
                         <option><?php echo utf8_encode("Pouytenga"); ?></option>
-                        <option><?php echo utf8_encode("Réo"); ?></option>
-                        <option><?php echo utf8_encode("Saponé"); ?></option>
+                        <option><?php echo utf8_encode("Rï¿½o"); ?></option>
+                        <option><?php echo utf8_encode("Saponï¿½"); ?></option>
                         <option><?php echo utf8_encode("Sapouy"); ?></option>
                         <option><?php echo utf8_encode("Sebba"); ?></option>
-                        <option><?php echo utf8_encode("Séguénéga"); ?></option>
+                        <option><?php echo utf8_encode("Sï¿½guï¿½nï¿½ga"); ?></option>
                         <option><?php echo utf8_encode("Sindou"); ?></option>
                         <option><?php echo utf8_encode("Solenzo"); ?></option>
                         <option><?php echo utf8_encode("Tangin Dassouri"); ?></option>
                         <option><?php echo utf8_encode("Tenkodogo"); ?></option>
-                        <option><?php echo utf8_encode("Tikaré"); ?></option>
+                        <option><?php echo utf8_encode("Tikarï¿½"); ?></option>
                         <option><?php echo utf8_encode("Titao"); ?></option>
                         <option><?php echo utf8_encode("Toma"); ?></option>
                         <option><?php echo utf8_encode("Tougan"); ?></option>
                         <option><?php echo utf8_encode("Villy"); ?></option>
                         <option><?php echo utf8_encode("Yako"); ?></option>
-                        <option><?php echo utf8_encode("Ziniaré"); ?></option>
+                        <option><?php echo utf8_encode("Ziniarï¿½"); ?></option>
                         <option><?php echo utf8_encode("Zorgo"); ?></option>
                      </select>
                   </div>
@@ -207,42 +223,42 @@
                      <label>Ville</label>
                      <select name="city" class="form-control">
                      	<option><?php echo utf8_encode("Aribinda"); ?></option>
-                        <option><?php echo utf8_encode("Bagré"); ?></option>
+                        <option><?php echo utf8_encode("Bagrï¿½"); ?></option>
                         <option><?php echo utf8_encode("Banfora"); ?></option>
-                        <option><?php echo utf8_encode("Batié"); ?></option>
+                        <option><?php echo utf8_encode("Batiï¿½"); ?></option>
                         <option><?php echo utf8_encode("Bobo Dioulasso"); ?></option>
-                        <option><?php echo utf8_encode("Bogandé"); ?></option>
+                        <option><?php echo utf8_encode("Bogandï¿½"); ?></option>
                         <option><?php echo utf8_encode("Boromo"); ?></option>
                         <option><?php echo utf8_encode("Boulsa"); ?></option>
-                        <option><?php echo utf8_encode("Boussé"); ?></option>
+                        <option><?php echo utf8_encode("Boussï¿½"); ?></option>
                         <option><?php echo utf8_encode("Dano"); ?></option>
-                        <option><?php echo utf8_encode("Dédougou"); ?></option>
+                        <option><?php echo utf8_encode("Dï¿½dougou"); ?></option>
                         <option><?php echo utf8_encode("Diapaga"); ?></option>
-                        <option><?php echo utf8_encode("Diébougou"); ?></option>
+                        <option><?php echo utf8_encode("Diï¿½bougou"); ?></option>
                         <option><?php echo utf8_encode("Djibo"); ?></option>
                         <option><?php echo utf8_encode("Dori"); ?></option>
                         <option><?php echo utf8_encode("Fada N'gourma"); ?></option>
                         <option><?php echo utf8_encode("Gaoua"); ?></option>
                         <option><?php echo utf8_encode("Garango"); ?></option>
-                        <option><?php echo utf8_encode("Gayéri"); ?></option>
+                        <option><?php echo utf8_encode("Gayï¿½ri"); ?></option>
                         <option><?php echo utf8_encode("Gorom-Gorom"); ?></option>
                         <option><?php echo utf8_encode("Gourcy"); ?></option>
-                        <option><?php echo utf8_encode("Houndé"); ?></option>
+                        <option><?php echo utf8_encode("Houndï¿½"); ?></option>
                         <option><?php echo utf8_encode("Kantchari"); ?></option>
                         <option><?php echo utf8_encode("Kaya"); ?></option>
                         <option><?php echo utf8_encode("Kindi"); ?></option>
                         <option><?php echo utf8_encode("Kokologo"); ?></option>
                         <option><?php echo utf8_encode("Kombissiri"); ?></option>
                         <option><?php echo utf8_encode("Kongoussi"); ?></option>
-                        <option><?php echo utf8_encode("Kordié"); ?></option>
+                        <option><?php echo utf8_encode("Kordiï¿½"); ?></option>
                         <option><?php echo utf8_encode("Koudougou"); ?></option>
                         <option><?php echo utf8_encode("Kouka, Bam"); ?></option>
                         <option><?php echo utf8_encode("Kouka, Banwa"); ?></option>
-                        <option><?php echo utf8_encode("Koupéla"); ?></option>
-                        <option><?php echo utf8_encode("Léo"); ?></option>
+                        <option><?php echo utf8_encode("Koupï¿½la"); ?></option>
+                        <option><?php echo utf8_encode("Lï¿½o"); ?></option>
                         <option><?php echo utf8_encode("Loropeni"); ?></option>
                         <option><?php echo utf8_encode("Manga"); ?></option>
-                        <option><?php echo utf8_encode("Méguet"); ?></option>
+                        <option><?php echo utf8_encode("Mï¿½guet"); ?></option>
                         <option><?php echo utf8_encode("Mogtedo"); ?></option>
                         <option><?php echo utf8_encode("Niangoloko"); ?></option>
                         <option><?php echo utf8_encode("Nouna"); ?></option>
@@ -252,24 +268,24 @@
                         <option><?php echo utf8_encode("Ouargaye"); ?></option>
                         <option><?php echo utf8_encode("Pama"); ?></option>
                         <option><?php echo utf8_encode("Pissila"); ?></option>
-                        <option><?php echo utf8_encode("Pô"); ?></option>
+                        <option><?php echo utf8_encode("Pï¿½"); ?></option>
                         <option><?php echo utf8_encode("Pouytenga"); ?></option>
-                        <option><?php echo utf8_encode("Réo"); ?></option>
-                        <option><?php echo utf8_encode("Saponé"); ?></option>
+                        <option><?php echo utf8_encode("Rï¿½o"); ?></option>
+                        <option><?php echo utf8_encode("Saponï¿½"); ?></option>
                         <option><?php echo utf8_encode("Sapouy"); ?></option>
                         <option><?php echo utf8_encode("Sebba"); ?></option>
-                        <option><?php echo utf8_encode("Séguénéga"); ?></option>
+                        <option><?php echo utf8_encode("Sï¿½guï¿½nï¿½ga"); ?></option>
                         <option><?php echo utf8_encode("Sindou"); ?></option>
                         <option><?php echo utf8_encode("Solenzo"); ?></option>
                         <option><?php echo utf8_encode("Tangin Dassouri"); ?></option>
                         <option><?php echo utf8_encode("Tenkodogo"); ?></option>
-                        <option><?php echo utf8_encode("Tikaré"); ?></option>
+                        <option><?php echo utf8_encode("Tikarï¿½"); ?></option>
                         <option><?php echo utf8_encode("Titao"); ?></option>
                         <option><?php echo utf8_encode("Toma"); ?></option>
                         <option><?php echo utf8_encode("Tougan"); ?></option>
                         <option><?php echo utf8_encode("Villy"); ?></option>
                         <option><?php echo utf8_encode("Yako"); ?></option>
-                        <option><?php echo utf8_encode("Ziniaré"); ?></option>
+                        <option><?php echo utf8_encode("Ziniarï¿½"); ?></option>
                         <option><?php echo utf8_encode("Zorgo"); ?></option>
                      </select>
                   </div>
@@ -328,7 +344,109 @@
 		$("html, body").animate({ scrollTop: $('#contentDetail').offset().top-200 }, 600);
 		
 	});
-	var otherExtra = '<div class="form-group row">' +
+   var citerneCapacity ='<label>Capacite</label>'+ 
+                  '<select name="capacity" class="form-control">' +
+                  '<option>en Liters</option>' +
+                  '<option>5000 Litres</option>' +
+                  '<option>10000 Litres</option>' +
+                  '<option>15000 Litres</option>' +
+                  '<option>20000 Litres</option>' +
+                  '<option>25000 Litres</option>' +
+                  '<option>30000 Litres</option>' +
+                  '<option>35000 Litres</option>' +
+                  '<option>40000 Litres</option>' +
+                  '<option>45000 Litres</option>' +
+                  '<option>50000 Litres</option>' +
+                  '<option>55000 Litres</option>' +
+                  '<option>60000 Litres</option>' +
+                     '</select>'  
+   var marchandisesCapacity = '<label>Capacite</label>'+ 
+                  '<select name="capacity" class="form-control">' +
+                  '<option>en Tonnes</option>' +
+                  '<option>2 T</option>' +
+                  '<option>4 T</option>' +
+                  '<option>5 T</option>' +
+                  '<option>10 T</option>' +
+                  '<option>15 T</option>' +
+                  '<option>20 T</option>' +
+                  '<option>25 T</option>' +
+                  '<option>30 T</option>' +
+                  '<option>35 T</option>' +
+                  '<option>40 T</option>' +
+                  '<option>45 T</option>' +
+                  '<option>50 T</option>' +
+                  '<option>55 T</option>' +
+                  '<option>60 T</option>' +
+                     '</select>'  
+   var plateauCapacity ='<label>Capacite</label>'+ 
+                  '<select name="capacity" class="form-control">' +
+                  '<option>en Tonnes</option>' +
+                  '<option>2 T</option>' +
+                  '<option>4 T</option>' +
+                  '<option>5 T</option>' +
+                  '<option>10 T</option>' +
+                  '<option>15 T</option>' +
+                  '<option>20 T</option>' +
+                  '<option>25 T</option>' +
+                  '<option>30 T</option>' +
+                  '<option>35 T</option>' +
+                  '<option>40 T</option>' +
+                  '<option>45 T</option>' +
+                  '<option>50 T</option>' +
+                  '<option>55 T</option>' +
+                  '<option>60 T</option>' +
+                     '</select>' 
+   var frigorifiqueCapacity = '<label>Capacite</label>'+ 
+                  '<select name="capacity" class="form-control">' +
+                  '<option>en Tonnes</option>' +
+                  '<option>2 T</option>' +
+                  '<option>4 T</option>' +
+                  '<option>5 T</option>' +
+                  '<option>10 T</option>' +
+                  '<option>15 T</option>' +
+                  '<option>20 T</option>' +
+                  '<option>25 T</option>' +
+                  '<option>30 T</option>' +
+                  '<option>35 T</option>' +
+                  '<option>40 T</option>' +
+                  '<option>45 T</option>' +
+                  '<option>50 T</option>' +
+                  '<option>55 T</option>' +
+                  '<option>60 T</option>' +
+                     '</select>' 
+   var bennesCapacity = '<label>Capacite</label>'+ 
+                  '<select name="capacity" class="form-control">' +
+                  '<option>en Tonnes ou M3</option>' +
+                  '<option>2 T</option>' +
+                  '<option>4 T</option>' +
+                  '<option>5 T</option>' +
+                  '<option>10 T</option>' +
+                  '<option>15 T</option>' +
+                  '<option>20 T</option>' +
+                  '<option>25 T</option>' +
+                  '<option>30 T</option>' +
+                  '<option>35 T</option>' +
+                  '<option>40 T</option>' +
+                  '<option>45 T</option>' +
+                  '<option>50 T</option>' +
+                  '<option>55 T</option>' +
+                  '<option>60 T</option>' +
+                  '<option>8 M3</option>' +
+                  '<option>10 M3</option>' +
+                  '<option>15 M3</option>' +
+                  '<option>20 M3</option>' +
+                  '<option>25 M3</option>' +
+                  '<option>30 M3</option>' +
+                  '<option>35 M3</option>' +
+                  '<option>40 M3</option>' +
+                  '<option>45 M3</option>' +
+                  '<option>50 M3</option>' +
+                  '<option>55 M3</option>' +
+                  '<option>60 M3</option>' +
+                     '</select>'
+   var demenagementCapacity ='<label>Capacite</label>'+ 
+                        '<input name="capacite" class="form-control" placeholder="<?php echo utf8_encode("Capacite"); ?>">';
+   var otherExtra = '<div class="form-group row">' +
                   '<div class="col-md-12">' +
                      '<input name="type_of_truck" class="form-control" placeholder="<?php echo utf8_encode("Type de vehicule"); ?>">' +
                   '</div>' +
@@ -338,7 +456,7 @@
                   '<div class="col-md-12">' +
                      '<textarea name="specifications " class="form-control" placeholder="Specifications"></textarea>' +
                   '</div>' +
-              ' </div>'
+              ' </div>';
 	var capcityDivDefault = '<select name="capacity" class="form-control">' +
                         '<option><?php echo utf8_encode("Citerne"); ?></option>' +
                         '<option><?php echo utf8_encode("Marchandises divers"); ?></option>' +
@@ -347,13 +465,28 @@
                         '<option><?php echo utf8_encode("Demenagement "); ?></option>' +
                         '<option><?php echo utf8_encode("Autres"); ?></option>' +
                       '</select>';
-	var capcityDivBus = '<select name="capacity" class="form-control">' +
-                        '<option><?php echo utf8_encode("Nombre de place"); ?></option>' +
-                      '</select>';				
+	var capcityDivBus = '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<label>Total Seats</label>'+ 
+                        '<input name="number_of_seats" class="form-control" placeholder="<?php echo utf8_encode("Total Seats"); ?>">' +
+                      '</div>'+
+                      '<div class="col-md-6">' +
+                      '<label>Duration</label>'+ 
+                     '<input name="duration" class="form-control" placeholder="<?php echo utf8_encode("Duration"); ?>">' +
+                     '</div>'+
+                        '</div>';				
 	getData("1", "Camions citterne", "camions-citterne.png");
 	function getData(id, type, image)
 	{	
+      //alert(id);
 		$("#othersExtraDiv").html("");
+      $("#citerne").html("");
+      $("#marchandises").html("");
+      $("#plateau").html("");
+      $("#frigorifique").html("");
+      $("#bennes").html("");
+      $("#demenagement").html("");
+      $("#mini_bus").html("");
 		$("#capacityDiv").html("");
 		$("#catName").html(type);
 		$("#catImage").attr("src","{{ url('/home/img/truck/') }}" + '/' + image);
@@ -363,11 +496,36 @@
 				$("#othersExtraDiv").html(otherExtra);
 				$("#capacityDiv").html(capcityDivDefault);
 			break;
+         case 1:
+            $("#citerne").html(citerneCapacity);
+            $("#capacityDiv").html(capcityDivDefault);
+         break;
+         case 2:
+            $("#marchandises").html(marchandisesCapacity);
+            $("#capacityDiv").html(capcityDivDefault);
+         break;
+         case 3:
+            $("#plateau").html(plateauCapacity);
+            $("#capacityDiv").html(capcityDivDefault);
+         break;
+         case 4:
+            $("#frigorifique").html(frigorifiqueCapacity);
+            $("#capacityDiv").html(capcityDivDefault);
+         break;
+         case 5:
+            $("#bennes").html(bennesCapacity);
+            $("#capacityDiv").html(capcityDivDefault);
+         break;
+         case 6:
+            $("#demenagement").html(demenagementCapacity);
+            $("#capacityDiv").html(capcityDivDefault);
+         break;
 			case 7:
-				$("#capacityDiv").html(capcityDivBus);
-				
+				$("#mini_bus").html(capcityDivBus);
+            $("#capacityDiv").html(capcityDivDefault);
 			break;
 			default:
+            $("#citerne").html(citerneCapacity);
 				$("#capacityDiv").html(capcityDivDefault);
 				
 			break;
