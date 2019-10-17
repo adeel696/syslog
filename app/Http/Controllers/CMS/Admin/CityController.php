@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\CMS;
+namespace App\Http\Controllers\CMS\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\CityRepository;
@@ -27,7 +27,7 @@ class CityController extends Controller
     }
     public function index()
     {
-        return view('cms.city.index');
+        return view('cms.admin.city.index');
     }
 
     /**
@@ -38,7 +38,7 @@ class CityController extends Controller
     public function create()
     {
         $Country= Country::all();
-        return view('cms.city.add', ['Country' => $Country]);
+        return view('cms.admin.city.add', ['Country' => $Country]);
     
     }
 
@@ -53,7 +53,7 @@ class CityController extends Controller
         $this->cityRps->addCity($request);
 		
 		Session::flash('flash_message', 'City successfully added!');
-		return view('cms.city.index');
+		return view('cms.admin.city.index');
     
     }
 
@@ -77,7 +77,7 @@ class CityController extends Controller
     public function edit(City $city)
     {		
 		$Country= Country::all();
-        return view('cms.city.edit' ,array('info_City' => $city), ['Country' => $Country]);
+        return view('cms.admin.city.edit' ,array('info_City' => $city), ['Country' => $Country]);
     
     }
 
@@ -92,7 +92,7 @@ class CityController extends Controller
     {
         $this->cityRps->updateCity($request->all() , $city->id);
 		Session::flash('flash_message', 'City successfully updated!');
-		return view('cms.city.index');
+		return view('cms.admin.city.index');
     }
 
     /**
@@ -111,8 +111,8 @@ class CityController extends Controller
 	   return Datatables::of($info_Cities)
 		->addColumn('edit', function ($info_Cities) {
 				 return '<div class="btn-group btn-group-action">
-								<a class="btn btn-info" style="margin-right:2px;" href="'.url('/cms/city/'.$info_Cities->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i></a> 
-                                <a class="btn btn-danger" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/cms/city/' . $info_Cities->id . '"><i class="fa fa-trash"></i></a>
+								<a class="btn btn-info" style="margin-right:2px;" href="'.url('/cms/admin/city/'.$info_Cities->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i></a> 
+                                <a class="btn btn-danger" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/cms/admin/city/' . $info_Cities->id . '"><i class="fa fa-trash"></i></a>
                                 </div>';
         })
         ->addColumn('country_id', function ($info_Cities) {

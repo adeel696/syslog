@@ -100,7 +100,7 @@
 				    </li>
 					<li class="nav-header">Navigation</li>
 					<li class="active has-sub">
-						<a href="{{ url('cms/') }}">
+						<a href="{{ url('cms/admin') }}">
 						    <i class="fa fa-home"></i>
 						    <span>Dashboard</span>
 					    </a>
@@ -142,7 +142,7 @@
 					    </a>
 					</li>
                     <li>
-						<a href="{{url('/cms/city')}}">
+						<a href="{{url('/cms/admin/city')}}">
                         <i class="fas fa-globe-asia"></i>
                         <span>Cities</span>
 					    </a>

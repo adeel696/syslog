@@ -1,4 +1,4 @@
-@extends('layouts.cms')
+@extends('layouts.cms.admin')
 @section('content')
 <div id="content" class="content">
   <!-- begin row -->
@@ -11,7 +11,7 @@
                     <div class="panel no-rounded-corner bg-inverse text-white wrapper m-b-0">
                     <!-- begin breadcrumb -->
                     <ol class="breadcrumb pull-right bg-inverse">
-                      <a href="{{ url('cms/') }}" class="text-light"><i class="fa fa-home text-light"></i> Dashboard </a> > <a href="{{ url('/cms/City') }}"  class="text-light"><i class="fas fa-globe-asia text-light"></i> City</a>
+                      <a href="{{ url('cms/admin/') }}" class="text-light"><i class="fa fa-home text-light"></i> Dashboard </a> > <a href="{{ url('/cms/admin/city') }}"  class="text-light"><i class="fas fa-globe-asia text-light"></i> City</a>
                       </ol>
                         <!-- end breadcrumb -->
                       <!-- begin page-header -->
@@ -25,7 +25,7 @@
                       
                         <!-- begin table -->
                     <ul class="nav navbar-right">
-                      <li><a href="{{ url('/cms/city/create') }}"><i class="fa fa-plus"></i> Add New</a></li>
+                      <li><a href="{{ url('/cms/admin/city/create') }}"><i class="fa fa-plus"></i> Add New</a></li>
                       </li>
                     </ul>
                     
@@ -59,7 +59,7 @@
     $('#viewForm').DataTable({
         "processing": true,
         "serverSide": true,
-		"ajax": "{{url('/cms/city/grid')}}",
+		"ajax": "{{url('/cms/admin/city/grid')}}",
         "columns": [
 			{ data: 'id', name: 'id' },
 			{ data: 'name', name: 'name' },

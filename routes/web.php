@@ -43,11 +43,14 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/cms', function () {
-    return view('cms.home');
+Route::get('/cms/admin', function () {
+    return view('cms.admin.home');
 });
-Route::get('/cms/city/grid', 'CMS\CityController@grid');
-Route::resource('/cms/city', 'CMS\CityController');
+Route::get('/cms/owner', function () {
+    return view('cms.owner.home');
+});
+Route::get('/cms/admin/city/grid', 'CMS\Admin\CityController@grid');
+Route::resource('/cms/admin/city', 'CMS\Admin\CityController');
 
 Auth::routes();
 

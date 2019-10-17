@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\CMS;
+namespace App\Http\Controllers\Admin\CMS;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\WarehouseRepository;
@@ -27,7 +27,7 @@ class CityController extends Controller
     }
     public function index()
     {
-        return view('cms.warehouse.index');
+        return view('cms.admin.warehouse.index');
     }
 
     /**
@@ -38,7 +38,7 @@ class CityController extends Controller
     public function create()
     {
         $User= User::all();
-        return view('cms.warehouse.add', ['User' => $User]);
+        return view('cms.admin.warehouse.add', ['User' => $User]);
     
     }
 
@@ -53,7 +53,7 @@ class CityController extends Controller
         $this->warehouseRps->addWarehouse($request);
 		
 		Session::flash('flash_message', 'Warehouse successfully added!');
-		return view('cms.warehouse.index');
+		return view('cms.admin.warehouse.index');
     
     }
 
@@ -77,7 +77,7 @@ class CityController extends Controller
     public function edit(Warehouse $warehouse)
     {		
 		$User= User::all();
-        return view('cms.warehouse.edit' ,array('info_City' => $warehouse), ['User' => $User]);
+        return view('cms.admin.warehouse.edit' ,array('info_City' => $warehouse), ['User' => $User]);
     
     }
 
@@ -92,7 +92,7 @@ class CityController extends Controller
     {
         $this->warehouseRps->updateWarehouse($request->all() , $warehouse->id);
 		Session::flash('flash_message', 'Warehouse successfully updated!');
-		return view('cms.warehouse.index');
+		return view('cms.admin.warehouse.index');
     }
 
     /**
@@ -111,9 +111,9 @@ class CityController extends Controller
 	   return Datatables::of($info_Warehouses)
 		->addColumn('edit', function ($info_Warehouses) {
 				 return '<div class="btn-group btn-group-action">
-								<a class="btn btn-info" style="margin-right:2px;" href="'.url('/cms/warehouse/'.$info_Warehouses->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i></a> 
-                                <a class="btn btn-danger" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/cms/warehouse/' . $info_Warehouses->id . '"><i class="fa fa-trash"></i></a>
-                                <a class="btn btn-primary" style="margin-left:1px;" href="'.url('/cms/warehouse/'.$info_Warehouses->id).'" title="View"><i class="fa fa-eye"></i></a> 
+								<a class="btn btn-info" style="margin-right:2px;" href="'.url('/cms/admin/warehouse/'.$info_Warehouses->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i></a> 
+                                <a class="btn btn-danger" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/cms/admin/warehouse/' . $info_Warehouses->id . '"><i class="fa fa-trash"></i></a>
+                                <a class="btn btn-primary" style="margin-left:1px;" href="'.url('/cms/admin/warehouse/'.$info_Warehouses->id).'" title="View"><i class="fa fa-eye"></i></a> 
                                 </div>';
         })
         ->addColumn('User_id', function ($info_Warehouses) {

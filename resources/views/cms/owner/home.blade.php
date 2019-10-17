@@ -1,4 +1,4 @@
-@extends('layouts.cms')
+@extends('layouts.cms.owner')
 
 @section('content')
 <div class="container">
