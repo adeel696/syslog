@@ -46,7 +46,8 @@ Route::get('/contact', function () {
 Route::get('/cms', function () {
     return view('cms.home');
 });
-
+Route::get('/cms/city/grid', 'CMS\CityController@grid');
+Route::resource('/cms/city', 'CMS\CityController');
 
 Auth::routes();
 
