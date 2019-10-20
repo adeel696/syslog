@@ -62,11 +62,20 @@
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 							<span class="image"><img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= /></span>
-							<span class="hidden-xs">John Smith</span> <b class="caret"></b>
+							<span class="hidden-xs">{{ Auth::Guard('admin')->User()->name }}</span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li class="divider"></li>
-							<li><a href="javascript:;">Log Out</a></li>
+							<li>
+                                <a href="{{ url('/admin/logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                </a>
+                                <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
 						</ul>
 					</li>
 				</ul>
@@ -88,40 +97,75 @@
 				        </div>
 				        <div class="info">
 				            <div class="name dropdown">
-				                <a href="javascript:;" data-toggle="dropdown">Thomas Evans <b class="caret"></b></a>
+				                <a href="javascript:;" data-toggle="dropdown">{{ Auth::Guard('admin')->User()->name }} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:;">Edit Profile</a></li>
+                                    <li><a href="javascript:;">{{ utf8_encode(__('static.Edit')) }} {{ utf8_encode(__('static.Profile')) }}</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="javascript:;">Log Out</a></li>
+                                    <li>
+                                    	<a href="{{ url('/admin/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                        </a>
+                                    </li>
                                 </ul>
 				            </div>
-				            <div class="position">Enterprise User</div>
+				            <div class="position">Admin User</div>
 				        </div>
 				    </li>
 					<li class="nav-header">Navigation</li>
-					<li class="active has-sub">
-						<a href="{{ url('cms/') }}">
+					<li class="{{ (request()->segment(2) == 'home') ? 'active' : '' }}">
+						<a href="{{ url('/admin/home') }}">
 						    <i class="fa fa-home"></i>
-						    <span>Dashboard</span>
+						    <span>{{ utf8_encode(__('static.Dashboard')) }}</span>
 					    </a>
 					</li>
 					<li>
 						<a href="#">
-						    <i class="fa fa-plus"></i>
-						    <span>Add asset</span>
+						    <i class="fa fa-location-arrow"></i>
+						    <span>{{ utf8_encode(__('static.Booking')) }}</span>
 					    </a>
 					</li>
                     <li>
 						<a href="#">
-						    <i class="fa fa-eye"></i>
-						    <span>View booking</span>
+						    <i class="fa fa-users"></i>
+						    <span>{{ utf8_encode(__('static.Users')) }}</span>
 					    </a>
 					</li>
-                    <li>
-						<a href="#">
+                    <li {{ (request()->segment(2) == 'fare') ? 'active' : '' }}>
+						<a href="{{url('/admin/fare')}}">
+                        <i class="fas fa-money-bill"></i>
+                        <span>{{ utf8_encode(__('static.Fares')) }}</span>
+					    </a>
+					</li>
+                    <li {{ (request()->segment(2) == 'vehicle') ? 'active' : '' }}>
+						<a href="{{url('/admin/vehicle')}}">
+                        <i class="fas fa-truck"></i>
+                        <span>{{ utf8_encode(__('static.Vehicles')) }}</span>
+					    </a>
+					</li>                    
+                    <li {{ (request()->segment(2) == 'construction-machine') ? 'active' : '' }}>
+						<a href="{{url('/admin/construction-machine')}}">
+                        <i class="fas fa-space-shuttle"></i>
+                        <span>{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machines')) }}</span>
+					    </a>
+					</li>
+                    <li {{ (request()->segment(2) == 'packaging') ? 'active' : '' }}>
+						<a href="{{url('/admin/packaging')}}">
                         <i class="fas fa-boxes"></i>
-                        <span>Bulk buying</span>
+                        <span>{{ utf8_encode(__('static.Packaging')) }}</span>
 					    </a>
+					</li>
+                    <li class="has-sub {{ (request()->segment(2) == 'city') ? 'active' : '' }} {{ (request()->segment(2) == 'suburb') ? 'active' : '' }}">
+						<a href="javascript:;">
+						    <b class="caret pull-right"></b>
+                        	<i class="fas fa-globe-asia"></i>
+						    <span>{{ utf8_encode(__('static.Cities')) }}</span> 
+						</a>
+						<ul class="sub-menu">
+							<li class="{{ (request()->segment(2) == 'city') ? 'active' : '' }}"><a href="{{url('/admin/city')}}">{{ utf8_encode(__('static.Cities')) }}</a></li>
+							<li class="{{ (request()->segment(2) == 'suburb') ? 'active' : '' }}"><a href="{{url('/admin/suburb')}}">{{ utf8_encode(__('static.Suburbs')) }}</a></li>
+						</ul>
 					</li>
 				</ul>
 				<!-- end sidebar nav -->
@@ -131,29 +175,6 @@
 		<div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
         @yield('content')
-		<!-- begin #sidebar-right -->
-		<div id="sidebar-right" class="sidebar sidebar-right">
-			<!-- begin sidebar scrollbar -->
-			<div data-scrollbar="true" data-height="100%">
-				<!-- begin sidebar-nav -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="width-half"><a class="active" href="#today" data-toggle="tab">Today</a></li>
-                    <li class="width-half"><a href="#notifications" data-toggle="tab">Notifications</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="today">
-                       
-                    </div>
-                    <div class="tab-pane" id="notifications">
-                        
-                    </div>
-                </div>
-				<!-- end sidebar-nav -->
-			</div>
-			<!-- end sidebar scrollbar -->
-		</div>
-		<div class="sidebar-bg sidebar-right"></div>
-		<!-- end #sidebar-right -->
 	</div>
 	<!-- end page container -->
 	

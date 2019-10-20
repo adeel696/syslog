@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Country;
 use App\Models\City;
+use App\Models\Admin;
 
 class InitTableSeeder extends Seeder
 {
@@ -78,6 +79,8 @@ class InitTableSeeder extends Seeder
         City::Create(['name' => 'Yako', 'country_id' => '1']);
         City::Create(['name' => 'Ziniar�', 'country_id' => '1']);
         City::Create(['name' => 'Zorgo', 'country_id' => '1']);
+		
+		Admin::Create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => '$2y$10$wQydHr.kXqc1PGQ84tAPquRKyrW..KpDjfGPBJpPL7VFCFqyaeJDi']);
     
      }
 }

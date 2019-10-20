@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -43,15 +46,36 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/cms/admin', function () {
-    return view('cms.admin.home');
+Route::group(['prefix' => 'admin'], function(){
+	//Admin Auth
+	Route::get('/', 'Admin\Auth\LoginController@showLoginForm');	
+	Route::get('/login', 'Admin\Auth\LoginController@showLoginForm');
+	Route::post('/login', 'Admin\Auth\LoginController@login');
+	Route::post('/logout', 'Admin\Auth\LoginController@logout');
+	
+	Route::get('/construction-machines/grid', 'Admin\ConstructionMachinesController@grid');
+	Route::resource('/construction-machines', 'Admin\ConstructionMachinesController');
+	
+	Route::get('/packaging/grid', 'Admin\PackagingController@grid');
+	Route::resource('/packaging', 'Admin\PackagingController');
+	
+	Route::get('/vehicle/grid', 'Admin\VehicleController@grid');
+	Route::resource('/vehicle', 'Admin\VehicleController');
+	
+	Route::get('/city/grid', 'Admin\CityController@grid');
+	Route::resource('/city', 'Admin\CityController');
+	
+	Route::get('/suburb/grid', 'Admin\CityController@grid');
+	Route::resource('/suburb', 'Admin\CityController');
+	
+	Route::get('/home', 'Admin\HomeController@index');	
+	
 });
-Route::get('/cms/owner', function () {
-    return view('cms.owner.home');
-});
-Route::get('/cms/admin/city/grid', 'CMS\Admin\CityController@grid');
-Route::resource('/cms/admin/city', 'CMS\Admin\CityController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'cms'], function(){
+	//Admin Auth	
+	Route::get('/', 'Cms\HomeController@index');	
+	
+});

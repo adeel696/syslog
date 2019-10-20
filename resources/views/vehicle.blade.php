@@ -103,13 +103,13 @@
                       
                </div>
                <div class="form-group row">
-                  <div class="col-md-6">
-                  	  <label><?php echo utf8_encode("Capacit�"); ?></label>
+                  <!--<div class="col-md-6">
+                  	  <label><?php echo utf8_encode("Capacité"); ?></label>
                       <div id="capacityDiv">
                       
                       </div>
-                  </div>
-                  <div class="col-md-6">
+                  </div>-->
+                  <div class="col-md-12">
                      <div id="citerne">
                       </div>
                      <div id="marchandises">
@@ -298,11 +298,6 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="information_product" class="form-control" placeholder="<?php echo utf8_encode("Information sur les produit"); ?>">
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <div class="col-md-12">
                      <textarea name="preferences" class="form-control" placeholder="Preferences"></textarea>
                   </div>
                </div>
@@ -480,13 +475,13 @@
 	{	
       //alert(id);
 		$("#othersExtraDiv").html("");
-      $("#citerne").html("");
-      $("#marchandises").html("");
-      $("#plateau").html("");
-      $("#frigorifique").html("");
-      $("#bennes").html("");
-      $("#demenagement").html("");
-      $("#mini_bus").html("");
+		$("#citerne").html("");
+		$("#marchandises").html("");
+		$("#plateau").html("");
+		$("#frigorifique").html("");
+		$("#bennes").html("");
+		$("#demenagement").html("");
+		$("#mini_bus").html("");
 		$("#capacityDiv").html("");
 		$("#catName").html(type);
 		$("#catImage").attr("src","{{ url('/home/img/truck/') }}" + '/' + image);
@@ -496,40 +491,32 @@
 				$("#othersExtraDiv").html(otherExtra);
 				$("#capacityDiv").html(capcityDivDefault);
 			break;
-         case 1:
-            $("#citerne").html(citerneCapacity);
-            $("#capacityDiv").html(capcityDivDefault);
-         break;
-         case 2:
-            $("#marchandises").html(marchandisesCapacity);
-            $("#capacityDiv").html(capcityDivDefault);
-         break;
-         case 3:
-            $("#plateau").html(plateauCapacity);
-            $("#capacityDiv").html(capcityDivDefault);
-         break;
-         case 4:
-            $("#frigorifique").html(frigorifiqueCapacity);
-            $("#capacityDiv").html(capcityDivDefault);
-         break;
-         case 5:
-            $("#bennes").html(bennesCapacity);
-            $("#capacityDiv").html(capcityDivDefault);
-         break;
-         case 6:
-            $("#demenagement").html(demenagementCapacity);
-            $("#capacityDiv").html(capcityDivDefault);
-         break;
+			case 1:
+				$("#citerne").html(citerneCapacity);
+			break;
+			case 2:
+				$("#marchandises").html(marchandisesCapacity);
+			break;
+			case 3:
+				$("#plateau").html(plateauCapacity);
+			break;
+			case 4:
+				$("#frigorifique").html(frigorifiqueCapacity);
+			break;
+			case 5:
+				$("#bennes").html(bennesCapacity);
+			break;
+			case 6:
+				$("#demenagement").html(demenagementCapacity);
+			break;
 			case 7:
 				$("#mini_bus").html(capcityDivBus);
-            $("#capacityDiv").html(capcityDivDefault);
 			break;
 			default:
-            $("#citerne").html(citerneCapacity);
-				$("#capacityDiv").html(capcityDivDefault);
+				$("#citerne").html(citerneCapacity);
 				
 			break;
-		}
+			}
 	}
 	
 	$( ".insurances" ).click(function() {

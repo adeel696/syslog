@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\CMS\Admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\CityRepository;
@@ -25,9 +25,10 @@ class CityController extends Controller
     { 
         $this->cityRps = $cityRps;
     }
+	
     public function index()
     {
-        return view('cms.admin.city.index');
+        return view('admin.city.index');
     }
 
     /**
@@ -38,7 +39,7 @@ class CityController extends Controller
     public function create()
     {
         $Country= Country::all();
-        return view('cms.admin.city.add', ['Country' => $Country]);
+        return view('admin.city.add', ['Country' => $Country]);
     
     }
 
@@ -52,8 +53,8 @@ class CityController extends Controller
     {
         $this->cityRps->addCity($request);
 		
-		Session::flash('flash_message', 'City successfully added!');
-		return view('cms.admin.city.index');
+		Session::flash('flash_message', utf8_encode(__('static.City')).' '. utf8_encode('ajouté avec succès'));
+		return view('admin.city.index');
     
     }
 
@@ -77,7 +78,7 @@ class CityController extends Controller
     public function edit(City $city)
     {		
 		$Country= Country::all();
-        return view('cms.admin.city.edit' ,array('info_City' => $city), ['Country' => $Country]);
+        return view('admin.city.edit' ,array('info_City' => $city), ['Country' => $Country]);
     
     }
 
@@ -91,8 +92,8 @@ class CityController extends Controller
     public function update(Request $request, City $city)
     {
         $this->cityRps->updateCity($request->all() , $city->id);
-		Session::flash('flash_message', 'City successfully updated!');
-		return view('cms.admin.city.index');
+		Session::flash('flash_message', utf8_encode(__('static.City')).' '. utf8_encode('mise à jour réussie'));
+		return view('admin.city.index');
     }
 
     /**
@@ -103,16 +104,17 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        $this->cityRps->deleteCity($city->id);
+        $city->delete();
     }
+	
     public function grid()
     {
 	   $info_Cities = $this->cityRps->getCity();
 	   return Datatables::of($info_Cities)
 		->addColumn('edit', function ($info_Cities) {
-				 return '<div class="btn-group btn-group-action">
-								<a class="btn btn-info" style="margin-right:2px;" href="'.url('/cms/admin/city/'.$info_Cities->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i></a> 
-                                <a class="btn btn-danger" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/cms/admin/city/' . $info_Cities->id . '"><i class="fa fa-trash"></i></a>
+				 return '<div class="">
+								<a class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10" style="margin-right:2px;" href="'.url('/admin/city/'.$info_Cities->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i> '.utf8_encode(__('static.Edit')).'</a> 
+                                <a class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/admin/city/' . $info_Cities->id . '"><i class="fa fa-trash"></i> '.utf8_encode(__('static.Delete')).'</a>
                                 </div>';
         })
         ->addColumn('country_id', function ($info_Cities) {

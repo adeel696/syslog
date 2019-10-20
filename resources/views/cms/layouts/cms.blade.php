@@ -62,11 +62,20 @@
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 							<span class="image"><img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= /></span>
-							<span class="hidden-xs">John Smith</span> <b class="caret"></b>
+							<span class="hidden-xs">{{ Auth::User()->name }}</span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li class="divider"></li>
-							<li><a href="javascript:;">Log Out</a></li>
+							<li>
+                                <a href="{{ url('/logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                </a>
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
 						</ul>
 					</li>
 				</ul>
@@ -88,63 +97,39 @@
 				        </div>
 				        <div class="info">
 				            <div class="name dropdown">
-				                <a href="javascript:;" data-toggle="dropdown">Thomas Evans <b class="caret"></b></a>
+				                <a href="javascript:;" data-toggle="dropdown">{{ Auth::User()->name }} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:;">Edit Profile</a></li>
+                                    <li><a href="javascript:;">{{ utf8_encode(__('static.Edit')) }} {{ utf8_encode(__('static.Profile')) }}</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="javascript:;">Log Out</a></li>
+                                    <li>
+                                    	<a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                        </a>
+                                    </li>
                                 </ul>
 				            </div>
 				            <div class="position">Enterprise User</div>
 				        </div>
 				    </li>
 					<li class="nav-header">Navigation</li>
-					<li class="active has-sub">
-						<a href="{{ url('cms/admin') }}">
+					<li>
+						<a href="{{ url('/cms') }}">
 						    <i class="fa fa-home"></i>
-						    <span>Dashboard</span>
+						    <span>{{ utf8_encode(__('static.Dashboard')) }}</span>
 					    </a>
 					</li>
 					<li>
 						<a href="#">
 						    <i class="fa fa-location-arrow"></i>
-						    <span>Booking</span>
+						    <span>{{ utf8_encode(__('static.Booking')) }}</span>
 					    </a>
 					</li>
                     <li>
 						<a href="#">
-						    <i class="fa fa-users"></i>
-						    <span>Users</span>
-					    </a>
-					</li>
-                    <li>
-						<a href="#">
-                        <i class="fas fa-money-bill"></i>
-                        <span>Fares</span>
-					    </a>
-					</li>
-                    <li>
-						<a href="#">
-                        <i class="fas fa-truck"></i>
-                        <span>Vehicles</span>
-					    </a>
-					</li>                    
-                    <li>
-						<a href="#">
-                        <i class="fas fa-space-shuttle"></i>
-                        <span>Construction Machines</span>
-					    </a>
-					</li>
-                    <li>
-						<a href="#">
-                        <i class="fas fa-boxes"></i>
-                        <span>Packaging</span>
-					    </a>
-					</li>
-                    <li>
-						<a href="{{url('/cms/admin/city')}}">
-                        <i class="fas fa-globe-asia"></i>
-                        <span>Cities</span>
+						    <i class="fa fa-location-arrow"></i>
+						    <span>{{ utf8_encode(__('static.Assets')) }}</span>
 					    </a>
 					</li>
 				</ul>
@@ -155,29 +140,6 @@
 		<div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
         @yield('content')
-		<!-- begin #sidebar-right -->
-		<div id="sidebar-right" class="sidebar sidebar-right">
-			<!-- begin sidebar scrollbar -->
-			<div data-scrollbar="true" data-height="100%">
-				<!-- begin sidebar-nav -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="width-half"><a class="active" href="#today" data-toggle="tab">Today</a></li>
-                    <li class="width-half"><a href="#notifications" data-toggle="tab">Notifications</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="today">
-                       
-                    </div>
-                    <div class="tab-pane" id="notifications">
-                        
-                    </div>
-                </div>
-				<!-- end sidebar-nav -->
-			</div>
-			<!-- end sidebar scrollbar -->
-		</div>
-		<div class="sidebar-bg sidebar-right"></div>
-		<!-- end #sidebar-right -->
 	</div>
 	<!-- end page container -->
 	
