@@ -14,8 +14,8 @@ class CreateWarehouseImagesTable extends Migration
     public function up()
     {
         Schema::create('warehouse_images', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('warehouse_id')->unsigned();
+            $table->increments('id');
+            $table->integer('warehouse_id')->unsigned();
             $table->string('source');
             $table->timestamps();
         });

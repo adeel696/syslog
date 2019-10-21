@@ -14,9 +14,9 @@ class CreateUserOffersTable extends Migration
     public function up()
     {
         Schema::create('user_offers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->bigInteger('offer_id')->unsigned()->nullable();
+            $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('offer_id')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('user_offers', function(Blueprint $table) {

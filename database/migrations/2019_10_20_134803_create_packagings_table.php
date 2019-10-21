@@ -14,7 +14,7 @@ class CreatePackagingsTable extends Migration
     public function up()
     {
         Schema::create('packagings', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->timestamps();
         });
     }

@@ -14,12 +14,11 @@ class CreateFaresTable extends Migration
     public function up()
     {
         Schema::create('fares', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('booking_id')->unsigned()->nullable();
-            $table->bigInteger('vehicle_id')->unsigned()->nullable();
+            $table->increments('id');
+            $table->integer('vehicle_id')->unsigned()->nullable();
             $table->text('type_of_vehicle')->nullable();
-            $table->bigInteger('city1_id')->unsigned()->nullable();
-            $table->bigInteger('cit2_id')->unsigned()->nullable();
+            $table->integer('city1_id')->unsigned()->nullable();
+            $table->integer('cit2_id')->unsigned()->nullable();
             $table->string('capacity');
             $table->string('insurances_amount');
             $table->string('loading_price');
@@ -29,11 +28,6 @@ class CreateFaresTable extends Migration
         });
         Schema::table('fares', function(Blueprint $table) {
 			$table->foreign('vehicle_id')->references('id')->on('vehicles')
-						->onDelete('CASCADE')
-						->onUpdate('CASCADE');
-        });
-        Schema::table('fares', function(Blueprint $table) {
-			$table->foreign('booking_id')->references('id')->on('bookings')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });

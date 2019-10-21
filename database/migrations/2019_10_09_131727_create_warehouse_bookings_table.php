@@ -14,8 +14,8 @@ class CreateWarehouseBookingsTable extends Migration
     public function up()
     {
         Schema::create('warehouse_bookings', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('booking_id')->unsigned()->nullable();
+            $table->increments('id');
+            $table->integer('booking_id')->unsigned()->nullable();
             $table->text('product_type')->nullable();
             $table->string('packaging')->nullable();
             $table->string('weight');

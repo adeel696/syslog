@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSuburbsTable extends Migration
+class CreateStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateSuburbsTable extends Migration
      */
     public function up()
     {
-        Schema::create('suburbs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('states', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
-            $table->bigInteger('city_id')->unsigned();
+            $table->integer('country_id')->unsigned();
             $table->timestamps();
         });
-        Schema::table('suburbs', function(Blueprint $table) {
-			$table->foreign('city_id')->references('id')->on('cities')
+        Schema::table('states', function(Blueprint $table) {
+			$table->foreign('country_id')->references('id')->on('countries')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
-        });    }
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -32,6 +33,6 @@ class CreateSuburbsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suburbs');
+        Schema::dropIfExists('states');
     }
 }

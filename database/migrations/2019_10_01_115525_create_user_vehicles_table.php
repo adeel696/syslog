@@ -14,10 +14,10 @@ class CreateUserVehiclesTable extends Migration
     public function up()
     {
         Schema::create('user_vehicles', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('vehicle_id')->unsigned()->nullable();
-            $table->bigInteger('construction_machinary_id')->unsigned()->nullable();
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('vehicle_id')->unsigned()->nullable();
+            $table->integer('construction_machinary_id')->unsigned()->nullable();
             $table->string('type');
             $table->string('quantity');
             $table->string('capacity');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatesTable extends Migration
+class CreateConstructionMachinariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateStatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('states', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('construction_machinaries', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
-            $table->bigInteger('country_id')->unsigned();
+            $table->string('capacity');
+            $table->string('specification');
             $table->timestamps();
-        });
-        Schema::table('states', function(Blueprint $table) {
-			$table->foreign('country_id')->references('id')->on('countries')
-						->onDelete('CASCADE')
-						->onUpdate('CASCADE');
         });
     }
 
@@ -33,6 +29,6 @@ class CreateStatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('construction_machinaries');
     }
 }

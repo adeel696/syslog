@@ -14,11 +14,12 @@ class CreateVehicleBookingsTable extends Migration
     public function up()
     {
         Schema::create('vehicle_bookings', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('booking_id')->unsigned()->nullable();
+            $table->increments('id');
+            $table->integer('booking_id')->unsigned()->nullable();
+			$table->integer('vehicle_id')->unsigned()->nullable();
             $table->text('type_of_vehicle')->nullable();
-            $table->bigInteger('place_of_departure_city_id')->unsigned()->nullable();
-            $table->bigInteger('place_of_arrival_city_id')->unsigned()->nullable();
+            $table->integer('place_of_departure_city_id')->unsigned()->nullable();
+            $table->integer('place_of_arrival_city_id')->unsigned()->nullable();
             $table->string('capacity');
             $table->string('capacity_type');
             $table->string('preferences')->nullable();
