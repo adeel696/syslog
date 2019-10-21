@@ -16,10 +16,20 @@ class CreateUserVehiclesTable extends Migration
         Schema::create('user_vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('vehicle_id')->unsigned();
-            $table->string('fare');
-            $table->string('description');
+            $table->bigInteger('vehicle_id')->unsigned()->nullable();
+            $table->bigInteger('construction_machinary_id')->unsigned()->nullable();
+            $table->string('type');
+            $table->string('quantity');
+            $table->string('capacity');
+            $table->string('state');
+            $table->string('meter_reading');
+            $table->string('specifications');
             $table->timestamps();
+        });
+        Schema::table('user_vehicles', function(Blueprint $table) {
+			$table->foreign('construction_machinary_id')->references('id')->on('construction_machinaries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
         });
         Schema::table('user_vehicles', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')

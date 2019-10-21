@@ -22,6 +22,7 @@ class CreateWarehouseBookingsTable extends Migration
             $table->string('volume');
             $table->string('needed_space');
             $table->string('preferences');
+            $table->boolean('others');
             $table->timestamps();
         });
         Schema::table('warehouse_bookings', function(Blueprint $table) {

@@ -16,11 +16,13 @@ class CreateSiteMachineryBookingsTable extends Migration
         Schema::create('site_machinery_bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('booking_id')->unsigned()->nullable();
+            $table->bigInteger('contruction_machinary_id')->unsigned()->nullable();
             $table->text('type_of_machinery')->nullable();
             $table->string('specification')->nullable();
             $table->bigInteger('delivery_place_city_id')->unsigned()->nullable();
             $table->string('delivery_deadline');
-            $table->string('duration');
+            $table->string('duration_of_user');
+            $table->string('preferences');
             $table->boolean('others');
             $table->timestamps();
         });
@@ -30,7 +32,7 @@ class CreateSiteMachineryBookingsTable extends Migration
 						->onUpdate('CASCADE');
         });
         Schema::table('site_machinery_bookings', function(Blueprint $table) {
-			$table->foreign('delivery_place_city_id')->references('id')->on('cities')
+			$table->foreign('contruction_machinary_id')->references('id')->on('contruction_machinaries')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });

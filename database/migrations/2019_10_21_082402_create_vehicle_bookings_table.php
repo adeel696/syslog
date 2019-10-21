@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTruckBookingsTable extends Migration
+class CreateVehicleBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,35 +13,41 @@ class CreateTruckBookingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('truck_bookings', function (Blueprint $table) {
+        Schema::create('vehicle_bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('booking_id')->unsigned()->nullable();
-            $table->text('type_of_truck')->nullable();
-            $table->string('specifications')->nullable();
+            $table->text('type_of_vehicle')->nullable();
             $table->bigInteger('place_of_departure_city_id')->unsigned()->nullable();
             $table->bigInteger('place_of_arrival_city_id')->unsigned()->nullable();
             $table->string('capacity');
             $table->string('capacity_type');
-			$table->string('information_product');
+            $table->string('preferences')->nullable();
+            $table->string('number_of_seats')->nullable();
+            $table->string('duration');
             $table->boolean('others');
-            $table->boolean('insurances');
-			$table->string('value_product');
-            $table->boolean('loading');
-            $table->boolean('offloading');
+            $table->string('specifications')->nullable();
+            $table->string('insurances');
+            $table->string('loading');
+            $table->string('offloading');
             $table->timestamps();
         });
-        Schema::table('truck_bookings', function(Blueprint $table) {
+        Schema::table('vehicle_bookings', function(Blueprint $table) {
 			$table->foreign('booking_id')->references('id')->on('bookings')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });
-        Schema::table('truck_bookings', function(Blueprint $table) {
+        Schema::table('vehicle_bookings', function(Blueprint $table) {
 			$table->foreign('place_of_departure_city_id')->references('id')->on('cities')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });
-        Schema::table('truck_bookings', function(Blueprint $table) {
+        Schema::table('vehicle_bookings', function(Blueprint $table) {
 			$table->foreign('place_of_arrival_city_id')->references('id')->on('cities')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+        Schema::table('vehicle_bookings', function(Blueprint $table) {
+			$table->foreign('vehicle_id')->references('id')->on('vehicles')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });
@@ -54,6 +60,6 @@ class CreateTruckBookingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('truck_bookings');
+        Schema::dropIfExists('vehicle_bookings');
     }
 }
