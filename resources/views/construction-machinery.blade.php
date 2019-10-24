@@ -92,7 +92,7 @@
                      </div>
                      <div class="item">
                         <div class="pad15">
-                           <a href="javascript:void(0)" class="hedrSel" data-id="99" data-val="<?php echo utf8_encode("Autres"); ?>" data-img="othersm.png">
+                           <a href="javascript:void(0)" class="hedrSel" data-id="11" data-val="<?php echo utf8_encode("Autres"); ?>" data-img="othersm.png">
                               <span class="lead"><img class="zoomImg" src="{{ url('/home/img/construction/othersm.png') }}" style="width:100px"></span>
                               <p><?php echo utf8_encode("Autres"); ?></p>
                            </a>
@@ -375,7 +375,7 @@
 		$("#catImage").attr("src","{{ url('/home/img/construction/') }}" + '/' + image);
 		switch(id)
 		{
-			case 99:
+			case 11:
 				$("#others-form").fadeIn();
 				$("#default-form").fadeOut();
 			break;

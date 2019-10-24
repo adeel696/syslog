@@ -53,8 +53,8 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::post('/login', 'Admin\Auth\LoginController@login');
 	Route::post('/logout', 'Admin\Auth\LoginController@logout');
 	
-	Route::get('/construction-machines/grid', 'Admin\ConstructionMachinesController@grid');
-	Route::resource('/construction-machines', 'Admin\ConstructionMachinesController');
+	Route::get('/construction-machine/grid', 'Admin\ConstructionMachineController@grid');
+	Route::resource('/construction-machine', 'Admin\ConstructionMachineController');
 	
 	Route::get('/packaging/grid', 'Admin\PackagingController@grid');
 	Route::resource('/packaging', 'Admin\PackagingController');
@@ -65,8 +65,15 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('/city/grid', 'Admin\CityController@grid');
 	Route::resource('/city', 'Admin\CityController');
 	
-	Route::get('/suburb/grid', 'Admin\CityController@grid');
-	Route::resource('/suburb', 'Admin\CityController');
+	Route::get('/suburb/grid', 'Admin\SuburbController@grid');
+	Route::resource('/suburb', 'Admin\SuburbController');
+	
+	Route::get('/booking/vehicle/grid', 'Admin\BookingController@getVehicleGrid');
+	Route::get('/booking/vehicle', 'Admin\BookingController@getVehicle');
+	Route::get('/booking/construction-machine/grid', 'Admin\BookingController@getConstructionMachineGrid');
+	Route::get('/booking/construction-machine', 'Admin\BookingController@getConstructionMachine');
+	Route::get('/booking/warehouse/grid', 'Admin\BookingController@getWarehouseGrid');
+	Route::get('/booking/warehouse', 'Admin\BookingController@getWarehouse');
 	
 	Route::get('/home', 'Admin\HomeController@index');	
 	

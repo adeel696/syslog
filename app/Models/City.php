@@ -15,8 +15,13 @@ class City extends Model
 
     protected $fillable = ['name','country_id'];
    
-    public function Country()
-   {
-      return $this->belongsTo('App\Models\Country' , 'country_id');
-    }
+	public function Country()
+	{
+		return $this->belongsTo('App\Models\Country' , 'country_id');
+	}
+	
+	public function Suburb()
+	{
+		return $this->hasMany('App\Models\Suburb' , 'city_id');
+	}
 }

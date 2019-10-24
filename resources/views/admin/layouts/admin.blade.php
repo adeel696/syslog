@@ -120,11 +120,17 @@
 						    <span>{{ utf8_encode(__('static.Dashboard')) }}</span>
 					    </a>
 					</li>
-					<li>
-						<a href="#">
-						    <i class="fa fa-location-arrow"></i>
+                    <li class="has-sub {{ (request()->segment(2) == 'booking') ? 'active' : '' }}">
+						<a href="javascript:;">
+						    <b class="caret pull-right"></b>
+                        	<i class="fa fa-location-arrow"></i>
 						    <span>{{ utf8_encode(__('static.Booking')) }}</span>
-					    </a>
+						</a>
+						<ul class="sub-menu">
+							<li class="{{ (request()->segment(3) == 'vehicle') ? 'active' : '' }}"><a href="{{url('/admin/booking/vehicle')}}">{{ utf8_encode(__('static.Vehicles')) }}</a></li>
+							<li class="{{ (request()->segment(3) == 'construction-machine') ? 'active' : '' }}"><a href="{{url('/admin/booking/construction-machine')}}">{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machines')) }}</a></li>
+                            <li class="{{ (request()->segment(3) == 'warehouse') ? 'active' : '' }}"><a href="{{url('/admin/booking/warehouse')}}">{{ utf8_encode(__('static.Warehouse')) }}</a></li>
+						</ul>
 					</li>
                     <li>
 						<a href="#">
@@ -132,25 +138,25 @@
 						    <span>{{ utf8_encode(__('static.Users')) }}</span>
 					    </a>
 					</li>
-                    <li {{ (request()->segment(2) == 'fare') ? 'active' : '' }}>
+                    <li class="{{ (request()->segment(2) == 'fare') ? 'active' : '' }}">
 						<a href="{{url('/admin/fare')}}">
                         <i class="fas fa-money-bill"></i>
                         <span>{{ utf8_encode(__('static.Fares')) }}</span>
 					    </a>
 					</li>
-                    <li {{ (request()->segment(2) == 'vehicle') ? 'active' : '' }}>
+                    <li class="{{ (request()->segment(2) == 'vehicle') ? 'active' : '' }}">
 						<a href="{{url('/admin/vehicle')}}">
                         <i class="fas fa-truck"></i>
                         <span>{{ utf8_encode(__('static.Vehicles')) }}</span>
 					    </a>
 					</li>                    
-                    <li {{ (request()->segment(2) == 'construction-machine') ? 'active' : '' }}>
+                    <li class="{{ (request()->segment(2) == 'construction-machine') ? 'active' : '' }}">
 						<a href="{{url('/admin/construction-machine')}}">
                         <i class="fas fa-space-shuttle"></i>
                         <span>{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machines')) }}</span>
 					    </a>
 					</li>
-                    <li {{ (request()->segment(2) == 'packaging') ? 'active' : '' }}>
+                    <li class="{{ (request()->segment(2) == 'packaging') ? 'active' : '' }}">
 						<a href="{{url('/admin/packaging')}}">
                         <i class="fas fa-boxes"></i>
                         <span>{{ utf8_encode(__('static.Packaging')) }}</span>

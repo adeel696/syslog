@@ -14,4 +14,10 @@ class Country extends Model
      public $timestamp = true;
  
      protected $fillable = ['name'];
+	 
+	 
+	public function City()
+	{
+		return $this->hasMany('App\Models\City' , 'country_id');
+	}
 }

@@ -24,7 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('phone_number')->nullable();
             $table->string('address')->nullable();
             $table->string('facebook')->nullable();
-            $table->string('twitterinstagram')->nullable();
+            $table->string('twitter')->nullable();
+			$table->string('instagram')->nullable();
 			$table->smallInteger('type')->nullable();
 			$table->smallInteger('parent_id')->nullable();
             $table->rememberToken();

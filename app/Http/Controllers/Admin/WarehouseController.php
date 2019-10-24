@@ -22,12 +22,13 @@ class CityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct(WarehouseRepository $warehouseRps)
-    { 
+    {
+		$this->middleware('admin');
         $this->warehouseRps = $warehouseRps;
     }
     public function index()
     {
-        return view('cms.admin.warehouse.index');
+        return view('admin.warehouse.index');
     }
 
     /**
@@ -38,7 +39,7 @@ class CityController extends Controller
     public function create()
     {
         $User= User::all();
-        return view('cms.admin.warehouse.add', ['User' => $User]);
+        return view('admin.warehouse.add', ['User' => $User]);
     
     }
 
@@ -53,7 +54,7 @@ class CityController extends Controller
         $this->warehouseRps->addWarehouse($request);
 		
 		Session::flash('flash_message', 'Warehouse successfully added!');
-		return view('cms.admin.warehouse.index');
+		return view('admin.warehouse.index');
     
     }
 
@@ -77,7 +78,7 @@ class CityController extends Controller
     public function edit(Warehouse $warehouse)
     {		
 		$User= User::all();
-        return view('cms.admin.warehouse.edit' ,array('info_City' => $warehouse), ['User' => $User]);
+        return view('admin.warehouse.edit' ,array('info_City' => $warehouse), ['User' => $User]);
     
     }
 
@@ -92,7 +93,7 @@ class CityController extends Controller
     {
         $this->warehouseRps->updateWarehouse($request->all() , $warehouse->id);
 		Session::flash('flash_message', 'Warehouse successfully updated!');
-		return view('cms.admin.warehouse.index');
+		return view('admin.warehouse.index');
     }
 
     /**
@@ -120,7 +121,6 @@ class CityController extends Controller
 			return $info_Warehouses->User()->First()->name;
         })
 		->escapeColumns([])
-		->removeColumn('type')
-		->make(true);
+ 		->make(true);
     }
 }

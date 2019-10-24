@@ -14,5 +14,10 @@ class Offer extends Model
     public $timestamp = true;
 
     protected $fillable = ['title','description','image'];
+	
+	public function User_offer()
+	{
+		return $this->hasMany('App\Models\User_offer' , 'offer_id');
+	}
    
 }

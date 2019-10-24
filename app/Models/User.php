@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone_number','tax_number',
+        'surname', 'name', 'email', 'password','phone_number','tax_number',
         'address','facebook','twitter','instagram', 'type', 'parent_id'
     ];
 
@@ -37,4 +37,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+	
+	public function Parent()
+	{
+		return $this->belongsTo('App\Models\User' , 'parent_id');
+	}
+	
+	public function Child()
+	{
+		return $this->hasMany('App\Models\User' , 'parent_id');
+	}
+	
+	public function User_vehicle()
+	{
+		return $this->hasMany('App\Models\User_vehicle' , 'user_id');
+	}
+	
+	public function Booking()
+	{
+		return $this->hasMany('App\Models\Booking' , 'user_id');
+	}
 }

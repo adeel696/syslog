@@ -13,11 +13,6 @@ class Warehouse extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['name','address','space_available','fare','user_id'];
+    protected $fillable = ['name','address','space_available','fare'];
    
-    public function User()
-   {
-      return $this->belongsTo('App\Models\User' , 'user_id');
-    }
-  
 }

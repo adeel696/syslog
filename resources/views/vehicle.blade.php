@@ -68,7 +68,7 @@
                      </div>
                      <div class="item">
                         <div class="pad15">
-                           <a href="javascript:void(0)" class="hedrSel" data-id="99" data-val="Autres" data-img="others2.png">
+                           <a href="javascript:void(0)" class="hedrSel" data-id="8" data-val="Autres" data-img="others2.png">
                               <span class="lead"><img class="zoomImg" src="{{ url('/home/img/truck/others2.png') }}" style="width:100px"></span>
                               <p>Autres</p>
                            </a>
@@ -487,7 +487,7 @@
 		$("#catImage").attr("src","{{ url('/home/img/truck/') }}" + '/' + image);
 		switch(id)
 		{
-			case 99:
+			case 8:
 				$("#othersExtraDiv").html(otherExtra);
 				$("#capacityDiv").html(capcityDivDefault);
 			break;

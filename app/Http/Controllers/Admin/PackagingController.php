@@ -23,6 +23,7 @@ class PackagingController extends Controller
      */
     public function __construct(PackagingRepository $packagingRps)
     { 
+		$this->middleware('admin');
         $this->packagingRps = $packagingRps;
     }
 	
@@ -117,11 +118,7 @@ class PackagingController extends Controller
                                 <a class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/admin/packaging/' . $info_Cities->id . '"><i class="fa fa-trash"></i> '.utf8_encode(__('static.Delete')).'</a>
                                 </div>';
         })
-        ->addColumn('country_id', function ($info_Cities) {
-			return $info_Cities->Country()->First()->name;
-        })
 		->escapeColumns([])
-		->removeColumn('type')
 		->make(true);
     }
 }

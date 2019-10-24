@@ -19,13 +19,7 @@ class CreateWarehousesTable extends Migration
             $table->string('address');
             $table->string('space_available');
             $table->string('fare');
-            $table->integer('user_id')->unsigned();
             $table->timestamps();
-        });
-        Schema::table('warehouses', function(Blueprint $table) {
-			$table->foreign('user_id')->references('id')->on('users')
-						->onDelete('CASCADE')
-						->onUpdate('CASCADE');
         });
     }
 

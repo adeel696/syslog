@@ -10,7 +10,7 @@
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">City <small></small></h1>
+    <h1 class="page-header">{{ utf8_encode(__('static.City')) }} <small></small></h1>
     <!-- end page-header -->
     
     <!-- begin section-container -->
@@ -25,7 +25,7 @@
                         <div class="panel-heading-btn">
                             <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/admin/city/create') }}"><i class="fa fa-plus"></i></a>
                         </div>
-                        <h4 class="panel-title">Cities</h4>
+                        <h4 class="panel-title">{{ utf8_encode(__('static.Cities')) }}</h4>
                     </div>
                     <div class="table-responsive">
                         <table id="viewForm" class="table table-td-valign-middle">

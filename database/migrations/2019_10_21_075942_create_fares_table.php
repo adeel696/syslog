@@ -18,7 +18,7 @@ class CreateFaresTable extends Migration
             $table->integer('vehicle_id')->unsigned()->nullable();
             $table->text('type_of_vehicle')->nullable();
             $table->integer('city1_id')->unsigned()->nullable();
-            $table->integer('cit2_id')->unsigned()->nullable();
+            $table->integer('city2_id')->unsigned()->nullable();
             $table->string('capacity');
             $table->string('insurances_amount');
             $table->string('loading_price');

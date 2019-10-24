@@ -15,6 +15,8 @@ class CreatePackagingsTable extends Migration
     {
         Schema::create('packagings', function (Blueprint $table) {
             $table->increments('id');
+			$table->string('type');
+			$table->string('detail');
             $table->timestamps();
         });
     }

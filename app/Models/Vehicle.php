@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,11 +13,21 @@ class Vehicle extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['name','vehicle_type_id'];
+    protected $fillable = ['name','capacity', 'specification'];
+	
+	public function User_vehicle()
+	{
+		return $this->hasMany('App\Models\User_vehicle' , 'vehicle_id');
+	}
+	
+	public function Fare()
+	{
+		return $this->hasMany('App\Models\Fare' , 'vehicle_id');
+	}
+	
+	public function Vehicle_booking()
+	{
+		return $this->hasMany('App\Models\Vehicle_booking' , 'vehicle_id');
+	}
    
-    public function Vehicle_type()
-   {
-      return $this->belongsTo('App\Models\Vehicle_type' , 'vehicle_type_id');
-    }
-    
 }

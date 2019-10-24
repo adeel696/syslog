@@ -23,6 +23,7 @@ class CityController extends Controller
      */
     public function __construct(CityRepository $cityRps)
     { 
+		$this->middleware('admin');
         $this->cityRps = $cityRps;
     }
 	
@@ -121,7 +122,6 @@ class CityController extends Controller
 			return $info_Cities->Country()->First()->name;
         })
 		->escapeColumns([])
-		->removeColumn('type')
-		->make(true);
+ 		->make(true);
     }
 }
