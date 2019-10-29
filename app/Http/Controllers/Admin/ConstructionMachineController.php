@@ -35,4 +35,10 @@ class ConstructionMachineController extends Controller
 		->escapeColumns([])
  		->make(true);
     }
+	
+	public function lists()
+    {
+		$info_ConstructionMachines = $this->constructionMachinesRps->getConstructionMachine()->pluck("name","id");
+		return response()->json($info_ConstructionMachines);
+    }
 }

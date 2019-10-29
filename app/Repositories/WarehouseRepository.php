@@ -1,13 +1,9 @@
 <?php
-
 namespace App\Repositories;
-
 use App\Models\Warehouse;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use DB;
-
-
 class WarehouseRepository {
 	
 	/**
@@ -57,4 +53,3 @@ class WarehouseRepository {
     }
 	
 }
-

@@ -13,10 +13,15 @@ class Warehouse_booking extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['booking_id', 'product_type', 'packaging', 'weight', 'volume', 'needed_space', 'preferences', 'others'];
+    protected $fillable = ['booking_id', 'product_type', 'packaging', 'weight', 'volume', 'needed_space', 'preferences', 'preference_text', 'city_id'];
    
 	public function Booking()
 	{
 		return $this->belongsTo('App\Models\Booking' , 'booking_id');
+	}
+	
+	public function City()
+	{
+		return $this->belongsTo('App\Models\City' , 'city_id');
 	}
 }

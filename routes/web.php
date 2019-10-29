@@ -26,6 +26,7 @@ Route::get('/construction-machinery', function () {
     return view('construction-machinery');
 });
 
+Route::post('/warehouse', 'BookingController@addWarehouseBooking');
 Route::get('/warehouse', function () {
     return view('warehouse');
 });
@@ -53,12 +54,17 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::post('/login', 'Admin\Auth\LoginController@login');
 	Route::post('/logout', 'Admin\Auth\LoginController@logout');
 	
+	Route::get('/construction-machine/list', 'Admin\ConstructionMachineController@lists');
 	Route::get('/construction-machine/grid', 'Admin\ConstructionMachineController@grid');
 	Route::resource('/construction-machine', 'Admin\ConstructionMachineController');
+	
+	Route::get('/fare/grid', 'Admin\FareController@grid');
+	Route::resource('/fare', 'Admin\FareController');
 	
 	Route::get('/packaging/grid', 'Admin\PackagingController@grid');
 	Route::resource('/packaging', 'Admin\PackagingController');
 	
+	Route::get('/vehicle/list', 'Admin\VehicleController@lists');
 	Route::get('/vehicle/grid', 'Admin\VehicleController@grid');
 	Route::resource('/vehicle', 'Admin\VehicleController');
 	

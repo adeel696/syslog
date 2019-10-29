@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\WarehouseRepository;
+use App\Repositories\FareRepository;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Warehouse;
+use App\Models\City;
+use App\Models\Fare;
+use App\Models\Vehicle;
 use DataTables;
 use URL;
 use DB;
@@ -15,16 +16,16 @@ use Session;
 
 class FareController extends Controller
 {
-    protected $warehouseRps;
+    protected $fareRps;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(WarehouseRepository $warehouseRps)
+    public function __construct(FareRepository $fareRps)
     { 
 		$this->middleware('admin');
-        $this->warehouseRps = $warehouseRps;
+        $this->fareRps = $fareRps;
     }
     public function index()
     {
@@ -38,8 +39,9 @@ class FareController extends Controller
      */
     public function create()
     {
-        $User= User::all();
-        return view('admin.fare.add', ['User' => $User]);
+        $Cities = City::All();
+		$Vehicles = Vehicle::All();
+        return view('admin.fare.add', ['Cities' => $Cities, 'Vehicles' => $Vehicles]);
     
     }
 
@@ -51,9 +53,18 @@ class FareController extends Controller
      */
     public function store(Request $request)
     {
-        $this->warehouseRps->addWarehouse($request);
+		$inputs = $request->All();
 		
-		Session::flash('flash_message', 'Warehouse successfully added!');
+		if($inputs["type_of_vehicle"] == 1)
+		{
+			$inputs["vehicle_id"] = $inputs["machine_id"];
+		}
+		else
+		{
+			$inputs["contruction_machinary_id"] = $inputs["machine_id"];
+		}
+        $this->fareRps->addFare($inputs);
+		Session::flash('flash_message', utf8_encode(__('static.Fare')).' '. utf8_encode('ajouté avec succès'));
 		return view('admin.fare.index');
     
     }
@@ -64,7 +75,7 @@ class FareController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Warehouse $warehouse)
+    public function show(Fare $fare)
     {
         //
     }
@@ -75,10 +86,11 @@ class FareController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Warehouse $warehouse)
+    public function edit(Fare $fare)
     {		
-		$User= User::all();
-        return view('admin.fare.edit' ,array('info_Fare' => $warehouse), ['User' => $User]);
+		$Cities = City::All();
+		$Vehicles = Vehicle::All();
+        return view('admin.fare.edit' ,array('info_Fare' => $fare), ['Cities' => $Cities, 'Vehicles' => $Vehicles]);
     
     }
 
@@ -89,10 +101,20 @@ class FareController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Warehouse $warehouse)
+    public function update(Request $request, Fare $fare)
     {
-        $this->warehouseRps->updateWarehouse($request->all() , $warehouse->id);
-		Session::flash('flash_message', 'Warehouse successfully updated!');
+		$inputs = $request->All();
+		
+		if($inputs["type_of_vehicle"] == 1)
+		{
+			$inputs["vehicle_id"] = $inputs["machine_id"];
+		}
+		else
+		{
+			$inputs["contruction_machinary_id"] = $inputs["machine_id"];
+		}
+        $this->fareRps->updateFare($inputs , $fare->id);
+		Session::flash('flash_message', utf8_encode(__('static.Fare')).' '. utf8_encode('mise à jour réussie'));
 		return view('admin.fare.index');
     }
 
@@ -102,23 +124,46 @@ class FareController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Warehouse $warehouse)
+    public function destroy(Fare $fare)
     {
-        $this->warehouseRps->deleteFare($warehouse->id);
+        $this->fareRps->deleteFare($fare->id);
     }
     public function grid()
     {
-	   $info_Warehouses = $this->warehouseRps->getWarehouse();
-	   return Datatables::of($info_Warehouses)
-		->addColumn('edit', function ($info_Warehouses) {
+	   $info_Fares = $this->fareRps->getFare();
+	   return Datatables::of($info_Fares)
+		->addColumn('edit', function ($info_Fares) {
 				 return '<div class="btn-group btn-group-action">
-								<a class="btn btn-info" style="margin-right:2px;" href="'.url('/cms/admin/warehouse/'.$info_Warehouses->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i></a> 
-                                <a class="btn btn-danger" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/cms/admin/warehouse/' . $info_Warehouses->id . '"><i class="fa fa-trash"></i></a>
-                                <a class="btn btn-primary" style="margin-left:1px;" href="'.url('/cms/admin/warehouse/'.$info_Warehouses->id).'" title="View"><i class="fa fa-eye"></i></a> 
+								<a class="btn btn-info" style="margin-right:2px;" href="'.url('/admin/fare/'.$info_Fares->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i></a> 
+                                <a class="btn btn-danger" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/admin/fare/' . $info_Fares->id . '"><i class="fa fa-trash"></i></a>
+                                <!--<a class="btn btn-primary" style="margin-left:1px;" href="'.url('/admin/fare/'.$info_Fares->id).'" title="View"><i class="fa fa-eye"></i></a>-->
                                 </div>';
         })
-        ->addColumn('User_id', function ($info_Warehouses) {
-			return $info_Warehouses->User()->First()->name;
+        ->addColumn('machine_name', function ($info_Fares) {
+			if($info_Fares->type_of_vehicle == 1)
+			{
+				return $info_Fares->Vehicle()->First()->name;
+			}
+			else
+			{
+				return $info_Fares->ConstructionMachine()->First()->name;
+			}
+        })
+		->editColumn('type_of_vehicle', function ($info_Fares) {
+			if($info_Fares->type_of_vehicle == 1)
+			{
+				return utf8_encode(__('static.Vehicles'));
+			}
+			else
+			{
+				return utf8_encode(__('static.Construction'))." ".utf8_encode(__('static.Machines'));
+			}
+        })
+		->editColumn('from_city', function ($info_Fares) {
+			return $info_Fares->FromCity()->First()->name;
+        })
+		->editColumn('to_city', function ($info_Fares) {
+			return $info_Fares->ToCity()->First()->name;
         })
 		->escapeColumns([])
  		->make(true);

@@ -13,11 +13,16 @@ class Fare extends Model
 	//timestamps
 	public $timestamp = true;
 	
-	protected $fillable = ['vehicle_id', 'type_of_vehicle', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare'];
+	protected $fillable = ['contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare'];
 	
 	public function Vehicle()
 	{
 		return $this->belongsTo('App\Models\Vehicle' , 'vehicle_id');
+	}
+	
+	public function ConstructionMachine()
+	{
+		return $this->belongsTo('App\Models\ConstructionMachine' , 'contruction_machinary_id');
 	}
 	
 	public function FromCity()

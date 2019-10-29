@@ -70,7 +70,7 @@
                                 <a href="{{ url('/admin/logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    <i class="fa fa-sign-out pull-right"></i> {{ utf8_encode(__('static.Log Out')) }}</a>
                                 </a>
                                 <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
@@ -130,6 +130,7 @@
 							<li class="{{ (request()->segment(3) == 'vehicle') ? 'active' : '' }}"><a href="{{url('/admin/booking/vehicle')}}">{{ utf8_encode(__('static.Vehicles')) }}</a></li>
 							<li class="{{ (request()->segment(3) == 'construction-machine') ? 'active' : '' }}"><a href="{{url('/admin/booking/construction-machine')}}">{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machines')) }}</a></li>
                             <li class="{{ (request()->segment(3) == 'warehouse') ? 'active' : '' }}"><a href="{{url('/admin/booking/warehouse')}}">{{ utf8_encode(__('static.Warehouse')) }}</a></li>
+                            <li class="{{ (request()->segment(3) == 'bulk-buy') ? 'active' : '' }}"><a href="{{url('/admin/booking/bulk-buy')}}">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }}</a></li>
 						</ul>
 					</li>
                     <li>

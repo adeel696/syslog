@@ -23,7 +23,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/admin/city/create') }}"><i class="fa fa-plus"></i></a>
+                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/admin/fare/create') }}"><i class="fa fa-plus"></i></a>
                         </div>
                         <h4 class="panel-title">{{ utf8_encode(__('static.Fares')) }}</h4>
                     </div>
@@ -33,7 +33,14 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.Name')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Country')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Type')) }}</th>
+                                    <th>{{ utf8_encode(__('static.From')) }} {{ utf8_encode(__('static.City')) }}</th>
+                                    <th>{{ utf8_encode(__('static.To')) }} {{ utf8_encode(__('static.City')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Capacity')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Insurances')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Loading')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Offloading')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Fare')) }}</th>
                                     <th>{{ utf8_encode(__('static.Action')) }}</th>
                                 </tr>
                             </thead>
@@ -57,11 +64,18 @@
     $('#viewForm').DataTable({
         "processing": true,
         "serverSide": true,
-		"ajax": "{{url('/admin/city/grid')}}",
+		"ajax": "{{url('/admin/fare/grid')}}",
         "columns": [
 			{ data: 'id', name: 'id' },
-			{ data: 'name', name: 'name' },
-      { data: 'country_id', name: 'country_id' },
+			{ data: 'machine_name', name: 'machine_name' },
+      		{ data: 'type_of_vehicle', name: 'type_of_vehicle' },
+			{ data: 'from_city', name: 'from_city' },
+			{ data: 'to_city', name: 'to_city' },
+			{ data: 'capacity', name: 'capacity' },
+			{ data: 'insurances_amount', name: 'insurances_amount' },
+			{ data: 'loading_price', name: 'loading_price' },
+			{ data: 'offloading_price', name: 'offloading_price' },
+			{ data: 'fare', name: 'fare' },
 			{ data: 'edit', name: 'edit', orderable: false, searchable: false }
 		],
 		"responsive": true,
@@ -73,7 +87,7 @@
     });
 	
 	$('#viewForm').on('click', '#btnDelete[data-remote]', function (e) { 
-		if (confirm("Are you sure to delete city?")) {		
+		if (confirm("Are you sure to delete fare?")) {		
 			e.preventDefault();		 
 			var url = '{{url("/")}}'+$(this).data('remote');
 			// confirm then

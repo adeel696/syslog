@@ -2,58 +2,65 @@
 
 namespace App\Repositories;
 
-use App\Models\Warehouse;
+use App\Models\Fare;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use DB;
 
 
-class WarehouseRepository {
+class FareRepository {
 	
 	/**
-	 * @var App\Models\warehouse
+	 * @var App\Models\fare
 	 */
-	protected $db_warehouse;
+	protected $db_fare;
 		
-    public function __construct(City $db_warehouse) 
+    public function __construct(Fare $db_fare) 
     {
-        $this->db_warehouse = $db_warehouse;
+        $this->db_fare = $db_fare;
     }
 	
-	public function addWarehouse($inputs)
+	public function addFare($inputs)
     {
-        $db_warehouse = $this->storeWarehouse(new $this->db_warehouse ,  $inputs);
-        return $db_warehouse;
+        $db_fare = $this->storeFare(new $this->db_fare ,  $inputs);
+        return $db_fare;
     }
-	public function updateWarehouse($inputs, $id)
+	public function updateFare($inputs, $id)
 	{
-		$db_warehouse = $this->db_warehouse->findOrFail($id);
-		$warehouse_id = $this->storeWarehouse($db_warehouse, $inputs, $id);
-		return $warehouse;
+		$db_fare = $this->db_fare->findOrFail($id);
+		$fare_id = $this->storeFare($db_fare, $inputs, $id);
+		return $db_fare;
 	}
 	
-	function storeWarehouse($db_warehouse , $inputs, $id = null)
+	function storeFare($db_fare , $inputs, $id = null)
 	{	
-		$db_warehouse->name = $inputs['name'];
-        $db_warehouse->address = $inputs['address'];
-        $db_warehouse->space_available = $inputs['space_available'];
-		$db_warehouse->fare = $inputs['fare'];
-		$db_warehouse->user_id = $inputs['user_id'];
-		$db_warehouse->save();
-		return $db_warehouse;
+		if(isset($inputs['contruction_machinary_id']))
+			$db_fare->contruction_machinary_id = $inputs['contruction_machinary_id'];
+		if(isset($inputs['vehicle_id']))
+			$db_fare->vehicle_id = $inputs['vehicle_id'];
+        $db_fare->type_of_vehicle = $inputs['type_of_vehicle'];
+        $db_fare->from_city = $inputs['from_city'];
+		$db_fare->to_city = $inputs['to_city'];
+		$db_fare->capacity = $inputs['capacity'];
+		$db_fare->insurances_amount = $inputs['insurances_amount'];
+		$db_fare->loading_price = $inputs['loading_price'];
+		$db_fare->offloading_price = $inputs['offloading_price'];
+		$db_fare->fare = $inputs['fare'];
+		$db_fare->save();
+		return $db_fare;
 	}
 	
-	public function getWarehouse($id = null)
+	public function getFare($id = null)
     {
 		if($id==null)
 		{
-			$info_Warehouse = $this->db_warehouse->select('id', 'name','address','space_available','fare','user_id')->orderBy('created_at', 'DESC')->get();
+			$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->orderBy('created_at', 'DESC')->get();
 		}
 		else
 		{
-			$info_Warehouse = $this->db_warehouse->select('id', 'name','address','space_available','fare','user_id')->findOrFail($id);
+			$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->findOrFail($id);
 		}
-        return $info_Warehouse;
+        return $info_Fare;
     }
 	
 }

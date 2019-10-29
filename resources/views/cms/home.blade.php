@@ -1,4 +1,4 @@
-@extends('cms.layouts.admin')
+@extends('cms.layouts.cms')
 
 @section('content')
 <!-- begin #content -->

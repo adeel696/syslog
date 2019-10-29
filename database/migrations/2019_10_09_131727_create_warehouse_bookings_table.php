@@ -22,11 +22,18 @@ class CreateWarehouseBookingsTable extends Migration
             $table->string('volume');
             $table->string('needed_space');
             $table->string('preferences');
-            $table->boolean('others');
+            $table->boolean('preference_text')->nullable();
+			$table->integer('city_id')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('warehouse_bookings', function(Blueprint $table) {
 			$table->foreign('booking_id')->references('id')->on('bookings')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		
+		Schema::table('warehouse_bookings', function(Blueprint $table) {
+			$table->foreign('city_id')->references('id')->on('cities')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });

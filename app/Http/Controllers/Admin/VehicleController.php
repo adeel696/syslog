@@ -39,4 +39,10 @@ class VehicleController extends Controller
 		->escapeColumns([])
  		->make(true);
     }
+	
+	public function lists()
+    {
+		$info_Cities = $this->vehicleRps->getVehicle()->pluck("name","id");
+		return response()->json($info_Cities);
+    }
 }

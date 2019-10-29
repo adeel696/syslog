@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-9 text-center">
-            <h1>Warehouse</h1><br>      
+            <h1>{{ utf8_encode(__('static.Warehouse')) }}</h1><br>      
         </div>
       </div>
     </div>
@@ -17,13 +17,19 @@
 <div class="bg-light" style="padding:50px">
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-6">
-            <h2 class="mb-4" id="catName">Warehouse</h2>
+            <h2 class="mb-4" id="catName">{{ utf8_encode(__('static.Warehouse')) }}</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center text-center mb-5">
+        <div class="col-md-6">
+            <span class="alert">{!! session('flash_message') !!}</span>
         </div>
     </div>
     <div class="container">
     	<div class="row" id="default">
          <div class="col-lg-6" >
-            <form action="#" method="post">
+            {!! Form::open([ 'url' => '/warehouse', 'files' => true, 'id' => 'main-form' ]) !!}
+               <input type="hidden" name="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : 0 ?>" />
                <div class="form-group row">
                   <div class="col-md-12">
                      <label>Type de produits:</label>
@@ -50,7 +56,7 @@
                <div class="form-group row">
                   <div class="col-md-12">
                      <label><?php echo utf8_encode("Type de Conditionnement"); ?>:</label>
-                     <select name="product_type" class="form-control">
+                     <select name="packaging" class="form-control">
                         <option><?php echo utf8_encode("Carton"); ?></option>
                         <option><?php echo utf8_encode("Palette"); ?></option>
                         <option><?php echo utf8_encode("Caisse en bois"); ?></option>
@@ -125,16 +131,12 @@
 	$("html, body").animate({ scrollTop: $('#default').offset().top-200 }, 600);
 	
 	var City = '<label>Ville</label>' +
-				 '<select name="city" class="form-control">' +
-					'<option><?php echo utf8_encode("Aribinda"); ?></option>' +
-					'<option><?php echo utf8_encode("Bagré"); ?></option>' +
-					'<option><?php echo utf8_encode("Banfora"); ?></option>' +
-					'<option><?php echo utf8_encode("Batié"); ?></option>' +
-					'<option><?php echo utf8_encode("Bobo Dioulasso"); ?></option>' +
-					'<option><?php echo utf8_encode("Bogandé"); ?></option>' +
-					'<option><?php echo utf8_encode("Boromo"); ?></option>' +
+				 '<select name="city_id" class="form-control">' +
+					@foreach(App\Models\City::All() as $city)
+						"<?php echo '<option value='."'".''.$city->id."'".'>'.utf8_encode($city->name).'</option>' ?>" +
+					@endforeach
 				 '</select>';
-	var Others = '<textarea name="preferences_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences:"); ?>"></textarea>';
+	var Others = '<textarea name="preference_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences:"); ?>"></textarea>';
 	$("#preferencesDiv").html(City);
 	$('input[name=preferences]').change(function() {
 		switch ($(this).val()) {
