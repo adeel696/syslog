@@ -122,7 +122,9 @@
    <div class="container" id="contentDetail">
       <div class="row" id="default-form">
          <div class="col-lg-6" >
-            <form action="#" method="post">
+            {!! Form::open([ 'url' => '/construction-machinery', 'files' => true, 'id' => 'main-form' ]) !!}
+               <input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
+               <input type="hidden" name="contruction_machinary_id" id="contruction_machinary_id" value="1" />
                <div class="form-group row">
                   <div class="col-md-6">
                       <label><?php echo utf8_encode("Lieu de livraison"); ?></label>
@@ -236,7 +238,7 @@
       <!--Other Form-->
       <div class="row" id="others-form">
          <div class="col-lg-6" >
-            <form action="#" method="post">
+            {!! Form::open([ 'url' => '/construction-machinery', 'files' => true, 'id' => 'main-form' ]) !!}
                <div class="form-group row">
                   <div class="col-md-12">
                      <select name="type_of_machinery" class="form-control">
@@ -256,73 +258,11 @@
                   </div>
                   <div class="col-md-6">
                      <label>City</label>
-                     <select name="origin" class="form-control">
-                     	<option><?php echo utf8_encode("Aribinda"); ?></option>
-                        <option><?php echo utf8_encode("Bagré"); ?></option>
-                        <option><?php echo utf8_encode("Banfora"); ?></option>
-                        <option><?php echo utf8_encode("Batié"); ?></option>
-                        <option><?php echo utf8_encode("Bobo Dioulasso"); ?></option>
-                        <option><?php echo utf8_encode("Bogandé"); ?></option>
-                        <option><?php echo utf8_encode("Boromo"); ?></option>
-                        <option><?php echo utf8_encode("Boulsa"); ?></option>
-                        <option><?php echo utf8_encode("Boussé"); ?></option>
-                        <option><?php echo utf8_encode("Dano"); ?></option>
-                        <option><?php echo utf8_encode("Dédougou"); ?></option>
-                        <option><?php echo utf8_encode("Diapaga"); ?></option>
-                        <option><?php echo utf8_encode("Diébougou"); ?></option>
-                        <option><?php echo utf8_encode("Djibo"); ?></option>
-                        <option><?php echo utf8_encode("Dori"); ?></option>
-                        <option><?php echo utf8_encode("Fada N'gourma"); ?></option>
-                        <option><?php echo utf8_encode("Gaoua"); ?></option>
-                        <option><?php echo utf8_encode("Garango"); ?></option>
-                        <option><?php echo utf8_encode("Gayéri"); ?></option>
-                        <option><?php echo utf8_encode("Gorom-Gorom"); ?></option>
-                        <option><?php echo utf8_encode("Gourcy"); ?></option>
-                        <option><?php echo utf8_encode("Houndé"); ?></option>
-                        <option><?php echo utf8_encode("Kantchari"); ?></option>
-                        <option><?php echo utf8_encode("Kaya"); ?></option>
-                        <option><?php echo utf8_encode("Kindi"); ?></option>
-                        <option><?php echo utf8_encode("Kokologo"); ?></option>
-                        <option><?php echo utf8_encode("Kombissiri"); ?></option>
-                        <option><?php echo utf8_encode("Kongoussi"); ?></option>
-                        <option><?php echo utf8_encode("Kordié"); ?></option>
-                        <option><?php echo utf8_encode("Koudougou"); ?></option>
-                        <option><?php echo utf8_encode("Kouka, Bam"); ?></option>
-                        <option><?php echo utf8_encode("Kouka, Banwa"); ?></option>
-                        <option><?php echo utf8_encode("Koupéla"); ?></option>
-                        <option><?php echo utf8_encode("Léo"); ?></option>
-                        <option><?php echo utf8_encode("Loropeni"); ?></option>
-                        <option><?php echo utf8_encode("Manga"); ?></option>
-                        <option><?php echo utf8_encode("Méguet"); ?></option>
-                        <option><?php echo utf8_encode("Mogtedo"); ?></option>
-                        <option><?php echo utf8_encode("Niangoloko"); ?></option>
-                        <option><?php echo utf8_encode("Nouna"); ?></option>
-                        <option><?php echo utf8_encode("Orodara"); ?></option>
-                        <option><?php echo utf8_encode("Ouagadougou (Capital)"); ?></option>
-                        <option><?php echo utf8_encode("Ouahigouya"); ?></option>
-                        <option><?php echo utf8_encode("Ouargaye"); ?></option>
-                        <option><?php echo utf8_encode("Pama"); ?></option>
-                        <option><?php echo utf8_encode("Pissila"); ?></option>
-                        <option><?php echo utf8_encode("Pô"); ?></option>
-                        <option><?php echo utf8_encode("Pouytenga"); ?></option>
-                        <option><?php echo utf8_encode("Réo"); ?></option>
-                        <option><?php echo utf8_encode("Saponé"); ?></option>
-                        <option><?php echo utf8_encode("Sapouy"); ?></option>
-                        <option><?php echo utf8_encode("Sebba"); ?></option>
-                        <option><?php echo utf8_encode("Séguénéga"); ?></option>
-                        <option><?php echo utf8_encode("Sindou"); ?></option>
-                        <option><?php echo utf8_encode("Solenzo"); ?></option>
-                        <option><?php echo utf8_encode("Tangin Dassouri"); ?></option>
-                        <option><?php echo utf8_encode("Tenkodogo"); ?></option>
-                        <option><?php echo utf8_encode("Tikaré"); ?></option>
-                        <option><?php echo utf8_encode("Titao"); ?></option>
-                        <option><?php echo utf8_encode("Toma"); ?></option>
-                        <option><?php echo utf8_encode("Tougan"); ?></option>
-                        <option><?php echo utf8_encode("Villy"); ?></option>
-                        <option><?php echo utf8_encode("Yako"); ?></option>
-                        <option><?php echo utf8_encode("Ziniaré"); ?></option>
-                        <option><?php echo utf8_encode("Zorgo"); ?></option>
-                     </select>
+                     <select name="origin" class="form-control">' +
+                        @foreach(App\Models\City::All() as $city)
+                            <option value="{{ $city->id }}">{{ utf8_encode($city->name) }}</option>
+                        @endforeach
+				 	</select>
                   </div>
                </div>
                <div class="form-group row">
@@ -371,6 +311,7 @@
 	getData("1", "<?php echo utf8_encode("Bétonneuse"); ?>", "cement-mixer.png");
 	function getData(id, type, image)
 	{	
+		$("#contruction_machinary_id").val(id);
 		$("#catName").html(type);
 		$("#catImage").attr("src","{{ url('/home/img/construction/') }}" + '/' + image);
 		switch(id)

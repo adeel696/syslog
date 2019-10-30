@@ -80,5 +80,23 @@ class BookingRepository {
         return $info_Booking;
     }
 	
+	public function getBookingByTypeByUser($type, $user_id)
+    {
+		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
+        return $info_Booking;
+    }
+	
+	public function getUserOffers()
+    {
+		$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'created_at', 'updated_at')->orderBy('created_at', 'DESC')->get();
+        return $info_Booking;
+    }
+	
+	public function getUserOffersByUser($user_id)
+    {
+		$info_Booking = $this->db_booking->select('id', 'user_id','offer_id', 'created_at', 'updated_at')->where('type',$type)->orderBy('created_at', 'DESC')->get();
+        return $info_Booking;
+    }
+	
 }
 

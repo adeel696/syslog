@@ -2,6 +2,7 @@
 
 return [
 	'ID' => 'ID',
+	'Login' => 'Login',
 	'Dashboard' => 'Dashboard',
     'Name' => 'Name',
 	'Country' => 'Country',

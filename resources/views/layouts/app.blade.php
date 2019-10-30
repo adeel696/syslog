@@ -55,8 +55,13 @@
                   <li class="{{ (request()->is('services')) ? 'active' : '' }}"><a href="{{ url('/services') }}" class="nav-link">Our Services</a></li>
                   <li class="{{ (request()->is('gooddeals')) ? 'active' : '' }}"><a href="{{ url('/gooddeals') }}" class="nav-link">Good Deals</a></li>
                   <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{ url('/contact') }}" class="nav-link">Contact</a></li>
-                  <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{ url('/login') }}" class="nav-link">Login</a></li>
-                  <li class="{{ (request()->is('register')) ? 'active' : '' }}"><a href="{{ url('/register') }}" class="nav-link">Register</a></li>
+                  @auth
+                	<li class=""><a href="{{ url('/cms') }}" class="nav-link">CMS</a></li>
+                  @endauth
+                  @guest
+               		<li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{ url('/login') }}" class="nav-link">Login/Register</a></li>
+                  @endguest
+                  
                 </ul>
               </nav>
             </div>

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\BookingRepository;
 use Illuminate\Http\Request;
 use DataTables;
+use Auth;
 
 class BookingController extends Controller
 {
@@ -17,58 +18,70 @@ class BookingController extends Controller
      */
     public function __construct(BookingRepository $bookingRps)
     { 
-		$this->middleware('admin');
+		$this->middleware('auth');
         $this->bookingRps = $bookingRps;
     }
 	
     public function getVehicle()
     {
-        return view('admin.booking.vehicle');
+        return view('cms.booking.vehicle');
     }
 
     public function getVehicleGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(1);
+	   $info_Bookings = $this->bookingRps->getBookingByTypeByUser(1, Auth::User()->id);
 	   return Datatables::of($info_Bookings)
+	   	->editColumn('user_id', function ($info_Bookings) {
+			return $info_Bookings->User()->First()->name;
+        })
 		->escapeColumns([])
  		->make(true);
     }
 	
 	public function getConstructionMachine()
     {
-        return view('admin.booking.construction-machine');
+        return view('cms.booking.construction-machine');
     }
 
     public function getConstructionMachineGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(2);
+	   $info_Bookings = $this->bookingRps->getBookingByTypeByUser(2, Auth::User()->id);
 	   return Datatables::of($info_Bookings)
+	   	->editColumn('user_id', function ($info_Bookings) {
+			return $info_Bookings->User()->First()->name;
+        })
 		->escapeColumns([])
  		->make(true);
     }
 	
 	public function getWarehouse()
     {
-        return view('admin.booking.warehouse');
+        return view('cms.booking.warehouse');
     }
 
     public function getWarehouseGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(1);
+	   $info_Bookings = $this->bookingRps->getBookingByTypeByUser(3, Auth::User()->id);
 	   return Datatables::of($info_Bookings)
+		->editColumn('user_id', function ($info_Bookings) {
+			return $info_Bookings->User()->First()->name;
+        })
 		->escapeColumns([])
  		->make(true);
     }
 	
 	public function getBulkBuy()
     {
-        return view('admin.booking.bulk-buy');
+        return view('cms.booking.bulk-buy');
     }
 
     public function getBulkBuyGrid()
     {
-	   $info_UserOffers = $this->bookingRps->getUserOffers();
+	   $info_UserOffers = $this->bookingRps->getUserOffersByUser(Auth::User()->id);
 	   return Datatables::of($info_UserOffers)
+	   	->editColumn('user_id', function ($info_Bookings) {
+			return $info_Bookings->User()->First()->name;
+        })
 		->escapeColumns([])
  		->make(true);
     }

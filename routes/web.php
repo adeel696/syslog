@@ -22,6 +22,7 @@ Route::get('/vehicle', function () {
     return view('vehicle');
 });
 
+Route::post('/construction-machinery', 'BookingController@addConstructionMachineBooking');
 Route::get('/construction-machinery', function () {
     return view('construction-machinery');
 });
@@ -80,6 +81,8 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('/booking/construction-machine', 'Admin\BookingController@getConstructionMachine');
 	Route::get('/booking/warehouse/grid', 'Admin\BookingController@getWarehouseGrid');
 	Route::get('/booking/warehouse', 'Admin\BookingController@getWarehouse');
+	Route::get('/booking/bulk-buy/grid', 'Admin\BookingController@getBulkBuyGrid');
+	Route::get('/booking/bulk-buy', 'Admin\BookingController@getBulkBuy');
 	
 	Route::get('/home', 'Admin\HomeController@index');	
 	
@@ -89,6 +92,15 @@ Auth::routes();
 
 Route::group(['prefix' => 'cms'], function(){
 	//Admin Auth	
-	Route::get('/', 'Cms\HomeController@index');	
+	Route::get('/', 'Cms\HomeController@index');
+	
+	Route::get('/booking/vehicle/grid', 'Cms\BookingController@getVehicleGrid');
+	Route::get('/booking/vehicle', 'Cms\BookingController@getVehicle');
+	Route::get('/booking/construction-machine/grid', 'Cms\BookingController@getConstructionMachineGrid');
+	Route::get('/booking/construction-machine', 'Cms\BookingController@getConstructionMachine');
+	Route::get('/booking/warehouse/grid', 'Cms\BookingController@getWarehouseGrid');
+	Route::get('/booking/warehouse', 'Cms\BookingController@getWarehouse');
+	Route::get('/booking/bulk-buy/grid', 'Cms\BookingController@getBulkBuyGrid');
+	Route::get('/booking/bulk-buy', 'Cms\BookingController@getBulkBuy');
 	
 });

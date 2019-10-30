@@ -17,15 +17,23 @@ class BookingController extends Controller
     { 
         $this->bookingRps = $bookingRps;
     }
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+
     public function addWarehouseBooking(Request $request)
     {
 		$inputs = $request->all();
-		$inputs['type'] = 2;
+		$inputs['type'] = 3;
+		$inputs['status'] = 1;
+		$info_Booking = $this->bookingRps->storeBooking($inputs);
+		$inputs['booking_id'] = $info_Booking->id;
+    	$this->bookingRps->storeWarehouseBooking($inputs);
+		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
+		return redirect('warehouse');
+    }
+	
+	public function addConstructionMachineBooking(Request $request)
+    {
+		return $inputs = $request->all();
+		$inputs['type'] = 3;
 		$inputs['status'] = 1;
 		$info_Booking = $this->bookingRps->storeBooking($inputs);
 		$inputs['booking_id'] = $info_Booking->id;

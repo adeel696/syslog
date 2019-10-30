@@ -29,7 +29,7 @@
     	<div class="row" id="default">
          <div class="col-lg-6" >
             {!! Form::open([ 'url' => '/warehouse', 'files' => true, 'id' => 'main-form' ]) !!}
-               <input type="hidden" name="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : 0 ?>" />
+               <input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
                <div class="form-group row">
                   <div class="col-md-12">
                      <label>Type de produits:</label>
@@ -146,6 +146,14 @@
 			case '2':
 				$("#preferencesDiv").html(Others);
 			break;
+		}
+	});
+	
+	$( "#main-form" ).submit(function( event ) {
+		if($("#user_id").val() == "")
+		{
+			window.location.href = "{{ url('login') }}";
+			return false;
 		}
 	});
 </script>
