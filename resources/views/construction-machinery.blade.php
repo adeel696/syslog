@@ -116,7 +116,7 @@
 <div class="bg-light" style="padding:50px">
    <div class="row justify-content-center text-center mb-5">
       <div class="col-md-6">
-         <h2 class="mb-4" id="catName">Category</h2>
+         <h2 class="mb-4" id="catName" name="type_of_machinery">Category</h2>
       </div>
    </div>
    <div class="container" id="contentDetail">
@@ -124,7 +124,8 @@
          <div class="col-lg-6" >
             {!! Form::open([ 'url' => '/construction-machinery', 'files' => true, 'id' => 'main-form' ]) !!}
                <input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
-               <input type="hidden" name="contruction_machinary_id" id="contruction_machinary_id" value="1" />
+               <input type="hidden" name="contruction_machinary_id" id="contruction_machinary_id" value = '1' />
+               <input type="hidden" name="type_of_machinery">
                <div class="form-group row">
                   <div class="col-md-6">
                       <label><?php echo utf8_encode("Lieu de livraison"); ?></label>

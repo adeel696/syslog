@@ -61,6 +61,26 @@ class BookingRepository {
 		return $db_warehouse_booking;
 	}
 
+	function storeConstructionMachineBooking($inputs)
+	{
+		//dd($inputs);
+		$db_warehouse_booking = new $this->db_warehouse_booking;
+        $db_warehouse_booking->booking_id = $inputs['booking_id'];
+		$db_warehouse_booking->contruction_machinary_id = $inputs['contruction_machinary_id'];
+		$db_warehouse_booking->type_of_machinery = $inputs['type_of_machinery'];
+		if(isset($inputs['specification']))
+			$db_warehouse_booking->specification = $inputs['specification'];
+		$db_warehouse_booking->delivery_deadline = $inputs['delivery_deadline'];
+		$db_warehouse_booking->preferences = $inputs['preferences'];
+		if(isset($inputs['duration_of_user']))
+			$db_warehouse_booking->duration_of_user = $inputs['duration_of_user'];
+		if(isset($inputs['others']))
+			$db_warehouse_booking->others = $inputs['others'];
+		if(isset($inputs['delivery_place_city_id']))
+			$db_warehouse_booking->delivery_place_city_id = $inputs['delivery_place_city_id'];
+		$db_warehouse_booking->save();
+		return $db_warehouse_booking;
+	}
 	function storeVehicleBooking($inputs)
 	{
 		//dd($inputs);

@@ -17,7 +17,7 @@ class CreateContructionMachineryBookingsTable extends Migration
             $table->increments('id');
             $table->integer('booking_id')->unsigned()->nullable();
             $table->integer('contruction_machinary_id')->unsigned()->nullable();
-            $table->text('type_of_machinery')->nullable();
+            $table->string('type_of_machinery')->nullable();
             $table->string('specification')->nullable();
             $table->integer('delivery_place_city_id')->unsigned()->nullable();
             $table->string('delivery_deadline');

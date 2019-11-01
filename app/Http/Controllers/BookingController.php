@@ -32,13 +32,12 @@ class BookingController extends Controller
 	
 	public function addConstructionMachineBooking(Request $request)
     {
-		return $inputs = $request->all();
+		$inputs = $request->all();
 		$inputs['type'] = 3;
 		$inputs['status'] = 1;
 		$info_Booking = $this->bookingRps->storeBooking($inputs);
 		$inputs['booking_id'] = $info_Booking->id;
-		$this->bookingRps->storeWarehouseBooking($inputs);
-		$inputs['capacity_type'] = 1;
+		$this->bookingRps->storeConstructionMachineBooking($inputs);
 		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
 		return redirect('warehouse');
 	}
