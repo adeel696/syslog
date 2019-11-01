@@ -21,15 +21,15 @@ class CreateVehicleBookingsTable extends Migration
             $table->integer('place_of_departure_city_id')->unsigned()->nullable();
             $table->integer('place_of_arrival_city_id')->unsigned()->nullable();
             $table->string('capacity');
-            $table->string('capacity_type');
+            $table->string('capacity_type')->nullable();
             $table->string('preferences')->nullable();
             $table->string('number_of_seats')->nullable();
-            $table->string('duration');
-            $table->boolean('others');
+            $table->string('duration')->nullable();
+            $table->boolean('others')->nullable();
             $table->string('specifications')->nullable();
-            $table->string('insurances');
-            $table->string('loading');
-            $table->string('offloading');
+            $table->string('insurances')->nullable();
+            $table->string('loading')->nullable();
+            $table->string('offloading')->nullable();
             $table->timestamps();
         });
         Schema::table('vehicle_bookings', function(Blueprint $table) {

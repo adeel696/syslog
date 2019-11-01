@@ -12,9 +12,9 @@
                   <div class="MultiCarousel-inner">
                      <div class="item">
                         <div class="pad15">
-                           <a href="javascript:void(0)" class="hedrSel" data-id="1" data-val="<?php echo utf8_encode("Bétonneuse"); ?>" data-img="cement-mixer.png">
+                           <a href="javascript:void(0)" class="hedrSel" data-id="1" data-val="<?php echo utf8_encode("Bï¿½tonneuse"); ?>" data-img="cement-mixer.png">
                               <span class="lead"><img class="zoomImg" src="{{ url('/home/img/construction/cement-mixer.png') }}" style="width:100px"></span>
-                              <p><?php echo utf8_encode("Bétonneuse"); ?></p>
+                              <p><?php echo utf8_encode("Bï¿½tonneuse"); ?></p>
                            </a>
                         </div>
                      </div>
@@ -76,9 +76,9 @@
                      </div>
                      <div class="item">
                         <div class="pad15">
-                           <a href="javascript:void(0)" class="hedrSel" data-id="9" data-val="<?php echo utf8_encode("Nacelles élévateur"); ?>" data-img="aerial-lift.png">
+                           <a href="javascript:void(0)" class="hedrSel" data-id="9" data-val="<?php echo utf8_encode("Nacelles ï¿½lï¿½vateur"); ?>" data-img="aerial-lift.png">
                               <span class="lead"><img class="zoomImg" src="{{ url('/home/img/construction/aerial-lift.png') }}" style="width:100px"></span>
-                              <p><?php echo utf8_encode("Nacelles élévateur"); ?></p>
+                              <p><?php echo utf8_encode("Nacelles ï¿½lï¿½vateur"); ?></p>
                            </a>
                         </div>
                      </div>
@@ -136,42 +136,42 @@
                      <label>City</label>
                      <select name="origin" class="form-control">
                      	<option><?php echo utf8_encode("Aribinda"); ?></option>
-                        <option><?php echo utf8_encode("Bagré"); ?></option>
+                        <option><?php echo utf8_encode("Bagrï¿½"); ?></option>
                         <option><?php echo utf8_encode("Banfora"); ?></option>
-                        <option><?php echo utf8_encode("Batié"); ?></option>
+                        <option><?php echo utf8_encode("Batiï¿½"); ?></option>
                         <option><?php echo utf8_encode("Bobo Dioulasso"); ?></option>
-                        <option><?php echo utf8_encode("Bogandé"); ?></option>
+                        <option><?php echo utf8_encode("Bogandï¿½"); ?></option>
                         <option><?php echo utf8_encode("Boromo"); ?></option>
                         <option><?php echo utf8_encode("Boulsa"); ?></option>
-                        <option><?php echo utf8_encode("Boussé"); ?></option>
+                        <option><?php echo utf8_encode("Boussï¿½"); ?></option>
                         <option><?php echo utf8_encode("Dano"); ?></option>
-                        <option><?php echo utf8_encode("Dédougou"); ?></option>
+                        <option><?php echo utf8_encode("Dï¿½dougou"); ?></option>
                         <option><?php echo utf8_encode("Diapaga"); ?></option>
-                        <option><?php echo utf8_encode("Diébougou"); ?></option>
+                        <option><?php echo utf8_encode("Diï¿½bougou"); ?></option>
                         <option><?php echo utf8_encode("Djibo"); ?></option>
                         <option><?php echo utf8_encode("Dori"); ?></option>
                         <option><?php echo utf8_encode("Fada N'gourma"); ?></option>
                         <option><?php echo utf8_encode("Gaoua"); ?></option>
                         <option><?php echo utf8_encode("Garango"); ?></option>
-                        <option><?php echo utf8_encode("Gayéri"); ?></option>
+                        <option><?php echo utf8_encode("Gayï¿½ri"); ?></option>
                         <option><?php echo utf8_encode("Gorom-Gorom"); ?></option>
                         <option><?php echo utf8_encode("Gourcy"); ?></option>
-                        <option><?php echo utf8_encode("Houndé"); ?></option>
+                        <option><?php echo utf8_encode("Houndï¿½"); ?></option>
                         <option><?php echo utf8_encode("Kantchari"); ?></option>
                         <option><?php echo utf8_encode("Kaya"); ?></option>
                         <option><?php echo utf8_encode("Kindi"); ?></option>
                         <option><?php echo utf8_encode("Kokologo"); ?></option>
                         <option><?php echo utf8_encode("Kombissiri"); ?></option>
                         <option><?php echo utf8_encode("Kongoussi"); ?></option>
-                        <option><?php echo utf8_encode("Kordié"); ?></option>
+                        <option><?php echo utf8_encode("Kordiï¿½"); ?></option>
                         <option><?php echo utf8_encode("Koudougou"); ?></option>
                         <option><?php echo utf8_encode("Kouka, Bam"); ?></option>
                         <option><?php echo utf8_encode("Kouka, Banwa"); ?></option>
-                        <option><?php echo utf8_encode("Koupéla"); ?></option>
-                        <option><?php echo utf8_encode("Léo"); ?></option>
+                        <option><?php echo utf8_encode("Koupï¿½la"); ?></option>
+                        <option><?php echo utf8_encode("Lï¿½o"); ?></option>
                         <option><?php echo utf8_encode("Loropeni"); ?></option>
                         <option><?php echo utf8_encode("Manga"); ?></option>
-                        <option><?php echo utf8_encode("Méguet"); ?></option>
+                        <option><?php echo utf8_encode("Mï¿½guet"); ?></option>
                         <option><?php echo utf8_encode("Mogtedo"); ?></option>
                         <option><?php echo utf8_encode("Niangoloko"); ?></option>
                         <option><?php echo utf8_encode("Nouna"); ?></option>
@@ -181,31 +181,31 @@
                         <option><?php echo utf8_encode("Ouargaye"); ?></option>
                         <option><?php echo utf8_encode("Pama"); ?></option>
                         <option><?php echo utf8_encode("Pissila"); ?></option>
-                        <option><?php echo utf8_encode("Pô"); ?></option>
+                        <option><?php echo utf8_encode("Pï¿½"); ?></option>
                         <option><?php echo utf8_encode("Pouytenga"); ?></option>
-                        <option><?php echo utf8_encode("Réo"); ?></option>
-                        <option><?php echo utf8_encode("Saponé"); ?></option>
+                        <option><?php echo utf8_encode("Rï¿½o"); ?></option>
+                        <option><?php echo utf8_encode("Saponï¿½"); ?></option>
                         <option><?php echo utf8_encode("Sapouy"); ?></option>
                         <option><?php echo utf8_encode("Sebba"); ?></option>
-                        <option><?php echo utf8_encode("Séguénéga"); ?></option>
+                        <option><?php echo utf8_encode("Sï¿½guï¿½nï¿½ga"); ?></option>
                         <option><?php echo utf8_encode("Sindou"); ?></option>
                         <option><?php echo utf8_encode("Solenzo"); ?></option>
                         <option><?php echo utf8_encode("Tangin Dassouri"); ?></option>
                         <option><?php echo utf8_encode("Tenkodogo"); ?></option>
-                        <option><?php echo utf8_encode("Tikaré"); ?></option>
+                        <option><?php echo utf8_encode("Tikarï¿½"); ?></option>
                         <option><?php echo utf8_encode("Titao"); ?></option>
                         <option><?php echo utf8_encode("Toma"); ?></option>
                         <option><?php echo utf8_encode("Tougan"); ?></option>
                         <option><?php echo utf8_encode("Villy"); ?></option>
                         <option><?php echo utf8_encode("Yako"); ?></option>
-                        <option><?php echo utf8_encode("Ziniaré"); ?></option>
+                        <option><?php echo utf8_encode("Ziniarï¿½"); ?></option>
                         <option><?php echo utf8_encode("Zorgo"); ?></option>
                      </select>
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="delivery_deadline" class="form-control" placeholder="<?php echo utf8_encode("Délai maximum de livraiuson"); ?>">
+                     <input name="delivery_deadline" class="form-control" placeholder="<?php echo utf8_encode("Dï¿½lai maximum de livraiuson"); ?>">
                   </div>
                </div>
                <div class="form-group row">
@@ -215,7 +215,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="durartion" class="form-control" placeholder="<?php echo utf8_encode("Durée d'utilisation"); ?>">
+                     <input name="durartion" class="form-control" placeholder="<?php echo utf8_encode("Durï¿½e d'utilisation"); ?>">
                   </div>
                </div>
                <div class="form-group row">
@@ -225,8 +225,30 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                     <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver">
+                  <input type="button" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#exampleModalCenter">
                   </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                           <h5 class="modal-title" id="exampleModalLongTitle">Fare</h5>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                        <div class="modal-body">
+                        @foreach ($Fare as $fare)
+                           {{$fare->fare}}
+                        @endforeach
+                        </div>
+                        <div class="modal-footer">
+                           <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver">
+                        </div>
+                        </div>
+                     </div>
+                  </div>
+
                </div>
             </form>
          </div>
@@ -267,7 +289,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="delivery_deadline" class="form-control" placeholder="<?php echo utf8_encode("Délai maximum de livraiuson"); ?>">
+                     <input name="delivery_deadline" class="form-control" placeholder="<?php echo utf8_encode("Dï¿½lai maximum de livraiuson"); ?>">
                   </div>
                </div>
                <div class="form-group row">
@@ -277,7 +299,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="durartion" class="form-control" placeholder="<?php echo utf8_encode("Durée d'utilisation"); ?>">
+                     <input name="durartion" class="form-control" placeholder="<?php echo utf8_encode("Durï¿½e d'utilisation"); ?>">
                   </div>
                </div>
                <div class="form-group row">
@@ -298,7 +320,6 @@
       </div>
    </div>
 </div>
-
 @endsection
 @push('scripts') 
 <script>
@@ -308,7 +329,7 @@
 		
 	});
 	
-	getData("1", "<?php echo utf8_encode("Bétonneuse"); ?>", "cement-mixer.png");
+	getData("1", "<?php echo utf8_encode("Bï¿½tonneuse"); ?>", "cement-mixer.png");
 	function getData(id, type, image)
 	{	
 		$("#contruction_machinary_id").val(id);

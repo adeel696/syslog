@@ -98,7 +98,9 @@
    <div class="container" id="contentDetail">
       <div class="row" id="default-form">
          <div class="col-lg-6" >
-            <form action="#" method="post">
+         {!! Form::open([ 'url' => '/vehicle', 'files' => true, 'id' => 'main-form' ]) !!}
+               <input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
+               <input type="hidden" name="vehicle_id" id="vehicle_id" />
                <div id="othersExtraDiv">
                       
                </div>
@@ -128,172 +130,38 @@
                </div>
                
                <div class="form-group row">
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                       <label>Origine</label>
                       <select name="country" class="form-control">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                      <label>Ville</label>
-                     <select name="city" class="form-control">
-                     	<option><?php echo utf8_encode("Aribinda"); ?></option>
-                        <option><?php echo utf8_encode("Bagr�"); ?></option>
-                        <option><?php echo utf8_encode("Banfora"); ?></option>
-                        <option><?php echo utf8_encode("Bati�"); ?></option>
-                        <option><?php echo utf8_encode("Bobo Dioulasso"); ?></option>
-                        <option><?php echo utf8_encode("Bogand�"); ?></option>
-                        <option><?php echo utf8_encode("Boromo"); ?></option>
-                        <option><?php echo utf8_encode("Boulsa"); ?></option>
-                        <option><?php echo utf8_encode("Bouss�"); ?></option>
-                        <option><?php echo utf8_encode("Dano"); ?></option>
-                        <option><?php echo utf8_encode("D�dougou"); ?></option>
-                        <option><?php echo utf8_encode("Diapaga"); ?></option>
-                        <option><?php echo utf8_encode("Di�bougou"); ?></option>
-                        <option><?php echo utf8_encode("Djibo"); ?></option>
-                        <option><?php echo utf8_encode("Dori"); ?></option>
-                        <option><?php echo utf8_encode("Fada N'gourma"); ?></option>
-                        <option><?php echo utf8_encode("Gaoua"); ?></option>
-                        <option><?php echo utf8_encode("Garango"); ?></option>
-                        <option><?php echo utf8_encode("Gay�ri"); ?></option>
-                        <option><?php echo utf8_encode("Gorom-Gorom"); ?></option>
-                        <option><?php echo utf8_encode("Gourcy"); ?></option>
-                        <option><?php echo utf8_encode("Hound�"); ?></option>
-                        <option><?php echo utf8_encode("Kantchari"); ?></option>
-                        <option><?php echo utf8_encode("Kaya"); ?></option>
-                        <option><?php echo utf8_encode("Kindi"); ?></option>
-                        <option><?php echo utf8_encode("Kokologo"); ?></option>
-                        <option><?php echo utf8_encode("Kombissiri"); ?></option>
-                        <option><?php echo utf8_encode("Kongoussi"); ?></option>
-                        <option><?php echo utf8_encode("Kordi�"); ?></option>
-                        <option><?php echo utf8_encode("Koudougou"); ?></option>
-                        <option><?php echo utf8_encode("Kouka, Bam"); ?></option>
-                        <option><?php echo utf8_encode("Kouka, Banwa"); ?></option>
-                        <option><?php echo utf8_encode("Koup�la"); ?></option>
-                        <option><?php echo utf8_encode("L�o"); ?></option>
-                        <option><?php echo utf8_encode("Loropeni"); ?></option>
-                        <option><?php echo utf8_encode("Manga"); ?></option>
-                        <option><?php echo utf8_encode("M�guet"); ?></option>
-                        <option><?php echo utf8_encode("Mogtedo"); ?></option>
-                        <option><?php echo utf8_encode("Niangoloko"); ?></option>
-                        <option><?php echo utf8_encode("Nouna"); ?></option>
-                        <option><?php echo utf8_encode("Orodara"); ?></option>
-                        <option><?php echo utf8_encode("Ouagadougou (Capital)"); ?></option>
-                        <option><?php echo utf8_encode("Ouahigouya"); ?></option>
-                        <option><?php echo utf8_encode("Ouargaye"); ?></option>
-                        <option><?php echo utf8_encode("Pama"); ?></option>
-                        <option><?php echo utf8_encode("Pissila"); ?></option>
-                        <option><?php echo utf8_encode("P�"); ?></option>
-                        <option><?php echo utf8_encode("Pouytenga"); ?></option>
-                        <option><?php echo utf8_encode("R�o"); ?></option>
-                        <option><?php echo utf8_encode("Sapon�"); ?></option>
-                        <option><?php echo utf8_encode("Sapouy"); ?></option>
-                        <option><?php echo utf8_encode("Sebba"); ?></option>
-                        <option><?php echo utf8_encode("S�gu�n�ga"); ?></option>
-                        <option><?php echo utf8_encode("Sindou"); ?></option>
-                        <option><?php echo utf8_encode("Solenzo"); ?></option>
-                        <option><?php echo utf8_encode("Tangin Dassouri"); ?></option>
-                        <option><?php echo utf8_encode("Tenkodogo"); ?></option>
-                        <option><?php echo utf8_encode("Tikar�"); ?></option>
-                        <option><?php echo utf8_encode("Titao"); ?></option>
-                        <option><?php echo utf8_encode("Toma"); ?></option>
-                        <option><?php echo utf8_encode("Tougan"); ?></option>
-                        <option><?php echo utf8_encode("Villy"); ?></option>
-                        <option><?php echo utf8_encode("Yako"); ?></option>
-                        <option><?php echo utf8_encode("Ziniar�"); ?></option>
-                        <option><?php echo utf8_encode("Zorgo"); ?></option>
+                     <select name="to_city" class="form-control">
+                     <option>Select City</option>
+                     @foreach($City as $city)
+                     	<option value = '{{$city->id}}'>{{$city->name}}</option>
+                     @endforeach
                      </select>
-                  </div>
-                  <div class="col-md-4">
-                      <label>Quartier</label>
-                      <select name="district" class="form-control">
-                     	<option><?php echo utf8_encode("Quartier 1"); ?></option>
-                      </select>
                   </div>
                </div>
                
                <div class="form-group row">
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                       <label>Destination</label>
                       <select name="country" class="form-control">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                      <label>Ville</label>
-                     <select name="city" class="form-control">
-                     	<option><?php echo utf8_encode("Aribinda"); ?></option>
-                        <option><?php echo utf8_encode("Bagr�"); ?></option>
-                        <option><?php echo utf8_encode("Banfora"); ?></option>
-                        <option><?php echo utf8_encode("Bati�"); ?></option>
-                        <option><?php echo utf8_encode("Bobo Dioulasso"); ?></option>
-                        <option><?php echo utf8_encode("Bogand�"); ?></option>
-                        <option><?php echo utf8_encode("Boromo"); ?></option>
-                        <option><?php echo utf8_encode("Boulsa"); ?></option>
-                        <option><?php echo utf8_encode("Bouss�"); ?></option>
-                        <option><?php echo utf8_encode("Dano"); ?></option>
-                        <option><?php echo utf8_encode("D�dougou"); ?></option>
-                        <option><?php echo utf8_encode("Diapaga"); ?></option>
-                        <option><?php echo utf8_encode("Di�bougou"); ?></option>
-                        <option><?php echo utf8_encode("Djibo"); ?></option>
-                        <option><?php echo utf8_encode("Dori"); ?></option>
-                        <option><?php echo utf8_encode("Fada N'gourma"); ?></option>
-                        <option><?php echo utf8_encode("Gaoua"); ?></option>
-                        <option><?php echo utf8_encode("Garango"); ?></option>
-                        <option><?php echo utf8_encode("Gay�ri"); ?></option>
-                        <option><?php echo utf8_encode("Gorom-Gorom"); ?></option>
-                        <option><?php echo utf8_encode("Gourcy"); ?></option>
-                        <option><?php echo utf8_encode("Hound�"); ?></option>
-                        <option><?php echo utf8_encode("Kantchari"); ?></option>
-                        <option><?php echo utf8_encode("Kaya"); ?></option>
-                        <option><?php echo utf8_encode("Kindi"); ?></option>
-                        <option><?php echo utf8_encode("Kokologo"); ?></option>
-                        <option><?php echo utf8_encode("Kombissiri"); ?></option>
-                        <option><?php echo utf8_encode("Kongoussi"); ?></option>
-                        <option><?php echo utf8_encode("Kordi�"); ?></option>
-                        <option><?php echo utf8_encode("Koudougou"); ?></option>
-                        <option><?php echo utf8_encode("Kouka, Bam"); ?></option>
-                        <option><?php echo utf8_encode("Kouka, Banwa"); ?></option>
-                        <option><?php echo utf8_encode("Koup�la"); ?></option>
-                        <option><?php echo utf8_encode("L�o"); ?></option>
-                        <option><?php echo utf8_encode("Loropeni"); ?></option>
-                        <option><?php echo utf8_encode("Manga"); ?></option>
-                        <option><?php echo utf8_encode("M�guet"); ?></option>
-                        <option><?php echo utf8_encode("Mogtedo"); ?></option>
-                        <option><?php echo utf8_encode("Niangoloko"); ?></option>
-                        <option><?php echo utf8_encode("Nouna"); ?></option>
-                        <option><?php echo utf8_encode("Orodara"); ?></option>
-                        <option><?php echo utf8_encode("Ouagadougou (Capital)"); ?></option>
-                        <option><?php echo utf8_encode("Ouahigouya"); ?></option>
-                        <option><?php echo utf8_encode("Ouargaye"); ?></option>
-                        <option><?php echo utf8_encode("Pama"); ?></option>
-                        <option><?php echo utf8_encode("Pissila"); ?></option>
-                        <option><?php echo utf8_encode("P�"); ?></option>
-                        <option><?php echo utf8_encode("Pouytenga"); ?></option>
-                        <option><?php echo utf8_encode("R�o"); ?></option>
-                        <option><?php echo utf8_encode("Sapon�"); ?></option>
-                        <option><?php echo utf8_encode("Sapouy"); ?></option>
-                        <option><?php echo utf8_encode("Sebba"); ?></option>
-                        <option><?php echo utf8_encode("S�gu�n�ga"); ?></option>
-                        <option><?php echo utf8_encode("Sindou"); ?></option>
-                        <option><?php echo utf8_encode("Solenzo"); ?></option>
-                        <option><?php echo utf8_encode("Tangin Dassouri"); ?></option>
-                        <option><?php echo utf8_encode("Tenkodogo"); ?></option>
-                        <option><?php echo utf8_encode("Tikar�"); ?></option>
-                        <option><?php echo utf8_encode("Titao"); ?></option>
-                        <option><?php echo utf8_encode("Toma"); ?></option>
-                        <option><?php echo utf8_encode("Tougan"); ?></option>
-                        <option><?php echo utf8_encode("Villy"); ?></option>
-                        <option><?php echo utf8_encode("Yako"); ?></option>
-                        <option><?php echo utf8_encode("Ziniar�"); ?></option>
-                        <option><?php echo utf8_encode("Zorgo"); ?></option>
+                     <select name="from_city" class="form-control">
+                     <option>Select City</option>
+                     @foreach($City as $city)
+                     	<option value = '{{$city->id}}'>{{$city->name}}</option>
+                       @endforeach
                      </select>
-                  </div>
-                  <div class="col-md-4">
-                      <label>Quartier</label>
-                      <select name="district" class="form-control">
-                     	<option><?php echo utf8_encode("Quartier 1"); ?></option>
-                      </select>
                   </div>
                </div>
                <div class="form-group row">
@@ -319,7 +187,21 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                     <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver">
+                  <input type="button" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#exampleModalCenter">
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-body">
+                        <h3>Price:<p id="result" name="amount"></p></h3>
+                        </div>
+                        <div class="modal-footer">
+                           <input type="submit" class="btn btn-primary text-white py-3 px-3" value="Reserver">
+                           <input type="button" class="btn btn-secondary text-white py-3 px-3" data-dismiss="modal" value="Close">
+                        </div>
+                        </div>
+                     </div>
                   </div>
                </div>
             </form>
@@ -334,6 +216,7 @@
 @endsection
 @push('scripts') 
 <script>
+$('#myModal').modal('show').css("padding-right: 0px !important;");
 	$( ".hedrSel" ).click(function() {
 		getData($(this).data("id"), $(this).data("val"), $(this).data("img"))
 		$("html, body").animate({ scrollTop: $('#contentDetail').offset().top-200 }, 600);
@@ -474,6 +357,7 @@
 	function getData(id, type, image)
 	{	
       //alert(id);
+	  	$("#vehicle_id").val(id);
 		$("#othersExtraDiv").html("");
 		$("#citerne").html("");
 		$("#marchandises").html("");
@@ -538,5 +422,45 @@
 		}
 
     });
+
+
+   $(document).ready(function() {
+   $('#reserver').on('click', function(){
+      var vehicleID = $("#vehicle_id").val();
+      var toCityId = $('select[name="to_city"]').val();
+      var fromCityId = $('select[name="from_city"]').val();
+      //use above variable to get fare
+      if(toCityId) {
+         var url = "{{url('vehicle/getFare')}}"+'/';
+         // alert(url);
+         $.ajax({
+               url: url,
+               type:"GET",
+               dataType:"json",
+               data: {method: '_GET',"vehicle_id":vehicleID, "to_city":toCityId,"from_city":fromCityId, "_token": "{{ csrf_token() }}" ,    submit: true},
+               beforeSend: function(){
+                  $('#loader').css("visibility", "visible");
+               },
+               success:function(data) {
+                  console.log(data);
+                  $('#result').empty();
+                     $.each(data, function(key, value){
+                     $('#result').append('<p value="'+ key +'">' + value + '</p>');
+                  });
+               },
+               error: function (jqXHR, textStatus, errorThrown)
+               { alert(errorThrown) }
+         ,  
+               complete: function(){
+               // alert('url');
+                  $('#loader').css("visibility", "hidden");
+               }
+         });
+      } else {
+            //alert('else');
+         $('#result').append('<p>not working</p>');
+      }
+   });
+   });   
 </script>
 @endpush

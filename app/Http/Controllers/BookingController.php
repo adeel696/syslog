@@ -37,8 +37,20 @@ class BookingController extends Controller
 		$inputs['status'] = 1;
 		$info_Booking = $this->bookingRps->storeBooking($inputs);
 		$inputs['booking_id'] = $info_Booking->id;
-    	$this->bookingRps->storeWarehouseBooking($inputs);
+		$this->bookingRps->storeWarehouseBooking($inputs);
+		$inputs['capacity_type'] = 1;
 		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
 		return redirect('warehouse');
+	}
+	public function addVehicleBooking(Request $request)
+    {
+		$inputs = $request->all();
+		$inputs['type'] = 1;
+		$inputs['status'] = 1;
+		$info_Booking = $this->bookingRps->storeBooking($inputs);
+		$inputs['booking_id'] = $info_Booking->id;
+    	$this->bookingRps->storeVehicleBooking($inputs);
+		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
+		return redirect('vehicle');
     }
 }

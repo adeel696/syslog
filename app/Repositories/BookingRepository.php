@@ -60,6 +60,35 @@ class BookingRepository {
 		$db_warehouse_booking->save();
 		return $db_warehouse_booking;
 	}
+
+	function storeVehicleBooking($inputs)
+	{
+		//dd($inputs);
+		$db_vehicle_booking = new $this->db_vehicle_booking;
+        $db_vehicle_booking->booking_id = $inputs['booking_id'];
+		$db_vehicle_booking->place_of_departure_city_id = $inputs['to_city'];
+		$db_vehicle_booking->place_of_arrival_city_id = $inputs['from_city'];
+		$db_vehicle_booking->capacity = $inputs['capacity'];
+		$db_vehicle_booking->preferences = $inputs['preferences'];
+		if(isset($inputs['specifications']))
+		$db_vehicle_booking->specifications = $inputs['specifications'];
+		if(isset($inputs['capacity_type']))
+			$db_vehicle_booking->capacity_type = $inputs['capacity_type'];
+		if(isset($inputs['number_of_seats']))
+			$db_vehicle_booking->number_of_seats = $inputs['number_of_seats'];
+		if(isset($inputs['duration']))
+			$db_vehicle_booking->duration = $inputs['duration'];
+		if(isset($inputs['others']))
+			$db_vehicle_booking->others = $inputs['others'];
+		if(isset($inputs['insurances']))
+			$db_vehicle_booking->insurances = $inputs['insurances'];
+		if(isset($inputs['loading']))
+			$db_vehicle_booking->loading = $inputs['loading'];
+		if(isset($inputs['offloading']))
+			$db_vehicle_booking->offloading = $inputs['offloading'];
+		$db_vehicle_booking->save();
+		return $db_vehicle_booking;
+	}
 	
 	public function getBooking($id = null)
     {
