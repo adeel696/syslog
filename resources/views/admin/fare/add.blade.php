@@ -45,7 +45,7 @@
                           {!! Form::select('machine_id', $defaultSelection, null, ['class' => 'form-control', 'id' => 'machine_id']) !!}
                        </div>
                     </div>
-                    <div class="row">
+                    <div class="row fromCityDiv">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
                           <label>{{ utf8_encode(__('static.From')) }} {{ utf8_encode(__('static.City')) }}</label>
 						  <?php
@@ -58,7 +58,7 @@
 						  {!! Form::select('from_city', $defaultSelection, null, ['class' => 'form-control', 'id' => 'from_city']) !!}
                        </div>
                     </div>
-                    <div class="row">
+                    <div class="row toCityDiv">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
                           <label>{{ utf8_encode(__('static.To')) }} {{ utf8_encode(__('static.City')) }}</label>
 						  <?php
@@ -142,9 +142,17 @@
 $('#vehicleType').on('change', function (e) { 
 	var vehicle_type = $('#vehicleType option:selected').val();
 	if(vehicle_type == 1)
+	{
+		$(".fromCityDiv").show();
+		$(".toCityDiv").show();
 		var url = "{{ url('admin/vehicle/list') }}";
+	}
 	else
+	{
+		$(".fromCityDiv").hide();
+		$(".toCityDiv").hide();
 		var url = "{{ url('admin/construction-machine/list') }}";
+	}
 		
 	$.ajax({
 		url: url,

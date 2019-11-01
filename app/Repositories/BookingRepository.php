@@ -72,8 +72,6 @@ class BookingRepository {
 		$db_vehicle_booking->preferences = $inputs['preferences'];
 		if(isset($inputs['specifications']))
 		$db_vehicle_booking->specifications = $inputs['specifications'];
-		if(isset($inputs['capacity_type']))
-			$db_vehicle_booking->capacity_type = $inputs['capacity_type'];
 		if(isset($inputs['number_of_seats']))
 			$db_vehicle_booking->number_of_seats = $inputs['number_of_seats'];
 		if(isset($inputs['duration']))

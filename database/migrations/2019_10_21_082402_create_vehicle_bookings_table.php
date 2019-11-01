@@ -21,7 +21,6 @@ class CreateVehicleBookingsTable extends Migration
             $table->integer('place_of_departure_city_id')->unsigned()->nullable();
             $table->integer('place_of_arrival_city_id')->unsigned()->nullable();
             $table->string('capacity');
-            $table->string('capacity_type')->nullable();
             $table->string('preferences')->nullable();
             $table->string('number_of_seats')->nullable();
             $table->string('duration')->nullable();

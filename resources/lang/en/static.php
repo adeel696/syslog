@@ -58,5 +58,6 @@ return [
 	'Register' => 'Register',
 	'Enterprise' => 'Enterprise',
 	'Asset Owner' => 'Asset Owner',
+	'To' => 'To',
 	
 ];

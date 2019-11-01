@@ -138,7 +138,7 @@
                   </div>
                   <div class="col-md-6">
                      <label>Ville</label>
-                     <select name="to_city" class="form-control">
+                     <select name="from_city" class="form-control">
                      <option>Select City</option>
                      @foreach($City as $city)
                      	<option value = '{{$city->id}}'>{{$city->name}}</option>
@@ -156,7 +156,7 @@
                   </div>
                   <div class="col-md-6">
                      <label>Ville</label>
-                     <select name="from_city" class="form-control">
+                     <select name="to_city" class="form-control">
                      <option>Select City</option>
                      @foreach($City as $city)
                      	<option value = '{{$city->id}}'>{{$city->name}}</option>

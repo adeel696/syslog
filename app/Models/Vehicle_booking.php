@@ -14,8 +14,7 @@ class Vehicle_booking extends Model
     public $timestamp = true;
 
     protected $fillable = ['booking_id', 'vehicle_id', 'type_of_vehicle ','specifications'
-        ,'place_of_departure_city_id','place_of_arrival_city_id','capacity'
-        ,'capacity_type', 'preferences', 'number_of_seats', 'duration'
+        ,'place_of_departure_city_id','place_of_arrival_city_id','capacity', 'preferences', 'number_of_seats', 'duration'
 		, 'others', 'specifications', 'insurances', 'loading', 'offloading'
 		];
    

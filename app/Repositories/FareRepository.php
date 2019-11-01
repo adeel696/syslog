@@ -39,8 +39,10 @@ class FareRepository {
 		if(isset($inputs['vehicle_id']))
 			$db_fare->vehicle_id = $inputs['vehicle_id'];
         $db_fare->type_of_vehicle = $inputs['type_of_vehicle'];
-        $db_fare->from_city = $inputs['from_city'];
-		$db_fare->to_city = $inputs['to_city'];
+        if(isset($inputs['from_city']))
+			$db_fare->from_city = $inputs['from_city'];
+		if(isset($inputs['to_city']))
+			$db_fare->to_city = $inputs['to_city'];
 		$db_fare->capacity = $inputs['capacity'];
 		$db_fare->insurances_amount = $inputs['insurances_amount'];
 		$db_fare->loading_price = $inputs['loading_price'];

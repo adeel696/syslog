@@ -160,10 +160,16 @@ class FareController extends Controller
 			}
         })
 		->editColumn('from_city', function ($info_Fares) {
-			return $info_Fares->FromCity()->First()->name;
+			if($info_Fares->type_of_vehicle == 1)
+				return $info_Fares->FromCity()->First()->name;
+			else
+				return "";
         })
 		->editColumn('to_city', function ($info_Fares) {
-			return $info_Fares->ToCity()->First()->name;
+			if($info_Fares->type_of_vehicle == 1)
+				return $info_Fares->ToCity()->First()->name;
+			else
+				return "";
         })
 		->escapeColumns([])
  		->make(true);
