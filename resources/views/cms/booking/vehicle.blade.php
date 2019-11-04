@@ -29,11 +29,22 @@
                     </div>
                     <div class="table-responsive">
                         <table id="viewForm" class="table table-td-valign-middle">
-                            <thead>
-                                <tr>
+                            <thead><tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Vehicle')) }}</th>
+                                    <th>{{ utf8_encode(__('Booking ID')) }}</th>
+                                    <th>{{ utf8_encode(__('Departure City')) }}</th>
+                                    <th>{{ utf8_encode(__('Arrival City')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Capacity')) }}</th>
+                                    <th>{{ utf8_encode(__('static.No.of Seats')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Amount')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Preferences')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Specifications')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Loading')) }}</th>
+                                    <th>{{ utf8_encode(__('static.OffLoading')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Others')) }}</th>
                                     <th>{{ utf8_encode(__('static.Status')) }}</th>
                                 </tr>
                             </thead>
@@ -60,8 +71,20 @@
 		"ajax": "{{url('/cms/booking/vehicle/grid')}}",
         "columns": [
 			{ data: 'id', name: 'id' },
-			{ data: 'user_id', name: 'user_id' },
+            { data: 'user_id', name: 'user_id' },
+            { data: 'vehicle_id', name: 'vehicle_id' }, 
+            { data: 'booking_id', name: 'booking_id' },                       
+            { data: 'place_of_departure_city_id', name: 'place_of_departure_city_id' },
+            { data: 'place_of_arrival_city_id', name: 'place_of_arrival_city_id' },
+            { data: 'capacity', name: 'capacity' },
+            { data: 'number_of_seats', name: 'number_of_seats' },
+            { data: 'amount', name: 'amount' },            
       		{ data: 'description', name: 'description' },
+            { data: 'preferences', name: 'preferences' },
+            { data: 'specifications', name: 'specifications' },
+            { data: 'loading', name: 'loading' },
+            { data: 'offloading', name: 'offloading' },
+            { data: 'others', name: 'others' },
 			{ data: 'status', name: 'status' },
 		],
 		"responsive": true,

@@ -21,9 +21,9 @@ class CreateContructionMachineryBookingsTable extends Migration
             $table->string('specification')->nullable();
             $table->integer('delivery_place_city_id')->unsigned()->nullable();
             $table->string('delivery_deadline');
-            $table->string('duration_of_user');
+            $table->string('duration_of_user')->nullable();
             $table->string('preferences');
-            $table->boolean('others');
+            $table->boolean('others')->nullable();
             $table->timestamps();
         });
         Schema::table('contruction_machinaries_bookings', function(Blueprint $table) {

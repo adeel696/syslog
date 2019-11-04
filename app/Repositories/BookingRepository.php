@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Warehouse_booking;
 use App\Models\Vehicle_booking;
 use App\Models\User_offer;
+use App\Models\ConstructionMachineBooking;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use DB;
@@ -20,13 +21,15 @@ class BookingRepository {
 	protected $db_warehouse_booking;
 	protected $db_vehicle_booking;
 	protected $db_user_offer;
+	protected $db_construction_machine_booking;
 		
-    public function __construct(Booking $db_booking, Warehouse_booking $db_warehouse_booking, Vehicle_booking $db_vehicle_booking, User_offer $db_user_offer) 
+    public function __construct(Booking $db_booking, Warehouse_booking $db_warehouse_booking, Vehicle_booking $db_vehicle_booking, User_offer $db_user_offer, ConstructionMachineBooking $db_construction_machine_booking) 
     {
         $this->db_booking = $db_booking;
 		$this->db_warehouse_booking = $db_warehouse_booking;
 		$this->db_vehicle_booking = $db_vehicle_booking;
 		$this->db_user_offer = $db_user_offer;
+		$this->db_construction_machine_booking = $db_construction_machine_booking;
     }
 	
 	function storeBooking($inputs)
@@ -61,26 +64,6 @@ class BookingRepository {
 		return $db_warehouse_booking;
 	}
 
-	function storeConstructionMachineBooking($inputs)
-	{
-		//dd($inputs);
-		$db_warehouse_booking = new $this->db_warehouse_booking;
-        $db_warehouse_booking->booking_id = $inputs['booking_id'];
-		$db_warehouse_booking->contruction_machinary_id = $inputs['contruction_machinary_id'];
-		$db_warehouse_booking->type_of_machinery = $inputs['type_of_machinery'];
-		if(isset($inputs['specification']))
-			$db_warehouse_booking->specification = $inputs['specification'];
-		$db_warehouse_booking->delivery_deadline = $inputs['delivery_deadline'];
-		$db_warehouse_booking->preferences = $inputs['preferences'];
-		if(isset($inputs['duration_of_user']))
-			$db_warehouse_booking->duration_of_user = $inputs['duration_of_user'];
-		if(isset($inputs['others']))
-			$db_warehouse_booking->others = $inputs['others'];
-		if(isset($inputs['delivery_place_city_id']))
-			$db_warehouse_booking->delivery_place_city_id = $inputs['delivery_place_city_id'];
-		$db_warehouse_booking->save();
-		return $db_warehouse_booking;
-	}
 	function storeVehicleBooking($inputs)
 	{
 		//dd($inputs);
@@ -108,6 +91,27 @@ class BookingRepository {
 		return $db_vehicle_booking;
 	}
 	
+	function storeConstructionMachineBooking($inputs)
+	{
+		//dd($inputs);
+		$db_construction_machine_booking = new $this->db_construction_machine_booking;
+		$db_construction_machine_booking->booking_id = $inputs['booking_id'];
+		$db_construction_machine_booking->contruction_machinary_id = $inputs['contruction_machinary_id'];
+		$db_construction_machine_booking->type_of_machinery = $inputs['type_of_machinery'];
+		if(isset($inputs['specification']))
+			$db_construction_machine_booking->specification = $inputs['specification'];
+		$db_construction_machine_booking->delivery_deadline = $inputs['delivery_deadline'];
+		$db_construction_machine_booking->preferences = $inputs['preferences'];
+		if(isset($inputs['duration_of_user']))
+			$db_construction_machine_booking->duration_of_user = $inputs['duration_of_user'];
+		if(isset($inputs['others']))
+			$db_construction_machine_booking->others = $inputs['others'];
+		if(isset($inputs['delivery_place_city_id']))
+			$db_construction_machine_booking->delivery_place_city_id = $inputs['delivery_place_city_id'];
+		$db_construction_machine_booking->save();
+		return $db_construction_machine_booking;
+	}
+
 	public function getBooking($id = null)
     {
 		if($id==null)
@@ -129,7 +133,7 @@ class BookingRepository {
 	
 	public function getBookingByTypeByUser($type, $user_id)
     {
-		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
+		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->where('user_id',$user_id);
         return $info_Booking;
     }
 	

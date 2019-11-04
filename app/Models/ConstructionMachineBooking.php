@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ConstructionMachineBooking extends Model
 {
     //Table name
-    protected $table = 'contruction_machinery_bookings';
+    protected $table = 'contruction_machinaries_bookings';
     //primary key
     public $primarykey = 'id';
     //timestamps

@@ -216,7 +216,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="durartion" class="form-control" placeholder="<?php echo utf8_encode("Dur�e d'utilisation"); ?>">
+                     <input name="duration_of_user" class="form-control" placeholder="<?php echo utf8_encode("Dur�e d'utilisation"); ?>">
                   </div>
                </div>
                <div class="form-group row">

@@ -29,7 +29,10 @@ class BookingController extends Controller
 
     public function getVehicleGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByTypeByUser(1, Auth::User()->id);
+       $info_Bookings = $this->bookingRps->getBookingByTypeByUser(1, Auth::User()->id)
+       ->join('vehicle_bookings', 'vehicle_bookings.booking_id', '=', 'bookings.id')
+       ->select('bookings.*', 'vehicle_bookings.*')
+       ->get();
 	   return Datatables::of($info_Bookings)
 	   	->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name;
@@ -45,7 +48,10 @@ class BookingController extends Controller
 
     public function getConstructionMachineGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByTypeByUser(2, Auth::User()->id);
+       $info_Bookings = $this->bookingRps->getBookingByTypeByUser(2, Auth::User()->id)
+       ->join('contruction_machinaries_bookings', 'contruction_machinaries_bookings.booking_id', '=', 'bookings.id')
+       ->select('bookings.*', 'contruction_machinaries_bookings.*')
+       ->get();
 	   return Datatables::of($info_Bookings)
 	   	->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name;
@@ -61,7 +67,10 @@ class BookingController extends Controller
 
     public function getWarehouseGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByTypeByUser(3, Auth::User()->id);
+       $info_Bookings = $this->bookingRps->getBookingByTypeByUser(3, Auth::User()->id)
+       ->join('warehouse_bookings', 'warehouse_bookings.booking_id', '=', 'bookings.id')
+       ->select('bookings.*', 'warehouse_bookings.*')
+       ->get();
 	   return Datatables::of($info_Bookings)
 		->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name;
