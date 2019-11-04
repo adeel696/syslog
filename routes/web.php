@@ -23,9 +23,12 @@ Route::get('/vehicle', function () {
 });
 
 Route::post('/construction-machinery', 'BookingController@addConstructionMachineBooking');
-Route::get('/construction-machinery', 'ConstructionMachineController@getFare');
+Route::get('/construction-machinery', 'ConstructionMachineController@showConstructionMachine');
+Route::get('construction-machinery/getFare/', 'ConstructionMachineController@getFare');	
+
+
 Route::post('/vehicle', 'BookingController@addVehicleBooking');
-Route::get('/vehicle', 'VehicleController@getCity');
+Route::get('/vehicle', 'VehicleController@showVehicle');
 Route::get('vehicle/getFare/', 'VehicleController@getFare');	
 
 // Route::get('/construction-machinery', function () {

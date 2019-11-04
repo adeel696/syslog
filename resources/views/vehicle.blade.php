@@ -95,6 +95,11 @@
          <h2 class="mb-4" id="catName">Category</h2>
       </div>
    </div>
+   <div class="row justify-content-center text-center mb-5">
+        <div class="col-md-6">
+            <span class="alert">{!! session('flash_message') !!}</span>
+        </div>
+    </div>
    <div class="container" id="contentDetail">
       <div class="row" id="default-form">
          <div class="col-lg-6" >
@@ -139,7 +144,7 @@
                   <div class="col-md-6">
                      <label>Ville</label>
                      <select name="from_city" class="form-control">
-                     <option>Select City</option>
+                     <option>Select Ville</option>
                      @foreach($City as $city)
                      	<option value = '{{$city->id}}'>{{$city->name}}</option>
                      @endforeach
@@ -171,13 +176,13 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-4">
-                     <input name="insurances" type="checkbox" id="insurances"/> Assurances
+                     <input name="insurances" id="insurances" type="checkbox" id="insurances"/> Assurances
                   </div>
                   <div class="col-md-4">
-                     <input name="loading" type="checkbox" /> Chargement
+                     <input name="loading" id="loading" type="checkbox" /> Chargement
                   </div>
                   <div class="col-md-4">
-                     <input name="offloading" type="checkbox" /> Dechargement
+                     <input name="offloading" id="offloading" type="checkbox" /> Dechargement
                   </div>
                </div>
                <div class="form-group row">
@@ -187,14 +192,15 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                  <input type="button" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#exampleModalCenter">
+                  <input type="button" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal">
                   </div>
                   <!-- Modal -->
-                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal fade" id="reserverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                      <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                         <div class="modal-body">
-                        <h3>Price:<p id="result" name="amount"></p></h3>
+                        <h4>Booking Amount: <span id="result"></span></h4>
+                        <input type="hidden" name="amount" id="amount" />
                         </div>
                         <div class="modal-footer">
                            <input type="submit" class="btn btn-primary text-white py-3 px-3" value="Reserver">
@@ -424,11 +430,16 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
     });
 
 
-   $(document).ready(function() {
    $('#reserver').on('click', function(){
-      var vehicleID = $("#vehicle_id").val();
+      if($("#user_id").val() == "")
+		{
+			window.location.href = "{{ url('login') }}";
+			return false;
+		}
+	  var vehicleID = $("#vehicle_id").val();
       var toCityId = $('select[name="to_city"]').val();
       var fromCityId = $('select[name="from_city"]').val();
+	  
       //use above variable to get fare
       if(toCityId) {
          var url = "{{url('vehicle/getFare')}}"+'/';
@@ -442,11 +453,23 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   $('#loader').css("visibility", "visible");
                },
                success:function(data) {
-                  console.log(data);
-                  $('#result').empty();
-                     $.each(data, function(key, value){
-                     $('#result').append('<p value="'+ key +'">' + value + '</p>');
-                  });
+					console.log(data);
+					//$('#result').empty();
+					var amount = parseInt(data.fare);
+					if($('#insurances').is(':checked'))
+					{
+					  amount = amount + parseInt(data.insurances_amount);
+					}
+					if($('#loading').is(':checked'))
+					{
+					  amount = amount + parseInt(data.loading_price);
+					}
+					if($('#offloading').is(':checked'))
+					{
+					  amount = amount + parseInt(data.offloading_price);
+					}
+					$('#result').html(amount);
+					$('#amount').val(amount);
                },
                error: function (jqXHR, textStatus, errorThrown)
                { alert(errorThrown) }
@@ -460,7 +483,6 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
             //alert('else');
          $('#result').append('<p>not working</p>');
       }
-   });
    });   
 </script>
 @endpush
