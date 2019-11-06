@@ -9,7 +9,7 @@
                 <div class="container">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h1><a class="btn btn-outline-light" href="{{ url('/vehicle') }}" style="color:#FFF">Vehicle</a></h1>
+                        <h1><a class="btn btn-outline-light" href="{{ url('/vehicle') }}" style="color:#FFF">{{ utf8_encode(__('static.Vehicle')) }}</a></h1>
                      </div>
                   </div>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="container">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h1><a class="btn btn-outline-light" href="{{ url('/warehouse') }}">Warehouse</a></h1>
+                        <h1><a class="btn btn-outline-light" href="{{ url('/warehouse') }}">{{ utf8_encode(__('static.Warehouse')) }}</a></h1>
                     </div>
                   </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="container">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h1><a class="btn btn-outline-light" href="{{ url('/construction-machinery') }}" style="color:#FFF">Construction Machinery</a></h1>
+                        <h1><a class="btn btn-outline-light" href="{{ url('/construction-machinery') }}" style="color:#FFF">{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machine')) }}</a></h1>
                     </div>
                   </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="container">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h1><a class="btn btn-outline-light" href="{{ url('/bulk-buying') }}">Bulk Buying</a></h1>
+                        <h1><a class="btn btn-outline-light" href="{{ url('/bulk-buying') }}">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }}</a></h1>
                     </div>
                   </div>
                 </div>

@@ -136,15 +136,15 @@
                
                <div class="form-group row">
                   <div class="col-md-6">
-                      <label>Origine</label>
+                      <label>{{ utf8_encode(__('static.Origine')) }}</label>
                       <select name="country" class="form-control">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
                   <div class="col-md-6">
-                     <label>Ville</label>
+                     <label>{{ utf8_encode(__('static.City')) }}</label>
                      <select name="from_city" class="form-control">
-                     <option>Select Ville</option>
+                     <option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>
                      @foreach($City as $city)
                      	<option value = '{{$city->id}}'>{{$city->name}}</option>
                      @endforeach
@@ -154,15 +154,15 @@
                
                <div class="form-group row">
                   <div class="col-md-6">
-                      <label>Destination</label>
+                      <label>{{ utf8_encode(__('static.Destination')) }}</label>
                       <select name="country" class="form-control checkFare">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
                   <div class="col-md-6">
-                     <label>Ville</label>
+                     <label>{{ utf8_encode(__('static.City')) }}</label>
                      <select name="to_city" class="form-control checkFare">
-                     <option>Select City</option>
+                     <option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>
                      @foreach($City as $city)
                      	<option value = '{{$city->id}}'>{{$city->name}}</option>
                        @endforeach
@@ -171,7 +171,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="preferences" class="form-control" placeholder="Preferences"></textarea>
+                     <textarea name="preferences" class="form-control" placeholder="{{ utf8_encode(__('static.Preferences')) }}"></textarea>
                   </div>
                </div>
                <div class="form-group row">
@@ -195,7 +195,7 @@
                   <input type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal">
                   </div>
                   <div class="col-md-6 mr-auto">
-                  	<h3>Fare: <span id="result">0</span></h3>
+                  	<h3>{{ utf8_encode(__('static.Fare')) }}: <span id="result">0</span></h3>
                     <input type="hidden" id="amount" name="amount" value="0"/>
                   </div>
                </div>

@@ -100,18 +100,15 @@
                </div>
                
                <div class="form-group row">
-                  <div class="col-md-6">
-						<label><?php echo utf8_encode("Préférences:"); ?></label>
-                        <textarea name="preference_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences"); ?>"></textarea>
-                        <input type="hidden" name="preferences" value="1" />
+                  <div class="col-md-12">
+					<input type="radio" name="preferences" value="1" checked/>&nbsp;&nbsp;Villes &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="preferences" value="2" />&nbsp;&nbsp;Autres exigences
                   </div>
-                  <div class="col-md-6">
-						<label>{{ utf8_encode(__('static.City')) }}</label>
-                        <select name="city_id" class="form-control">
-                            @foreach(App\Models\City::All() as $city)
-                                <?php echo '<option value='."'".''.$city->id."'".'>'. ($city->name).'</option>' ?>
-                            @endforeach
-                         </select>
+               </div>
+               
+               <div class="form-group row">
+                  <div class="col-md-12" id="preferencesDiv">
+						
                   </div>
                </div>
                
@@ -133,10 +130,14 @@
 <script>
 	$("html, body").animate({ scrollTop: $('#default').offset().top-200 }, 600);
 	
-	var City = '';
-	var Others = '';
+	var City = '<label>Ville</label>' +
+				 '<select name="city_id" class="form-control">' +
+					@foreach(App\Models\City::All() as $city)
+						"<?php echo '<option value='."'".''.$city->id."'".'>'.utf8_encode($city->name).'</option>' ?>" +
+					@endforeach
+				 '</select>';
+	var Others = '<textarea name="preference_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences:"); ?>"></textarea>';
 	$("#preferencesDiv").html(City);
-	$("#preferencesDiv").append(Others);
 	$('input[name=preferences]').change(function() {
 		switch ($(this).val()) {
 			case '1':

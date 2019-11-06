@@ -14,7 +14,7 @@
                         <div class="pad15">
                            <a href="javascript:void(0)" class="hedrSel" data-id="1" data-val="<?php echo utf8_encode("B�tonneuse"); ?>" data-img="cement-mixer.png">
                               <span class="lead"><img class="zoomImg" src="{{ url('/home/img/construction/cement-mixer.png') }}" style="width:100px"></span>
-                              <p><?php echo utf8_encode("B�tonneuse"); ?></p>
+                              <p><?php echo utf8_encode("Betonneuse"); ?></p>
                            </a>
                         </div>
                      </div>
@@ -139,7 +139,7 @@
                       </select>
                   </div>
                   <div class="col-md-6">
-                     <label>Ville</label>
+                     <label>{{ utf8_encode(__('static.City')) }}</label>
                      <select name="origin" class="form-control">
                      	@foreach($City as $city)
                             <option value = '{{$city->id}}'>{{$city->name}}</option>
@@ -149,17 +149,17 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="delivery_deadline" class="form-control" placeholder="<?php echo utf8_encode("D�lai maximum de livraiuson"); ?>">
+                     <input name="delivery_deadline" class="form-control" placeholder="<?php echo utf8_encode("Delai maximum de livraiuson"); ?>">
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="specifications " class="form-control" placeholder="Specifications"></textarea>
+                     <textarea name="specifications " class="form-control" placeholder="Specification"></textarea>
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="duration_of_user" class="form-control" placeholder="<?php echo utf8_encode("Dur�e d'utilisation"); ?>">
+                     <input name="duration_of_user" class="form-control" placeholder="<?php echo utf8_encode("Duree d'utilisation"); ?>">
                   </div>
                </div>
                <div class="form-group row">
@@ -203,7 +203,7 @@
                       </select>
                   </div>
                   <div class="col-md-6">
-                     <label>City</label>
+                     <label>{{ utf8_encode(__('static.City')) }}</label>
                      <select name="origin" class="form-control">' +
                         @foreach(App\Models\City::All() as $city)
                             <option value="{{ $city->id }}">{{ utf8_encode($city->name) }}</option>
@@ -223,7 +223,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="durartion" class="form-control" placeholder="<?php echo utf8_encode("Dur�e d'utilisation"); ?>">
+                     <input name="durartion" class="form-control" placeholder="<?php echo utf8_encode("Duree d'utilisation"); ?>">
                   </div>
                </div>
                <div class="form-group row">
@@ -253,7 +253,7 @@
 		
 	});
 	
-	getData("1", "<?php echo utf8_encode("B�tonneuse"); ?>", "cement-mixer.png");
+	getData("1", "<?php echo utf8_encode("Betonneuse"); ?>", "cement-mixer.png");
 	function getData(id, type, image)
 	{	
 		$("#catName").html(type);

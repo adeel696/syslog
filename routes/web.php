@@ -102,6 +102,12 @@ Route::group(['prefix' => 'cms'], function(){
 	//Admin Auth	
 	Route::get('/', 'Cms\HomeController@index');
 	
+	Route::get('/vehicle/list', 'Cms\AssetController@vehicleLists');
+	Route::get('/construction-machine/list', 'Cms\AssetController@constructionMachineLists');
+	
+	Route::get('/asset/grid', 'Cms\AssetController@grid');
+	Route::resource('/asset', 'Cms\AssetController');
+	
 	Route::get('/booking/vehicle/grid', 'Cms\BookingController@getVehicleGrid');
 	Route::get('/booking/vehicle', 'Cms\BookingController@getVehicle');
 	Route::get('/booking/construction-machine/grid', 'Cms\BookingController@getConstructionMachineGrid');

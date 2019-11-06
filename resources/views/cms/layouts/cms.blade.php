@@ -134,7 +134,7 @@
 						</ul>
 					</li>
                     <li>
-						<a href="#">
+						<a href="{{url('/cms/asset')}}">
 						    <i class="fa fa-location-arrow"></i>
 						    <span>{{ utf8_encode(__('static.Assets')) }}</span>
 					    </a>
