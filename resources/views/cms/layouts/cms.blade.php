@@ -48,7 +48,7 @@
 			<div class="container-fluid">
 				<!-- begin mobile sidebar expand / collapse button -->
 				<div class="navbar-header">
-					<a href="{{ url('/') }}" class="navbar-brand"><img src="{{ asset('/home/img/smalllogo.png') }}" class="logo" alt="" alt="" /> Noveo Tech </a>
+					<a href="{{ url('/cms') }}" class="navbar-brand"><img src="{{ asset('/home/img/smalllogo.png') }}" class="logo" alt="" alt="" /> Noveo Tech </a>
 					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -115,9 +115,9 @@
 				    </li>
 					<li class="nav-header">Navigation</li>
 					<li>
-						<a href="{{ url('/cms') }}">
+						<a href="{{ url('/') }}">
 						    <i class="fa fa-home"></i>
-						    <span>{{ utf8_encode(__('static.Dashboard')) }}</span>
+						    <span>{{ utf8_encode(__('static.Home')) }}</span>
 					    </a>
 					</li>
 					<li class="has-sub {{ (request()->segment(2) == 'booking') ? 'active' : '' }}">

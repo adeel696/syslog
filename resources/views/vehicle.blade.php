@@ -155,13 +155,13 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label>Destination</label>
-                      <select name="country" class="form-control">
+                      <select name="country" class="form-control checkFare">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
                   <div class="col-md-6">
                      <label>Ville</label>
-                     <select name="to_city" class="form-control">
+                     <select name="to_city" class="form-control checkFare">
                      <option>Select City</option>
                      @foreach($City as $city)
                      	<option value = '{{$city->id}}'>{{$city->name}}</option>
@@ -176,13 +176,13 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-4">
-                     <input name="insurances" id="insurances" type="checkbox" id="insurances"/> Assurances
+                     <input class="checkFare" name="insurances" id="insurances" type="checkbox" id="insurances"/> Assurances
                   </div>
                   <div class="col-md-4">
-                     <input name="loading" id="loading" type="checkbox" /> Chargement
+                     <input class="checkFare" name="loading" id="loading" type="checkbox" /> Chargement
                   </div>
                   <div class="col-md-4">
-                     <input name="offloading" id="offloading" type="checkbox" /> Dechargement
+                     <input class="checkFare" name="offloading" id="offloading" type="checkbox" /> Dechargement
                   </div>
                </div>
                <div class="form-group row">
@@ -192,22 +192,11 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                  <input type="button" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal">
+                  <input type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal">
                   </div>
-                  <!-- Modal -->
-                  <div class="modal fade" id="reserverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                        <div class="modal-body">
-                        <h4>Booking Amount: <span id="result"></span></h4>
-                        <input type="hidden" name="amount" id="amount" />
-                        </div>
-                        <div class="modal-footer">
-                           <input type="submit" class="btn btn-primary text-white py-3 px-3" value="Reserver">
-                           <input type="button" class="btn btn-secondary text-white py-3 px-3" data-dismiss="modal" value="Close">
-                        </div>
-                        </div>
-                     </div>
+                  <div class="col-md-6 mr-auto">
+                  	<h3>Fare: <span id="result">0</span></h3>
+                    <input type="hidden" id="amount" name="amount" value="0"/>
                   </div>
                </div>
             </form>
@@ -430,7 +419,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
     });
 
 
-   $('#reserver').on('click', function(){
+   $('.checkFare').on('change', function(){
       if($("#user_id").val() == "")
 		{
 			window.location.href = "{{ url('login') }}";
@@ -439,9 +428,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 	  var vehicleID = $("#vehicle_id").val();
       var toCityId = $('select[name="to_city"]').val();
       var fromCityId = $('select[name="from_city"]').val();
-	  
-      //use above variable to get fare
-      if(toCityId) {
+
          var url = "{{url('vehicle/getFare')}}"+'/';
          // alert(url);
          $.ajax({
@@ -468,6 +455,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 					{
 					  amount = amount + parseInt(data.offloading_price);
 					}
+					
 					$('#result').html(amount);
 					$('#amount').val(amount);
                },
@@ -478,11 +466,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                // alert('url');
                   $('#loader').css("visibility", "hidden");
                }
-         });
-      } else {
-            //alert('else');
-         $('#result').append('<p>not working</p>');
-      }
+         }); 
    });   
 </script>
 @endpush

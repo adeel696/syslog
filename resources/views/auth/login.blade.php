@@ -64,6 +64,14 @@
             </form>
       	</div>
       </div>
+      <div class="col-md-1" style="padding:0px;">
+      	<div class="login-brand bg-inverse text-white" style="padding:1px; height:100%; float:right">
+        </div>
+      </div>
+      <div class="col-md-1" style="padding:0px;">
+      	<div class="login-brand bg-inverse text-white" style="padding:1px; height:100%; float:left">
+        </div>
+      </div>
       <div class="col-md-4">
             <!-- begin login-brand -->
             <div class="login-brand bg-inverse text-white">

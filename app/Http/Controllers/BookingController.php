@@ -15,6 +15,7 @@ class BookingController extends Controller
      */
     public function __construct(BookingRepository $bookingRps)
     { 
+		$this->middleware('auth');
         $this->bookingRps = $bookingRps;
     }
 
@@ -27,7 +28,7 @@ class BookingController extends Controller
 		$inputs['booking_id'] = $info_Booking->id;
     	$this->bookingRps->storeWarehouseBooking($inputs);
 		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
-		return redirect('warehouse');
+		return redirect('cms/booking/warehouse');
     }
 	
 	public function addConstructionMachineBooking(Request $request)
@@ -39,7 +40,7 @@ class BookingController extends Controller
 		$inputs['booking_id'] = $info_Booking->id;
 		$this->bookingRps->storeConstructionMachineBooking($inputs);
 		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
-		return redirect('construction-machinery');
+		return redirect('cms/booking/construction-machine');
 	}
 	public function addVehicleBooking(Request $request)
     {
@@ -50,6 +51,6 @@ class BookingController extends Controller
 		$inputs['booking_id'] = $info_Booking->id;
     	$this->bookingRps->storeVehicleBooking($inputs);
 		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
-		return redirect('vehicle');
+		return redirect('cms/booking/vehicle');
     }
 }

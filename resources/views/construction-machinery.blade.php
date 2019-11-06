@@ -169,24 +169,8 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                  <input id="reserver" type="button" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal">
+                  <input id="reserver" type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal">
                   </div>
-                  <!-- Modal -->
-                  <div class="modal fade" id="reserverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                        <div class="modal-body">
-                        <h4>Booking Amount: <span id="result"></span></h4>
-                        <input type="hidden" name="amount" id="amount" />
-                        </div>
-                        <div class="modal-footer">
-                           <input type="submit" class="btn btn-primary text-white py-3 px-3" value="Reserver">
-                           <input type="button" class="btn btn-secondary text-white py-3 px-3" data-dismiss="modal" value="Close">
-                        </div>
-                        </div>
-                     </div>
-                  </div>
-
                </div>
             </form>
          </div>
@@ -249,22 +233,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                     	<input id="reserver-other" type="button" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal-other">
-                     	<!-- Modal -->
-                      <div class="modal fade" id="reserverModal-other" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                         <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                            <div class="modal-body">
-                            <h4>Booking Amount: <span id="result-other"></span></h4>
-                            <input type="hidden" name="amount" id="amount-other" />
-                            </div>
-                            <div class="modal-footer">
-                               <input type="submit" class="btn btn-primary text-white py-3 px-3" value="Reserver">
-                               <input type="button" class="btn btn-secondary text-white py-3 px-3" data-dismiss="modal" value="Close">
-                            </div>
-                            </div>
-                         </div>
-                      </div>
+                     	<input id="reserver-other" type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal-other">
                   </div>
                </div>
             </form>
@@ -304,74 +273,6 @@
 		}
 	}
 	
-	$('#reserver').on('click', function(){
-      	if($("#user_id").val() == "")
-		{
-			window.location.href = "{{ url('login') }}";
-			return false;
-		}
-	  var machineID = $("#contruction_machinary_id").val();
-      //use above variable to get fare
-      var url = "{{url('construction-machinery/getFare')}}"+'/';
-      // alert(url);
-	  $.ajax({
-		   url: url,
-		   type:"GET",
-		   dataType:"json",
-		   data: {method: '_GET',"contruction_machinary_id":machineID, "_token": "{{ csrf_token() }}" ,    submit: true},
-		   beforeSend: function(){
-			  $('#loader').css("visibility", "visible");
-		   },
-		   success:function(data) {
-				console.log(data);
-				//$('#result').empty();
-				var amount = parseInt(data.fare);
-				$('#result').html(amount);
-				$('#amount').val(amount);
-		   },
-		   error: function (jqXHR, textStatus, errorThrown)
-		   { alert(errorThrown) }
-	 ,  
-		   complete: function(){
-		   // alert('url');
-			  $('#loader').css("visibility", "hidden");
-		   }
-	  });
-   });
 	
-   $('#reserver-other').on('click', function(){
-		if($("#user_id").val() == "")
-		{
-			window.location.href = "{{ url('login') }}";
-			return false;
-		}
-	  var machineID = $("#contruction_machinary_id-other").val();
-      //use above variable to get fare
-      var url = "{{url('construction-machinery/getFare')}}"+'/';
-      // alert(url);
-	  $.ajax({
-		   url: url,
-		   type:"GET",
-		   dataType:"json",
-		   data: {method: '_GET',"contruction_machinary_id":machineID, "_token": "{{ csrf_token() }}" ,    submit: true},
-		   beforeSend: function(){
-			  $('#loader').css("visibility", "visible");
-		   },
-		   success:function(data) {
-				console.log(data);
-				//$('#result').empty();
-				var amount = parseInt(data.fare);
-				$('#result-other').html(amount);
-				$('#amount-other').val(amount);
-		   },
-		   error: function (jqXHR, textStatus, errorThrown)
-		   { alert(errorThrown) }
-	 ,  
-		   complete: function(){
-		   // alert('url');
-			  $('#loader').css("visibility", "hidden");
-		   }
-	  });
-   });
 </script>
 @endpush

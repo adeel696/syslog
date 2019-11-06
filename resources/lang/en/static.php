@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'Home' => 'Home',
 	'ID' => 'ID',
 	'Login' => 'Login',
 	'Dashboard' => 'Dashboard',
@@ -59,5 +60,14 @@ return [
 	'Enterprise' => 'Enterprise',
 	'Asset Owner' => 'Asset Owner',
 	'To' => 'To',
+	'Assets' => 'Assets',
+	'Preferences' => 'Preferences',
+	'Specifications' => 'Specifications',
+	'OffLoading' => 'OffLoading',
+	'Others' => 'Others',
+	'Needed Space' => 'Needed Space',
+	'Preference Text' => 'Preference Text',
+	'Weight' => 'Weight',
+	'Volume' => 'Volume',
 	
 ];
