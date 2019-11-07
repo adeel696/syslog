@@ -126,7 +126,7 @@ class FareController extends Controller
      */
     public function destroy(Fare $fare)
     {
-        $this->fareRps->deleteFare($fare->id);
+        $fare->delete();
     }
     public function grid()
     {

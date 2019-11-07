@@ -69,5 +69,7 @@ return [
 	'Preference Text' => 'Preference Text',
 	'Weight' => 'Weight',
 	'Volume' => 'Volume',
+	'Quantity' => 'Quantity',
+	'Meter Reading' => 'Meter Reading',
 	
 ];

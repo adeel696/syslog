@@ -33,6 +33,7 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.Type')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Name')) }}</th>
                                     <th>{{ utf8_encode(__('static.Capacity')) }}</th>
                                     <th>{{ utf8_encode(__('static.Quantity')) }}</th>
                                     <th>{{ utf8_encode(__('static.State')) }}</th>
@@ -61,11 +62,11 @@
     $('#viewForm').DataTable({
         "processing": true,
         "serverSide": true,
-		"ajax": "{{url('/admin/fare/grid')}}",
+		"ajax": "{{url('/cms/asset/grid')}}",
         "columns": [
 			{ data: 'id', name: 'id' },
-			{ data: 'machine_name', name: 'machine_name' },
       		{ data: 'type', name: 'type' },
+			{ data: 'machine_name', name: 'machine_name' },
 			{ data: 'capacity', name: 'capacity' },
 			{ data: 'quantity', name: 'quantity' },
 			{ data: 'state', name: 'state' },
@@ -82,7 +83,7 @@
     });
 	
 	$('#viewForm').on('click', '#btnDelete[data-remote]', function (e) { 
-		if (confirm("Are you sure to delete fare?")) {		
+		if (confirm("Are you sure to delete asset?")) {		
 			e.preventDefault();		 
 			var url = '{{url("/")}}'+$(this).data('remote');
 			// confirm then

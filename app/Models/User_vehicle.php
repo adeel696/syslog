@@ -20,13 +20,13 @@ class User_vehicle extends Model
 		return $this->belongsTo('App\Models\User' , 'user_id');
 	}
 	
-	public function Vehicle1()
+	public function Vehicle()
 	{
 		return $this->belongsTo('App\Models\Vehicle' , 'vehicle_id');
 	}
 	
 	public function ConstructionMachine()
 	{
-		return $this->belongsTo('App\Models\Construction_machinary' , 'construction_machinary_id');
+		return $this->belongsTo('App\Models\ConstructionMachine' , 'construction_machinary_id');
 	}
 }

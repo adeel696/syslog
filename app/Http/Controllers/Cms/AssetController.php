@@ -8,7 +8,7 @@ use App\Repositories\ConstructionMachineRepository;
 use App\Repositories\VehicleRepository;
 use Illuminate\Http\Request;
 use App\Models\City;
-use App\Models\Asset;
+use App\Models\User_vehicle;
 use App\Models\Vehicle;
 use DataTables;
 use URL;
@@ -81,7 +81,7 @@ class AssetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Asset $asset)
+    public function show(User_vehicle $asset)
     {
         //
     }
@@ -92,7 +92,7 @@ class AssetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asset $asset)
+    public function edit(User_vehicle $asset)
     {		
 		$Cities = City::All();
 		$Vehicles = Vehicle::All();
@@ -107,7 +107,7 @@ class AssetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asset $asset)
+    public function update(Request $request, User_vehicle $asset)
     {
 		$inputs = $request->All();
 		
@@ -130,9 +130,9 @@ class AssetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asset $asset)
+    public function destroy(User_vehicle $asset)
     {
-        $this->assetRps->deleteAsset($asset->id);
+        $asset->delete();
     }
 	
 	public function vehicleLists()
@@ -159,17 +159,17 @@ class AssetController extends Controller
                                 </div>';
         })
         ->addColumn('machine_name', function ($info_Assets) {
-			if($info_Assets->type_of_vehicle == 1)
+			if($info_Assets->type == 1)
 			{
 				return $info_Assets->Vehicle()->First()->name;
 			}
 			else
 			{
-				return 222;
+				return $info_Assets->ConstructionMachine()->First()->name;
 			}
         })
 		->editColumn('type', function ($info_Assets) {
-			if($info_Assets->type_of_vehicle == 1)
+			if($info_Assets->type == 1)
 			{
 				return utf8_encode(__('static.Vehicles'));
 			}

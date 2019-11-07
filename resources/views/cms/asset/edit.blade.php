@@ -5,13 +5,13 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li class="breadcrumb-item"><a href="{{ url('admin/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('admin/fare') }}">{{ utf8_encode(__('static.Fare')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/asset') }}">{{ utf8_encode(__('static.Asset')) }}</a></li>
         <li class="breadcrumb-item active">{{ utf8_encode(__('static.Edit')) }}</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">{{ utf8_encode(__('static.Edit')) }} {{ utf8_encode(__('static.Fare')) }} <small></small></h1>
+    <h1 class="page-header">{{ utf8_encode(__('static.Edit')) }} {{ utf8_encode(__('static.Asset')) }} <small></small></h1>
     <!-- end page-header -->
     
     <!-- begin section-container -->
@@ -23,7 +23,7 @@
             <div class="col-lg-12">
                 <!-- begin panel -->
                 <div class="panel p-20">
-                    {!! Form::model($info_Fare, ['method' => 'PATCH', 'url' => ['/admin/fare', $info_Fare->id], 'id' => 'main-form']) !!}
+                    {!! Form::model($info_Asset, ['method' => 'PATCH', 'url' => ['/cms/asset', $info_Asset->id], 'id' => 'main-form']) !!}
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
                           <label>{{ utf8_encode(__('static.Type')) }}</label>
@@ -48,32 +48,6 @@
                     </div>
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.From')) }} {{ utf8_encode(__('static.City')) }}</label>
-						  <?php
-							$defaultSelection = ["" => utf8_encode(__('static.Select'))." ".utf8_encode(__('static.City'))];
-							foreach($Cities as $City)
-							{
-								$defaultSelection = $defaultSelection +  array($City->id => ($City->name));
-							}
-						  ?>
-						  {!! Form::select('from_city', $defaultSelection, null, ['class' => 'form-control', 'id' => 'from_city']) !!}
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.To')) }} {{ utf8_encode(__('static.City')) }}</label>
-						  <?php
-							$defaultSelection = ["" => utf8_encode(__('static.Select'))." ".utf8_encode(__('static.City'))];
-							foreach($Cities as $City)
-							{
-								$defaultSelection = $defaultSelection +  array($City->id => ($City->name));
-							}
-						  ?>
-						  {!! Form::select('to_city', $defaultSelection, null, ['class' => 'form-control', 'id' => 'to_city']) !!}
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
                           <label>{{ utf8_encode(__('static.Capacity')) }}</label>
                           {!! Form::text('capacity', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Capacity')), 'id' => 'capacity']) !!}
                           @if ($errors->has('capacity'))
@@ -83,37 +57,37 @@
                     </div>
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.Insurances'))." ".utf8_encode(__('static.Amount')) }}</label>
-                          {!! Form::text('insurances_amount', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Insurances'))." ".utf8_encode(__('static.Amount')), 'id' => 'insurances_amount']) !!}
-                          @if ($errors->has('insurances_amount'))
-                          <p style="color:red;">{!!$errors->first('insurances_amount')!!}</p>
+                          <label>{{ utf8_encode(__('static.Quantity')) }}</label>
+                          {!! Form::text('quantity', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Quantity')), 'id' => 'quantity']) !!}
+                          @if ($errors->has('quantity'))
+                          <p style="color:red;">{!!$errors->first('quantity')!!}</p>
                           @endif
                        </div>
                     </div>
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.Loading')) }} {{ utf8_encode(__('static.Price')) }}</label>
-                          {!! Form::text('loading_price', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Loading'))." ".utf8_encode(__('static.Price')), 'id' => 'loading_price']) !!}
-                          @if ($errors->has('loading_price'))
-                          <p style="color:red;">{!!$errors->first('loading_price')!!}</p>
+                          <label>{{ utf8_encode(__('static.State')) }}</label>
+                          {!! Form::text('state', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.State')), 'id' => 'state']) !!}
+                          @if ($errors->has('state'))
+                          <p style="color:red;">{!!$errors->first('state')!!}</p>
                           @endif
                        </div>
                     </div>
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.Offloading')) }} {{ utf8_encode(__('static.Price')) }}</label>
-                          {!! Form::text('offloading_price', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Offloading'))." ".utf8_encode(__('static.Price')), 'id' => 'offloading_price']) !!}
-                          @if ($errors->has('offloading_price'))
-                          <p style="color:red;">{!!$errors->first('offloading_price')!!}</p>
+                          <label>{{ utf8_encode(__('static.Meter Reading')) }}</label>
+                          {!! Form::text('meter_reading', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Meter Reading')), 'id' => 'meter_reading']) !!}
+                          @if ($errors->has('meter_reading'))
+                          <p style="color:red;">{!!$errors->first('meter_reading')!!}</p>
                           @endif
                        </div>
                     </div>
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.Fare')) }}</label>
-                          {!! Form::text('fare', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Fare')), 'id' => 'fare']) !!}
-                          @if ($errors->has('fare'))
-                          <p style="color:red;">{!!$errors->first('fare')!!}</p>
+                          <label>{{ utf8_encode(__('static.Specifications')) }}</label>
+                          {!! Form::text('specifications', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Specifications')), 'id' => 'specifications']) !!}
+                          @if ($errors->has('specifications'))
+                          <p style="color:red;">{!!$errors->first('specifications')!!}</p>
                           @endif
                        </div>
                     </div>
@@ -121,7 +95,7 @@
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
                           <button type="submit" class="btn btn-purple m-r-5 width-100">{{ utf8_encode(__('static.Submit')) }}</button>
                        </div>
-                    </div>  
+                    </div> 
                     </form>
                 </div>
                 <!-- end panel -->
@@ -142,9 +116,9 @@
 $('#vehicleType').on('change', function (e) { 
 	var vehicle_type = $('#vehicleType option:selected').val();
 	if(vehicle_type == 1)
-		var url = "{{ url('admin/vehicle/list') }}";
+		var url = "{{ url('cms/vehicle/list') }}";
 	else
-		var url = "{{ url('admin/construction-machine/list') }}";
+		var url = "{{ url('cms/construction-machine/list') }}";
 		
 	$.ajax({
 		url: url,
