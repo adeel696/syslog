@@ -21,7 +21,7 @@
                 <div class="container">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h1><a class="btn btn-outline-light" href="{{ url('/warehouse') }}">{{ utf8_encode(__('static.Warehouse')) }}</a></h1>
+                        <h1><a class="btn btn-outline-light" href="{{ url('/warehouse') }}">{{ utf8_encode(__('static.Warehouses')) }}</a></h1>
                     </div>
                   </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="container">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h1><a class="btn btn-outline-light" href="{{ url('/construction-machinery') }}" style="color:#FFF">{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machine')) }}</a></h1>
+                        <h1><a class="btn btn-outline-light" href="{{ url('/construction-machinery') }}" style="color:#FFF">{{ utf8_encode('Engins de manutention')}}</a></h1>
                     </div>
                   </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="container">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h1><a class="btn btn-outline-light" href="{{ url('/bulk-buying') }}">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }}</a></h1>
+                        <h1><a class="btn btn-outline-light" href="{{ url('/bulk-buying') }}">{{ utf8_encode(__('static.Buy')) }} {{ utf8_encode(__('static.Bulk')) }} </a></h1>
                     </div>
                   </div>
                 </div>

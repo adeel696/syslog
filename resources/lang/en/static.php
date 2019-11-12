@@ -40,6 +40,7 @@ return [
 	'Description' => 'Description',
 	'Status' => 'Status',
 	'Warehouse' => 'Warehouse',
+	'Warehouses' => 'Warehouses',
 	'Bulk' => 'Bulk',
 	'Buy' => 'Buy',
 	'Insurances' => 'Insurances',
