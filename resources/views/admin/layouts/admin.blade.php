@@ -70,7 +70,7 @@
                                 <a href="{{ url('/admin/logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-sign-out pull-right"></i> {{ utf8_encode(__('static.Log Out')) }}</a>
+                                    <i class="fa fa-sign-out pull-right"></i> {{ utf8_encode(__('static.LogOut')) }}</a>
                                 </a>
                                 <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
@@ -105,7 +105,7 @@
                                     	<a href="{{ url('/admin/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            <i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                            <i class="fa fa-sign-out pull-right"></i> {{ utf8_encode(__('static.LogOut')) }}</a>
                                         </a>
                                     </li>
                                 </ul>

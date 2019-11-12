@@ -54,11 +54,11 @@
                 </div>
                 <div class="form-group">
                     <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                     {{ __('Remember Me') }}
+                     Souviens-toi de moi
                  </div>
                 <div class="row m-b-20">
                     <div class="col-lg-12">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">{{ utf8_encode(__('static.Login')) }}</button>
                     </div>
                 </div>
             </form>
@@ -75,7 +75,7 @@
       <div class="col-md-4">
             <!-- begin login-brand -->
             <div class="login-brand bg-inverse text-white">
-            <img src="../assets/img/logo-white.png" height="36" class="pull-right" alt="" /> Register
+            <img src="../assets/img/logo-white.png" height="36" class="pull-right" alt="" /> {{ utf8_encode(__('static.Register')) }}
             </div>
             <!-- end login-brand -->
             <!-- begin login-content -->

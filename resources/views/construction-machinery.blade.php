@@ -6,7 +6,7 @@
       <div class="container">
          <div class="row align-items-center justify-content-center">
             <div class="col-lg-9 text-center">
-               <h1>We can make it together</h1>
+               <h1>{{ utf8_encode(__("Construisons demain Aujourd'hui")) }}</h1><br>   
                <br>      
                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
                   <div class="MultiCarousel-inner">

@@ -71,5 +71,15 @@ return [
 	'Volume' => 'Volume',
 	'Quantity' => 'Quantity',
 	'Meter Reading' => 'Meter Reading',
+	'LogOut' => 'Log Out',
+	'Register' => 'Register',
+	'Our' => 'Our',
+	'Services' => 'Services',
+	'Contact' => 'Contact',
+	'About Us' => 'About Us',
+	'Features' => 'Features',
+	'Goods' => 'Goods',
+	'Deals' => 'Deals',
+	'Follow Us' => 'Follow Us',
 	
 ];

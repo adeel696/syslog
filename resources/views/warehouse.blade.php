@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-9 text-center">
-            <h1>{{ utf8_encode(__('static.Warehouse')) }}</h1><br>      
+            <h1>{{ utf8_encode(__("Votre solution sur mesure !")) }}</h1><br>      
         </div>
       </div>
     </div>

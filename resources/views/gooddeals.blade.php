@@ -6,8 +6,8 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-6 text-center">
-          <h1>Good Deals</h1>
-          <p>Description</p>
+          <h1>Bonnes affaires</h1>
+          <p>Les Meilleures offres du moment !</p>
         </div>
       </div>
     </div>

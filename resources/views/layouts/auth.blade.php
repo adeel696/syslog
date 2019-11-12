@@ -52,10 +52,10 @@
             <div class="col-lg-8">
               <nav class="site-navigation text-left mr-auto " role="navigation"  style="float:right;">
                 <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                  <li class="{{ (request()->is('services')) ? 'active' : '' }}"><a href="{{ url('/services') }}" class="nav-link">Our Services</a></li>
-                  <li class="{{ (request()->is('gooddeals')) ? 'active' : '' }}"><a href="{{ url('/gooddeals') }}" class="nav-link">Good Deals</a></li>
-                  <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{ url('/contact') }}" class="nav-link">Contact</a></li>
-                  <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{ url('/login') }}" class="nav-link">Login/Register</a></li>
+                  <li class="{{ (request()->is('services')) ? 'active' : '' }}"><a href="{{ url('/services') }}" class="nav-link">{{ utf8_encode(__('static.Our')) }} {{ utf8_encode(__('static.Services')) }}</a></li>
+                  <li class="{{ (request()->is('gooddeals')) ? 'active' : '' }}"><a href="{{ url('/gooddeals') }}" class="nav-link">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</a></li>
+                  <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{ url('/contact') }}" class="nav-link">{{ utf8_encode(__('static.Contact')) }}</a></li>
+                  <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{ url('/login') }}" class="nav-link">{{ utf8_encode(__('static.Login')) }}/{{ utf8_encode(__('static.Register')) }}</a></li>
                 </ul>
               </nav>
             </div>
@@ -72,24 +72,23 @@
           <div class="col-md-6">
             <div class="row">
               <div class="col-md-7">
-                <h2 class="footer-heading mb-4">About Us</h2>
+                <h2 class="footer-heading mb-4">{{ utf8_encode(__('static.About Us')) }}</h2>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
               </div>
               <div class="col-md-4 ml-auto">
-                <h2 class="footer-heading mb-4">Features</h2>
+                <h2 class="footer-heading mb-4">{{ utf8_encode(__('static.Features')) }}</h2>
                 <ul class="list-unstyled">
-                  <li><a href="{{ url('/services') }}">Our Services</a></li>
-                  <li><a href="{{ url('/gooddeals') }}">Good Deals</a></li>
-                  <li><a href="{{ url('/contact') }}">Contact</a></li>
-                  <li><a href="{{ url('/login') }}">Login</a></li>
-                  <li><a href="{{ url('/register') }}">Register</a></li>
+                  <li><a href="{{ url('/services') }}">{{ utf8_encode(__('static.Our')) }} {{ utf8_encode(__('static.Services')) }}</a></li>
+                  <li><a href="{{ url('/gooddeals') }}">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</a></li>
+                  <li><a href="{{ url('/contact') }}">{{ utf8_encode(__('static.Contact')) }}</a></li>
+                  <li><a href="{{ url('/login') }}">{{ utf8_encode(__('static.Login')) }}/{{ utf8_encode(__('static.Register')) }}</a></li>
                 </ul>
               </div>
 
             </div>
           </div>
           <div class="col-md-4 ml-auto">
-            <h2 class="footer-heading mb-4">Follow Us</h2>
+            <h2 class="footer-heading mb-4">{{ utf8_encode(__('static.Follow Us')) }}</h2>
             <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
             <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
             <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>

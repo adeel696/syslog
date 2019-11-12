@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-9 text-center">
-            <h1>We can make it together</h1><br>      
+            <h1>{{ utf8_encode(__("Amélioronsvos finances")) }}</h1><br>   
         </div>
       </div>
     </div>
