@@ -17,9 +17,7 @@
 <div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-      </div>
+      
       <div class="col-lg-8">
         <h2>
         	<?php echo utf8_encode("Location véhicule de transport"); ?>
@@ -34,9 +32,9 @@
 <div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
+      <!--<div class="col-lg-4">
         <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-      </div>
+      </div>-->
       <div class="col-lg-8">
         <h2>
         	<?php echo utf8_encode("Location d'engins divers"); ?>
@@ -51,9 +49,7 @@
 <div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-      </div>
+      
       <div class="col-lg-8">
         <h2>
         	<?php echo utf8_encode("Transport de Marchandises et produits divers"); ?>
@@ -68,9 +64,7 @@
 <div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-      </div>
+      
       <div class="col-lg-8">
         <h2>
         	<?php echo utf8_encode("Déménagement"); ?>
@@ -85,9 +79,7 @@
 <div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-      </div>
+      
       <div class="col-lg-8">
         <h2>
         	<?php echo utf8_encode("Gestion de flotte"); ?>
@@ -102,9 +94,7 @@
 <div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-      </div>
+      
       <div class="col-lg-8">
         <h2>
         	<?php echo utf8_encode("Location d'espace d'entreposage"); ?>
@@ -119,9 +109,7 @@
 <div class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-      </div>
+      
       <div class="col-lg-8">
         <h2>
         	<?php echo utf8_encode("Achats groupés"); ?>
@@ -129,6 +117,27 @@
         <p><?php echo utf8_encode("Notre service d'achats groupés vous permettra de réduire vos coûts d'acquisitions des assurances, de lubrifiants et de pièces détachés."); ?></p>
     	<p><?php echo utf8_encode("Nous mutualisons les besoins  et du fait de l'échelle nous avons des tarifs négociés et très compétitifs dont pour pourriez bénéficier."); ?></p>
         <p><a href="{{ url('contact') }}">Pour plus information veuillez nous contacter au</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <center><h2>
+        	<?php echo utf8_encode("Comment ça marche?"); ?>
+        </h2></center>
+       </div> 
+       <div class="col-lg-2"></div>
+       <div class="mt-5"></div>
+       <div class="col-lg-2"></div>
+       <div class="col-lg-8">
+       	<center><img src="{{ url('home/services.png') }}" width="100%"/></center>
+       </div>
       </div>
     </div>
   </div>
