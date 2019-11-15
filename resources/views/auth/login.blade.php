@@ -86,6 +86,7 @@
                     <select name="type" class="form-control select-lg">
                         <option value="1">{{ utf8_encode(__('static.Asset Owner')) }}</option>
                         <option value="2">{{ utf8_encode(__('static.Enterprise')) }}</option>
+                        <option value="3">Particuliers</option>
                     </select>
                 </div>
                 <div class="row row-space-14">
@@ -105,6 +106,15 @@
                             </span>
                         @enderror
                     </div>
+                </div>
+                <div class="form-group">
+                    <input name="entreprise" type="text" class="form-control input-lg" placeholder="Entreprise" />
+                    @error('entreprise')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('entreprise') }}</strong>
+                        </span>
+                    @enderror
+
                 </div>
                	<div class="form-group">
                     <input name="email" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Email')) }} {{ utf8_encode(__('static.Address')) }}" />
@@ -127,7 +137,7 @@
                     <input name="password_confirmation" type="password" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Confirm')) }} {{ utf8_encode(__('static.Password')) }}" />
                 </div>
                 <div class="form-group">
-                    <input name="phone_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Phone')) }} {{ utf8_encode(__('static.Number')) }}" />
+                    <input name="phone_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Phone Number')) }}" />
                     @error('phone_number')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('phone_number') }}</strong>
@@ -146,7 +156,16 @@
 
                 </div>
                 <div class="form-group">
-                    <input name="tax_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Tax')) }} {{ utf8_encode(__('static.Number')) }}" />
+                    <input name="rccm_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} RCCM " />
+                    @error('rccm_number')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('rccm_number') }}</strong>
+                        </span>
+                    @enderror
+
+                </div>
+                <div class="form-group">
+                    <input name="tax_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} {{ utf8_encode(__('static.Tax')) }}" />
                     @error('tax_number')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('tax_number') }}</strong>

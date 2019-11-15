@@ -53,7 +53,7 @@
               <nav class="site-navigation text-left mr-auto " role="navigation"  style="float:right;">
                 <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                   <li class="{{ (request()->is('services')) ? 'active' : '' }}"><a href="{{ url('/services') }}" class="nav-link">{{ utf8_encode(__('static.Our')) }} {{ utf8_encode(__('static.Services')) }}</a></li>
-                  <li class="{{ (request()->is('gooddeals')) ? 'active' : '' }}"><a href="{{ url('/gooddeals') }}" class="nav-link">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</a></li>
+                  <li class="{{ (request()->is('gooddeals')) ? 'active' : '' }}"><a href="{{ url('/gooddeals') }}" class="nav-link">Bonnes affaires</a></li>
                   <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{ url('/contact') }}" class="nav-link">{{ utf8_encode(__('static.Contact')) }}</a></li>
                   @auth
                 	<li class=""><a href="{{ url('/cms') }}" class="nav-link">{{ utf8_encode(__('static.CMS')) }}</a></li>
@@ -85,7 +85,7 @@
                 <h2 class="footer-heading mb-4">{{ utf8_encode(__('static.Features')) }}</h2>
                 <ul class="list-unstyled">
                   <li><a href="{{ url('/services') }}">{{ utf8_encode(__('static.Our')) }} {{ utf8_encode(__('static.Services')) }}</a></li>
-                  <li><a href="{{ url('/gooddeals') }}">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</a></li>
+                  <li><a href="{{ url('/gooddeals') }}">Bonnes affaires</a></li>
                   <li><a href="{{ url('/contact') }}">{{ utf8_encode(__('static.Contact')) }}</a></li>
                   <li><a href="{{ url('/login') }}">{{ utf8_encode(__('static.Login')) }}/{{ utf8_encode(__('static.Register')) }}</a></li>
                 </ul>

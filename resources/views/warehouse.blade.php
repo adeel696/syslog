@@ -49,7 +49,7 @@
                
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="designation " class="form-control" placeholder="Designation"></textarea>
+                     <textarea name="designation " class="form-control" placeholder="{{ utf8_encode(__('static.Designation')) }} "></textarea>
                   </div>
                </div>
                
@@ -86,7 +86,13 @@
                
                <div class="form-group row">
                   <div class="col-md-12">
-                     <label>Espace desiree (m2):</label>
+                     <input name="approx_storage_time" class="form-control" placeholder="{{ utf8_encode(__('static.Approx Storage Time')) }}">
+                  </div>
+               </div>
+               
+               <div class="form-group row">
+                  <div class="col-md-12">
+                     <label>{{ utf8_encode(__('static.Needed Space')) }} (m2):</label>
                      <select name="needed_space" class="form-control">
                      	<option><?php echo utf8_encode("10 - 50m2 "); ?></option>
                         <option><?php echo utf8_encode("50 - 100m2"); ?></option>
@@ -117,7 +123,7 @@
                
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                     <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver">
+                     <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="{{ utf8_encode(__('static.Reserve')) }}">
                   </div>
                </div>
             </form>

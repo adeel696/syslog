@@ -12,9 +12,9 @@
                   <div class="MultiCarousel-inner">
                      <div class="item">
                         <div class="pad15">
-                           <a href="javascript:void(0)" class="hedrSel" data-id="1" data-val="Camions citterne" data-img="camions-citterne.png">
-                              <span class="lead"><img class="zoomImg" src="{{ url('/home/img/truck/camions-citterne.png') }}" style="width:100px"></span>
-                              <p>Camions citterne</p>
+                           <a href="javascript:void(0)" class="hedrSel" data-id="1" data-val="Camions citerne" data-img="camions-citerne.png">
+                              <span class="lead"><img class="zoomImg" src="{{ url('/home/img/truck/camions-citerne.png') }}" style="width:100px"></span>
+                              <p>Camions citerne</p>
                            </a>
                         </div>
                      </div>
@@ -54,7 +54,7 @@
                         <div class="pad15">
                            <a href="javascript:void(0)" class="hedrSel" data-id="6" data-val="Demenagement" data-img="cargo-truck.png">
                               <span class="lead"><img class="zoomImg" src="{{ url('/home/img/truck/cargo-truck.png') }}" style="width:100px"></span>
-                              <p>Demenagement</p>
+                              <p>{{ utf8_encode(__('static.Move Truck')) }}</p>
                            </a>
                         </div>
                      </div>
@@ -182,7 +182,7 @@
                      <input class="checkFare" name="loading" id="loading" type="checkbox" /> Chargement
                   </div>
                   <div class="col-md-4">
-                     <input class="checkFare" name="offloading" id="offloading" type="checkbox" /> Dechargement
+                     <input class="checkFare" name="offloading" id="offloading" type="checkbox" /> <?php echo utf8_encode("Déchargement"); ?>
                   </div>
                </div>
                <div class="form-group row">
@@ -217,9 +217,9 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 		$("html, body").animate({ scrollTop: $('#contentDetail').offset().top-200 }, 600);
 		
 	});
-   var citerneCapacity ='<label>Capacite</label>'+ 
+   var citerneCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                   '<select name="capacity" class="form-control">' +
-                  '<option>en Liters</option>' +
+                  '<option>En litres</option>' +
                   '<option>5000 Litres</option>' +
                   '<option>10000 Litres</option>' +
                   '<option>15000 Litres</option>' +
@@ -233,9 +233,9 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option>55000 Litres</option>' +
                   '<option>60000 Litres</option>' +
                      '</select>'  
-   var marchandisesCapacity = '<label>Capacite</label>'+ 
+   var marchandisesCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                   '<select name="capacity" class="form-control">' +
-                  '<option>en Tonnes</option>' +
+                  '<option>En Tonnes</option>' +
                   '<option>2 T</option>' +
                   '<option>4 T</option>' +
                   '<option>5 T</option>' +
@@ -251,9 +251,9 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option>55 T</option>' +
                   '<option>60 T</option>' +
                      '</select>'  
-   var plateauCapacity ='<label>Capacite</label>'+ 
+   var plateauCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                   '<select name="capacity" class="form-control">' +
-                  '<option>en Tonnes</option>' +
+                  '<option>En Tonnes</option>' +
                   '<option>2 T</option>' +
                   '<option>4 T</option>' +
                   '<option>5 T</option>' +
@@ -269,9 +269,9 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option>55 T</option>' +
                   '<option>60 T</option>' +
                      '</select>' 
-   var frigorifiqueCapacity = '<label>Capacite</label>'+ 
+   var frigorifiqueCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                   '<select name="capacity" class="form-control">' +
-                  '<option>en Tonnes</option>' +
+                  '<option>En Tonnes</option>' +
                   '<option>2 T</option>' +
                   '<option>4 T</option>' +
                   '<option>5 T</option>' +
@@ -287,9 +287,9 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option>55 T</option>' +
                   '<option>60 T</option>' +
                      '</select>' 
-   var bennesCapacity = '<label>Capacite</label>'+ 
+   var bennesCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                   '<select name="capacity" class="form-control">' +
-                  '<option>en Tonnes ou M3</option>' +
+                  '<option>En Tonnes ou M3</option>' +
                   '<option>2 T</option>' +
                   '<option>4 T</option>' +
                   '<option>5 T</option>' +
@@ -317,7 +317,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option>55 M3</option>' +
                   '<option>60 M3</option>' +
                      '</select>'
-   var demenagementCapacity ='<label>Capacite</label>'+ 
+   var demenagementCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                         '<input name="capacite" class="form-control" placeholder="<?php echo utf8_encode("Capacite"); ?>">';
    var otherExtra = '<div class="form-group row">' +
                   '<div class="col-md-12">' +
@@ -340,15 +340,15 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                       '</select>';
 	var capcityDivBus = '<div class="row">' +
                         '<div class="col-md-6">' +
-                        '<label>Total Seats</label>'+ 
-                        '<input name="number_of_seats" class="form-control" placeholder="<?php echo utf8_encode("Total Seats"); ?>">' +
+                        '<label>{{ utf8_encode(__("Total Seats")) }}</label>'+ 
+                        '<input name="number_of_seats" class="form-control" placeholder="{{ utf8_encode(__("Total Seats")) }}">' +
                       '</div>'+
                       '<div class="col-md-6">' +
-                      '<label>Duration</label>'+ 
-                     '<input name="duration" class="form-control" placeholder="<?php echo utf8_encode("Duration"); ?>">' +
+                      '<label>{{ utf8_encode(__("Duration")) }}</label>'+ 
+                     '<input name="duration" class="form-control" placeholder="{{ utf8_encode(__("Duration")) }}">' +
                      '</div>'+
                         '</div>';				
-	getData("1", "Camions citterne", "camions-citterne.png");
+	getData("1", "Camions citerne", "camions-citerne.png");
 	function getData(id, type, image)
 	{	
       //alert(id);

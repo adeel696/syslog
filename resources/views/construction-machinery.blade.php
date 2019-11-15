@@ -149,27 +149,27 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="delivery_deadline" class="form-control" placeholder="<?php echo utf8_encode("Delai maximum de livraiuson"); ?>">
+                     <input name="delivery_deadline" class="form-control" placeholder="{{ utf8_encode(__('static.Delivery Deadline')) }}">
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="specifications " class="form-control" placeholder="Specification"></textarea>
+                     <textarea name="specifications " class="form-control" placeholder="{{ utf8_encode(__('static.Specifications')) }}"></textarea>
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="duration_of_user" class="form-control" placeholder="<?php echo utf8_encode("Duree d'utilisation"); ?>">
+                     <input name="duration_of_user" class="form-control" placeholder="{{ utf8_encode(__('static.Duration of User')) }}">
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="preferences" class="form-control" placeholder="Preferences"></textarea>
+                     <textarea name="preferences" class="form-control" placeholder="{{ utf8_encode(__('static.Preferences')) }}"></textarea>
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                  <input id="reserver" type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal">
+                  <input id="reserver" type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="{{ utf8_encode(__('static.Reserve')) }}" data-toggle="modal" data-target="#reserverModal">
                   </div>
                </div>
             </form>
@@ -213,12 +213,12 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="delivery_deadline" class="form-control" placeholder="<?php echo utf8_encode("D�lai maximum de livraiuson"); ?>">
+                     <input name="delivery_deadline" class="form-control" placeholder="{{ utf8_encode(__('static.Delivery Deadline')) }}">
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="specifications " class="form-control" placeholder="Specifications"></textarea>
+                     <textarea name="specifications " class="form-control" placeholder="{{ utf8_encode(__('static.Specifications')) }}"></textarea>
                   </div>
                </div>
                <div class="form-group row">
@@ -228,7 +228,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="preferences" class="form-control" placeholder="Preferences"></textarea>
+                     <textarea name="preferences" class="form-control" placeholder="{{ utf8_encode(__('static.Preferences')) }}"></textarea>
                   </div>
                </div>
                <div class="form-group row">
