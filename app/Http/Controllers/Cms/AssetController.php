@@ -170,7 +170,7 @@ class AssetController extends Controller
     {
 	   $info_Assets = $this->assetRps->getAsset();
 	   return Datatables::of($info_Assets)
-		->addColumn('edit', function ($info_Assets) {
+		->addColumn('edit', function ($info_Assets) { 
 				 return '<div class="btn-group btn-group-action">
 								<!--<a class="btn btn-info" style="margin-right:2px;" href="'.url('/cms/asset/'.$info_Assets->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i></a>--> 
                                 <a class="btn btn-danger" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/cms/asset/' . $info_Assets->id . '"><i class="fa fa-trash"></i></a>
