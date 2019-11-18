@@ -47,15 +47,6 @@
                     </div>
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.Capacity')) }}</label>
-                          {!! Form::text('capacity', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Capacity')), 'id' => 'capacity']) !!}
-                          @if ($errors->has('capacity'))
-                          <p style="color:red;">{!!$errors->first('capacity')!!}</p>
-                          @endif
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
                           <label>{{ utf8_encode(__('static.Quantity')) }}</label>
                           {!! Form::text('quantity', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Quantity')), 'id' => 'quantity']) !!}
                           @if ($errors->has('quantity'))
@@ -64,30 +55,63 @@
                        </div>
                     </div>
                     <div class="row">
-                       <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.State')) }}</label>
-                          {!! Form::text('state', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.State')), 'id' => 'state']) !!}
-                          @if ($errors->has('state'))
-                          <p style="color:red;">{!!$errors->first('state')!!}</p>
-                          @endif
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.Meter Reading')) }}</label>
-                          {!! Form::text('meter_reading', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Meter Reading')), 'id' => 'meter_reading']) !!}
-                          @if ($errors->has('meter_reading'))
-                          <p style="color:red;">{!!$errors->first('meter_reading')!!}</p>
-                          @endif
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.Specifications')) }}</label>
-                          {!! Form::text('specifications', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Specifications')), 'id' => 'specifications']) !!}
-                          @if ($errors->has('specifications'))
-                          <p style="color:red;">{!!$errors->first('specifications')!!}</p>
-                          @endif
+                       <div class="col-md-12 col-sm-12 col-xs-12 col-xs-12 form-group">
+                          <table id="mapTable" class="table table-bordered" style="width:100%">
+                             <thead>
+                                <tr>
+                                   <th></th>
+                                   <th colspan="4"></th>
+                                   <th rowspan="2" style="text-align:center">{{ utf8_encode("Distance au compteur") }}</th>
+                                   <th colspan="4" style="text-align:center">{{ utf8_encode("Spécifications") }}</th>
+                                </tr>
+                                <tr>
+                                   <th></th>
+                                   <th>{{ utf8_encode("Capacité") }}</th>
+                                   <th>{{ utf8_encode("N° d'immatriculation") }}</th>
+                                   <th>{{ utf8_encode("Date mise en circulation") }}</th>
+                                   <th>{{ utf8_encode("Etat") }}</th>
+                                    
+                                   <th>{{ utf8_encode("Marque") }}</th>
+                                   <th>{{ utf8_encode("Fabricant") }}</th>
+                                   <th>{{ utf8_encode("Série") }}</th>
+                                   <th>{{ utf8_encode("Autres spécifications") }}</th>
+                                </tr>
+                             </thead>
+                             <tbody id="mapBody">
+                                <tr>
+                                  	<td>
+                                    	<a href="javascript:void(0)" class="btn btn-success btn-sm btn-circle addBtn"><i class="fa fa-plus"></i></a>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="capacity[]" id="capacity" class="form-control capacity"/>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="registration_number[]" id="registration_number" class="form-control"/>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="date_of_entry[]" id="date_of_entry" class="form-control"/>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="state[]" id="state" class="form-control"/>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="meter_reading[]" id="meter_reading" class="form-control"/>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="mark[]" id="mark" class="form-control"/>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="maker[]" id="maker" class="form-control"/>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="series[]" id="series" class="form-control"/>
+                                    </td>
+                                    <td>
+                                    	<input type="text" name="other_specifications[]" id="other_specifications" class="form-control"/>
+                                    </td>
+                                </tr>
+                             </tbody>
+                          </table>
                        </div>
                     </div>
                     <div class="row">
@@ -146,10 +170,62 @@ $('#vehicleType').on('change', function (e) {
 		},
 	});
 });
+
+$(document).on('click', '.addBtn', function (e) { 	
+	var rowVal = '<tr>' +
+					'<td>' +
+					'<div class="btn-group" role="group"><a href="javascript:void(0)" class="btn btn-danger btn-sm btn-circle delBtn"><i class="fa fa-times"></i></a>' +
+					'	<a href="javascript:void(0)" class="btn btn-success btn-sm btn-circle addBtn"><i class="fa fa-plus"></i></a></div>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="capacity[]" id="capacity" class="form-control capacity"/>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="registration_number[]" id="registration_number" class="form-control"/>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="date_of_entry[]" id="date_of_entry" class="form-control"/>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="state[]" id="state" class="form-control"/>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="meter_reading[]" id="meter_reading" class="form-control"/>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="mark[]" id="mark" class="form-control"/>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="maker[]" id="maker" class="form-control"/>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="series[]" id="series" class="form-control"/>' +
+					'</td>' +
+					'<td>' +
+					'	<input type="text" name="other_specifications[]" id="other_specifications" class="form-control"/>' +
+					'</td>' +
+				'</tr>';
+	$('#mapTable tr:last').after(rowVal);
+});
+
+$(document).on('click', '.delBtn', function (e) {
+	$(this).closest('tr').remove();
+});
+
+$("#main-form").submit(function(){
+	var i=0;
+	$(".capacity").each(function( index ) {
+		i++;
+	});
+	if($("#quantity").val() != i)
+	{
+		alert("Vous devriez ajouter "+$("#quantity").val()+" actifs")
+		return false;
+	}
+	
+});
+
+
 </script>
-
 @endpush
-
-
-
 

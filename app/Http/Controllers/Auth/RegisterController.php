@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Session;
 class RegisterController extends Controller
 {
     /*
@@ -52,7 +52,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'mot_de_passe' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -64,14 +64,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+		Session::flash('flash_message', utf8_encode("vous êtes enregistré avec succès"));
         return User::create([
             'surname' => $data['surname'],
 			'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['mot_de_passe']),
 			'address' => $data['address'],
 			'phone_number' => $data['phone_number'],
 			'tax_number' => $data['tax_number'],
+			'rccm_number' => $data['rccm_number'],
 			'type' => $data['type'],
         ]);
     }

@@ -133,12 +133,14 @@
                             <li class="{{ (request()->segment(3) == 'bulk-buy') ? 'active' : '' }}"><a href="{{url('/cms/booking/bulk-buy')}}">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }}</a></li>
 						</ul>
 					</li>
+                    @if(Auth::User()->type == "1")
                     <li>
 						<a href="{{url('/cms/asset')}}">
 						    <i class="fa fa-location-arrow"></i>
 						    <span>{{ utf8_encode(__('static.Assets')) }}</span>
 					    </a>
 					</li>
+                    @endif
 				</ul>
 				<!-- end sidebar nav -->
 			</div>

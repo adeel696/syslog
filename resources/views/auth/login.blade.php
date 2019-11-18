@@ -20,8 +20,7 @@
     </div>
   </div> 
 </div>
-
-
+{{ $errors }}
 <div class="site-section bg-light">
     <div class="row justify-content-center">
       	<div class="col-md-4">
@@ -83,7 +82,7 @@
              <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="form-group">
-                    <select name="type" class="form-control select-lg">
+                    <select name="type" class="form-control select-lg typeS">
                         <option value="1">{{ utf8_encode(__('static.Asset Owner')) }}</option>
                         <option value="2">{{ utf8_encode(__('static.Enterprise')) }}</option>
                         <option value="3">Particuliers</option>
@@ -108,7 +107,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input name="entreprise" type="text" class="form-control input-lg" placeholder="Entreprise" />
+                    <input name="entreprise" id="entreprise" type="text" class="form-control input-lg" placeholder="Entreprise" />
                     @error('entreprise')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('entreprise') }}</strong>
@@ -126,15 +125,15 @@
 
                 </div>
                 <div class="form-group">
-                    <input name="password" type="password" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Password')) }}" />
-                    @error('password')
+                    <input name="mot_de_passe" type="password" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Password')) }}" />
+                    @error('passwordr')
                         <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('password') }}</strong>
+                        <strong>{{ $errors->first('passwordr') }}</strong>
                         </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <input name="password_confirmation" type="password" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Confirm')) }} {{ utf8_encode(__('static.Password')) }}" />
+                    <input name="mot_de_passe_confirmation" type="password" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Confirm')) }} {{ utf8_encode(__('static.Password')) }}" />
                 </div>
                 <div class="form-group">
                     <input name="phone_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Phone Number')) }}" />
@@ -156,7 +155,7 @@
 
                 </div>
                 <div class="form-group">
-                    <input name="rccm_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} RCCM " />
+                    <input name="rccm_number" id="rccm_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} RCCM " />
                     @error('rccm_number')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('rccm_number') }}</strong>
@@ -165,7 +164,7 @@
 
                 </div>
                 <div class="form-group">
-                    <input name="tax_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} {{ utf8_encode(__('static.Tax')) }}" />
+                    <input name="tax_number" id="tax_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} {{ utf8_encode(__('static.Tax')) }}" />
                     @error('tax_number')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('tax_number') }}</strong>
@@ -184,3 +183,22 @@
     </div>
 </div>
 @endsection
+
+@push('scripts') 
+<script>
+	$( ".typeS" ).change(function() {
+		if($(this).val() == "3")
+		{
+			$("#entreprise").hide();
+			$("#tax_number").hide();
+			$("#rccm_number").hide();
+		}
+		else
+		{
+			$("#entreprise").show();
+			$("#tax_number").show();
+			$("#rccm_number").show();
+		}
+	});
+</script>
+@endpush

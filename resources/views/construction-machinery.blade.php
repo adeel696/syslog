@@ -76,9 +76,9 @@
                      </div>
                      <div class="item">
                         <div class="pad15">
-                           <a href="javascript:void(0)" class="hedrSel" data-id="9" data-val="<?php echo utf8_encode("Nacelles �l�vateur"); ?>" data-img="aerial-lift.png">
+                           <a href="javascript:void(0)" class="hedrSel" data-id="9" data-val="{{ utf8_encode(__('static.Aerial Lift')) }}" data-img="aerial-lift.png">
                               <span class="lead"><img class="zoomImg" src="{{ url('/home/img/construction/aerial-lift.png') }}" style="width:100px"></span>
-                              <p><?php echo utf8_encode("Nacelles �l�vateur"); ?></p>
+                              <p>{{ utf8_encode(__('static.Aerial Lift')) }}</p>
                            </a>
                         </div>
                      </div>
@@ -223,7 +223,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <input name="durartion" class="form-control" placeholder="<?php echo utf8_encode("Duree d'utilisation"); ?>">
+                     <input name="durartion" class="form-control" placeholder="{{ utf8_encode(__('static.Duration of User')) }}">
                   </div>
                </div>
                <div class="form-group row">
@@ -233,7 +233,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-6 mr-auto">
-                     	<input id="reserver-other" type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal-other">
+                     	<input id="reserver-other" type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="{{ utf8_encode(__('static.Reserve')) }}" data-toggle="modal" data-target="#reserverModal-other">
                   </div>
                </div>
             </form>

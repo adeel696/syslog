@@ -84,6 +84,7 @@ return [
 	'Deals' => 'Deals',
 	'Follow Us' => 'Follow Us',
 	'Destination' => 'Destination', 
+	'Origine' => "Origine",
 	'Capacity' => 'Capacity',
 	'Designation' => 'Designation',
 	'Needed Space' => 'Needed Space',
@@ -94,4 +95,8 @@ return [
 	'Duration' => 'Duration',
 	'Move Truck' => 'Move Truck',
 	'Approx Storage Time' => 'Approx Storage Time',
+	'Aerial Lift' => 'Aerial Lift',
+	'CMS' => 'CMS',
+	'Validate' => 'Validate',
+	'No Price Message' => 'No Price Message',
 ];

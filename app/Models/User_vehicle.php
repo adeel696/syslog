@@ -13,7 +13,7 @@ class User_vehicle extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['user_id', 'vehicle_id', 'construction_machinary_id', 'type', 'quantity', 'capacity', 'state', 'meter_reading', 'specifications'];
+    protected $fillable = ['user_id', 'vehicle_id', 'construction_machinary_id', 'type', 'quantity', 'capacity', 'date_of_entry', 'registration_number', 'meter_reading', 'state', 'mark', 'maker', 'series', 'other_specifications'];
    
 	public function User()
 	{

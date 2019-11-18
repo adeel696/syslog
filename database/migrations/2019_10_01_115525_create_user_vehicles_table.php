@@ -21,9 +21,14 @@ class CreateUserVehiclesTable extends Migration
             $table->string('type');
             $table->string('quantity');
             $table->string('capacity');
+			$table->string('date_of_entry');
+			$table->string('registration_number');
+			$table->string('meter_reading');
             $table->string('state');
-            $table->string('meter_reading');
-            $table->string('specifications');
+            $table->string('mark');
+			$table->string('maker');
+			$table->string('series');
+			$table->string('other_specifications');
             $table->timestamps();
         });
         Schema::table('user_vehicles', function(Blueprint $table) {

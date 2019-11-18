@@ -38,13 +38,19 @@ class AssetRepository {
 			$db_asset->construction_machinary_id = $inputs['contruction_machinary_id'];
 		if(isset($inputs['vehicle_id']))
 			$db_asset->vehicle_id = $inputs['vehicle_id'];
-		$db_asset->capacity = $inputs['capacity'];
 		$db_asset->user_id = Auth::user()->id;
 		$db_asset->type = $inputs['type_of_vehicle'];
 		$db_asset->quantity = $inputs['quantity'];
-		$db_asset->state = $inputs['state'];
+		$db_asset->capacity = $inputs['capacity'];
+		$db_asset->date_of_entry = $inputs['date_of_entry'];
+		$db_asset->registration_number = $inputs['registration_number'];
 		$db_asset->meter_reading = $inputs['meter_reading'];
-		$db_asset->specifications = $inputs['specifications'];
+		$db_asset->state = $inputs['state'];
+		$db_asset->mark = $inputs['mark'];
+		$db_asset->maker = $inputs['maker'];
+		$db_asset->series = $inputs['series'];
+		$db_asset->other_specifications = $inputs['other_specifications'];
+		
 		$db_asset->save();
 		return $db_asset;
 	}
@@ -53,11 +59,11 @@ class AssetRepository {
     {
 		if($id==null)
 		{
-			$info_Asset = $this->db_asset->select('id', 'user_id', 'vehicle_id', 'construction_machinary_id', 'type', 'quantity', 'capacity', 'state', 'meter_reading', 'specifications')->orderBy('created_at', 'DESC')->get();
+			$info_Asset = $this->db_asset->select('id', 'user_id', 'vehicle_id', 'construction_machinary_id', 'type', 'quantity', 'capacity', 'date_of_entry', 'registration_number', 'meter_reading', 'state', 'mark', 'maker', 'series', 'other_specifications')->orderBy('created_at', 'DESC')->get();
 		}
 		else
 		{
-			$info_Asset = $this->db_asset->select('id', 'user_id', 'vehicle_id', 'construction_machinary_id', 'type', 'quantity', 'capacity', 'state', 'meter_reading', 'specifications')->findOrFail($id);
+			$info_Asset = $this->db_asset->select('id', 'user_id', 'vehicle_id', 'construction_machinary_id', 'type', 'quantity', 'capacity', 'date_of_entry', 'registration_number', 'meter_reading', 'state', 'mark', 'maker', 'series', 'other_specifications')->findOrFail($id);
 		}
         return $info_Asset;
     }

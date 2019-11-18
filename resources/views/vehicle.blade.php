@@ -52,7 +52,7 @@
                      </div>
                      <div class="item">
                         <div class="pad15">
-                           <a href="javascript:void(0)" class="hedrSel" data-id="6" data-val="Demenagement" data-img="cargo-truck.png">
+                           <a href="javascript:void(0)" class="hedrSel" data-id="6" data-val="{{ utf8_encode(__('static.Move Truck')) }}" data-img="cargo-truck.png">
                               <span class="lead"><img class="zoomImg" src="{{ url('/home/img/truck/cargo-truck.png') }}" style="width:100px"></span>
                               <p>{{ utf8_encode(__('static.Move Truck')) }}</p>
                            </a>
@@ -182,7 +182,7 @@
                      <input class="checkFare" name="loading" id="loading" type="checkbox" /> Chargement
                   </div>
                   <div class="col-md-4">
-                     <input class="checkFare" name="offloading" id="offloading" type="checkbox" /> <?php echo utf8_encode("Déchargement"); ?>
+                     <input class="checkFare" name="offloading" id="offloading" type="checkbox" /> {{ utf8_encode(__('static.OffLoading')) }}
                   </div>
                </div>
                <div class="form-group row">
@@ -191,13 +191,21 @@
                     </div>
                </div>
                <div class="form-group row">
+                  
                   <div class="col-md-6 mr-auto">
-                  <input type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="Reserver" data-toggle="modal" data-target="#reserverModal">
+                  <input type="button" id="validate" class="btn btn-block btn-primary text-white py-3 px-5" value="{{ utf8_encode(__('static.Validate')) }}">
                   </div>
+                  
                   <div class="col-md-6 mr-auto">
-                  	<h3>{{ utf8_encode(__('static.Fare')) }}: <span id="result">0</span></h3>
+                  <input type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="{{ utf8_encode(__('static.Reserve')) }}" data-toggle="modal" data-target="#reserverModal">
+                  </div>
+                  
+               </div>
+               <div class="form-group row">
+                <div class="col-md-12 mr-auto">
+                    <p><span id="result"></span></p>
                     <input type="hidden" id="amount" name="amount" value="0"/>
-                  </div>
+                </div>
                </div>
             </form>
          </div>
@@ -338,14 +346,15 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                         '<option><?php echo utf8_encode("Demenagement "); ?></option>' +
                         '<option><?php echo utf8_encode("Autres"); ?></option>' +
                       '</select>';
+	var totalSeat = '{{ utf8_encode(__("static.Total Seats")) }}';
 	var capcityDivBus = '<div class="row">' +
                         '<div class="col-md-6">' +
-                        '<label>{{ utf8_encode(__("Total Seats")) }}</label>'+ 
-                        '<input name="number_of_seats" class="form-control" placeholder="{{ utf8_encode(__("Total Seats")) }}">' +
+                        '<label>'+totalSeat+'</label>'+ 
+                        '<input name="number_of_seats" class="form-control" placeholder="'+totalSeat+'">' +
                       '</div>'+
                       '<div class="col-md-6">' +
-                      '<label>{{ utf8_encode(__("Duration")) }}</label>'+ 
-                     '<input name="duration" class="form-control" placeholder="{{ utf8_encode(__("Duration")) }}">' +
+                      '<label>{{ utf8_encode(__("static.Duration")) }}</label>'+ 
+                     '<input name="duration" class="form-control" placeholder="{{ utf8_encode(__("static.Duration")) }}">' +
                      '</div>'+
                         '</div>';				
 	getData("1", "Camions citerne", "camions-citerne.png");
@@ -418,8 +427,64 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 
     });
 
-
-   $('.checkFare').on('change', function(){
+	$('#validate').on('click', function(){
+	  if($("#user_id").val() == "")
+	  {
+		window.location.href = "{{ url('login') }}";
+		return false;
+	  }
+	  var vehicleID = $("#vehicle_id").val();
+      var toCityId = $('select[name="to_city"]').val();
+      var fromCityId = $('select[name="from_city"]').val();
+		//alert(vehicleID +" "+ toCityId +" "+ fromCityId )
+         var url = "{{url('vehicle/getFare')}}"+'/';
+         // alert(url);
+         $.ajax({
+               url: url,
+               type:"GET",
+               dataType:"json",
+               data: {method: '_GET',"vehicle_id":vehicleID, "to_city":toCityId,"from_city":fromCityId, "_token": "{{ csrf_token() }}" ,    submit: true},
+               beforeSend: function(){
+                  $('#loader').css("visibility", "visible");
+               },
+               success:function(data) {
+					console.log(data);
+					//$('#result').empty();
+					//
+					if(data != null)
+					{
+						var amount = parseInt(data.fare);
+						if($('#insurances').is(':checked'))
+						{
+						  amount = amount + parseInt(data.insurances_amount);
+						}
+						if($('#loading').is(':checked'))
+						{
+						  amount = amount + parseInt(data.loading_price);
+						}
+						if($('#offloading').is(':checked'))
+						{
+						  amount = amount + parseInt(data.offloading_price);
+						}
+						
+						$('#result').html('{{ utf8_encode(__('static.Fare')) }}: '+ amount);
+						$('#amount').val(amount);
+					}
+					else
+					{
+						$('#result').html('{{ utf8_encode(__("static.No Price Message")) }}');
+					}
+               },
+               error: function (jqXHR, textStatus, errorThrown)
+               { alert(errorThrown) }
+         ,  
+               complete: function(){
+               // alert('url');
+                  $('#loader').css("visibility", "hidden");
+               }
+         }); 
+   }); 
+   /*$('.checkFare').on('change', function(){
       if($("#user_id").val() == "")
 		{
 			window.location.href = "{{ url('login') }}";
@@ -467,6 +532,6 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   $('#loader').css("visibility", "hidden");
                }
          }); 
-   });   
+   }); */  
 </script>
 @endpush
