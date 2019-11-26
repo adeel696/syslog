@@ -12,7 +12,11 @@
     <!-- begin page-header -->
     <h1 class="page-header">{{ utf8_encode(__('static.Vehicle')) }} <small></small></h1>
     <!-- end page-header -->
-    
+    <div class="row justify-content-center text-center mb-5">
+        <div class="col-md-6">
+            <span class="alert">{{ utf8_encode(session('flash_message')) }}</span>
+        </div>
+    </div>
     <!-- begin section-container -->
     <div class="section-container section-with-top-border p-b-5">
         <!-- begin row -->

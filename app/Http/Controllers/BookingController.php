@@ -27,7 +27,7 @@ class BookingController extends Controller
 		$info_Booking = $this->bookingRps->storeBooking($inputs);
 		$inputs['booking_id'] = $info_Booking->id;
     	$this->bookingRps->storeWarehouseBooking($inputs);
-		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
+		Session::flash('flash_message', 'Votreréservation a bien étépriseencompte , nous vouscontacteronstrèsbientôt');
 		return redirect('cms/booking/warehouse');
     }
 	
@@ -39,7 +39,7 @@ class BookingController extends Controller
 		$info_Booking = $this->bookingRps->storeBooking($inputs);
 		$inputs['booking_id'] = $info_Booking->id;
 		$this->bookingRps->storeConstructionMachineBooking($inputs);
-		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
+		Session::flash('flash_message', 'Votreréservation a bien étépriseencompte , nous vouscontacteronstrèsbientôt ');
 		return redirect('cms/booking/construction-machine');
 	}
 	public function addVehicleBooking(Request $request)
@@ -50,7 +50,7 @@ class BookingController extends Controller
 		$info_Booking = $this->bookingRps->storeBooking($inputs);
 		$inputs['booking_id'] = $info_Booking->id;
     	$this->bookingRps->storeVehicleBooking($inputs);
-		Session::flash('flash_message', 'Your booking request has been sent. For detail go to&nbsp;<a href="'.url('/cms').'">CMS</a>');
+		Session::flash('flash_message', 'Votreréservation a bien étépriseencompte , nous vouscontacteronstrèsbientôt');
 		return redirect('cms/booking/vehicle');
     }
 }

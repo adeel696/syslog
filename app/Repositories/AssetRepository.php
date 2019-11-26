@@ -35,7 +35,7 @@ class AssetRepository {
 	function storeAsset($db_asset , $inputs, $id = null)
 	{	
 		if(isset($inputs['construction_machinary_id']))
-			$db_asset->construction_machinary_id = $inputs['contruction_machinary_id'];
+			$db_asset->construction_machinary_id = $inputs['construction_machinary_id'];
 		if(isset($inputs['vehicle_id']))
 			$db_asset->vehicle_id = $inputs['vehicle_id'];
 		$db_asset->user_id = Auth::user()->id;

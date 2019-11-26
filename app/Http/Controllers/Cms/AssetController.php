@@ -71,7 +71,7 @@ class AssetController extends Controller
 			}
 			else
 			{
-				$updatedInputs["contruction_machinary_id"] = $inputs["machine_id"];
+				$updatedInputs["construction_machinary_id"] = $inputs["machine_id"];
 			}
 			
 			
@@ -89,6 +89,7 @@ class AssetController extends Controller
 			
 			$i++;
 		}
+		
 		Session::flash('flash_message', utf8_encode(__('static.Asset')).' '. utf8_encode('ajouté avec succès'));
 		return view('cms.asset.index');
     
