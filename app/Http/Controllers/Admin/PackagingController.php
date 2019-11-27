@@ -110,12 +110,12 @@ class PackagingController extends Controller
 	
     public function grid()
     {
-	   $info_Cities = $this->packagingRps->getPackaging();
-	   return Datatables::of($info_Cities)
-		->addColumn('edit', function ($info_Cities) {
+	   $info_Packagings = $this->packagingRps->getPackaging();
+	   return Datatables::of($info_Packagings)
+		->addColumn('edit', function ($info_Packagings) {
 				 return '<div class="">
-								<a class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10" style="margin-right:2px;" href="'.url('/admin/packaging/'.$info_Cities->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i> '.utf8_encode(__('static.Edit')).'</a> 
-                                <a class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/admin/packaging/' . $info_Cities->id . '"><i class="fa fa-trash"></i> '.utf8_encode(__('static.Delete')).'</a>
+								<a class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10" style="margin-right:2px;" href="'.url('/admin/packaging/'.$info_Packagings->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i> '.utf8_encode(__('static.Edit')).'</a> 
+                                <a class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10" href="javascript(0)" title="Delete Data" id="btnDelete" name="btnDelete" data-remote="/admin/packaging/' . $info_Packagings->id . '"><i class="fa fa-trash"></i> '.utf8_encode(__('static.Delete')).'</a>
                                 </div>';
         })
 		->escapeColumns([])

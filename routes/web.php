@@ -63,6 +63,8 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::post('/login', 'Admin\Auth\LoginController@login');
 	Route::post('/logout', 'Admin\Auth\LoginController@logout');
 	
+	Route::resource('/profile', 'Admin\ProfileController');
+	
 	Route::get('/construction-machine/list', 'Admin\ConstructionMachineController@lists');
 	Route::get('/construction-machine/grid', 'Admin\ConstructionMachineController@grid');
 	Route::resource('/construction-machine', 'Admin\ConstructionMachineController');
@@ -72,6 +74,9 @@ Route::group(['prefix' => 'admin'], function(){
 	
 	Route::get('/packaging/grid', 'Admin\PackagingController@grid');
 	Route::resource('/packaging', 'Admin\PackagingController');
+	
+	Route::get('/offer/grid', 'Admin\OfferController@grid');
+	Route::resource('/offer', 'Admin\OfferController');
 	
 	Route::get('/vehicle/list', 'Admin\VehicleController@lists');
 	Route::get('/vehicle/grid', 'Admin\VehicleController@grid');

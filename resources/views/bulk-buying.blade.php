@@ -17,23 +17,30 @@
 <div class="site-section bg-light">
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-6">
-            <h2 class="mb-4" id="catName">Offers</h2>
+            <h2 class="mb-4" id="catName">{{ utf8_encode(__('static.Offer')) }}</h2>
         </div>
     </div>
     <div class="container" id="contentDetail">
+    	<input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
         <div class="mt-5">
           <div class="container">
             <div class="row">
-              <div class="col-lg-4">
-                <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-              </div>
-              <div class="col-lg-8">
-                <h2>
-                    <?php echo utf8_encode("Offer Name"); ?>
-                </h2>
-                <p><?php echo utf8_encode("Detail"); ?></p>
-                <p><a href="{{ url('contact') }}">Subscribe</a></p>
-              </div>
+            @foreach(App\Models\Offer::All() as $offer)
+            <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
+               <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
+                    <img src="{{ url('home/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
+                    <h2>
+                        {{ utf8_encode($offer->title) }}
+                    </h2>
+                    <p>{{ utf8_encode($offer->description) }}</p>
+                    <p><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                  </div>
+               </div>
+            </div>
+            @endforeach
             </div>
           </div>
         </div>
@@ -42,6 +49,12 @@
 @endsection
 @push('scripts') 
 <script>
-	$("html, body").animate({ scrollTop: $('#contentDetail').offset().top-200 }, 600);
+	$('.subscribe').on('click', function(){
+		if($("#user_id").val() == "")
+		{
+			window.location.href = "{{ url('login') }}";
+			return false;
+		}
+	});
 </script>
 @endpush

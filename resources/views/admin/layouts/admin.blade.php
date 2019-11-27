@@ -99,7 +99,7 @@
 				            <div class="name dropdown">
 				                <a href="javascript:;" data-toggle="dropdown">{{ Auth::Guard('admin')->User()->name }} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:;">{{ utf8_encode(__('static.Edit')) }} {{ utf8_encode(__('static.Profile')) }}</a></li>
+                                    <li><a href="{{ url('/admin/profile') }}">{{ utf8_encode(__('static.Edit')) }} {{ utf8_encode(__('static.Profile')) }}</a></li>
                                     <li class="divider"></li>
                                     <li>
                                     	<a href="{{ url('/admin/logout') }}"
@@ -155,6 +155,12 @@
 						<a href="{{url('/admin/construction-machine')}}">
                         <i class="fas fa-space-shuttle"></i>
                         <span>{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machines')) }}</span>
+					    </a>
+					</li>
+                    <li class="{{ (request()->segment(2) == 'offer') ? 'active' : '' }}">
+						<a href="{{url('/admin/offer')}}">
+                        <i class="fas fa-boxes"></i>
+                        <span>{{ utf8_encode(__('static.Offer')) }}</span>
 					    </a>
 					</li>
                     <li class="{{ (request()->segment(2) == 'packaging') ? 'active' : '' }}">
