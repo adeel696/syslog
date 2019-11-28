@@ -13,7 +13,7 @@ class Offer extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['title','description','image'];
+    protected $fillable = ['title','description','image','type','insurance_type','range_of_age_of_vehicule','value_of_vehicle','power','designation','packaging','caracteristics','brand','reference','others','amount'];
 	
 	public function User_offer()
 	{

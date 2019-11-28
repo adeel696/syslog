@@ -115,6 +115,16 @@ class OfferController extends Controller
 		->editColumn('image', function ($info_Offers) {
 			return "<image src='".url('/media/offers/')."/".$info_Offers->image."' style='width:100%'>";
 		})
+		->editColumn('type', function ($info_Offers) {
+			if($info_Offers->type == "1")
+				return "Assurance";
+			if($info_Offers->type == "2")
+				return utf8_encode('Pièces détachées');
+			if($info_Offers->type == "3")
+				return "Lubrifiants";
+			if($info_Offers->type == "4")
+				return "Autres";
+		})
 		->addColumn('edit', function ($info_Offers) {
 				 return '<div class="">
 								<a class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10" style="margin-right:2px;" href="'.url('/admin/offer/'.$info_Offers->id.'/edit').'" title="Edit Data"><i class="fas fa-pencil-alt"></i> '.utf8_encode(__('static.Edit')).'</a> 

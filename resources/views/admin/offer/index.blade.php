@@ -33,7 +33,9 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.Title')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Type')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Amount')) }}</th>
                                     <th>{{ utf8_encode(__('static.Image')) }}</th>
                                     <th>{{ utf8_encode(__('static.Action')) }}</th>
                                 </tr>
@@ -62,7 +64,9 @@
         "columns": [
 			{ data: 'id', name: 'id' },
 			{ data: 'title', name: 'title' },
+			{ data: 'type', name: 'type' },
       		{ data: 'description', name: 'description' },
+			{ data: 'amount', name: 'amount' },
 			{ data: 'image', name: 'image' },
 			{ data: 'edit', name: 'edit', orderable: false, searchable: false }
 		],
