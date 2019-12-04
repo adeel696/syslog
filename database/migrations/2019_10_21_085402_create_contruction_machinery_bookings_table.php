@@ -15,7 +15,6 @@ class CreateContructionMachineryBookingsTable extends Migration
     {
         Schema::create('contruction_machinaries_bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('booking_id')->unsigned()->nullable();
             $table->integer('contruction_machinary_id')->unsigned()->nullable();
             $table->string('type_of_machinery')->nullable();
             $table->string('specification')->nullable();
@@ -24,15 +23,21 @@ class CreateContructionMachineryBookingsTable extends Migration
             $table->string('duration_of_user')->nullable();
             $table->string('preferences');
             $table->boolean('others')->nullable();
+			$table->integer('user_id')->unsigned()->nullable();
+            $table->string('amount')->nullable();
+            $table->string('description')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
+
         Schema::table('contruction_machinaries_bookings', function(Blueprint $table) {
-			$table->foreign('booking_id', 'fk_foreign_c_bid')->references('id')->on('bookings')
+			$table->foreign('contruction_machinary_id' ,'fk_foreign_c_cid')->references('id')->on('construction_machinaries')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });
-        Schema::table('contruction_machinaries_bookings', function(Blueprint $table) {
-			$table->foreign('contruction_machinary_id' ,'fk_foreign_c_cid')->references('id')->on('construction_machinaries')
+		
+		Schema::table('contruction_machinaries_bookings', function(Blueprint $table) {
+			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });

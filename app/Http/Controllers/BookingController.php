@@ -24,8 +24,6 @@ class BookingController extends Controller
 		$inputs = $request->all();
 		$inputs['type'] = 3;
 		$inputs['status'] = 1;
-		$info_Booking = $this->bookingRps->storeBooking($inputs);
-		$inputs['booking_id'] = $info_Booking->id;
     	$this->bookingRps->storeWarehouseBooking($inputs);
 		Session::flash('flash_message', 'Votreréservation a bien étépriseencompte , nous vouscontacteronstrèsbientôt');
 		return redirect('cms/booking/warehouse');
@@ -36,8 +34,6 @@ class BookingController extends Controller
 		$inputs = $request->all();
 		$inputs['type'] = 2;
 		$inputs['status'] = 1;
-		$info_Booking = $this->bookingRps->storeBooking($inputs);
-		$inputs['booking_id'] = $info_Booking->id;
 		$this->bookingRps->storeConstructionMachineBooking($inputs);
 		Session::flash('flash_message', 'Votreréservation a bien étépriseencompte , nous vouscontacteronstrèsbientôt ');
 		return redirect('cms/booking/construction-machine');
@@ -47,8 +43,6 @@ class BookingController extends Controller
 		$inputs = $request->all();
 		$inputs['type'] = 1;
 		$inputs['status'] = 1;
-		$info_Booking = $this->bookingRps->storeBooking($inputs);
-		$inputs['booking_id'] = $info_Booking->id;
     	$this->bookingRps->storeVehicleBooking($inputs);
 		Session::flash('flash_message', 'Votreréservation a bien étépriseencompte , nous vouscontacteronstrèsbientôt');
 		return redirect('cms/booking/vehicle');

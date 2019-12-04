@@ -15,7 +15,6 @@ class CreateWarehouseBookingsTable extends Migration
     {
         Schema::create('warehouse_bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('booking_id')->unsigned()->nullable();
             $table->text('product_type')->nullable();
             $table->string('packaging')->nullable();
             $table->string('weight');
@@ -24,16 +23,21 @@ class CreateWarehouseBookingsTable extends Migration
             $table->string('preferences');
             $table->boolean('preference_text')->nullable();
 			$table->integer('city_id')->unsigned()->nullable();
+			$table->integer('user_id')->unsigned()->nullable();
+            $table->string('amount')->nullable();
+            $table->string('description')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
-        Schema::table('warehouse_bookings', function(Blueprint $table) {
-			$table->foreign('booking_id')->references('id')->on('bookings')
+		
+		Schema::table('warehouse_bookings', function(Blueprint $table) {
+			$table->foreign('city_id')->references('id')->on('cities')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });
 		
 		Schema::table('warehouse_bookings', function(Blueprint $table) {
-			$table->foreign('city_id')->references('id')->on('cities')
+			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });

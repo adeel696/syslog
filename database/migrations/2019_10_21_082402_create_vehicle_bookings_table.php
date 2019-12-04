@@ -15,7 +15,6 @@ class CreateVehicleBookingsTable extends Migration
     {
         Schema::create('vehicle_bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('booking_id')->unsigned()->nullable();
 			$table->integer('vehicle_id')->unsigned()->nullable();
             $table->text('type_of_vehicle')->nullable();
             $table->integer('place_of_departure_city_id')->unsigned()->nullable();
@@ -29,13 +28,13 @@ class CreateVehicleBookingsTable extends Migration
             $table->string('insurances')->nullable();
             $table->string('loading')->nullable();
             $table->string('offloading')->nullable();
+			$table->integer('user_id')->unsigned()->nullable();
+            $table->string('amount')->nullable();
+            $table->string('description')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
-        Schema::table('vehicle_bookings', function(Blueprint $table) {
-			$table->foreign('booking_id')->references('id')->on('bookings')
-						->onDelete('CASCADE')
-						->onUpdate('CASCADE');
-        });
+
         Schema::table('vehicle_bookings', function(Blueprint $table) {
 			$table->foreign('place_of_departure_city_id')->references('id')->on('cities')
 						->onDelete('CASCADE')
@@ -48,6 +47,12 @@ class CreateVehicleBookingsTable extends Migration
         });
         Schema::table('vehicle_bookings', function(Blueprint $table) {
 			$table->foreign('vehicle_id')->references('id')->on('vehicles')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		
+		Schema::table('vehicle_bookings', function(Blueprint $table) {
+			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });

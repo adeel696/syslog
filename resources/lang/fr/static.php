@@ -102,9 +102,9 @@ return [
 	'CMS' => 'Mon Compte',
 	'Validate' => 'Validate',
 	'No Price Message' => 'Prix non disponible, Veuillez nous contacter ou RESERVER pour avoir le détail de ce voyage',
-	'Offer' => 'Offer',
-	'Offers' => 'Offers',
+	'Offre' => 'Offer',
+	'Offers' => 'Des offres',
 	'Image' => 'Image',
-	'Title' => 'Title',
-	'No of Seats' => 'No of Seats',
+	'Title' => 'Titre',
+	'No of Seats' => 'Nombre de sièges',
 ];

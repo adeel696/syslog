@@ -35,7 +35,6 @@
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
                                     <th>{{ utf8_encode(__('static.Email')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
-                                    <th>{{ utf8_encode(__('Booking ID')) }}</th>
                                     <th>{{ utf8_encode(__('Product Type')) }}</th>
                                     <th>{{ utf8_encode(__('Packaging')) }}</th>
                                     <th>{{ utf8_encode(__('static.Weight')) }}</th>
@@ -74,7 +73,6 @@
 			{ data: 'user_id', name: 'user_id' },
 			{ data: 'email', name: 'email' },
       		{ data: 'description', name: 'description' },
-            { data: 'booking_id', name: 'booking_id' },            
             { data: 'product_type', name: 'product_type' },
             { data: 'packaging', name: 'packaging' },
             { data: 'weight', name: 'weight' },

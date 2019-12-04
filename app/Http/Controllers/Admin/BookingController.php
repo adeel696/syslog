@@ -28,12 +28,19 @@ class BookingController extends Controller
 
     public function getVehicleGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(1)->join('vehicle_bookings', 'vehicle_bookings.booking_id', '=', 'bookings.id')
-       ->select('bookings.*', 'vehicle_bookings.*')
-       ->get();
+	   $info_Bookings = $this->bookingRps->getBookingByType(1)->get();
 	   return Datatables::of($info_Bookings)
 	   	->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name." (".$info_Bookings->User()->First()->phone_number.")";
+        })
+		->editColumn('vehicle_id', function ($info_Bookings) {
+			return $info_Bookings->Vehicle()->First()->name;
+        })
+		->editColumn('place_of_departure_city_id', function ($info_Bookings) {
+			return $info_Bookings->Place_of_departure_city()->First()->name;
+        })
+		->editColumn('place_of_arrival_city_id', function ($info_Bookings) {
+			return $info_Bookings->Place_of_arrival_city()->First()->name;
         })
 		->addColumn('email', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->email;
@@ -49,13 +56,13 @@ class BookingController extends Controller
 
     public function getConstructionMachineGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(2)
-	   ->join('contruction_machinaries_bookings', 'contruction_machinaries_bookings.booking_id', '=', 'bookings.id')
-       ->select('bookings.*', 'contruction_machinaries_bookings.*')
-       ->get();
+	   $info_Bookings = $this->bookingRps->getBookingByType(2)->get();
 	   return Datatables::of($info_Bookings)
 	   	->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name." (".$info_Bookings->User()->First()->phone_number.")";
+        })
+		->editColumn('contruction_machinary_id', function ($info_Bookings) {
+			return $info_Bookings->ConstructionMachine()->First()->name;
         })
 		->addColumn('email', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->email;
@@ -71,10 +78,7 @@ class BookingController extends Controller
 
     public function getWarehouseGrid()
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(1)
-	   ->join('warehouse_bookings', 'warehouse_bookings.booking_id', '=', 'bookings.id')
-       ->select('bookings.*', 'warehouse_bookings.*')
-       ->get();
+	   $info_Bookings = $this->bookingRps->getBookingByType(3)->get();
 	   return Datatables::of($info_Bookings)
 		->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name." (".$info_Bookings->User()->First()->phone_number.")";

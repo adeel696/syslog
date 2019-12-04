@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\Booking;
 use App\Models\Warehouse_booking;
 use App\Models\Vehicle_booking;
 use App\Models\User_offer;
@@ -17,40 +16,23 @@ class BookingRepository {
 	/**
 	 * @var App\Models\booking
 	 */
-	protected $db_booking;
 	protected $db_warehouse_booking;
 	protected $db_vehicle_booking;
 	protected $db_user_offer;
 	protected $db_construction_machine_booking;
 		
-    public function __construct(Booking $db_booking, Warehouse_booking $db_warehouse_booking, Vehicle_booking $db_vehicle_booking, User_offer $db_user_offer, ConstructionMachineBooking $db_construction_machine_booking) 
+    public function __construct(Warehouse_booking $db_warehouse_booking, Vehicle_booking $db_vehicle_booking, User_offer $db_user_offer, ConstructionMachineBooking $db_construction_machine_booking) 
     {
-        $this->db_booking = $db_booking;
 		$this->db_warehouse_booking = $db_warehouse_booking;
 		$this->db_vehicle_booking = $db_vehicle_booking;
 		$this->db_user_offer = $db_user_offer;
 		$this->db_construction_machine_booking = $db_construction_machine_booking;
     }
 	
-	function storeBooking($inputs)
-	{	
-		$db_booking = new $this->db_booking;
-        $db_booking->user_id = $inputs['user_id'];
-        $db_booking->type = $inputs['type'];
-		if(isset($inputs['amount']))
-			$db_booking->amount = $inputs['amount'];
-		if(isset($inputs['description']))
-			$db_booking->description = $inputs['description'];
-		$db_booking->status = $inputs['status'];
-		$db_booking->save();
-		return $db_booking;
-	}
-	
 	function storeWarehouseBooking($inputs)
 	{
 		//dd($inputs);
 		$db_warehouse_booking = new $this->db_warehouse_booking;
-        $db_warehouse_booking->booking_id = $inputs['booking_id'];
 		$db_warehouse_booking->packaging = $inputs['packaging'];
 		$db_warehouse_booking->weight = $inputs['weight'];
 		$db_warehouse_booking->volume = $inputs['volume'];
@@ -60,6 +42,12 @@ class BookingRepository {
 			$db_warehouse_booking->preference_text = $inputs['preference_text'];
 		if(isset($inputs['city_id']))
 			$db_warehouse_booking->city_id = $inputs['city_id'];
+		$db_warehouse_booking->user_id = $inputs['user_id'];
+		if(isset($inputs['amount']))
+			$db_warehouse_booking->amount = $inputs['amount'];
+		if(isset($inputs['description']))
+			$db_warehouse_booking->description = $inputs['description'];
+		$db_warehouse_booking->status = $inputs['status'];
 		$db_warehouse_booking->save();
 		return $db_warehouse_booking;
 	}
@@ -68,7 +56,7 @@ class BookingRepository {
 	{
 		//dd($inputs);
 		$db_vehicle_booking = new $this->db_vehicle_booking;
-        $db_vehicle_booking->booking_id = $inputs['booking_id'];
+		$db_vehicle_booking->vehicle_id = $inputs['vehicle_id'];
 		$db_vehicle_booking->place_of_departure_city_id = $inputs['to_city'];
 		$db_vehicle_booking->place_of_arrival_city_id = $inputs['from_city'];
 		$db_vehicle_booking->capacity = $inputs['capacity'];
@@ -87,6 +75,12 @@ class BookingRepository {
 			$db_vehicle_booking->loading = $inputs['loading'];
 		if(isset($inputs['offloading']))
 			$db_vehicle_booking->offloading = $inputs['offloading'];
+		$db_vehicle_booking->user_id = $inputs['user_id'];
+		if(isset($inputs['amount']))
+			$db_vehicle_booking->amount = $inputs['amount'];
+		if(isset($inputs['description']))
+			$db_vehicle_booking->description = $inputs['description'];
+		$db_vehicle_booking->status = $inputs['status'];
 		$db_vehicle_booking->save();
 		return $db_vehicle_booking;
 	}
@@ -95,7 +89,6 @@ class BookingRepository {
 	{
 		//dd($inputs);
 		$db_construction_machine_booking = new $this->db_construction_machine_booking;
-		$db_construction_machine_booking->booking_id = $inputs['booking_id'];
 		$db_construction_machine_booking->contruction_machinary_id = $inputs['contruction_machinary_id'];
 		$db_construction_machine_booking->type_of_machinery = $inputs['type_of_machinery'];
 		if(isset($inputs['specification']))
@@ -108,6 +101,12 @@ class BookingRepository {
 			$db_construction_machine_booking->others = $inputs['others'];
 		if(isset($inputs['delivery_place_city_id']))
 			$db_construction_machine_booking->delivery_place_city_id = $inputs['delivery_place_city_id'];
+		$db_construction_machine_booking->user_id = $inputs['user_id'];
+		if(isset($inputs['amount']))
+			$db_construction_machine_booking->amount = $inputs['amount'];
+		if(isset($inputs['description']))
+			$db_construction_machine_booking->description = $inputs['description'];
+		$db_construction_machine_booking->status = $inputs['status'];
 		$db_construction_machine_booking->save();
 		return $db_construction_machine_booking;
 	}
@@ -121,28 +120,38 @@ class BookingRepository {
 		return $db_user_offer;
 	}
 	
-	public function getBooking($id = null)
-    {
-		if($id==null)
-		{
-			$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'create_at', 'updated_at')->orderBy('created_at', 'DESC')->get();
-		}
-		else
-		{
-			$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'create_at', 'updated_at')->findOrFail($id);
-		}
-        return $info_Booking;
-    }
-	
 	public function getBookingByType($type)
     {
-		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->orderBy('bookings.created_at', 'DESC');
+		switch($type)
+		{
+			case "1":
+				$info_Booking = $this->db_vehicle_booking->orderBy('created_at', 'DESC');
+			break;
+			case "2":
+				$info_Booking = $this->db_construction_machine_booking->orderBy('created_at', 'DESC');
+			break;
+			case "3":
+				$info_Booking = $this->db_warehouse_booking->orderBy('created_at', 'DESC');
+			break;
+		}
+		
         return $info_Booking;
     }
 	
 	public function getBookingByTypeByUser($type, $user_id)
     {
-		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->where('user_id',$user_id)->orderBy('bookings.created_at', 'DESC');
+		switch($type)
+		{
+			case "1":
+				$info_Booking = $this->db_vehicle_booking->where('user_id',$user_id)->orderBy('created_at', 'DESC');
+			break;
+			case "2":
+				$info_Booking = $this->db_construction_machine_booking->where('user_id',$user_id)->orderBy('created_at', 'DESC');
+			break;
+			case "3":
+				$info_Booking = $this->db_warehouse_booking->where('user_id',$user_id)->orderBy('created_at', 'DESC');
+			break;
+		}
         return $info_Booking;
     }
 	

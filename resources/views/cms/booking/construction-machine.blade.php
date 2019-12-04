@@ -38,7 +38,6 @@
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
                                     <th>{{ utf8_encode(__('static.Construction Machinery')) }}</th>
-                                    <th>{{ utf8_encode(__('Booking ID')) }}</th>
                                     <th>{{ utf8_encode(__('Type of Machinery')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
                                     <th>{{ utf8_encode(__('static.Specifications')) }}</th>
@@ -76,7 +75,6 @@
 			{ data: 'id', name: 'id' },
 			{ data: 'user_id', name: 'user_id' },
       		{ data: 'contruction_machinary_id', name: 'contruction_machinary_id' },
-            { data: 'booking_id', name: 'booking_id' },            
             { data: 'type_of_machinery', name: 'type_of_machinery' },
             { data: 'description', name: 'description' },
             { data: 'specification', name: 'specification' },

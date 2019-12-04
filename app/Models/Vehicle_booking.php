@@ -15,7 +15,7 @@ class Vehicle_booking extends Model
 
     protected $fillable = ['booking_id', 'vehicle_id', 'type_of_vehicle ','specifications'
         ,'place_of_departure_city_id','place_of_arrival_city_id','capacity', 'preferences', 'number_of_seats', 'duration'
-		, 'others', 'specifications', 'insurances', 'loading', 'offloading'
+		, 'others', 'specifications', 'insurances', 'loading', 'offloading', 'user_id','amount','description','status'
 		];
    
 	public function Booking()
@@ -33,5 +33,10 @@ class Vehicle_booking extends Model
 	public function Place_of_arrival_city()
 	{
 		return $this->belongsTo('App\Models\City' , 'place_of_arrival_city_id');
+	}
+	
+	public function User()
+	{
+		return $this->belongsTo('App\Models\User' , 'user_id');
 	}
 }

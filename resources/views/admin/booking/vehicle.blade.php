@@ -34,7 +34,6 @@
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
                                     <th>{{ utf8_encode(__('static.Email')) }}</th>
                                     <th>{{ utf8_encode(__('static.Vehicle')) }}</th>
-                                    <th>{{ utf8_encode(__('Booking ID')) }}</th>
                                     <th>{{ utf8_encode(__('Departure City')) }}</th>
                                     <th>{{ utf8_encode(__('Arrival City')) }}</th>
                                     <th>{{ utf8_encode(__('static.Capacity')) }}</th>
@@ -75,7 +74,6 @@
             { data: 'user_id', name: 'user_id' },
 			{ data: 'email', name: 'email' },
             { data: 'vehicle_id', name: 'vehicle_id' }, 
-            { data: 'booking_id', name: 'booking_id' },                       
             { data: 'place_of_departure_city_id', name: 'place_of_departure_city_id' },
             { data: 'place_of_arrival_city_id', name: 'place_of_arrival_city_id' },
             { data: 'capacity', name: 'capacity' },
