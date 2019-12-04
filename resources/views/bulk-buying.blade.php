@@ -26,12 +26,12 @@
           <div class="container">
             <div class="row">
             @foreach(App\Models\Offer::Where('type',1)->Get() as $offer)
-            <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group" style="background-color:#fff; padding:20px">
-               <div class="row">
-                  <div class="col-md-4 col-sm-4 col-xs-4 col-xs-4 form-group">
+            <div class="col-md-3 col-sm-3 col-xs-3 col-xs-3 form-group" style="background-color:#fff;">
+                <a data-toggle="collapse" href="#collapse1{{ $offer->id }}" role="button" aria-expanded="false" aria-controls="collapse1{{ $offer->id }}">
                     <img src="{{ url('media/offers/').'/'.$offer->image }}" alt="Image" class="img-fluid" height="100%">
-                  </div>
-                  <div class="col-md-8 col-sm-8 col-xs-8 col-xs-8 form-group">
+                </a>
+                <div class="collapse" id="collapse1{{ $offer->id }}" style="width:100%">
+                  <div class="card card-body">
                     <h5>
                         {{ utf8_encode($offer->title) }}
                     </h5>
@@ -47,12 +47,12 @@
                     </h5>
                     <p>{{ utf8_encode($offer->description) }}</p>
                     @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)
-                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-default" data-id="{{ $offer->id }}"><b>{{ utf8_encode(__('static.Subscribed')) }}</b></a></p>
+                        <p class="pull-right"><a href="javascript:void(0)" class="btn btn-default" data-id="{{ $offer->id }}"><b>{{ utf8_encode(__('static.Subscribed')) }}</b></a></p>
                     @else
-                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                        <p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
                     @endif
                   </div>
-               </div>
+                </div>
             </div>
             @endforeach
             </div>
@@ -71,12 +71,12 @@
           <div class="container">
             <div class="row">
             @foreach(App\Models\Offer::Where('type',2)->Get() as $offer)
-            <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group" style="background-color:#fff; padding:20px">
-               <div class="row">
-                  <div class="col-md-4 col-sm-4 col-xs-4 col-xs-4 form-group">
+            <div class="col-md-3 col-sm-3 col-xs-3 col-xs-3 form-group" style="background-color:#fff;">
+                <a data-toggle="collapse" href="#collapse2{{ $offer->id }}" role="button" aria-expanded="false" aria-controls="collapse21{{ $offer->id }}">
                     <img src="{{ url('media/offers/').'/'.$offer->image }}" alt="Image" class="img-fluid" height="100%">
-                  </div>
-                  <div class="col-md-8 col-sm-8 col-xs-8 col-xs-8 form-group">
+                </a>
+                <div class="collapse" id="collapse2{{ $offer->id }}" style="width:100%">
+                  <div class="card card-body">
                     <h5>
                         {{ utf8_encode($offer->title) }}
                     </h5>
@@ -97,7 +97,7 @@
                     	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
                     @endif
                   </div>
-               </div>
+                </div>
             </div>
             @endforeach
             </div>
@@ -116,12 +116,12 @@
           <div class="container">
             <div class="row">
             @foreach(App\Models\Offer::Where('type',3)->Get() as $offer)
-            <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group" style="background-color:#fff; padding:20px">
-               <div class="row">
-                  <div class="col-md-4 col-sm-4 col-xs-4 col-xs-4 form-group">
+            <div class="col-md-3 col-sm-3 col-xs-3 col-xs-3 form-group" style="background-color:#fff;">
+                <a data-toggle="collapse" href="#collapse3{{ $offer->id }}" role="button" aria-expanded="false" aria-controls="collapse3{{ $offer->id }}">
                     <img src="{{ url('media/offers/').'/'.$offer->image }}" alt="Image" class="img-fluid" height="100%">
-                  </div>
-                  <div class="col-md-8 col-sm-8 col-xs-8 col-xs-8 form-group">
+                </a>
+                <div class="collapse" id="collapse3{{ $offer->id }}" style="width:100%">
+                  <div class="card card-body">
                     <h5>
                         {{ utf8_encode($offer->title) }}
                     </h5>
@@ -142,7 +142,7 @@
                     	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
                     @endif
                   </div>
-               </div>
+                </div>
             </div>
             @endforeach
             </div>
@@ -161,12 +161,12 @@
           <div class="container">
             <div class="row">
             @foreach(App\Models\Offer::Where('type',4)->Get() as $offer)
-            <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group" style="background-color:#fff; padding:20px">
-               <div class="row">
-                  <div class="col-md-4 col-sm-4 col-xs-4 col-xs-4 form-group">
+            <div class="col-md-3 col-sm-3 col-xs-3 col-xs-3 form-group" style="background-color:#fff;">
+                <a data-toggle="collapse" href="#collapse4{{ $offer->id }}" role="button" aria-expanded="false" aria-controls="collapse4{{ $offer->id }}">
                     <img src="{{ url('media/offers/').'/'.$offer->image }}" alt="Image" class="img-fluid" height="100%">
-                  </div>
-                  <div class="col-md-8 col-sm-8 col-xs-8 col-xs-8 form-group">
+                </a>
+                <div class="collapse" id="collapse4{{ $offer->id }}" style="width:100%">
+                  <div class="card card-body">
                     <h5>
                         {{ utf8_encode($offer->title) }}
                     </h5>
@@ -183,7 +183,7 @@
                     	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
                     @endif
                   </div>
-               </div>
+                </div>
             </div>
             @endforeach
             </div>

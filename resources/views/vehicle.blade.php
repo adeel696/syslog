@@ -197,7 +197,7 @@
                   </div>
                   
                   <div class="col-md-6 mr-auto">
-                  <input type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="{{ utf8_encode(__('static.Reserve')) }}" data-toggle="modal" data-target="#reserverModal">
+                  <input disabled="disabled" type="submit" id="reserver" class="btn btn-block btn-primary text-white py-3 px-5" value="{{ utf8_encode(__('static.Reserve')) }}" data-toggle="modal" data-target="#reserverModal">
                   </div>
                   
                </div>
@@ -433,6 +433,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 		window.location.href = "{{ url('login') }}";
 		return false;
 	  }
+	  $("#reserver").prop('disabled', false);
 	  var vehicleID = $("#vehicle_id").val();
       var toCityId = $('select[name="to_city"]').val();
       var fromCityId = $('select[name="from_city"]').val();

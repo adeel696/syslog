@@ -47,8 +47,8 @@
                     </div>
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
-                          <label>{{ utf8_encode(__('static.Desription')) }}</label>
-                          {!! Form::text('description', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Desription')), 'id' => 'description']) !!}
+                          <label>{{ utf8_encode(__('static.Description')) }}</label>
+                          {!! Form::text('description', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Description')), 'id' => 'description']) !!}
                           @if ($errors->has('description'))
                           <p style="color:red;">{!!$errors->first('description')!!}</p>
                           @endif

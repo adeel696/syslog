@@ -101,7 +101,7 @@ return [
 	'Aerial Lift' => 'Nacelles élévateur',
 	'CMS' => 'Mon Compte',
 	'Validate' => 'Validate',
-	'No Price Message' => 'Prix non disponible, Veuillez nous contacter ou RESERVER pour avoir le détail de ce voyage',
+	'No Price Message' => 'Prix non disponible en ligne, Veuillez nous contacter au +226 25 65 65 47 ou Cliquer sur le bouton RESERVER pour avoir le détail de ce voyage incluant le tarif',
 	'Offre' => 'Offer',
 	'Offers' => 'Des offres',
 	'Image' => 'Image',

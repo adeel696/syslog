@@ -59,8 +59,9 @@ class BookingRepository {
 		$db_vehicle_booking->vehicle_id = $inputs['vehicle_id'];
 		$db_vehicle_booking->place_of_departure_city_id = $inputs['to_city'];
 		$db_vehicle_booking->place_of_arrival_city_id = $inputs['from_city'];
-		$db_vehicle_booking->capacity = $inputs['capacity'];
-		$db_vehicle_booking->preferences = $inputs['preferences'];
+		$db_vehicle_booking->capacity = isset($inputs['capacity']) ? $inputs['capacity'] : '';
+		if(isset($inputs['preferences']))
+			$db_vehicle_booking->preferences = $inputs['preferences'];
 		if(isset($inputs['specifications']))
 		$db_vehicle_booking->specifications = $inputs['specifications'];
 		if(isset($inputs['number_of_seats']))
