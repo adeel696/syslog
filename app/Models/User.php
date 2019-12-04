@@ -53,6 +53,11 @@ class User extends Authenticatable
 		return $this->hasMany('App\Models\User_vehicle' , 'user_id');
 	}
 	
+	public function User_offer()
+	{
+		return $this->hasMany('App\Models\User_offer' , 'user_id');
+	}
+	
 	public function Booking()
 	{
 		return $this->hasMany('App\Models\Booking' , 'user_id');

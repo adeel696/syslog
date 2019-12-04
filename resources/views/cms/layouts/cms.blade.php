@@ -110,7 +110,7 @@
                                     </li>
                                 </ul>
 				            </div>
-				            <div class="position">Enterprise User</div>
+				            <!--<div class="position">Enterprise User</div>-->
 				        </div>
 				    </li>
 					<li class="nav-header">Navigation</li>

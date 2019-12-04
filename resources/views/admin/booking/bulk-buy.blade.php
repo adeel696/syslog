@@ -33,8 +33,8 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Description')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Status')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Email')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Offer')) }}</th>
                                 </tr>
                             </thead>
                         </table>
@@ -57,12 +57,12 @@
     $('#viewForm').DataTable({
         "processing": true,
         "serverSide": true,
-		"ajax": "{{url('/admin/booking/warehouse/grid')}}",
+		"ajax": "{{url('/admin/booking/bulk-buy/grid')}}",
         "columns": [
 			{ data: 'id', name: 'id' },
 			{ data: 'user_id', name: 'user_id' },
-      		{ data: 'description', name: 'description' },
-			{ data: 'status', name: 'status' },
+			{ data: 'email', name: 'email' },
+      		{ data: 'offer_id', name: 'offer_id' },
 		],
 		"responsive": true,
 		dom: 'Bfrtip',

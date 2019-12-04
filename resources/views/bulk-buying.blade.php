@@ -46,7 +46,11 @@
                         {{ utf8_encode(__('static.Desription')) }}
                     </h5>
                     <p>{{ utf8_encode($offer->description) }}</p>
-                    <p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                    @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)
+                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-default" data-id="{{ $offer->id }}"><b>{{ utf8_encode(__('static.Subscribed')) }}</b></a></p>
+                    @else
+                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                    @endif
                   </div>
                </div>
             </div>
@@ -87,7 +91,11 @@
                         {{ utf8_encode(__('static.Desription')) }}
                     </h5>
                     <p>{{ utf8_encode($offer->description) }}</p>
-                    <p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                    @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)
+                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-default" data-id="{{ $offer->id }}"><b>{{ utf8_encode(__('static.Subscribed')) }}</b></a></p>
+                    @else
+                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                    @endif
                   </div>
                </div>
             </div>
@@ -128,7 +136,11 @@
                         {{ utf8_encode(__('static.Desription')) }}
                     </h5>
                     <p>{{ utf8_encode($offer->description) }}</p>
-                    <p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                    @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)
+                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-default" data-id="{{ $offer->id }}"><b>{{ utf8_encode(__('static.Subscribed')) }}</b></a></p>
+                    @else
+                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                    @endif
                   </div>
                </div>
             </div>
@@ -165,7 +177,11 @@
                         {{ utf8_encode(__('static.Desription')) }}
                     </h5>
                     <p>{{ utf8_encode($offer->description) }}</p>
-                    <p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                    @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)
+                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-default" data-id="{{ $offer->id }}"><b>{{ utf8_encode(__('static.Subscribed')) }}</b></a></p>
+                    @else
+                    	<p class="pull-right"><a href="javascript:void(0)" class="btn btn-primary subscribe" data-id="{{ $offer->id }}">{{ utf8_encode(__('static.Subscribe')) }}</a></p>
+                    @endif
                   </div>
                </div>
             </div>
@@ -184,6 +200,27 @@
 			window.location.href = "{{ url('login') }}";
 			return false;
 		}
+		var url = "{{url('/subscribe')}}";
+		// alert(url);
+		$(this).removeClass("subscribe");
+		$(this).removeClass("btn-primary");
+		$(this).addClass("btn-default");
+		$.ajax({
+			url: url,
+			type:"POST",
+			dataType:"json",
+			data: {method: '_POST', "user_id": $("#user_id").val(), "offer_id": $(this).data("id"), "_token": "{{ csrf_token() }}" ,    submit: true},
+			beforeSend: function(){
+			  $('#loader').css("visibility", "visible");
+			},
+			success:function(data) {
+				$("#subscribe"+data.id).after('<span class="error" style="color:#6699ff">'+data.message+'</span>');
+			},
+			error: function (jqXHR, textStatus, errorThrown)
+			{ 
+				console.log(jqXHR) 
+			}
+		}); 
 	});
 </script>
 @endpush

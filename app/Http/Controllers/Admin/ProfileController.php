@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Admin;
 use DataTables;
@@ -13,14 +14,16 @@ use Session;
 
 class ProfileController extends Controller
 {
+    protected $profileRps;
     /** 
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserRepository $profileRps)
     { 
 		$this->middleware('admin');
+        $this->profileRps = $profileRps;
     }
      /**
      * Display a listing of the resource.
@@ -44,8 +47,6 @@ class ProfileController extends Controller
 		$rules = [
             'name' => 'required|string|max:255',
             'email' =>  'unique:users,email,'.$id.'|required|email',
-            'username' =>  'unique:users,username,'.$id.'|required|alpha_dash',
-			'type' => 'string|max:1',
 			'avatar' => 'image|mimes:jpg,png,jpeg|min:1|max:2048',
 			'password' => 'nullable|string|min:6|confirmed',
         ];
@@ -54,9 +55,10 @@ class ProfileController extends Controller
 		if($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 			
-        $db_user = $this->profileRps->updateUser($request->all() , $id);
+        $db_user = $this->profileRps->updateAdmin($request->all() , $id);
 		
-		return redirect('Foreman/Profile');
+		$info_User = Auth::guard('admin')->user();
+		return view('admin.profile.edit',array('info_User' => $info_User));
     }
 	
 }

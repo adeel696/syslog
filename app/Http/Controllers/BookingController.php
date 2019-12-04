@@ -53,4 +53,12 @@ class BookingController extends Controller
 		Session::flash('flash_message', 'Votreréservation a bien étépriseencompte , nous vouscontacteronstrèsbientôt');
 		return redirect('cms/booking/vehicle');
     }
+	
+	public function Subscribe(Request $request)
+    {
+		$inputs = $request->all();
+    	$this->bookingRps->storeSubscriber($inputs);
+		
+		return response()->json(array("id" => $request->offer_id, "message" => utf8_encode("Les livraisons ferontl'objet d'un accord séparé si demandées")));
+    }
 }

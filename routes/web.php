@@ -35,6 +35,7 @@ Route::get('vehicle/getFare/', 'VehicleController@getFare');
 //     return view('construction-machinery');
 // });
 
+Route::post('/subscribe', 'BookingController@Subscribe');
 Route::post('/warehouse', 'BookingController@addWarehouseBooking');
 Route::get('/warehouse', function () {
     return view('warehouse');

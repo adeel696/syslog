@@ -25,6 +25,9 @@
     <div class="row justify-content-center">
       	<div class="col-md-4">
             <!-- begin login-brand -->
+            <div style="padding:15px">
+	            <center>{{ utf8_encode('Déja member? Veuillez vous connecter ici') }}</center>
+            </div>
             <div class="login-brand bg-inverse text-white">
             <img src="../assets/img/logo-white.png" height="36" class="pull-right" alt="" /> {{ utf8_encode(__('static.Login')) }}
             </div>
@@ -73,6 +76,9 @@
       </div>
       <div class="col-md-4">
             <!-- begin login-brand -->
+            <div style="padding:15px">
+	            <center>{{ utf8_encode('Pas encore member ? Veuillez vous incrire ici') }}</center>
+            </div>
             <div class="login-brand bg-inverse text-white">
             <img src="../assets/img/logo-white.png" height="36" class="pull-right" alt="" /> {{ utf8_encode(__('static.Register')) }}
             </div>

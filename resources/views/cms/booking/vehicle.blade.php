@@ -41,7 +41,7 @@
                                     <th>{{ utf8_encode(__('Departure City')) }}</th>
                                     <th>{{ utf8_encode(__('Arrival City')) }}</th>
                                     <th>{{ utf8_encode(__('static.Capacity')) }}</th>
-                                    <th>{{ utf8_encode(__('static.No.of Seats')) }}</th>
+                                    <th>{{ utf8_encode(__('static.No of Seats')) }}</th>
                                     <th>{{ utf8_encode(__('static.Amount')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
                                     <th>{{ utf8_encode(__('static.Preferences')) }}</th>

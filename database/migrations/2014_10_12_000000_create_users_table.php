@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
 			$table->string('instagram')->nullable();
 			$table->smallInteger('type')->nullable();
 			$table->smallInteger('parent_id')->nullable();
+			$table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

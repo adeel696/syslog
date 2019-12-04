@@ -99,4 +99,9 @@ return [
 	'CMS' => 'CMS',
 	'Validate' => 'Validate',
 	'No Price Message' => 'No Price Message',
+	'Offer' => 'Offer',
+	'Offers' => 'Offers',
+	'Image' => 'Image',
+	'Title' => 'Title',
+	'No of Seats' => 'No of Seats',
 ];

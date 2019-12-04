@@ -33,7 +33,18 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Email')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Construction Machinery')) }}</th>
+                                    <th>{{ utf8_encode(__('Booking ID')) }}</th>
+                                    <th>{{ utf8_encode(__('Type of Machinery')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Specifications')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Amount')) }}</th>
+                                    <th>{{ utf8_encode(__('static.City')) }}</th>
+                                    <th>{{ utf8_encode(__('Delivery Deadline')) }}</th>
+                                    <th>{{ utf8_encode(__('Duration of User')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Preferences')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Others')) }}</th>
                                     <th>{{ utf8_encode(__('static.Status')) }}</th>
                                 </tr>
                             </thead>
@@ -61,7 +72,18 @@
         "columns": [
 			{ data: 'id', name: 'id' },
 			{ data: 'user_id', name: 'user_id' },
-      		{ data: 'description', name: 'description' },
+			{ data: 'email', name: 'email' },
+      		{ data: 'contruction_machinary_id', name: 'contruction_machinary_id' },
+            { data: 'booking_id', name: 'booking_id' },            
+            { data: 'type_of_machinery', name: 'type_of_machinery' },
+            { data: 'description', name: 'description' },
+            { data: 'specification', name: 'specification' },
+            { data: 'amount', name: 'amount' },
+            { data: 'delivery_place_city_id', name: 'delivery_place_city_id' },
+            { data: 'delivery_deadline', name: 'delivery_deadline' },
+            { data: 'duration_of_user', name: 'duration_of_user' },
+            { data: 'preferences', name: 'preferences' },
+            { data: 'others', name: 'others' },
 			{ data: 'status', name: 'status' },
 		],
 		"responsive": true,

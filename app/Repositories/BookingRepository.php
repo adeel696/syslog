@@ -112,6 +112,15 @@ class BookingRepository {
 		return $db_construction_machine_booking;
 	}
 
+	function storeSubscriber($inputs)
+	{	
+		$db_user_offer = new $this->db_user_offer;
+        $db_user_offer->user_id = $inputs['user_id'];
+        $db_user_offer->offer_id = $inputs['offer_id'];
+		$db_user_offer->save();
+		return $db_user_offer;
+	}
+	
 	public function getBooking($id = null)
     {
 		if($id==null)
@@ -127,13 +136,13 @@ class BookingRepository {
 	
 	public function getBookingByType($type)
     {
-		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->orderBy('created_at', 'DESC')->get();
+		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->orderBy('bookings.created_at', 'DESC');
         return $info_Booking;
     }
 	
 	public function getBookingByTypeByUser($type, $user_id)
     {
-		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->where('user_id',$user_id);
+		$info_Booking = $this->db_booking->select('id', 'user_id','type','amount','description','status', 'created_at', 'updated_at')->where('type',$type)->where('user_id',$user_id)->orderBy('bookings.created_at', 'DESC');
         return $info_Booking;
     }
 	
@@ -148,6 +157,7 @@ class BookingRepository {
 		$info_Booking = $this->db_booking->select('id', 'user_id','offer_id', 'created_at', 'updated_at')->where('type',$type)->orderBy('created_at', 'DESC')->get();
         return $info_Booking;
     }
+	
 	
 }
 
