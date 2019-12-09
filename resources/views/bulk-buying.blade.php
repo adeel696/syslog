@@ -30,7 +30,7 @@
                 <a data-toggle="collapse" href="#collapse1{{ $offer->id }}" role="button" aria-expanded="false" aria-controls="collapse1{{ $offer->id }}">
                     <img src="{{ url('media/offers/').'/'.$offer->image }}" alt="Image" class="img-fluid" height="100%">
                 </a>
-                <div class="collapse" id="collapse1{{ $offer->id }}" style="width:100%">
+                <div class="zcollapse" id="zcollapse1{{ $offer->id }}" style="width:100%">
                   <div class="card card-body">
                     <h5>
                         {{ utf8_encode($offer->title) }}
@@ -75,7 +75,7 @@
                 <a data-toggle="collapse" href="#collapse2{{ $offer->id }}" role="button" aria-expanded="false" aria-controls="collapse21{{ $offer->id }}">
                     <img src="{{ url('media/offers/').'/'.$offer->image }}" alt="Image" class="img-fluid" height="100%">
                 </a>
-                <div class="collapse" id="collapse2{{ $offer->id }}" style="width:100%">
+                <div class="zcollapse" id="zcollapse2{{ $offer->id }}" style="width:100%">
                   <div class="card card-body">
                     <h5>
                         {{ utf8_encode($offer->title) }}
@@ -120,7 +120,7 @@
                 <a data-toggle="collapse" href="#collapse3{{ $offer->id }}" role="button" aria-expanded="false" aria-controls="collapse3{{ $offer->id }}">
                     <img src="{{ url('media/offers/').'/'.$offer->image }}" alt="Image" class="img-fluid" height="100%">
                 </a>
-                <div class="collapse" id="collapse3{{ $offer->id }}" style="width:100%">
+                <div class="zcollapse" id="zcollapse3{{ $offer->id }}" style="width:100%">
                   <div class="card card-body">
                     <h5>
                         {{ utf8_encode($offer->title) }}
@@ -165,7 +165,7 @@
                 <a data-toggle="collapse" href="#collapse4{{ $offer->id }}" role="button" aria-expanded="false" aria-controls="collapse4{{ $offer->id }}">
                     <img src="{{ url('media/offers/').'/'.$offer->image }}" alt="Image" class="img-fluid" height="100%">
                 </a>
-                <div class="collapse" id="collapse4{{ $offer->id }}" style="width:100%">
+                <div class="zcollapse" id="zcollapse4{{ $offer->id }}" style="width:100%">
                   <div class="card card-body">
                     <h5>
                         {{ utf8_encode($offer->title) }}
