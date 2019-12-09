@@ -428,11 +428,11 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
     });
 
 	$('#validate').on('click', function(){
-	  if($("#user_id").val() == "")
+	  /*if($("#user_id").val() == "")
 	  {
 		window.location.href = "{{ url('login') }}";
 		return false;
-	  }
+	  }*/
 	  $("#reserver").prop('disabled', false);
 	  var vehicleID = $("#vehicle_id").val();
       var toCityId = $('select[name="to_city"]').val();

@@ -65,5 +65,12 @@ class FareRepository {
         return $info_Fare;
     }
 	
+	public function getPageFare($start, $limit, $order, $dir)
+    {
+		$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->orderBy('created_at', 'DESC')->offset($start)->limit($limit)->orderBy($order,$dir)->get();
+		
+        return $info_Fare;
+    }
+	
 }
 
