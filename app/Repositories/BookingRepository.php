@@ -71,11 +71,13 @@ class BookingRepository {
 		if(isset($inputs['others']))
 			$db_vehicle_booking->others = $inputs['others'];
 		if(isset($inputs['insurances']))
-			$db_vehicle_booking->insurances = $inputs['insurances'];
+			$db_vehicle_booking->insurances = ($inputs['insurances'] == "on") ? "Yes" : "";
+		if(isset($inputs['value_product']))
+			$db_vehicle_booking->value_product = ($inputs['value_product']/100)*1.2;
 		if(isset($inputs['loading']))
-			$db_vehicle_booking->loading = $inputs['loading'];
+			$db_vehicle_booking->loading = ($inputs['loading'] == "on") ? "Yes" : "";
 		if(isset($inputs['offloading']))
-			$db_vehicle_booking->offloading = $inputs['offloading'];
+			$db_vehicle_booking->offloading = ($inputs['offloading'] == "on") ? "Yes" : "";
 		$db_vehicle_booking->user_id = $inputs['user_id'];
 		if(isset($inputs['amount']))
 			$db_vehicle_booking->amount = $inputs['amount'];

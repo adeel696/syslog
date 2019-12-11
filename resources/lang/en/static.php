@@ -104,4 +104,5 @@ return [
 	'Image' => 'Image',
 	'Title' => 'Title',
 	'No of Seats' => 'No of Seats',
+	'Insurances' => 'Insurances',
 ];

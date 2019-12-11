@@ -26,6 +26,7 @@ class CreateVehicleBookingsTable extends Migration
             $table->boolean('others')->nullable();
             $table->string('specifications')->nullable();
             $table->string('insurances')->nullable();
+			$table->string('value_product')->nullable();
             $table->string('loading')->nullable();
             $table->string('offloading')->nullable();
 			$table->integer('user_id')->unsigned()->nullable();

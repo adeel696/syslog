@@ -43,6 +43,9 @@ class BookingController extends Controller
 		->editColumn('place_of_arrival_city_id', function ($info_Bookings) {
 			return $info_Bookings->Place_of_arrival_city()->First()->name;
         })
+		->editColumn('insurances', function ($info_Bookings) {
+			return $info_Bookings->insurances." (Valeur: ".$info_Bookings->value_product.")";
+        })
 		->escapeColumns([])
  		->make(true);
     }

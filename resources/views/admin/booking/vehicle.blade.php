@@ -42,6 +42,8 @@
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
                                     <th>{{ utf8_encode(__('static.Preferences')) }}</th>
                                     <th>{{ utf8_encode(__('static.Specifications')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Insurances')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Loading')) }}</th>
                                     <th>{{ utf8_encode(__('static.Loading')) }}</th>
                                     <th>{{ utf8_encode(__('static.OffLoading')) }}</th>
                                     <th>{{ utf8_encode(__('static.Others')) }}</th>
@@ -82,7 +84,8 @@
       		{ data: 'description', name: 'description' },
             { data: 'preferences', name: 'preferences' },
             { data: 'specifications', name: 'specifications' },
-            { data: 'loading', name: 'loading' },
+            { data: 'insurances', name: 'insurances' },
+			{ data: 'loading', name: 'loading' },
             { data: 'offloading', name: 'offloading' },
             { data: 'others', name: 'others' },
 			{ data: 'status', name: 'status' },
