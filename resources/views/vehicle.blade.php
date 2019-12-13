@@ -226,104 +226,104 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 		
 	});
    var citerneCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select name="capacity" class="form-control">' +
-                  '<option>En litres</option>' +
-                  '<option>5000 Litres</option>' +
-                  '<option>10000 Litres</option>' +
-                  '<option>15000 Litres</option>' +
-                  '<option>20000 Litres</option>' +
-                  '<option>25000 Litres</option>' +
-                  '<option>30000 Litres</option>' +
-                  '<option>35000 Litres</option>' +
-                  '<option>40000 Litres</option>' +
-                  '<option>45000 Litres</option>' +
-                  '<option>50000 Litres</option>' +
-                  '<option>55000 Litres</option>' +
-                  '<option>60000 Litres</option>' +
+                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<option value="">En litres</option>' +
+                  '<option value="5">5000 Litres</option>' +
+                  '<option value="10">10000 Litres</option>' +
+                  '<option value="15">15000 Litres</option>' +
+                  '<option value="20">20000 Litres</option>' +
+                  '<option value="25">25000 Litres</option>' +
+                  '<option value="30">30000 Litres</option>' +
+                  '<option value="35">35000 Litres</option>' +
+                  '<option value="40">40000 Litres</option>' +
+                  '<option value="45">45000 Litres</option>' +
+                  '<option value="50">50000 Litres</option>' +
+                  '<option value="55">55000 Litres</option>' +
+                  '<option value="60">60000 Litres</option>' +
                      '</select>'  
    var marchandisesCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select name="capacity" class="form-control">' +
-                  '<option>En Tonnes</option>' +
-                  '<option>2 T</option>' +
-                  '<option>4 T</option>' +
-                  '<option>5 T</option>' +
-                  '<option>10 T</option>' +
-                  '<option>15 T</option>' +
-                  '<option>20 T</option>' +
-                  '<option>25 T</option>' +
-                  '<option>30 T</option>' +
-                  '<option>35 T</option>' +
-                  '<option>40 T</option>' +
-                  '<option>45 T</option>' +
-                  '<option>50 T</option>' +
-                  '<option>55 T</option>' +
-                  '<option>60 T</option>' +
+                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<option value="">En Tonnes</option>' +
+                  '<option value="2">2 T</option>' +
+                  '<option value="4">4 T</option>' +
+                  '<option value="5">5 T</option>' +
+                  '<option value="10">10 T</option>' +
+                  '<option value="15">15 T</option>' +
+                  '<option value="20">20 T</option>' +
+                  '<option value="25">25 T</option>' +
+                  '<option value="30">30 T</option>' +
+                  '<option value="35">35 T</option>' +
+                  '<option value="40">40 T</option>' +
+                  '<option value="45">45 T</option>' +
+                  '<option value="50">50 T</option>' +
+                  '<option value="55">55 T</option>' +
+                  '<option value="60">60 T</option>' +
                      '</select>'  
    var plateauCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select name="capacity" class="form-control">' +
-                  '<option>En Tonnes</option>' +
-                  '<option>2 T</option>' +
-                  '<option>4 T</option>' +
-                  '<option>5 T</option>' +
-                  '<option>10 T</option>' +
-                  '<option>15 T</option>' +
-                  '<option>20 T</option>' +
-                  '<option>25 T</option>' +
-                  '<option>30 T</option>' +
-                  '<option>35 T</option>' +
-                  '<option>40 T</option>' +
-                  '<option>45 T</option>' +
-                  '<option>50 T</option>' +
-                  '<option>55 T</option>' +
-                  '<option>60 T</option>' +
+                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<option value="">En Tonnes</option>' +
+                  '<option value="2">2 T</option>' +
+                  '<option value="4">4 T</option>' +
+                  '<option value="5">5 T</option>' +
+                  '<option value="10">10 T</option>' +
+                  '<option value="15">15 T</option>' +
+                  '<option value="20">20 T</option>' +
+                  '<option value="25">25 T</option>' +
+                  '<option value="30">30 T</option>' +
+                  '<option value="35">35 T</option>' +
+                  '<option value="40">40 T</option>' +
+                  '<option value="45">45 T</option>' +
+                  '<option value="50">50 T</option>' +
+                  '<option value="55">55 T</option>' +
+                  '<option value="60">60 T</option>' +
                      '</select>' 
    var frigorifiqueCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select name="capacity" class="form-control">' +
-                  '<option>En Tonnes</option>' +
-                  '<option>2 T</option>' +
-                  '<option>4 T</option>' +
-                  '<option>5 T</option>' +
-                  '<option>10 T</option>' +
-                  '<option>15 T</option>' +
-                  '<option>20 T</option>' +
-                  '<option>25 T</option>' +
-                  '<option>30 T</option>' +
-                  '<option>35 T</option>' +
-                  '<option>40 T</option>' +
-                  '<option>45 T</option>' +
-                  '<option>50 T</option>' +
-                  '<option>55 T</option>' +
-                  '<option>60 T</option>' +
+                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<option value="">En Tonnes</option>' +
+                  '<option value="2">2 T</option>' +
+                  '<option value="4">4 T</option>' +
+                  '<option value="5">5 T</option>' +
+                  '<option value="10">10 T</option>' +
+                  '<option value="15">15 T</option>' +
+                  '<option value="20">20 T</option>' +
+                  '<option value="25">25 T</option>' +
+                  '<option value="30">30 T</option>' +
+                  '<option value="35">35 T</option>' +
+                  '<option value="40">40 T</option>' +
+                  '<option value="45">45 T</option>' +
+                  '<option value="50">50 T</option>' +
+                  '<option value="55">55 T</option>' +
+                  '<option value="60">60 T</option>' +
                      '</select>' 
    var bennesCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select name="capacity" class="form-control">' +
-                  '<option>En Tonnes ou M3</option>' +
-                  '<option>2 T</option>' +
-                  '<option>4 T</option>' +
-                  '<option>5 T</option>' +
-                  '<option>10 T</option>' +
-                  '<option>15 T</option>' +
-                  '<option>20 T</option>' +
-                  '<option>25 T</option>' +
-                  '<option>30 T</option>' +
-                  '<option>35 T</option>' +
-                  '<option>40 T</option>' +
-                  '<option>45 T</option>' +
-                  '<option>50 T</option>' +
-                  '<option>55 T</option>' +
-                  '<option>60 T</option>' +
-                  '<option>8 M3</option>' +
-                  '<option>10 M3</option>' +
-                  '<option>15 M3</option>' +
-                  '<option>20 M3</option>' +
-                  '<option>25 M3</option>' +
-                  '<option>30 M3</option>' +
-                  '<option>35 M3</option>' +
-                  '<option>40 M3</option>' +
-                  '<option>45 M3</option>' +
-                  '<option>50 M3</option>' +
-                  '<option>55 M3</option>' +
-                  '<option>60 M3</option>' +
+                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<option value="">En Tonnes ou M3</option>' +
+                  '<option value="2">2 T</option>' +
+                  '<option value="4">4 T</option>' +
+                  '<option value="5">5 T</option>' +
+                  '<option value="10">10 T</option>' +
+                  '<option value="15">15 T</option>' +
+                  '<option value="20">20 T</option>' +
+                  '<option value="25">25 T</option>' +
+                  '<option value="30">30 T</option>' +
+                  '<option value="35">35 T</option>' +
+                  '<option value="40">40 T</option>' +
+                  '<option value="45">45 T</option>' +
+                  '<option value="50">50 T</option>' +
+                  '<option value="55">55 T</option>' +
+                  '<option value="60">60 T</option>' +
+                  '<option value="8">8 M3</option>' +
+                  '<option value="10">10 M3</option>' +
+                  '<option value="15">15 M3</option>' +
+                  '<option value="20">20 M3</option>' +
+                  '<option value="25">25 M3</option>' +
+                  '<option value="30">30 M3</option>' +
+                  '<option value="35">35 M3</option>' +
+                  '<option value="40">40 M3</option>' +
+                  '<option value="45">45 M3</option>' +
+                  '<option value="50">50 M3</option>' +
+                  '<option value="55">55 M3</option>' +
+                  '<option value="60">60 M3</option>' +
                      '</select>'
    var demenagementCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                         '<input name="capacite" class="form-control" placeholder="<?php echo utf8_encode("Capacite"); ?>">';
@@ -437,6 +437,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 	  var vehicleID = $("#vehicle_id").val();
       var toCityId = $('select[name="to_city"]').val();
       var fromCityId = $('select[name="from_city"]').val();
+	  var capacity = $("#capacity").val();
 		//alert(vehicleID +" "+ toCityId +" "+ fromCityId )
          var url = "{{url('vehicle/getFare')}}"+'/';
          // alert(url);
@@ -444,7 +445,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                url: url,
                type:"GET",
                dataType:"json",
-               data: {method: '_GET',"vehicle_id":vehicleID, "to_city":toCityId,"from_city":fromCityId, "_token": "{{ csrf_token() }}" ,    submit: true},
+               data: {method: '_GET',"vehicle_id":vehicleID, "capacity": capacity, "to_city":toCityId,"from_city":fromCityId, "_token": "{{ csrf_token() }}" ,    submit: true},
                beforeSend: function(){
                   $('#loader').css("visibility", "visible");
                },
@@ -455,10 +456,10 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 					if(data != null)
 					{
 						var amount = parseInt(data.fare);
-						if($('#insurances').is(':checked'))
+						/*if($('#insurances').is(':checked'))
 						{
 						  amount = amount + parseInt(data.insurances_amount);
-						}
+						}*/
 						if($('#loading').is(':checked'))
 						{
 						  amount = amount + parseInt(data.loading_price);
