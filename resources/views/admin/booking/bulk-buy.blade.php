@@ -35,6 +35,7 @@
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
                                     <th>{{ utf8_encode(__('static.Email')) }}</th>
                                     <th>{{ utf8_encode(__('static.Offer')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Description')) }}</th>
                                 </tr>
                             </thead>
                         </table>
@@ -63,6 +64,7 @@
 			{ data: 'user_id', name: 'user_id' },
 			{ data: 'email', name: 'email' },
       		{ data: 'offer_id', name: 'offer_id' },
+			{ data: 'description', name: 'description' },
 		],
 		"responsive": true,
 		dom: 'Bfrtip',

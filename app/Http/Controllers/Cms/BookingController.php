@@ -96,10 +96,13 @@ class BookingController extends Controller
 	   $info_UserOffers = $this->bookingRps->getUserOffersByUser(Auth::User()->id);
 	   return Datatables::of($info_UserOffers)
 	   	->editColumn('user_id', function ($info_UserOffers) {
-			return $info_UserOffers->User()->First()->name." (".$info_UserOffers->User()->First()->phone_number.")";
+			return $info_UserOffers->User()->First()->name;
         })
 		->editColumn('offer_id', function ($info_UserOffers) {
 			return $info_UserOffers->Offer()->First()->title;
+        })
+		->addColumn('description', function ($info_UserOffers) {
+			return $info_UserOffers->Offer()->First()->description;
         })
 		->escapeColumns([])
  		->make(true);

@@ -166,7 +166,7 @@ class BookingRepository {
 	
 	public function getUserOffersByUser($user_id)
     {
-		$info_Booking = $this->db_booking->select('id', 'user_id','offer_id', 'created_at', 'updated_at')->where('type',$type)->orderBy('created_at', 'DESC')->get();
+		$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'created_at', 'updated_at')->where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
         return $info_Booking;
     }
 	

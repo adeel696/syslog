@@ -13,7 +13,7 @@
     <!-- end page-header -->
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-12">
-            <h1>{!! session('flash_message') !!}</h1>
+            <h1>{!! utf8_encode(session('flash_message')) !!}</h1>
         </div>
     </div>
     <!-- begin row -->

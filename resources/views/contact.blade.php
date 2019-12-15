@@ -6,8 +6,8 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-6 text-center">
-          <h1>Contact Us</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <h1>{{ utf8_encode(__('static.Contact')) }}</h1>
+          <p></p>
         </div>
       </div>
     </div>
@@ -22,32 +22,32 @@
         <form action="#" method="post">
           <div class="form-group row">
             <div class="col-md-6 mb-4 mb-lg-0">
-              <input type="text" class="form-control" placeholder="First name">
+              <input type="text" class="form-control" placeholder="{{ utf8_encode('Nom') }}">
             </div>
             <div class="col-md-6">
-              <input type="text" class="form-control" placeholder="First name">
+              <input type="text" class="form-control" placeholder="{{ utf8_encode('Prénom') }}">
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-md-12">
-              <input type="text" class="form-control" placeholder="Email address">
+              <input type="text" class="form-control" placeholder="Email">
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-md-12">
-              <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+              <textarea name="" id="" class="form-control" placeholder="Message" cols="30" rows="10"></textarea>
             </div>
           </div>
           <div class="form-group row">
             <div class="col-md-6 mr-auto">
-              <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message">
+              <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Envoyer le message">
             </div>
           </div>
         </form>
       </div>
-      <div class="col-lg-4 ml-auto">
+      <div class="col-lg-4 ml-auto" style="display:none">
         <div class="bg-white p-3 p-md-5">
           <h3 class="text-black mb-4">Contact Info</h3>
           <ul class="list-unstyled footer-link">

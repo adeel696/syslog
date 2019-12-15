@@ -111,6 +111,9 @@ class BookingController extends Controller
 		->editColumn('offer_id', function ($info_UserOffers) {
 			return $info_UserOffers->Offer()->First()->title;
         })
+		->addColumn('description', function ($info_UserOffers) {
+			return $info_UserOffers->Offer()->First()->description;
+        })
 		->escapeColumns([])
  		->make(true);
     }
