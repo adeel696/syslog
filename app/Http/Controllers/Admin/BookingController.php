@@ -98,7 +98,7 @@ class BookingController extends Controller
         return view('admin.booking.bulk-buy');
     }
 
-    public function getBulkBuyGrid()
+    public function getBulkBuyGrid() 
     {
 	   $info_UserOffers = $this->bookingRps->getUserOffers();
 	   return Datatables::of($info_UserOffers)
