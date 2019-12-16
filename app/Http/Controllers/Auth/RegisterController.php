@@ -64,7 +64,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-		Session::flash('flash_message', utf8_encode("vous êtes enregistré avec succès"));
+		Session::flash('register_success', utf8_encode("vous êtes enregistré avec succès"));
         return User::create([
             'surname' => $data['surname'],
 			'name' => $data['name'],

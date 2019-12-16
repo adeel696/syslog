@@ -226,7 +226,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 		
 	});
    var citerneCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<select id="capacity" name="capacity" class="form-control" required>' +
                   '<option value="">En litres</option>' +
                   '<option value="5">5000 Litres</option>' +
                   '<option value="10">10000 Litres</option>' +
@@ -242,7 +242,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option value="60">60000 Litres</option>' +
                      '</select>'  
    var marchandisesCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<select id="capacity" name="capacity" class="form-control" required>' +
                   '<option value="">En Tonnes</option>' +
                   '<option value="2">2 T</option>' +
                   '<option value="4">4 T</option>' +
@@ -260,7 +260,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option value="60">60 T</option>' +
                      '</select>'  
    var plateauCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<select id="capacity" name="capacity" class="form-control" required>' +
                   '<option value="">En Tonnes</option>' +
                   '<option value="2">2 T</option>' +
                   '<option value="4">4 T</option>' +
@@ -278,7 +278,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option value="60">60 T</option>' +
                      '</select>' 
    var frigorifiqueCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<select id="capacity" name="capacity" class="form-control" required>' +
                   '<option value="">En Tonnes</option>' +
                   '<option value="2">2 T</option>' +
                   '<option value="4">4 T</option>' +
@@ -296,7 +296,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                   '<option value="60">60 T</option>' +
                      '</select>' 
    var bennesCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
-                  '<select id="capacity" name="capacity" class="form-control">' +
+                  '<select id="capacity" name="capacity" class="form-control" required>' +
                   '<option value="">En Tonnes ou M3</option>' +
                   '<option value="2">2 T</option>' +
                   '<option value="4">4 T</option>' +
@@ -338,7 +338,7 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
                      '<textarea name="specifications " class="form-control" placeholder="Specifications"></textarea>' +
                   '</div>' +
               ' </div>';
-	var capcityDivDefault = '<select name="capacity" class="form-control">' +
+	var capcityDivDefault = '<select name="capacity" class="form-control" required>' +
                         '<option><?php echo utf8_encode("Citerne"); ?></option>' +
                         '<option><?php echo utf8_encode("Marchandises divers"); ?></option>' +
                         '<option><?php echo utf8_encode("Plateau"); ?></option>' +
@@ -350,11 +350,12 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 	var capcityDivBus = '<div class="row">' +
                         '<div class="col-md-6">' +
                         '<label>'+totalSeat+'</label>'+ 
-                        '<input name="number_of_seats" class="form-control" placeholder="'+totalSeat+'">' +
+                        //'<input name="number_of_seats" class="form-control" placeholder="'+totalSeat+'">' +
+						'<input name="capacity" class="form-control" placeholder="'+totalSeat+'" required>' +
                       '</div>'+
                       '<div class="col-md-6">' +
                       '<label>{{ utf8_encode(__("static.Duration")) }}</label>'+ 
-                     '<input name="duration" class="form-control" placeholder="{{ utf8_encode(__("static.Duration")) }}">' +
+                     '<input name="duration" class="form-control" placeholder="{{ utf8_encode(__("static.Duration")) }}" required>' +
                      '</div>'+
                         '</div>';				
 	getData("1", "Camions citerne", "camions-citerne.png");

@@ -37,7 +37,7 @@
                                     <th>{{ utf8_encode(__('Departure City')) }}</th>
                                     <th>{{ utf8_encode(__('Arrival City')) }}</th>
                                     <th>{{ utf8_encode(__('static.Capacity')) }}</th>
-                                    <th>{{ utf8_encode(__('static.No of Seats')) }}</th>
+                                    <th>{{ utf8_encode(__("static.Duration")) }}</th>
                                     <th>{{ utf8_encode(__('static.Amount')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
                                     <th>{{ utf8_encode(__('static.Preferences')) }}</th>
@@ -79,7 +79,7 @@
             { data: 'place_of_departure_city_id', name: 'place_of_departure_city_id' },
             { data: 'place_of_arrival_city_id', name: 'place_of_arrival_city_id' },
             { data: 'capacity', name: 'capacity' },
-            { data: 'number_of_seats', name: 'number_of_seats' },
+            { data: 'duration', name: 'duration' },
             { data: 'amount', name: 'amount' },            
       		{ data: 'description', name: 'description' },
             { data: 'preferences', name: 'preferences' },

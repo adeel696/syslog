@@ -13,7 +13,9 @@
     <!-- end page-header -->
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-12">
-            <h1>{!! utf8_encode(session('flash_message')) !!}</h1>
+            @if(session('register_success') != "")
+                <h1>{{ utf8_encode(__('static.Register Success')) }}</h1>
+            @endif
         </div>
     </div>
     <!-- begin row -->
