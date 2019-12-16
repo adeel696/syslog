@@ -105,4 +105,5 @@ return [
 	'Title' => 'Title',
 	'No of Seats' => 'No of Seats',
 	'Insurances' => 'Insurances',
+	'Booking Message' => 'Votreréservation a bien été prise encompte , nous vouscontacteronstrèsbientôt',
 ];

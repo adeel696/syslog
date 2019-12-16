@@ -14,7 +14,11 @@
     <!-- end page-header -->
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-6">
-            <span class="alert">{{ utf8_encode(session('flash_message')) }}</span>
+            <span class="alert">
+            @if(session('booking_message') != "")
+	            {{ utf8_encode(__('static.Booking Message')) }}
+            @endif
+            </span>
         </div>
     </div>
     <!-- begin section-container -->
