@@ -457,10 +457,13 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 					if(data != null)
 					{
 						var amount = parseInt(data.fare);
-						/*if($('#insurances').is(':checked'))
+						if($('#insurances').is(':checked'))
 						{
-						  amount = amount + parseInt(data.insurances_amount);
-						}*/
+							if($('#insurances_value').val() != "")
+							{
+								amount = amount + (parseInt($('#insurances_value').val())/100)*1.2;
+							}
+						}
 						if($('#loading').is(':checked'))
 						{
 						  amount = amount + parseInt(data.loading_price);
