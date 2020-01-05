@@ -170,6 +170,30 @@ class BookingRepository {
         return $info_Booking;
     }
 	
-	
+	public function updateBookingStatus($type, $booking_id, $status)
+	{
+		switch($type)
+		{
+			case "1":
+				$info_Booking = $this->db_vehicle_booking->FindOrFail($booking_id);
+				$info_Booking->status = $status;
+				$info_Booking->save();
+			break;
+			case "2":
+				$info_Booking = $this->db_construction_machine_booking->FindOrFail($booking_id);
+				$info_Booking->status = $status;
+				$info_Booking->save();
+			break;
+			case "3":
+				$info_Booking = $this->db_warehouse_booking->FindOrFail($booking_id);
+				$info_Booking->status = $status;
+				$info_Booking->save();
+			break;
+			case "4":
+				$info_Booking = $this->db_user_offer->FindOrFail($booking_id);
+				$info_Booking->delete();
+			break;
+		}
+	}
 }
 

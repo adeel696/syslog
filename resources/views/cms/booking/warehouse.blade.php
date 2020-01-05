@@ -96,6 +96,23 @@
 		],
 		order: [ [0, 'asc'] ]
     });
+	
+	$(document).on('change', '.changeStatus', function (e) {
+		var url = "{{ url('cms/booking/status') }}";		
+		$.ajax({
+			url: url,
+			type: 'POST',
+			dataType: 'text',
+			data: {method: '_POST', "_token": "{{ csrf_token() }}" , "booking_id": $(this).data("id"), "status": $(this).val(), "type": $(this).data("type"), submit: true},
+			success: function (response) {
+				console.log(response)
+				$('#viewForm').DataTable().draw(false);
+			},
+			error: function (result, status, err) {
+				console.log(result)
+			},
+		});
+	});
 
 </script>
 

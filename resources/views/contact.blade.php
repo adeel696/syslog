@@ -47,15 +47,15 @@
           </div>
         </form>
       </div>
-      <div class="col-lg-4 ml-auto" style="display:none">
+      <div class="col-lg-4 ml-auto">
         <div class="bg-white p-3 p-md-5">
-          <h3 class="text-black mb-4">Contact Info</h3>
+          <h3 class="text-black mb-4">Informations de contact</h3>
           <ul class="list-unstyled footer-link">
             <li class="d-block mb-3">
-              <span class="d-block text-black">Address:</span>
-              <span>34 Street Name, City Name Here, United States</span></li>
-            <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+1 242 4942 290</span></li>
-            <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@yourdomain.com</span></li>
+              <span class="d-block text-black">Adresse:</span>
+              <span>{{ utf8_encode("17 , rue Albert TOE, Non loin de l'église Centre International d'évangélisation (DASASGHO) 01 BP 1426 Ouagadougou") }}</span></li>
+            <li class="d-block mb-3"><span class="d-block text-black">{{ utf8_encode('Téléphone') }}:</span><span>00226 25 65 65 47</span></li>
+            <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>operations@noveogroup.com</span></li>
           </ul>
         </div>
       </div>

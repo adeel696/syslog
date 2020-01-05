@@ -89,11 +89,13 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('/suburb/grid', 'Admin\SuburbController@grid');
 	Route::resource('/suburb', 'Admin\SuburbController');
 	
-	Route::get('/booking/vehicle/grid', 'Admin\BookingController@getVehicleGrid');
+	Route::post('/booking/status', 'Admin\BookingController@updateBookingStatus');
+	
+	Route::get('/booking/vehicle/grid/{status}', 'Admin\BookingController@getVehicleGrid');
 	Route::get('/booking/vehicle', 'Admin\BookingController@getVehicle');
-	Route::get('/booking/construction-machine/grid', 'Admin\BookingController@getConstructionMachineGrid');
+	Route::get('/booking/construction-machine/grid/{status}', 'Admin\BookingController@getConstructionMachineGrid');
 	Route::get('/booking/construction-machine', 'Admin\BookingController@getConstructionMachine');
-	Route::get('/booking/warehouse/grid', 'Admin\BookingController@getWarehouseGrid');
+	Route::get('/booking/warehouse/grid/{status}', 'Admin\BookingController@getWarehouseGrid');
 	Route::get('/booking/warehouse', 'Admin\BookingController@getWarehouse');
 	Route::get('/booking/bulk-buy/grid', 'Admin\BookingController@getBulkBuyGrid');
 	Route::get('/booking/bulk-buy', 'Admin\BookingController@getBulkBuy');
@@ -113,6 +115,8 @@ Route::group(['prefix' => 'cms'], function(){
 	
 	Route::get('/asset/grid', 'Cms\AssetController@grid');
 	Route::resource('/asset', 'Cms\AssetController');
+	
+	Route::post('/booking/status', 'Cms\BookingController@updateBookingStatus');
 	
 	Route::get('/booking/vehicle/grid', 'Cms\BookingController@getVehicleGrid');
 	Route::get('/booking/vehicle', 'Cms\BookingController@getVehicle');

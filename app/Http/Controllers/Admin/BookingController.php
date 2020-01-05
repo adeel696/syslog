@@ -26,9 +26,12 @@ class BookingController extends Controller
         return view('admin.booking.vehicle');
     }
 
-    public function getVehicleGrid()
+    public function getVehicleGrid($status)
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(1)->get();
+	   if($status != 0)
+	   	$info_Bookings = $this->bookingRps->getBookingByType(1)->where('status',$status)->get();
+	   else
+	   	$info_Bookings = $this->bookingRps->getBookingByType(1)->get();
 	   return Datatables::of($info_Bookings)
 	   	->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name." (".$info_Bookings->User()->First()->phone_number.")";
@@ -48,6 +51,25 @@ class BookingController extends Controller
 		->addColumn('email', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->email;
         })
+		->editColumn('status', function ($info_Bookings) {
+			if($info_Bookings->status == "1")
+			{
+				return '<select class="form-control changeStatus" data-type="1" data-id="'.$info_Bookings->id.'">
+					<option value="1" selected>En attente</option>
+					<option value="2">'.utf8_encode("Fermé").'</option>
+					<option value="3">Annuler</option>
+				</select>
+				';
+			}
+			if($info_Bookings->status == "2")
+			{
+				return utf8_encode("Fermé");
+			}
+			if($info_Bookings->status == "3")
+			{
+				return "Annuler";
+			}
+        })
 		->escapeColumns([])
  		->make(true);
     }
@@ -57,9 +79,12 @@ class BookingController extends Controller
         return view('admin.booking.construction-machine');
     }
 
-    public function getConstructionMachineGrid()
+    public function getConstructionMachineGrid($status)
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(2)->get();
+	   if($status != 0)
+	   	   $info_Bookings = $this->bookingRps->getBookingByType(2)->where('status',$status)->get();
+	   else
+		   $info_Bookings = $this->bookingRps->getBookingByType(2)->get();
 	   return Datatables::of($info_Bookings)
 	   	->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name." (".$info_Bookings->User()->First()->phone_number.")";
@@ -70,6 +95,25 @@ class BookingController extends Controller
 		->addColumn('email', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->email;
         })
+		->editColumn('status', function ($info_Bookings) {
+			if($info_Bookings->status == "1")
+			{
+				return '<select class="form-control changeStatus" data-type="2" data-id="'.$info_Bookings->id.'">
+					<option value="1" selected>En attente</option>
+					<option value="2">'.utf8_encode("Fermé").'</option>
+					<option value="3">Annuler</option>
+				</select>
+				';
+			}
+			if($info_Bookings->status == "2")
+			{
+				return utf8_encode("Fermé");
+			}
+			if($info_Bookings->status == "3")
+			{
+				return "Annuler";
+			}
+        })
 		->escapeColumns([])
  		->make(true);
     }
@@ -79,15 +123,37 @@ class BookingController extends Controller
         return view('admin.booking.warehouse');
     }
 
-    public function getWarehouseGrid()
+    public function getWarehouseGrid($status)
     {
-	   $info_Bookings = $this->bookingRps->getBookingByType(3)->get();
+	   if($status != 0)
+	   	   $info_Bookings = $this->bookingRps->getBookingByType(3)->where('status',$status)->get();
+	   else
+	   	$info_Bookings = $this->bookingRps->getBookingByType(3)->get();
 	   return Datatables::of($info_Bookings)
 		->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name." (".$info_Bookings->User()->First()->phone_number.")";
         })
 		->addColumn('email', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->email;
+        })
+		->editColumn('status', function ($info_Bookings) {
+			if($info_Bookings->status == "1")
+			{
+				return '<select class="form-control changeStatus" data-type="3" data-id="'.$info_Bookings->id.'">
+					<option value="1" selected>En attente</option>
+					<option value="2">'.utf8_encode("Fermé").'</option>
+					<option value="3">Annuler</option>
+				</select>
+				';
+			}
+			if($info_Bookings->status == "2")
+			{
+				return utf8_encode("Fermé");
+			}
+			if($info_Bookings->status == "3")
+			{
+				return "Annuler";
+			}
         })
 		->escapeColumns([])
  		->make(true);
@@ -114,7 +180,24 @@ class BookingController extends Controller
 		->addColumn('description', function ($info_UserOffers) {
 			return $info_UserOffers->Offer()->First()->description;
         })
+		->addColumn('status', function ($info_UserOffers) {
+			return '<select class="form-control changeStatus" data-type="4" data-id="'.$info_UserOffers->id.'">
+					<option value="1">Souscrire</option>
+					<option value="3">Annuler</option>
+				</select>
+				';
+        })
 		->escapeColumns([])
  		->make(true);
     }
+	
+	function updateBookingStatus(Request $request)
+	{
+		$booking_id = $request->booking_id;
+		$status = $request->status;
+		$type = $request->type;
+		$this->bookingRps->updateBookingStatus($type, $booking_id, $status);
+		
+		return "Ok";
+	}
 }

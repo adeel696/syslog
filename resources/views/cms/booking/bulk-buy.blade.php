@@ -43,6 +43,7 @@
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
                                     <th>{{ utf8_encode(__('static.Offer')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Status')) }}</th>
                                 </tr>
                             </thead>
                         </table>
@@ -71,6 +72,7 @@
 			{ data: 'user_id', name: 'user_id' },
       		{ data: 'offer_id', name: 'offer_id' },
 			{ data: 'description', name: 'description' },
+			{ data: 'status', name: 'status' },
 		],
 		"responsive": true,
 		dom: 'Bfrtip',
@@ -79,6 +81,23 @@
 		],
 		order: [ [0, 'asc'] ]
     });
+	
+	$(document).on('change', '.changeStatus', function (e) {
+		var url = "{{ url('cms/booking/status/') }}";		
+		$.ajax({
+			url: url,
+			type: 'POST',
+			dataType: 'text',
+			data: {method: '_POST', "_token": "{{ csrf_token() }}" , "booking_id": $(this).data("id"), "status": $(this).val(), "type": $(this).data("type"), submit: true},
+			success: function (response) {
+				console.log(response)
+				$('#viewForm').DataTable().draw(false);
+			},
+			error: function (result, status, err) {
+				console.log(result)
+			},
+		});
+	});
 
 </script>
 
