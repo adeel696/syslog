@@ -107,4 +107,5 @@ return [
 	'Insurances' => 'Insurances',
 	'Booking Message' => 'Booking Message',
 	'Register Success' => 'Register Success',
+	'Publish' => 'Publish',
 ];

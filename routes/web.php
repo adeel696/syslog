@@ -116,6 +116,9 @@ Route::group(['prefix' => 'cms'], function(){
 	Route::get('/asset/grid', 'Cms\AssetController@grid');
 	Route::resource('/asset', 'Cms\AssetController');
 	
+	Route::get('/gooddeal/grid', 'Cms\GooddealController@grid');
+	Route::resource('/gooddeal', 'Cms\GooddealController');
+	
 	Route::post('/booking/status', 'Cms\BookingController@updateBookingStatus');
 	
 	Route::get('/booking/vehicle/grid', 'Cms\BookingController@getVehicleGrid');

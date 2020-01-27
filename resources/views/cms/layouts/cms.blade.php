@@ -140,6 +140,12 @@
 						    <span>{{ utf8_encode(__('static.Assets')) }}</span>
 					    </a>
 					</li>
+                    <li>
+						<a href="{{url('/cms/gooddeal')}}">
+						    <i class="fa fa-dice"></i>
+						    <span>{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</span>
+					    </a>
+					</li>
                     @endif
 				</ul>
 				<!-- end sidebar nav -->
