@@ -23,7 +23,6 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/admin/city/create') }}"><i class="fa fa-plus"></i></a>
                         </div>
                         <h4 class="panel-title">{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machines')) }}</h4>
                     </div>

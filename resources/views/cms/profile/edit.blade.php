@@ -5,8 +5,8 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li class="breadcrumb-item"><a href="{{ url('admin/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('admin/fare') }}">{{ utf8_encode(__('static.Profile')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/profile') }}">{{ utf8_encode(__('static.Profile')) }}</a></li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
@@ -17,75 +17,83 @@
     <div class="section-container section-with-top-border p-b-5">
         <!-- begin row -->
         <div class="row">
-           <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                 <div class="x_content">
-                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-                       <div class="profile_img">
-                          <div id="crop-avatar">
-                            @if($info_User->avatar=="")
-                                <img src="{{ asset('media/avatar/').'/demo_user.png' }}" alt="{{ Auth::User()->name }}" class="img-responsive avatar-view" >
-                            @else
-                                <img src="{{ asset('media/avatar/').'/'.$info_User->avatar }}" alt="{{ Auth::User()->name }}" class="img-responsive avatar-view" >
-                            @endif
+            <!-- begin col-8 -->
+            <div class="col-lg-12">
+                <!-- begin panel -->
+                <div class="panel p-20">
+                    {!! Form::model($info_User, ['method' => 'PATCH', 'url' => ['/cms/profile', $info_User->id], 'files' => true,'id' => 'main-form']) !!}
+                       <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                           <div class="profile_img">
+                              <div id="crop-avatar">
+                                @if($info_User->avatar=="")
+                                    <img src="{{ asset('media/avatar/').'/demo_user.png' }}" class="img-responsive avatar-view" >
+                                @else
+                                    <img src="{{ asset('media/avatar/').'/'.$info_User->avatar }}" class="img-responsive avatar-view" >
+                                @endif
+                              </div>
+                           </div>
+                       </div>         
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                       	  <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                              <label for="exampleInputEmail1">{{ utf8_encode(__('static.Name')) }}</label>
+                              {!! Form::text('name', null, ['class' => 'form-control' , 'required' , 'placeholder' => utf8_encode(__('static.Name')), 'id' => 'name']) !!}
+                              @if ($errors->has('name'))<p style="color:red;">{!!$errors->first('name')!!}</p>@endif
+                           </div>
+                           <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                              <label for="exampleInputEmail1">{{ utf8_encode(__('static.Email')) }}</label>
+                              {!! Form::text('email', null, ['class' => 'form-control' , 'required' , 'placeholder' =>  utf8_encode(__('static.Email')) , 'id' => 'email']) !!}
+                              @if ($errors->has('email'))<p style="color:red;">{!!$errors->first('email')!!}</p>@endif
+                           </div>
+                           <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                              <label for="exampleInputEmail1">{{ utf8_encode(__('static.Password')) }}</label>
+                              {!! Form::password('password', ['class' => 'form-control', 'placeholder' =>  utf8_encode(__('static.Password'))]) !!}
+                              @if ($errors->has('password'))<p style="color:red;">{!!$errors->first('password')!!}</p>@endif
+                           </div>
+                           <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                              <label for="exampleInputEmail1">{{ utf8_encode(__('static.Confirm')) }} {{ utf8_encode(__('static.Password')) }}</label>
+                              {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => utf8_encode(__('static.Confirm')) ." ". utf8_encode(__('static.Password'))]) !!}
+                              @if ($errors->has('password_confirmation'))<p style="color:red;">{!!$errors->first('password_confirmation')!!}</p>@endif
+                           </div>
+                           @if($info_User->type != "3")
+                           <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                              <label for="exampleInputEmail1">{{ utf8_encode(__('static.Number')) }} RCCM </label>
+                              {!! Form::text('rccm_number', null, ['class' => 'form-control' , 'required' , 'placeholder' =>  utf8_encode(__('static.Number')).' RCCM' , 'id' => 'rccm_number']) !!}
+                              @if ($errors->has('rccm_number'))<p style="color:red;">{!!$errors->first('rccm_number')!!}</p>@endif
+                           </div>
+                           <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                              <label for="exampleInputEmail1">{{ utf8_encode(__('static.Number')) }} {{ utf8_encode(__('static.Tax')) }}</label>
+                              {!! Form::text('tax_number', null, ['class' => 'form-control' , 'required' , 'placeholder' =>  utf8_encode(__('static.Number')).' '.utf8_encode(__('static.Tax')) , 'id' => 'tax_number']) !!}
+                              @if ($errors->has('tax_number'))<p style="color:red;">{!!$errors->first('tax_number')!!}</p>@endif
+                           </div>
+                           @endif
+                           <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                              <label for="exampleInputEmail1">{{ utf8_encode(__('static.Phone Number')) }}</label>
+                              {!! Form::text('phone_number', null, ['class' => 'form-control' , 'required' , 'placeholder' =>  utf8_encode(__('static.Phone Number')) , 'id' => 'phone_number']) !!}
+                              @if ($errors->has('phone_number'))<p style="color:red;">{!!$errors->first('phone_number')!!}</p>@endif
+                           </div>
+                           <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                              <label for="exampleInputEmail1">{{ utf8_encode(__('static.Address')) }}</label>
+                              {!! Form::textarea('address', null, ['class' => 'form-control' , 'required' , 'placeholder' =>  utf8_encode(__('static.Address')) , 'id' => 'address', 'rows' => '2']) !!}
+                              @if ($errors->has('address'))<p style="color:red;">{!!$errors->first('address')!!}</p>@endif
+                           </div>
+                           <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                              <label for="exampleInputFile">Picture</label><br />
+                              {!! Form::file('avatar', null, ['class' => 'form-control', 'required' ]) !!}
+                              @if ($errors->has('avatar'))<p style="color:red;">{!!$errors->first('avatar')!!}</p>@endif
+                           </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                             <button type="submit" class="btn btn-success">Submit</button>
                           </div>
                        </div>
-                       <h3>{{ Auth::User()->name }}</h3>
-                       <ul class="list-unstyled user_data">
-                          <li><i class="fa fa-user"></i>&nbsp;{{ Auth::User()->getRoleNames()[0] }}</li>
-                       </ul>
-                    </div>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                       <div class="x_panel">
-                         <div class="x_content">
-                            {!! Form::model($info_User, ['method' => 'PATCH', 'url' => ['/Foreman/Profile', $info_User->id], 'files' => true,'id' => 'main-form']) !!}
-                                <input type="hidden" name="type" value="{{ $info_User->type }}" />
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                      <label for="exampleInputEmail1">Name</label>
-                                      {!! Form::text('name', null, ['class' => 'form-control' , 'required' , 'placeholder' => 'Name', 'id' => 'name']) !!}
-                                      @if ($errors->has('name'))<p style="color:red;">{!!$errors->first('name')!!}</p>@endif
-                                   </div>
-                                   <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                      <label for="exampleInputEmail1">Username</label>
-                                      {!! Form::text('username', null, ['class' => 'form-control' , 'required' , 'placeholder' => 'username', 'id' => 'username']) !!}
-                                      @if ($errors->has('username'))<p style="color:red;">{!!$errors->first('username')!!}</p>@endif
-                                   </div>
-                                   <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                      <label for="exampleInputEmail1">Email</label>
-                                      {!! Form::text('email', null, ['class' => 'form-control' , 'required' , 'placeholder' => 'Email', 'id' => 'email']) !!}
-                                      @if ($errors->has('email'))<p style="color:red;">{!!$errors->first('email')!!}</p>@endif
-                                   </div>
-                                   <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                      <label for="exampleInputEmail1">Password</label>
-                                      {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'password']) !!}
-                                      @if ($errors->has('password'))<p style="color:red;">{!!$errors->first('password')!!}</p>@endif
-                                   </div>
-                                   <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                      <label for="exampleInputEmail1">Confirm Password</label>
-                                      {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'confirm password']) !!}
-                                      @if ($errors->has('password_confirmation'))<p style="color:red;">{!!$errors->first('password_confirmation')!!}</p>@endif
-                                   </div>
-                                   <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                      <label for="exampleInputFile">Picture</label>
-                                      {!! Form::file('avatar', null, ['class' => 'form-control', 'required' ]) !!}
-                                      <p class="help-block">Please upload picture</p>
-                                      @if ($errors->has('avatar'))<p style="color:red;">{!!$errors->first('avatar')!!}</p>@endif
-                                   </div>
-                               </div>
-                               <div class="ln_solid"></div>
-                               <div class="form-group">
-                                  <div class="col-md-9 col-sm-9 col-xs-12">
-                                     <button type="submit" class="btn btn-success">Submit</button>
-                                  </div>
-                               </div>
-                            </form>
-                         </div>
-                      </div>
-                    </div>
-                 </div>
-              </div>
-           </div>
+                    </form>
+                </div>
+                <!-- end panel -->
+            </div>
+            <!-- end col-8 -->
         </div>
         <!-- end row -->
     </div>

@@ -5,8 +5,8 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li class="breadcrumb-item"><a href="{{ url('admin/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('admin/fare') }}">{{ utf8_encode(__('static.Asset')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/asset') }}">{{ utf8_encode(__('static.Asset')) }}</a></li>
         <li class="breadcrumb-item active">{{ utf8_encode(__('static.Add')) }}</li>
     </ol>
     <!-- end breadcrumb -->

@@ -17,6 +17,8 @@ class CreateUserOffersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('offer_id')->unsigned()->nullable();
+			$table->integer('quantity')->nullable();
+			$table->text('others')->nullable();
             $table->timestamps();
         });
         Schema::table('user_offers', function(Blueprint $table) {

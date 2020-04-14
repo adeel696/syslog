@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{ asset('/home/css/carousel.css') }}">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('/home/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/home/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('/home/sweetalert/sweetalert.css') }}">
 	@stack('style')
   </head>
 
@@ -130,6 +132,7 @@
     <script src="{{ asset('/home/js/jquery.easing.1.3.js') }}"></script>
     <script src="{{ asset('/home/js/aos.js') }}"></script>
 	<script src="{{ asset('/home/js/carousel.js') }}"></script>
+    <script src="{{ asset('/home/sweetalert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('/home/js/main.js') }}"></script>
     @stack('scripts')
   </body>

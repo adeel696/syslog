@@ -6,7 +6,7 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="{{ url('admin/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('admin/city') }}">{{ utf8_encode(__('static.Profile')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('admin/profile') }}">{{ utf8_encode(__('static.Profile')) }}</a></li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->

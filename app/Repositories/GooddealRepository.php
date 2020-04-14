@@ -62,7 +62,7 @@ class GooddealRepository {
 		$db_gooddeal->description  = (isset($inputs['description']) ? $inputs['description'] : "");
 		$db_gooddeal->image = $imageName;
 		$db_gooddeal->user_id  = (isset($inputs['user_id']) ? $inputs['user_id'] : "");
-		$db_gooddeal->is_publish = (isset($inputs['is_publish']) ? $inputs['is_publish'] : "");
+		$db_gooddeal->is_publish = 0;
 			
 		$db_gooddeal->save();
 		return $db_gooddeal;

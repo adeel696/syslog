@@ -89,6 +89,9 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('/suburb/grid', 'Admin\SuburbController@grid');
 	Route::resource('/suburb', 'Admin\SuburbController');
 	
+	Route::get('/user/grid', 'Admin\AdminController@grid');
+	Route::resource('/user', 'Admin\AdminController');
+	
 	Route::post('/booking/status', 'Admin\BookingController@updateBookingStatus');
 	
 	Route::get('/booking/vehicle/grid/{status}', 'Admin\BookingController@getVehicleGrid');
@@ -99,6 +102,9 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('/booking/warehouse', 'Admin\BookingController@getWarehouse');
 	Route::get('/booking/bulk-buy/grid', 'Admin\BookingController@getBulkBuyGrid');
 	Route::get('/booking/bulk-buy', 'Admin\BookingController@getBulkBuy');
+	
+	Route::get('/gooddeal/grid', 'Admin\GooddealController@grid');
+	Route::resource('/gooddeal', 'Admin\GooddealController');
 	
 	Route::get('/home', 'Admin\HomeController@index');	
 	
@@ -120,6 +126,8 @@ Route::group(['prefix' => 'cms'], function(){
 	Route::resource('/gooddeal', 'Cms\GooddealController');
 	
 	Route::post('/booking/status', 'Cms\BookingController@updateBookingStatus');
+	
+	Route::resource('/profile', 'Cms\ProfileController');
 	
 	Route::get('/booking/vehicle/grid', 'Cms\BookingController@getVehicleGrid');
 	Route::get('/booking/vehicle', 'Cms\BookingController@getVehicle');

@@ -5,7 +5,7 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li class="breadcrumb-item"><a href="{{ url('admin/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
         <li class="breadcrumb-item active">{{ utf8_encode(__('static.Warehouse')) }}</li>
     </ol>
     <!-- end breadcrumb -->
@@ -31,7 +31,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/admin/city/create') }}"><i class="fa fa-plus"></i></a>
+                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/') }}"><i class="fa fa-plus"></i></a>
                         </div>
                         <h4 class="panel-title">{{ utf8_encode(__('static.Warehouse')) }}</h4>
                     </div>

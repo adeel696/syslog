@@ -5,7 +5,7 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li class="breadcrumb-item"><a href="{{ url('admin/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
         <li class="breadcrumb-item active">{{ utf8_encode(__('static.Warehouse')) }}</li>
     </ol>
     <!-- end breadcrumb -->
@@ -31,7 +31,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/admin/city/create') }}"><i class="fa fa-plus"></i></a>
+                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/') }}"><i class="fa fa-plus"></i></a>
                         </div>
                         <h4 class="panel-title">{{ utf8_encode(__('static.Warehouse')) }}</h4>
                     </div>
@@ -41,6 +41,8 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Quantity')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Others')) }}</th>
                                     <th>{{ utf8_encode(__('static.Offer')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
                                     <th>{{ utf8_encode(__('static.Status')) }}</th>
@@ -70,6 +72,8 @@
         "columns": [
 			{ data: 'id', name: 'id' },
 			{ data: 'user_id', name: 'user_id' },
+			{ data: 'quantity', name: 'quantity' },
+			{ data: 'others', name: 'others' },
       		{ data: 'offer_id', name: 'offer_id' },
 			{ data: 'description', name: 'description' },
 			{ data: 'status', name: 'status' },

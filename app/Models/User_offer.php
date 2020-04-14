@@ -13,7 +13,7 @@ class User_offer extends Model
 	//timestamps
 	public $timestamp = true;
 	
-	protected $fillable = ['offer_id','user_id'];
+	protected $fillable = ['offer_id','user_id', 'quantity', 'others'];
 	
 	public function Offer()
 	{

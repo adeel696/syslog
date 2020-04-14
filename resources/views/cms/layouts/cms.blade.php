@@ -61,7 +61,11 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-							<span class="image"><img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= /></span>
+                        	@if(Auth::User()->avatar != "")
+                            	<span class="image"><img src="{{ asset('media/avatar/').'/'.Auth::User()->avatar }}" alt= /></span>
+                            @else
+								<span class="image"><img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= /></span>
+                            @endif
 							<span class="hidden-xs">{{ Auth::User()->name }}</span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu pull-right">
@@ -93,13 +97,18 @@
 				<ul class="nav">
 				    <li class="nav-user">
 				        <div class="image">
-				            <img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= />
+				            
+                            @if(Auth::User()->avatar != "")
+                                <img src="{{ asset('media/avatar/').'/'.Auth::User()->avatar }}" alt= />
+                            @else
+								<img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= />
+                            @endif
 				        </div>
 				        <div class="info">
 				            <div class="name dropdown">
 				                <a href="javascript:;" data-toggle="dropdown">{{ Auth::User()->name }} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:;">{{ utf8_encode(__('static.Edit')) }} {{ utf8_encode(__('static.Profile')) }}</a></li>
+                                    <li><a href="{{ url('cms/profile') }}">{{ utf8_encode(__('static.Edit')) }} {{ utf8_encode(__('static.Profile')) }}</a></li>
                                     <li class="divider"></li>
                                     <li>
                                     	<a href="{{ url('/logout') }}"
@@ -113,7 +122,6 @@
 				            <!--<div class="position">Enterprise User</div>-->
 				        </div>
 				    </li>
-					<li class="nav-header">Navigation</li>
 					<li>
 						<a href="{{ url('/') }}">
 						    <i class="fa fa-home"></i>

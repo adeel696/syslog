@@ -119,6 +119,8 @@ class BookingRepository {
 		$db_user_offer = new $this->db_user_offer;
         $db_user_offer->user_id = $inputs['user_id'];
         $db_user_offer->offer_id = $inputs['offer_id'];
+		$db_user_offer->quantity = $inputs['quantity'];
+		$db_user_offer->others = $inputs['others'];
 		$db_user_offer->save();
 		return $db_user_offer;
 	}
@@ -160,13 +162,13 @@ class BookingRepository {
 	
 	public function getUserOffers()
     {
-		$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'created_at', 'updated_at')->orderBy('created_at', 'DESC')->get();
+		$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'quantity', 'others', 'created_at', 'updated_at')->orderBy('created_at', 'DESC')->get();
         return $info_Booking;
     }
 	
 	public function getUserOffersByUser($user_id)
     {
-		$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'created_at', 'updated_at')->where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
+		$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'quantity', 'others', 'created_at', 'updated_at')->where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
         return $info_Booking;
     }
 	

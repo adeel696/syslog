@@ -6,11 +6,11 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="{{ url('admin/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item active">{{ utf8_encode(__('static.Warehouse')) }}</li>
+        <li class="breadcrumb-item active">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">{{ utf8_encode(__('static.Warehouse')) }} <small></small></h1>
+    <h1 class="page-header">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }} <small></small></h1>
     <!-- end page-header -->
     
     <!-- begin section-container -->
@@ -23,20 +23,20 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
+                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/cms/gooddeal/create') }}"><i class="fa fa-plus"></i></a>
                         </div>
-                        <h4 class="panel-title">{{ utf8_encode(__('static.Warehouse')) }}</h4>
+                        <h4 class="panel-title">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</h4>
                     </div>
                     <div class="table-responsive">
                         <table id="viewForm" class="table table-td-valign-middle">
                             <thead>
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
-                                    <th>{{ utf8_encode(__('static.User')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Email')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Quantity')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Others')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Offer')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Title')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Image')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Publish')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Action')) }}</th>
                                 </tr>
                             </thead>
                         </table>
@@ -59,15 +59,14 @@
     $('#viewForm').DataTable({
         "processing": true,
         "serverSide": true,
-		"ajax": "{{url('/admin/booking/bulk-buy/grid')}}",
+		"ajax": "{{url('/admin/gooddeal/grid')}}",
         "columns": [
 			{ data: 'id', name: 'id' },
-			{ data: 'user_id', name: 'user_id' },
-			{ data: 'email', name: 'email' },
-			{ data: 'quantity', name: 'quantity' },
-			{ data: 'others', name: 'others' },
-      		{ data: 'offer_id', name: 'offer_id' },
-			{ data: 'description', name: 'description' },
+			{ data: 'title', name: 'title' },
+      		{ data: 'description', name: 'description' },
+			{ data: 'image', name: 'image' },
+			{ data: 'is_publish', name: 'is_publish' },
+			{ data: 'edit', name: 'edit', orderable: false, searchable: false }
 		],
 		"responsive": true,
 		dom: 'Bfrtip',
@@ -77,23 +76,44 @@
 		order: [ [0, 'asc'] ]
     });
 	
+	$('#viewForm').on('click', '#btnDelete[data-remote]', function (e) { 
+		if (confirm("Are you sure to delete offer?")) {		
+			e.preventDefault();		 
+			var url = '{{url("/")}}'+$(this).data('remote');
+			// confirm then
+			$.ajax({
+				url: url,
+				type: 'DELETE',
+				dataType: 'json',
+				data: {method: '_DELETE', "_token": "{{ csrf_token() }}" , submit: true},
+				error: function (result, status, err) {
+					//alert(result.responseText);
+					//alert(status.responseText);
+					//alert(err.Message);
+				},
+			}).always(function (data) {
+				$('#viewForm').DataTable().draw(false);
+			});
+		}
+		return false;
+	});
+	
 	$(document).on('change', '.changeStatus', function (e) {
-		var url = "{{ url('admin/booking/status') }}";		
+		var url = "{{ url('admin/gooddeal/') }}" + '/' + $(this).data("id");		
 		$.ajax({
 			url: url,
-			type: 'POST',
+			type: 'PATCH',
 			dataType: 'text',
-			data: {method: '_POST', "_token": "{{ csrf_token() }}" , "booking_id": $(this).data("id"), "status": $(this).val(), "type": $(this).data("type"), submit: true},
+			data: {method: '_PATCH', "_token": "{{ csrf_token() }}" , "is_publish": $(this).val(), "type": $(this).data("type"), submit: true},
 			success: function (response) {
 				console.log(response)
-				$('#viewForm').DataTable().draw(false);
+				//$('#viewForm').DataTable().draw(false);
 			},
 			error: function (result, status, err) {
 				console.log(result)
 			},
 		});
 	});
-
 
 </script>
 

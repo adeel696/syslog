@@ -1,12 +1,12 @@
-@extends('admin.layouts.admin')
+@extends('cms.layouts.cms')
 
 @section('content')
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li class="breadcrumb-item"><a href="{{ url('admin/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('admin/city') }}">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/gooddeal') }}">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</a></li>
         <li class="breadcrumb-item active">{{ utf8_encode(__('static.Add')) }}</li>
     </ol>
     <!-- end breadcrumb -->

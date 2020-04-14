@@ -49,6 +49,15 @@ class UserRepository {
 		$db_user->name = $inputs['name'];
 		$db_user->email = $inputs['email'];
 		
+		if(isset($inputs['phone_number']))
+			$db_user->phone_number = $inputs['phone_number'];
+		if(isset($inputs['address']))
+			$db_user->address = $inputs['address'];
+		if(isset($inputs['rccm_number']))
+			$db_user->rccm_number = $inputs['rccm_number'];
+		if(isset($inputs['tax_number']))
+			$db_user->tax_number = $inputs['tax_number'];
+		
 		if(isset($inputs['password']))
 			$db_user->password = Hash::make($inputs['password']);
 			
@@ -56,6 +65,12 @@ class UserRepository {
 		
 		return $db_user;
 	}
+	
+	public function addAdmin($inputs)
+    {
+        $db_admin = $this->storeAdmin(new $this->db_admin ,  $inputs);
+        return $db_admin;
+    }
 	
 	public function updateAdmin($inputs, $id)
 	{
@@ -80,11 +95,34 @@ class UserRepository {
 		$db_admin->name = $inputs['name'];
 		$db_admin->email = $inputs['email'];
 		
+		$db_admin->booking = (isset($inputs['booking']) ? 1 : 0);
+		$db_admin->users = (isset($inputs['users']) ? 1 : 0);
+		$db_admin->fares = (isset($inputs['fares']) ? 1 : 0);
+		$db_admin->vehicles = (isset($inputs['vehicles']) ? 1 : 0);
+		$db_admin->construction_machines = (isset($inputs['construction_machines']) ? 1 : 0);
+		$db_admin->offer = (isset($inputs['offer']) ? 1 : 0);
+		$db_admin->packaging = (isset($inputs['packaging']) ? 1 : 0);
+		$db_admin->goods_deals = (isset($inputs['goods_deals']) ? 1 : 0);
+		$db_admin->cities = (isset($inputs['cities']) ? 1 : 0);
+		
 		if(isset($inputs['password']))
 			$db_admin->password = Hash::make($inputs['password']);
 		$db_admin->save();
 		return $db_admin;
 	}
+	
+	public function getAdmin($id = null)
+    {
+		if($id==null)
+		{
+			$info_Admin = $this->db_admin->select('id', 'name', 'email', 'password', 'avatar')->orderBy('created_at', 'DESC')->get();
+		}
+		else
+		{
+			$info_Admin = $this->db_admin->select('id', 'name', 'email', 'password', 'avatar')->findOrFail($id);
+		}
+        return $info_Admin;
+    }
 	
 	public function getUser($type = null, $id = null)
     {

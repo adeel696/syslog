@@ -25,6 +25,7 @@
     <link href="{{ asset('/admin/plugins/gritter/css/jquery.gritter.css') }}" rel="stylesheet" />	
 	<link href="{{ asset('/admin/plugins/DataTables/media/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" />
 	<link href="{{ asset('/admin/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ url('/admin/plugins/switchery/switchery.min.css') }}" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
     
 	<!-- ================== BEGIN BASE JS ================== -->
@@ -61,7 +62,11 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-							<span class="image"><img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= /></span>
+                            @if(Auth::Guard('admin')->User()->avatar != "")
+                            	<span class="image"><img src="{{ asset('media/avatar/').'/'.Auth::Guard('admin')->User()->avatar }}" alt= /></span>
+                            @else
+								<span class="image"><img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= /></span>
+                            @endif
 							<span class="hidden-xs">{{ Auth::Guard('admin')->User()->name }}</span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu pull-right">
@@ -93,7 +98,12 @@
 				<ul class="nav">
 				    <li class="nav-user">
 				        <div class="image">
-				            <img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= />
+				            
+                            @if(Auth::Guard('admin')->User()->avatar != "")
+                                <img src="{{ asset('media/avatar/').'/'.Auth::Guard('admin')->User()->avatar }}" alt= />
+                            @else
+								<img src="{{ asset('/admin/img/user_profile.jpg') }}" alt= />
+                            @endif
 				        </div>
 				        <div class="info">
 				            <div class="name dropdown">
@@ -120,6 +130,7 @@
 						    <span>{{ utf8_encode(__('static.Dashboard')) }}</span>
 					    </a>
 					</li>
+                    @if(Auth::Guard('admin')->User()->booking == "1")
                     <li class="has-sub {{ (request()->segment(2) == 'booking') ? 'active' : '' }}">
 						<a href="javascript:;">
 						    <b class="caret pull-right"></b>
@@ -133,42 +144,64 @@
                             <li class="{{ (request()->segment(3) == 'bulk-buy') ? 'active' : '' }}"><a href="{{url('/admin/booking/bulk-buy')}}">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }}</a></li>
 						</ul>
 					</li>
-                    <li>
-						<a href="#">
+                    @endif
+                    @if(Auth::Guard('admin')->User()->users == "1")
+                    <li class="{{ (request()->segment(2) == 'user') ? 'active' : '' }}">
+						<a href="{{url('/admin/user')}}">
 						    <i class="fa fa-users"></i>
 						    <span>{{ utf8_encode(__('static.Users')) }}</span>
 					    </a>
 					</li>
+                    @endif
+                    @if(Auth::Guard('admin')->User()->fares == "1")
                     <li class="{{ (request()->segment(2) == 'fare') ? 'active' : '' }}">
 						<a href="{{url('/admin/fare')}}">
                         <i class="fas fa-money-bill"></i>
                         <span>{{ utf8_encode(__('static.Fares')) }}</span>
 					    </a>
 					</li>
+                    @endif
+                    @if(Auth::Guard('admin')->User()->vehicles == "1")
                     <li class="{{ (request()->segment(2) == 'vehicle') ? 'active' : '' }}">
 						<a href="{{url('/admin/vehicle')}}">
                         <i class="fas fa-truck"></i>
                         <span>{{ utf8_encode(__('static.Vehicles')) }}</span>
 					    </a>
-					</li>                    
+					</li>  
+                    @endif
+                    @if(Auth::Guard('admin')->User()->construction_machines == "1")                  
                     <li class="{{ (request()->segment(2) == 'construction-machine') ? 'active' : '' }}">
 						<a href="{{url('/admin/construction-machine')}}">
                         <i class="fas fa-space-shuttle"></i>
                         <span>{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machines')) }}</span>
 					    </a>
 					</li>
+                    @endif
+                    @if(Auth::Guard('admin')->User()->offer == "1")
                     <li class="{{ (request()->segment(2) == 'offer') ? 'active' : '' }}">
 						<a href="{{url('/admin/offer')}}">
                         <i class="fas fa-boxes"></i>
                         <span>{{ utf8_encode(__('static.Offer')) }}</span>
 					    </a>
 					</li>
+                    @endif
+                    @if(Auth::Guard('admin')->User()->packaging == "1")
                     <li class="{{ (request()->segment(2) == 'packaging') ? 'active' : '' }}">
 						<a href="{{url('/admin/packaging')}}">
                         <i class="fas fa-boxes"></i>
                         <span>{{ utf8_encode(__('static.Packaging')) }}</span>
 					    </a>
 					</li>
+                    @endif
+                    @if(Auth::Guard('admin')->User()->goods_deals == "1")
+                    <li class="{{ (request()->segment(2) == 'gooddeal') ? 'active' : '' }}">
+						<a href="{{url('/admin/gooddeal')}}">
+						    <i class="fa fa-dice"></i>
+						    <span>{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</span>
+					    </a>
+					</li>
+                    @endif
+                    @if(Auth::Guard('admin')->User()->cities == "1")
                     <li class="has-sub {{ (request()->segment(2) == 'city') ? 'active' : '' }} {{ (request()->segment(2) == 'suburb') ? 'active' : '' }}">
 						<a href="javascript:;">
 						    <b class="caret pull-right"></b>
@@ -180,6 +213,7 @@
 							<li class="{{ (request()->segment(2) == 'suburb') ? 'active' : '' }}"><a href="{{url('/admin/suburb')}}">{{ utf8_encode(__('static.Suburbs')) }}</a></li>
 						</ul>
 					</li>
+                    @endif
 				</ul>
 				<!-- end sidebar nav -->
 			</div>
@@ -204,14 +238,15 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-    <script src="{{ asset('/admin/plugins/bootstrap-calendar/js/bootstrap_calendar.min.js') }}"></script>
-    <script src="{{ asset('/admin/plugins/chart-js/Chart.min.js') }}"></script>
 	<script src="{{ asset('/admin/plugins/gritter/js/jquery.gritter.js') }}"></script>
     <script src="{{ asset('/admin/plugins/bootstrap-calendar/js/bootstrap_calendar.min.js') }}"></script>
 	<script src="{{ asset('/admin/plugins/DataTables/media/js/jquery.dataTables.js') }}"></script>
 	<script src="{{ asset('/admin/plugins/DataTables/media/js/dataTables.bootstrap.min.js') }}"></script>
 	<script src="{{ asset('/admin/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js') }}"></script>
 	<script src="{{ asset('/admin/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+	<script src="{{ url('/admin/plugins/bootstrap-calendar/js/bootstrap_calendar.min.js') }}"></script>
+	<script src="{{ url('/admin/plugins/switchery/switchery.min.js') }}"></script>
+ 	<script src="{{ url('/admin/js/page-form-slider-switcher.demo.min.js') }}"></script>
     <script src="{{ asset('/admin/js/demo.min.js') }}"></script>
     <script src="{{ asset('/admin/js/page-index-v3.demo.js') }}"></script>
     <script src="{{ asset('/admin/js/apps.min.js') }}"></script>
