@@ -27,6 +27,27 @@
                         </div>
                         <h4 class="panel-title">{{ utf8_encode(__('static.Fares')) }}</h4>
                     </div>
+                    <div class="container">
+                    	{!! Form::open([ 'url' => '/admin/fare/import', 'files' => true, 'id' => 'sub-form' ]) !!}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="file" name="faresfile" /><br />
+                                        @if ($errors->has('faresfile'))
+                                        <p style="color:red;">{!!$errors->first('faresfile')!!}</p>
+                                        @endif
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="table-responsive">
                         <table id="viewForm" class="table table-td-valign-middle">
                             <thead>

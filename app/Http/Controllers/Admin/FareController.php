@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\FareRepository;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Models\City;
 use App\Models\Fare;
 use App\Models\Vehicle;
+use App\Imports\FareImport;
 use DataTables;
 use URL;
 use DB;
@@ -31,7 +33,13 @@ class FareController extends Controller
     {
         return view('admin.fare.index');
     }
-
+	
+	public function importFares() 
+    {
+        Excel::import(new FareImport,request()->file('faresfile'));
+        return view('admin.fare.index');
+    }
+	
     /**
      * Show the form for creating a new resource.
      *

@@ -137,13 +137,13 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label>{{ utf8_encode(__('static.Origine')) }}</label>
-                      <select name="country" class="form-control">
+                      <select name="country" class="form-control select2">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
                   <div class="col-md-6">
                      <label>{{ utf8_encode(__('static.City')) }}</label>
-                     <select name="from_city" class="form-control">
+                     <select name="from_city" class="form-control select2">
                      <option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>
                      @foreach($City as $city)
                      	<option value = '{{$city->id}}'>{{$city->name}}</option>
@@ -155,13 +155,13 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label>{{ utf8_encode(__('static.Destination')) }}</label>
-                      <select name="country" class="form-control checkFare">
+                      <select name="country" class="form-control checkFare select2">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
                   <div class="col-md-6">
                      <label>{{ utf8_encode(__('static.City')) }}</label>
-                     <select name="to_city" class="form-control checkFare">
+                     <select name="to_city" class="form-control checkFare select2">
                      <option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>
                      @foreach($City as $city)
                      	<option value = '{{$city->id}}'>{{$city->name}}</option>

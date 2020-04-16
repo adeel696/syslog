@@ -70,6 +70,7 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('/construction-machine/grid', 'Admin\ConstructionMachineController@grid');
 	Route::resource('/construction-machine', 'Admin\ConstructionMachineController');
 	
+	Route::post('/fare/import', 'Admin\FareController@importFares');
 	Route::get('/fare/grid', 'Admin\FareController@grid');
 	Route::resource('/fare', 'Admin\FareController');
 	

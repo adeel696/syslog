@@ -134,13 +134,13 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label><?php echo utf8_encode("Lieu de livraison"); ?></label>
-                      <select name="country" class="form-control">
+                      <select name="country" class="form-control select2">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
                   <div class="col-md-6">
                      <label>{{ utf8_encode(__('static.City')) }}</label>
-                     <select name="origin" class="form-control">
+                     <select name="origin" class="form-control select2">
                      	@foreach($City as $city)
                             <option value = '{{$city->id}}'>{{$city->name}}</option>
                          @endforeach
@@ -198,13 +198,13 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label><?php echo utf8_encode("Lieu de livraison"); ?></label>
-                      <select name="country" class="form-control">
+                      <select name="country" class="form-control select2">
                      	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
                       </select>
                   </div>
                   <div class="col-md-6">
                      <label>{{ utf8_encode(__('static.City')) }}</label>
-                     <select name="origin" class="form-control">' +
+                     <select name="origin" class="form-control select2">' +
                         @foreach(App\Models\City::All() as $city)
                             <option value="{{ $city->id }}">{{ utf8_encode($city->name) }}</option>
                         @endforeach

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('/home/fonts/icomoon/style.css') }}">
-
+	<link rel="stylesheet" href="{{ asset('/home/select2/css/select2.css') }}">
     <link rel="stylesheet" href="{{ asset('/home/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/home/css/jquery.fancybox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/home/css/owl.carousel.min.css') }}">
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('/home/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/home/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('/home/sweetalert/sweetalert.css') }}">
+    
 	@stack('style')
   </head>
 
@@ -133,7 +134,11 @@
     <script src="{{ asset('/home/js/aos.js') }}"></script>
 	<script src="{{ asset('/home/js/carousel.js') }}"></script>
     <script src="{{ asset('/home/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('/home/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('/home/js/main.js') }}"></script>
+    <script language="javascript">
+		$(".select2").select2();
+	</script>
     @stack('scripts')
   </body>
 

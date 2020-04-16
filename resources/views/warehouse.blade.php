@@ -113,7 +113,7 @@
                   </div>
                   <div class="col-md-6">
 						<label>{{ utf8_encode(__('static.City')) }}</label>
-                        <select name="city_id" class="form-control">
+                        <select name="city_id" class="form-control select2">
                             @foreach(App\Models\City::All() as $city)
                                 <?php echo '<option value='."'".''.$city->id."'".'>'. ($city->name).'</option>' ?>
                             @endforeach
