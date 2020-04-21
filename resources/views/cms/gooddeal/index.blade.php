@@ -6,11 +6,11 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item active">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</li>
+        <li class="breadcrumb-item active">Bonnes affaires</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }} <small></small></h1>
+    <h1 class="page-header">Bonnes affaires <small></small></h1>
     <!-- end page-header -->
     
     <!-- begin section-container -->
@@ -25,7 +25,7 @@
                         <div class="panel-heading-btn">
                             <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/cms/gooddeal/create') }}"><i class="fa fa-plus"></i></a>
                         </div>
-                        <h4 class="panel-title">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</h4>
+                        <h4 class="panel-title">Bonnes affaires</h4>
                     </div>
                     <div class="table-responsive">
                         <table id="viewForm" class="table table-td-valign-middle">

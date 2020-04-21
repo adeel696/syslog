@@ -53,6 +53,6 @@ class BookingController extends Controller
 		$inputs = $request->all();
     	$this->bookingRps->storeSubscriber($inputs);
 		
-		return response()->json(array("id" => $request->offer_id, "message" => utf8_encode("Les livraisons ferontl'objet d'un accord séparé si demandées")));
+		return response()->json(array("id" => $request->offer_id, "message" => utf8_encode("Les livraisons feront l’objet d’un accord séparé si demandées")));
     }
 }

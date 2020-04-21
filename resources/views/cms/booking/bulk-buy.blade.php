@@ -6,11 +6,11 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item active">{{ utf8_encode(__('static.Warehouse')) }}</li>
+        <li class="breadcrumb-item active">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }}</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">{{ utf8_encode(__('static.Warehouse')) }} <small></small></h1>
+    <h1 class="page-header">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }} <small></small></h1>
     <!-- end page-header -->
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-6">
@@ -33,7 +33,7 @@
                         <div class="panel-heading-btn">
                             <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/') }}"><i class="fa fa-plus"></i></a>
                         </div>
-                        <h4 class="panel-title">{{ utf8_encode(__('static.Warehouse')) }}</h4>
+                        <h4 class="panel-title">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }}</h4>
                     </div>
                     <div class="table-responsive">
                         <table id="viewForm" class="table table-td-valign-middle">

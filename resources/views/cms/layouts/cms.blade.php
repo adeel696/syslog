@@ -151,7 +151,7 @@
                     <li>
 						<a href="{{url('/cms/gooddeal')}}">
 						    <i class="fa fa-dice"></i>
-						    <span>{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</span>
+						    <span>Bonnes affaires</span>
 					    </a>
 					</li>
                     @endif

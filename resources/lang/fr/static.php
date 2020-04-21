@@ -111,4 +111,6 @@ return [
 	'Booking Message' => 'Votre réservation a bien été prise en compte , nous vous contacterons très bientôt',
 	'Register Success' => 'vous êtes enregistré avec succès',
 	'Publish' => 'Publier',
+	'Subscribed' => 'Souscrire',
+	'Subscribe' => 'Souscrire'
 ];

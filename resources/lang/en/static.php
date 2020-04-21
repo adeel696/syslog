@@ -108,4 +108,6 @@ return [
 	'Booking Message' => 'Booking Message',
 	'Register Success' => 'Register Success',
 	'Publish' => 'Publish',
+	'Subscribed' => 'Subscribed',
+	'Subscribe' => 'Subscribe'
 ];

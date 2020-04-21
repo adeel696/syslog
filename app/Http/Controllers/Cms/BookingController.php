@@ -84,6 +84,12 @@ class BookingController extends Controller
 		->editColumn('contruction_machinary_id', function ($info_Bookings) {
 			return $info_Bookings->ConstructionMachine()->First()->name;
         })
+		->editColumn('delivery_place_city_id', function ($info_Bookings) {
+			if($info_Bookings->delivery_place_city_id != "")
+				return $info_Bookings->Delivery_place_city()->First()->name;
+			else
+				return "";
+        })
 		->editColumn('status', function ($info_Bookings) {
 			if($info_Bookings->status == "1")
 			{
@@ -117,6 +123,9 @@ class BookingController extends Controller
 	   return Datatables::of($info_Bookings)
 		->editColumn('user_id', function ($info_Bookings) {
 			return $info_Bookings->User()->First()->name;
+        })
+		->editColumn('city_id', function ($info_Bookings) {
+			return $info_Bookings->City()->First()->name;
         })
 		->editColumn('status', function ($info_Bookings) {
 			if($info_Bookings->status == "1")

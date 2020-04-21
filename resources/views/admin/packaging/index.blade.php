@@ -25,7 +25,7 @@
                         <div class="panel-heading-btn">
                             <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/admin/packaging/create') }}"><i class="fa fa-plus"></i></a>
                         </div>
-                        <h4 class="panel-title">{{ utf8_encode(__('static.Packagings')) }}</h4>
+                        <h4 class="panel-title">{{ utf8_encode(__('static.Packaging')) }}</h4>
                     </div>
                     <div class="table-responsive">
                         <table id="viewForm" class="table table-td-valign-middle">

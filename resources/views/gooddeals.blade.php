@@ -42,7 +42,7 @@
                             </div>
                             <!--Text-->
                             <div class="item-box-blog-text">
-                              <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Desription')) }}</h5>
+                              <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Description')) }}</h5>
                               <p>{{ $Gooddeal->description }}</p>
                             </div>
                             <!--Read More Button-->

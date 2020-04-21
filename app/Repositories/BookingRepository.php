@@ -94,8 +94,8 @@ class BookingRepository {
 		$db_construction_machine_booking = new $this->db_construction_machine_booking;
 		$db_construction_machine_booking->contruction_machinary_id = $inputs['contruction_machinary_id'];
 		$db_construction_machine_booking->type_of_machinery = $inputs['type_of_machinery'];
-		if(isset($inputs['specification']))
-			$db_construction_machine_booking->specification = $inputs['specification'];
+		if(isset($inputs['specifications']))
+			$db_construction_machine_booking->specification = $inputs['specifications'];
 		$db_construction_machine_booking->delivery_deadline = $inputs['delivery_deadline'];
 		$db_construction_machine_booking->preferences = $inputs['preferences'];
 		if(isset($inputs['duration_of_user']))

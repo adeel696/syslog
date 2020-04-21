@@ -41,8 +41,8 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Description')) }}</th>
-                                    <th>{{ utf8_encode(__('Product Type')) }}</th>
+                                    <!--<th>{{ utf8_encode(__('static.Description')) }}</th>
+                                    <th>{{ utf8_encode(__('Product Type')) }}</th>-->
                                     <th>{{ utf8_encode(__('Packaging')) }}</th>
                                     <th>{{ utf8_encode(__('static.Weight')) }}</th>
                                     <th>{{ utf8_encode(__('static.Volume')) }}</th>
@@ -77,8 +77,8 @@
         "columns": [
 			{ data: 'id', name: 'id' },
 			{ data: 'user_id', name: 'user_id' },
-      		{ data: 'description', name: 'description' },
-            { data: 'product_type', name: 'product_type' },
+      		/*{ data: 'description', name: 'description' },
+            { data: 'product_type', name: 'product_type' },*/
             { data: 'packaging', name: 'packaging' },
             { data: 'weight', name: 'weight' },
             { data: 'volume', name: 'volume' },

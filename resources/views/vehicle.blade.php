@@ -228,18 +228,18 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
    var citerneCapacity ='<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                   '<select id="capacity" name="capacity" class="form-control" required>' +
                   '<option value="">En litres</option>' +
-                  '<option value="5">5000 Litres</option>' +
-                  '<option value="10">10000 Litres</option>' +
-                  '<option value="15">15000 Litres</option>' +
-                  '<option value="20">20000 Litres</option>' +
-                  '<option value="25">25000 Litres</option>' +
-                  '<option value="30">30000 Litres</option>' +
-                  '<option value="35">35000 Litres</option>' +
-                  '<option value="40">40000 Litres</option>' +
-                  '<option value="45">45000 Litres</option>' +
-                  '<option value="50">50000 Litres</option>' +
-                  '<option value="55">55000 Litres</option>' +
-                  '<option value="60">60000 Litres</option>' +
+                  '<option value="5000">5000 Litres</option>' +
+                  '<option value="10000">10000 Litres</option>' +
+                  '<option value="15000">15000 Litres</option>' +
+                  '<option value="20000">20000 Litres</option>' +
+                  '<option value="25000">25000 Litres</option>' +
+                  '<option value="30000">30000 Litres</option>' +
+                  '<option value="35000">35000 Litres</option>' +
+                  '<option value="40000">40000 Litres</option>' +
+                  '<option value="45000">45000 Litres</option>' +
+                  '<option value="50000">50000 Litres</option>' +
+                  '<option value="55000">55000 Litres</option>' +
+                  '<option value="60000">60000 Litres</option>' +
                      '</select>'  
    var marchandisesCapacity = '<label><?php echo utf8_encode(__('static.Capacity')); ?></label>'+ 
                   '<select id="capacity" name="capacity" class="form-control" required>' +

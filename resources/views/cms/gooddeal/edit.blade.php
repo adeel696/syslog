@@ -6,12 +6,12 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="{{ url('cms/home') }}">{{ utf8_encode(__('static.Dashboard')) }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ url('cms/gooddeal') }}">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('cms/gooddeal') }}">Bonnes affaires</a></li>
         <li class="breadcrumb-item active">{{ utf8_encode(__('static.Add')) }}</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">{{ utf8_encode(__('static.Add')) }} {{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }} <small></small></h1>
+    <h1 class="page-header">Bonnes affaires <small></small></h1>
     <!-- end page-header -->
     
     <!-- begin section-container -->

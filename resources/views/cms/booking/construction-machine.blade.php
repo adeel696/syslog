@@ -41,14 +41,14 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Construction Machinery')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Construction')) }} {{ utf8_encode(__('static.Machine')) }}</th>
                                     <th>{{ utf8_encode(__('Type of Machinery')) }}</th>
                                     <th>{{ utf8_encode(__('static.Description')) }}</th>
                                     <th>{{ utf8_encode(__('static.Specifications')) }}</th>
                                     <th>{{ utf8_encode(__('static.Amount')) }}</th>
                                     <th>{{ utf8_encode(__('static.City')) }}</th>
-                                    <th>{{ utf8_encode(__('Delivery Deadline')) }}</th>
-                                    <th>{{ utf8_encode(__('Duration of User')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Delivery Deadline')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Duration of User')) }}</th>
                                     <th>{{ utf8_encode(__('static.Preferences')) }}</th>
                                     <th>{{ utf8_encode(__('static.Others')) }}</th>
                                     <th>{{ utf8_encode(__('static.Status')) }}</th>

@@ -49,8 +49,8 @@
                     </div>
                     <!--Text-->
                     <div class="item-box-blog-text">
-                      <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Desription')) }}</h5>
-                      <p>{{ utf8_encode(__('static.Desription')) }}</p>
+                      <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Description')) }}</h5>
+                      <p>{{ utf8_encode(__('static.Description')) }}</p>
                     </div>
                      <div class="mt"> 
                      @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)
@@ -103,8 +103,8 @@
                     </div>
                     <!--Text-->
                     <div class="item-box-blog-text">
-                      <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Desription')) }}</h5>
-                      <p>{{ utf8_encode(__('static.Desription')) }}</p>
+                      <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Description')) }}</h5>
+                      <p>{{ utf8_encode(__('static.Description')) }}</p>
                     </div>
                      <div class="mt"> 
                      @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)
@@ -157,8 +157,8 @@
                     </div>
                     <!--Text-->
                     <div class="item-box-blog-text">
-                      <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Desription')) }}</h5>
-                      <p>{{ utf8_encode(__('static.Desription')) }}</p>
+                      <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Description')) }}</h5>
+                      <p>{{ utf8_encode(__('static.Description')) }}</p>
                     </div>
                      <div class="mt"> 
                      @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)
@@ -207,8 +207,8 @@
                     </div>
                     <!--Text-->
                     <div class="item-box-blog-text">
-                      <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Desription')) }}</h5>
-                      <p>{{ utf8_encode(__('static.Desription')) }}</p>
+                      <h5 style="color:#01ABC4 !important">{{ utf8_encode(__('static.Description')) }}</h5>
+                      <p>{{ utf8_encode(__('static.Description')) }}</p>
                     </div>
                      <div class="mt"> 
                      @if(Auth::User()!=null && Auth::User()->User_offer()->Where('offer_id',$offer->id)->Get()->Count() > 0)

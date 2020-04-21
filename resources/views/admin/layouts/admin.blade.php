@@ -197,7 +197,7 @@
                     <li class="{{ (request()->segment(2) == 'gooddeal') ? 'active' : '' }}">
 						<a href="{{url('/admin/gooddeal')}}">
 						    <i class="fa fa-dice"></i>
-						    <span>{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</span>
+						    <span>Bonnes affaires</span>
 					    </a>
 					</li>
                     @endif

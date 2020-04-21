@@ -8,6 +8,10 @@
 		height:150px;
 		min-height:0px; !important
 	}
+	.invalid-feedback
+	{
+		display:block; !important
+	}
 </style>
 @endpush
 @section('content')
@@ -84,19 +88,19 @@
             </div>
             <!-- end login-brand -->
             <!-- begin login-content -->
-            <div class="login-content">
+             <div class="login-content">
              <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="form-group">
                     <select name="type" class="form-control select-lg typeS">
-                        <option value="1">{{ utf8_encode(__('static.Asset Owner')) }}</option>
-                        <option value="2">{{ utf8_encode(__('static.Enterprise')) }}</option>
-                        <option value="3">Particuliers</option>
+                        <option value="1" {{ old('type') == 1 ? 'Selected' : '' }}>{{ utf8_encode(__('static.Asset Owner')) }}</option>
+                        <option value="2" {{ old('type') == 2 ? 'Selected' : '' }}>{{ utf8_encode(__('static.Enterprise')) }}</option>
+                        <option value="3" {{ old('type') == 3 ? 'Selected' : '' }}>Particuliers</option>
                     </select>
                 </div>
                 <div class="row row-space-14">
                     <div class="col-lg-6 m-b-15">
-                        <input name="surname" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Sur Name')) }}" />
+                        <input name="surname" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Sur Name')) }}" value="{{ old('surname') }}"/>
                         @error('surname')
                             <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('surname') }}</strong>
@@ -104,7 +108,7 @@
                         @enderror
                     </div>
                     <div class="col-lg-6 m-b-15">
-                        <input name="name" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Name')) }}" />
+                        <input name="name" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Name')) }}" value="{{ old('name') }}"/>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('name') }}</strong>
@@ -113,7 +117,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input name="entreprise" id="entreprise" type="text" class="form-control input-lg" placeholder="Entreprise" />
+                    <input name="entreprise" id="entreprise" type="text" class="form-control input-lg" placeholder="Entreprise" value="{{ old('entreprise') }}"/>
                     @error('entreprise')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('entreprise') }}</strong>
@@ -122,7 +126,7 @@
 
                 </div>
                	<div class="form-group">
-                    <input name="email" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Email')) }} {{ utf8_encode(__('static.Address')) }}" />
+                    <input name="email" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Email')) }} {{ utf8_encode(__('static.Address')) }}" value="{{ old('email') }}"/>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
@@ -132,9 +136,9 @@
                 </div>
                 <div class="form-group">
                     <input name="mot_de_passe" type="password" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Password')) }}" />
-                    @error('passwordr')
+                    @error('mot_de_passe')
                         <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('passwordr') }}</strong>
+                        <strong>{{ $errors->first('mot_de_passe') }}</strong>
                         </span>
                     @enderror
                 </div>
@@ -142,7 +146,7 @@
                     <input name="mot_de_passe_confirmation" type="password" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Confirm')) }} {{ utf8_encode(__('static.Password')) }}" />
                 </div>
                 <div class="form-group">
-                    <input name="phone_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Phone Number')) }}" />
+                    <input name="phone_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Phone Number')) }}" value="{{ old('phone_number') }}"/>
                     @error('phone_number')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('phone_number') }}</strong>
@@ -152,7 +156,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea name="address" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Address')) }}"></textarea>
+                    <textarea name="address" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Address')) }}">{{ old('address') }}</textarea>
                     @error('address')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('address') }}</strong>
@@ -161,7 +165,7 @@
 
                 </div>
                 <div class="form-group">
-                    <input name="rccm_number" id="rccm_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} RCCM " />
+                    <input name="rccm_number" id="rccm_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} RCCM " value="{{ old('rccm_number') }}"/>
                     @error('rccm_number')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('rccm_number') }}</strong>
@@ -170,7 +174,7 @@
 
                 </div>
                 <div class="form-group">
-                    <input name="tax_number" id="tax_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} {{ utf8_encode(__('static.Tax')) }}" />
+                    <input name="tax_number" id="tax_number" type="text" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Number')) }} {{ utf8_encode(__('static.Tax')) }}" value="{{ old('tax_number') }}"/>
                     @error('tax_number')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('tax_number') }}</strong>

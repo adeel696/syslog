@@ -140,7 +140,7 @@
                   </div>
                   <div class="col-md-6">
                      <label>{{ utf8_encode(__('static.City')) }}</label>
-                     <select name="origin" class="form-control select2">
+                     <select name="delivery_place_city_id" class="form-control select2">
                      	@foreach($City as $city)
                             <option value = '{{$city->id}}'>{{$city->name}}</option>
                          @endforeach
@@ -154,7 +154,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="specifications " class="form-control" placeholder="{{ utf8_encode(__('static.Specifications')) }}"></textarea>
+                     <textarea name="specifications" class="form-control" placeholder="{{ utf8_encode(__('static.Specifications')) }}"></textarea>
                   </div>
                </div>
                <div class="form-group row">
@@ -204,7 +204,7 @@
                   </div>
                   <div class="col-md-6">
                      <label>{{ utf8_encode(__('static.City')) }}</label>
-                     <select name="origin" class="form-control select2">' +
+                     <select name="delivery_place_city_id" class="form-control select2">' +
                         @foreach(App\Models\City::All() as $city)
                             <option value="{{ $city->id }}">{{ utf8_encode($city->name) }}</option>
                         @endforeach
@@ -218,7 +218,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="specifications " class="form-control" placeholder="{{ utf8_encode(__('static.Specifications')) }}"></textarea>
+                     <textarea name="specifications" class="form-control" placeholder="{{ utf8_encode(__('static.Specifications')) }}"></textarea>
                   </div>
                </div>
                <div class="form-group row">
