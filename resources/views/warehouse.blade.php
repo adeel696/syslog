@@ -108,7 +108,7 @@
                <div class="form-group row">
                   <div class="col-md-6">
 						<label><?php echo utf8_encode("Préférences:"); ?></label>
-                        <input type="number" name="preference_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences"); ?>" />
+                        <input type="text" name="preference_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences"); ?>" />
                         <input type="hidden" name="preferences" value="1" />
                   </div>
                   <div class="col-md-6">

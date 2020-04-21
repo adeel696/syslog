@@ -42,7 +42,7 @@ class FareImport implements ToCollection, WithHeadingRow
 				
 				if($vehicle_id!=0 && $from_city!=0 && $to_city!=0)
 				{
-					$db_fare = Fare::Where('vehicle_id', $vehicle_id)->Where('from_city', $from_city)->Where('to_city', $to_city)->First();
+					$db_fare = Fare::Where('vehicle_id', $vehicle_id)->Where('from_city', $from_city)->Where('to_city', $to_city)->Where('capacity', $row['capacity'])->First();
 					
 					if(!$db_fare)
 					{
@@ -60,7 +60,7 @@ class FareImport implements ToCollection, WithHeadingRow
 					$db_fare->fare = $row['fare'];
 					$db_fare->save();
 				}
-				
+				//dd($db_fare);
 			}
 			else
 			if($row['type'] == "Construction Machines")
@@ -73,7 +73,7 @@ class FareImport implements ToCollection, WithHeadingRow
 					
 				if($contruction_machinary_id!=0)
 				{
-					$db_fare = Fare::Where('contruction_machinary_id', $contruction_machinary_id)->First();
+					$db_fare = Fare::Where('contruction_machinary_id', $contruction_machinary_id)->Where('capacity', $row['capacity'])->First();
 					
 					if(!$db_fare)
 					{
@@ -91,7 +91,6 @@ class FareImport implements ToCollection, WithHeadingRow
 					
 				}
 			}
-
 		}
 		
     }
