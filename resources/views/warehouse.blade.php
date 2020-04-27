@@ -49,7 +49,7 @@
                
                <div class="form-group row">
                   <div class="col-md-12">
-                     <textarea name="designation " class="form-control" placeholder="{{ utf8_encode(__('static.Designation')) }} "></textarea>
+                     <textarea name="designation" class="form-control" placeholder="{{ utf8_encode(__('static.Designation')) }} "></textarea>
                   </div>
                </div>
                

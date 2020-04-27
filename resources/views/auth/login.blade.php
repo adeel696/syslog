@@ -136,6 +136,9 @@
                 </div>
                 <div class="form-group">
                     <input name="mot_de_passe" type="password" class="form-control input-lg" placeholder="{{ utf8_encode(__('static.Password')) }}" />
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ utf8_encode(__('Mot de passé (8 caractères)')) }}</strong>
+                    </span>
                     @error('mot_de_passe')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('mot_de_passe') }}</strong>

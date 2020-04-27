@@ -22,6 +22,7 @@ class CreateWarehouseBookingsTable extends Migration
             $table->string('needed_space');
             $table->string('preferences');
             $table->string('preference_text')->nullable();
+			$table->string('approx_storage_time')->nullable();
 			$table->integer('city_id')->unsigned()->nullable();
 			$table->integer('user_id')->unsigned()->nullable();
             $table->string('amount')->nullable();

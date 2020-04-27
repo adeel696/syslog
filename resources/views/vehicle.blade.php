@@ -180,9 +180,12 @@
                   </div>
                   <div class="col-md-4">
                      <input class="checkFare" name="loading" id="loading" type="checkbox" /> Chargement
+                     <input type="hidden" name="loading_price" id="loading_price" />
                   </div>
                   <div class="col-md-4">
                      <input class="checkFare" name="offloading" id="offloading" type="checkbox" /> {{ utf8_encode(__('static.OffLoading')) }}
+					 <input type="hidden" name="offloading_price" id="offloading_price" />
+
                   </div>
                </div>
                <div class="form-group row">
@@ -466,11 +469,13 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
 						}
 						if($('#loading').is(':checked'))
 						{
-						  amount = amount + parseInt(data.loading_price);
+							$("#loading_price").val(parseInt(data.loading_price));
+						  	amount = amount + parseInt(data.loading_price);
 						}
 						if($('#offloading').is(':checked'))
 						{
-						  amount = amount + parseInt(data.offloading_price);
+							$("#offloading_price").val(parseInt(data.offloading_price));
+						  	amount = amount + parseInt(data.offloading_price);
 						}
 						
 						$('#result').html('{{ utf8_encode(__('static.Fare')) }}: '+ amount);

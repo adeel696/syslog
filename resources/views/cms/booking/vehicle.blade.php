@@ -44,14 +44,15 @@
                                     <th>{{ utf8_encode(__('Departure City')) }}</th>
                                     <th>{{ utf8_encode(__('Arrival City')) }}</th>
                                     <th>{{ utf8_encode(__('static.Capacity')) }}</th>
-                                    <th>{{ utf8_encode(__("static.Duration")) }}</th>
                                     <th>{{ utf8_encode(__('static.Amount')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Description')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Preferences')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Specifications')) }}</th>
                                     <th>{{ utf8_encode(__('static.Insurances')) }}</th>
                                     <th>{{ utf8_encode(__('static.Loading')) }}</th>
                                     <th>{{ utf8_encode(__('static.OffLoading')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Total')) }}</th>
+                                    <th>{{ utf8_encode(__("static.Duration")) }}</th>
+                                    <th>{{ utf8_encode(__('static.Description')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Preferences')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Specifications')) }}</th>
                                     <th>{{ utf8_encode(__('static.Others')) }}</th>
                                     <th>{{ utf8_encode(__('static.Status')) }}</th>
                                 </tr>
@@ -84,14 +85,15 @@
             { data: 'place_of_departure_city_id', name: 'place_of_departure_city_id' },
             { data: 'place_of_arrival_city_id', name: 'place_of_arrival_city_id' },
             { data: 'capacity', name: 'capacity' },
-            { data: 'duration', name: 'duration' },
-            { data: 'amount', name: 'amount' },            
-      		{ data: 'description', name: 'description' },
-            { data: 'preferences', name: 'preferences' },
-            { data: 'specifications', name: 'specifications' },
+			{ data: 'amount', name: 'amount' },   
             { data: 'insurances', name: 'insurances' },
             { data: 'loading', name: 'loading' },
             { data: 'offloading', name: 'offloading' },
+			{ data: 'total', name: 'total' },
+			{ data: 'duration', name: 'duration' },         
+      		{ data: 'description', name: 'description' },
+            { data: 'preferences', name: 'preferences' },
+            { data: 'specifications', name: 'specifications' },
             { data: 'others', name: 'others' },
 			{ data: 'status', name: 'status' },
 		],

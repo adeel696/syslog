@@ -41,14 +41,14 @@
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
-                                    <!--<th>{{ utf8_encode(__('static.Description')) }}</th>
-                                    <th>{{ utf8_encode(__('Product Type')) }}</th>-->
+                                    <th>{{ utf8_encode(__('static.Description')) }}</th>
+                                    <th>{{ utf8_encode(__('Product Type')) }}</th>
                                     <th>{{ utf8_encode(__('Packaging')) }}</th>
                                     <th>{{ utf8_encode(__('static.Weight')) }}</th>
                                     <th>{{ utf8_encode(__('static.Volume')) }}</th>
                                     <th>{{ utf8_encode(__('static.Amount')) }}</th>
                                     <th>{{ utf8_encode(__('static.Needed Space')) }}</th>
-                                    <th>{{ utf8_encode(__('static.Preferences')) }}</th>
+                                    <th>{{ utf8_encode('Durée') }}</th>
                                     <th>{{ utf8_encode(__('static.Preference Text')) }}</th>
                                     <th>{{ utf8_encode(__('static.City')) }}</th>
                                     <th>{{ utf8_encode(__('static.Status')) }}</th>
@@ -77,14 +77,14 @@
         "columns": [
 			{ data: 'id', name: 'id' },
 			{ data: 'user_id', name: 'user_id' },
-      		/*{ data: 'description', name: 'description' },
-            { data: 'product_type', name: 'product_type' },*/
+      		{ data: 'description', name: 'description' },
+            { data: 'product_type', name: 'product_type' },
             { data: 'packaging', name: 'packaging' },
             { data: 'weight', name: 'weight' },
             { data: 'volume', name: 'volume' },
             { data: 'amount', name: 'amount' },            
       		{ data: 'needed_space', name: 'needed_space' },
-            { data: 'preferences', name: 'preferences' },
+            { data: 'approx_storage_time', name: 'approx_storage_time' },
             { data: 'preference_text', name: 'preference_text' },
             { data: 'city_id', name: 'city_id' },
 			{ data: 'status', name: 'status' },

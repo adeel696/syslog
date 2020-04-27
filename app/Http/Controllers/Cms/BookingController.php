@@ -46,6 +46,32 @@ class BookingController extends Controller
 		->editColumn('insurances', function ($info_Bookings) {
 			return $info_Bookings->insurances." (Valeur: ".$info_Bookings->value_product.")";
         })
+		->editColumn('loading', function ($info_Bookings) {
+			if($info_Bookings->loading != "")
+			{
+				return "Yes (Valeur: ".$info_Bookings->loading.")";
+			}
+			else
+			{
+				return "No";
+			}
+        })
+		->editColumn('offloading', function ($info_Bookings) {
+			if($info_Bookings->offloading != "")
+			{
+				return "Yes (Valeur: ".$info_Bookings->offloading.")";
+			}
+			else
+			{
+				return "No";
+			}
+        })
+		->addColumn('total', function ($info_Bookings) {
+			return $info_Bookings->amount;
+        })
+		->editColumn('amount', function ($info_Bookings) {
+			return $info_Bookings->amount - (intval($info_Bookings->offloading) + intval($info_Bookings->loading) + intval($info_Bookings->value_product));
+        })
 		->editColumn('status', function ($info_Bookings) {
 			if($info_Bookings->status == "1")
 			{
@@ -161,7 +187,7 @@ class BookingController extends Controller
 	   	->editColumn('user_id', function ($info_UserOffers) {
 			return $info_UserOffers->User()->First()->name;
         })
-		->editColumn('offer_id', function ($info_UserOffers) {
+		->addColumn('offer_name', function ($info_UserOffers) {
 			return $info_UserOffers->Offer()->First()->title;
         })
 		->addColumn('description', function ($info_UserOffers) {

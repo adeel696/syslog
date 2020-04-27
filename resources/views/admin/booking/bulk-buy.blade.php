@@ -31,6 +31,7 @@
                             <thead>
                                 <tr>
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Offer')) }} {{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.User')) }}</th>
                                     <th>{{ utf8_encode(__('static.Email')) }}</th>
                                     <th>{{ utf8_encode(__('static.Quantity')) }}</th>
@@ -62,11 +63,12 @@
 		"ajax": "{{url('/admin/booking/bulk-buy/grid')}}",
         "columns": [
 			{ data: 'id', name: 'id' },
-			{ data: 'user_id', name: 'user_id' },
+			{ data: 'offer_id', name: 'offer_id' },
+			{ data: 'user_id', name: 'user_id' },			
 			{ data: 'email', name: 'email' },
 			{ data: 'quantity', name: 'quantity' },
 			{ data: 'others', name: 'others' },
-      		{ data: 'offer_id', name: 'offer_id' },
+      		{ data: 'offer_name', name: 'offer_name' },
 			{ data: 'description', name: 'description' },
 		],
 		"responsive": true,

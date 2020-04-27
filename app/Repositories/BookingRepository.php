@@ -33,11 +33,13 @@ class BookingRepository {
 	{
 		//dd($inputs);
 		$db_warehouse_booking = new $this->db_warehouse_booking;
+		$db_warehouse_booking->product_type = $inputs['product_type'];
 		$db_warehouse_booking->packaging = $inputs['packaging'];
 		$db_warehouse_booking->weight = $inputs['weight'];
 		$db_warehouse_booking->volume = $inputs['volume'];
 		$db_warehouse_booking->needed_space = $inputs['needed_space'];
 		$db_warehouse_booking->preferences = $inputs['preferences'];
+		$db_warehouse_booking->approx_storage_time = $inputs['approx_storage_time'];
 		if(isset($inputs['preference_text']))
 			$db_warehouse_booking->preference_text = $inputs['preference_text'];
 		if(isset($inputs['city_id']))
@@ -45,8 +47,8 @@ class BookingRepository {
 		$db_warehouse_booking->user_id = $inputs['user_id'];
 		if(isset($inputs['amount']))
 			$db_warehouse_booking->amount = $inputs['amount'];
-		if(isset($inputs['description']))
-			$db_warehouse_booking->description = $inputs['description'];
+		if(isset($inputs['designation']))
+			$db_warehouse_booking->description = $inputs['designation'];
 		$db_warehouse_booking->status = $inputs['status'];
 		$db_warehouse_booking->save();
 		return $db_warehouse_booking;
@@ -75,9 +77,9 @@ class BookingRepository {
 		if(isset($inputs['value_product']))
 			$db_vehicle_booking->value_product = ($inputs['value_product']/100)*1.2;
 		if(isset($inputs['loading']))
-			$db_vehicle_booking->loading = ($inputs['loading'] == "on") ? "Yes" : "";
+			$db_vehicle_booking->loading = ($inputs['loading'] == "on") ? $inputs['loading_price'] : "0";
 		if(isset($inputs['offloading']))
-			$db_vehicle_booking->offloading = ($inputs['offloading'] == "on") ? "Yes" : "";
+			$db_vehicle_booking->offloading = ($inputs['offloading'] == "on") ? $inputs['offloading_price'] : "0";
 		$db_vehicle_booking->user_id = $inputs['user_id'];
 		if(isset($inputs['amount']))
 			$db_vehicle_booking->amount = $inputs['amount'];

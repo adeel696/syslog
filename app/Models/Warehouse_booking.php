@@ -13,7 +13,7 @@ class Warehouse_booking extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['booking_id', 'product_type', 'packaging', 'weight', 'volume', 'needed_space', 'preferences', 'preference_text', 'city_id', 'user_id','amount','description','status'];
+    protected $fillable = ['booking_id', 'product_type', 'packaging', 'weight', 'volume', 'needed_space', 'preferences', 'preference_text', 'city_id', 'user_id','amount','approx_storage_time','description','status'];
    
 	public function Booking()
 	{
