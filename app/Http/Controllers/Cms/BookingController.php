@@ -70,7 +70,8 @@ class BookingController extends Controller
 			return $info_Bookings->amount;
         })
 		->editColumn('amount', function ($info_Bookings) {
-			return $info_Bookings->amount - (intval($info_Bookings->offloading) + intval($info_Bookings->loading) + intval($info_Bookings->value_product));
+			if($info_Bookings->amount > 0)
+				return $info_Bookings->amount - (intval($info_Bookings->offloading) + intval($info_Bookings->loading) + intval($info_Bookings->value_product));
         })
 		->editColumn('status', function ($info_Bookings) {
 			if($info_Bookings->status == "1")
