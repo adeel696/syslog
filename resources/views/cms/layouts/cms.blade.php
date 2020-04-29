@@ -141,7 +141,7 @@
                             <li class="{{ (request()->segment(3) == 'bulk-buy') ? 'active' : '' }}"><a href="{{url('/cms/booking/bulk-buy')}}">{{ utf8_encode(__('static.Bulk')) }} {{ utf8_encode(__('static.Buy')) }}</a></li>
 						</ul>
 					</li>
-                    @if(Auth::User()->type == "1")
+                    @if(Auth::User()->type == "1" || Auth::User()->type == "2")
                     <li>
 						<a href="{{url('/cms/asset')}}">
 						    <i class="fa fa-location-arrow"></i>
