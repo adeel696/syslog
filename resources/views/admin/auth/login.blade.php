@@ -67,6 +67,16 @@
                             </span>
                         @endif
                     </div>
+                    <div class="form-group">
+                    	<select class="form-control input-lg" id="Country" name="country_id" style="height: 46px;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;background: #ebeced;border-color: #ebeced;">
+						  <?php
+							foreach(App\Models\Country::All() as $Country)
+							{
+								echo '<option value="'.$Country->id.'">'.$Country->name.'</option>';
+							}
+						  ?>
+                      	</select>
+                    </div>
                     <div class="row m-b-20">
                         <div class="col-lg-12">
                         	<button type="submit" class="btn btn-lime btn-lg btn-block">Sign in to your account</button>

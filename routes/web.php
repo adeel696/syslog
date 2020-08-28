@@ -22,6 +22,10 @@ Route::get('/vehicle', function () {
     return view('vehicle');
 });
 
+Route::get('/getCities', function () {
+    return \Response::json(App\Models\City::Where('country_id',$_GET['id'])->Get());
+});
+
 Route::post('/construction-machinery', 'BookingController@addConstructionMachineBooking');
 Route::get('/construction-machinery', 'ConstructionMachineController@showConstructionMachine');
 Route::get('construction-machinery/getFare/', 'ConstructionMachineController@getFare');	

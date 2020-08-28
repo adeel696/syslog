@@ -11,7 +11,7 @@ class VehicleController extends Controller
 {
     public function showVehicle()
     {
-    	$City= City::all();
+    	$City= City::All();
     	return view('vehicle', ['City' => $City]);
     }  
 

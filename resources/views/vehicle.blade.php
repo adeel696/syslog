@@ -137,17 +137,25 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label>{{ utf8_encode(__('static.Origine')) }}</label>
-                      <select name="country" class="form-control select2">
-                     	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
+                      <select name="country" id="country1" class="form-control select2">
+                     	<?php
+							foreach(App\Models\Country::All() as $Country)
+							{
+								if($Country->id == $country_id)
+									echo '<option selected value="'.$Country->id.'">'.$Country->name.'</option>';
+								else
+									echo '<option value="'.$Country->id.'">'.$Country->name.'</option>';
+							}
+					  	?>
                       </select>
                   </div>
                   <div class="col-md-6">
                      <label>{{ utf8_encode(__('static.City')) }}</label>
-                     <select name="from_city" class="form-control select2">
+                     <select name="from_city" id="cities1" class="form-control select2">
                      <option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>
-                     @foreach($City as $city)
-                     	<option value = '{{$city->id}}'>{{$city->name}}</option>
-                     @endforeach
+                     	@foreach($City->Where('country_id',$country_id) as $city)
+                     		<option value = '{{$city->id}}'>{{$city->name}}</option>
+                     	@endforeach
                      </select>
                   </div>
                </div>
@@ -155,17 +163,25 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label>{{ utf8_encode(__('static.Destination')) }}</label>
-                      <select name="country" class="form-control checkFare select2">
-                     	<option><?php echo utf8_encode("Burkina FASO"); ?></option>
+                      <select name="country" id="country2" class="form-control checkFare select2">
+                      	<?php
+							foreach(App\Models\Country::All() as $Country)
+							{
+								if($Country->id == $country_id)
+									echo '<option selected value="'.$Country->id.'">'.$Country->name.'</option>';
+								else
+									echo '<option value="'.$Country->id.'">'.$Country->name.'</option>';
+							}
+					  	?>
                       </select>
                   </div>
                   <div class="col-md-6">
                      <label>{{ utf8_encode(__('static.City')) }}</label>
-                     <select name="to_city" class="form-control checkFare select2">
+                     <select name="to_city" id="cities2" class="form-control checkFare select2">
                      <option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>
-                     @foreach($City as $city)
-                     	<option value = '{{$city->id}}'>{{$city->name}}</option>
-                       @endforeach
+                     	@foreach($City->Where('country_id',$country_id) as $city)
+                     		<option value = '{{$city->id}}'>{{$city->name}}</option>
+                       	@endforeach
                      </select>
                   </div>
                </div>
@@ -429,6 +445,44 @@ $('#myModal').modal('show').css("padding-right: 0px !important;");
             $('#insurances_value').fadeOut();
 		}
 
+    });
+	
+	$('#country1').change(function(){
+    	var url = "{{url('getCities')}}"+'?id='+$(this).val();
+ 		$.ajax({
+               url: url,
+               type:"GET",
+               dataType:"json",
+               success:function(response) {
+					$("#cities1").empty();
+					$("#cities1").append('<option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>');
+					$.each(response,function(key,value){
+						$("#cities1").append('<option value="'+value.id+'">'+value.name+'</option>');
+					});
+					$(".select2").select2();
+               },
+               error: function (jqXHR, textStatus, errorThrown)
+               { alert(errorThrown) }
+         }); 
+    });
+	
+	$('#country2').change(function(){
+    	var url = "{{url('getCities')}}"+'?id='+$(this).val();
+		$.ajax({
+               url: url,
+               type:"GET",
+               dataType:"json",
+               success:function(response) {
+					$("#cities2").empty();
+					$("#cities2").append('<option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>');
+					$.each(response,function(key,value){
+						$("#cities2").append('<option value="'+value.id+'">'+value.name+'</option>');
+					});
+					$(".select2").select2();
+               },
+               error: function (jqXHR, textStatus, errorThrown)
+               { alert(errorThrown) }
+         }); 
     });
 
 	$('#validate').on('click', function(){

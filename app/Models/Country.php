@@ -13,7 +13,7 @@ class Country extends Model
      //timestamps
      public $timestamp = true;
  
-     protected $fillable = ['name'];
+     protected $fillable = ['name', 'country_code', 'flag'];
 	 
 	 
 	public function City()

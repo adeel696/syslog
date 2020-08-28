@@ -43,7 +43,11 @@
 
 
       <header class="site-navbar site-navbar-target" role="banner">
-
+		<div>
+        	<span style="position:absolute;right:10px; top: 2px; color:#FFF">
+	        	<img src="{{ url('Flags').'/'.$flag }}" width="20px" /> {{ $country_name }}
+            </span>
+        </div>
         <div class="container">
           <div class="row align-items-center position-relative">
             <div class="col-lg-4 text-center">
