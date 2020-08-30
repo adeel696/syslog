@@ -45,6 +45,19 @@
                           {!! Form::select('machine_id', $defaultSelection, null, ['class' => 'form-control', 'id' => 'machine_id']) !!}
                        </div>
                     </div>
+                    <div class="row">
+                       <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
+                          <label>{{ utf8_encode(__('static.Country')) }}</label>
+						  <?php
+							$defaultSelection = [];
+							foreach(App\Models\Country::All() as $Country)
+							{
+								$defaultSelection = $defaultSelection +  array($Country->id => ($Country->name));
+							}
+						  ?>
+						  {!! Form::select('country_id', $defaultSelection, null, ['class' => 'form-control', 'id' => 'countryCity']) !!}
+                       </div>
+                    </div>
                     <div class="row fromCityDiv">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
                           <label>{{ utf8_encode(__('static.From')) }} {{ utf8_encode(__('static.City')) }}</label>
@@ -138,7 +151,30 @@
 @push('scripts')
 
 <script type="text/javascript">
-    
+
+$('#countryCity').change(function(){
+	var url = "{{url('getCities')}}"+'?id='+$(this).val();
+	$.ajax({
+		   url: url,
+		   type:"GET",
+		   dataType:"json",
+		   success:function(response) {
+				$("#from_city").empty();
+				$("#from_city").append('<option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>');
+				$.each(response,function(key,value){
+					$("#from_city").append('<option value="'+value.id+'">'+value.name+'</option>');
+				});
+				
+				$("#to_city").empty();
+				$("#to_city").append('<option>{{ utf8_encode(__('static.Select')) }} {{ utf8_encode(__('static.City')) }}</option>');
+				$.each(response,function(key,value){
+					$("#to_city").append('<option value="'+value.id+'">'+value.name+'</option>');
+				});
+		   },
+		   error: function (jqXHR, textStatus, errorThrown)
+		   { alert(errorThrown) }
+	 }); 
+});
 $('#vehicleType').on('change', function (e) { 
 	var vehicle_type = $('#vehicleType option:selected').val();
 	if(vehicle_type == 1)

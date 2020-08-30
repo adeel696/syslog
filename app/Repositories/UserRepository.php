@@ -130,7 +130,10 @@ class UserRepository {
 		{
 			if($id==null)
 			{
-				$info_User = $this->db_user->select('id', 'name', 'email', 'password', 'type', 'username', 'avatar', 'job_id','superintendent_id')->where('type','=', $type)->orderBy('created_at', 'DESC')->get();
+				if(\Session::get('admin_country_id')!=NULL)
+					$info_User = $this->db_user->select('id', 'name', 'email', 'password', 'type', 'username', 'avatar', 'job_id','superintendent_id')->Where('country_id',\Session::get('admin_country_id'))->where('type','=', $type)->orderBy('created_at', 'DESC')->get();
+				else
+					$info_User = $this->db_user->select('id', 'name', 'email', 'password', 'type', 'username', 'avatar', 'job_id','superintendent_id')->Where('country_id',\Session::get('country_id'))->where('type','=', $type)->orderBy('created_at', 'DESC')->get();
 			}
 			else
 			{

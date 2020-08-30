@@ -13,7 +13,7 @@ class ConstructionMachineBooking extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['booking_id', 'contruction_machinary_id', 'type_of_machinery', 'specification', 'delivery_place_city_id', 'delivery_deadline', 'duration_of_user', 'preferences', 'others', 'user_id','amount','description','status'];
+    protected $fillable = ['booking_id', 'contruction_machinary_id', 'type_of_machinery', 'specification', 'delivery_place_country_id', 'delivery_place_city_id', 'delivery_deadline', 'duration_of_user', 'preferences', 'others', 'user_id','amount','description','status','country_id'];
    
 	public function Booking()
 	{

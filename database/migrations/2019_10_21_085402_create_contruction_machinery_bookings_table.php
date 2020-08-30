@@ -18,7 +18,8 @@ class CreateContructionMachineryBookingsTable extends Migration
             $table->integer('contruction_machinary_id')->unsigned()->nullable();
             $table->string('type_of_machinery')->nullable();
             $table->string('specification')->nullable();
-            $table->integer('delivery_place_city_id')->unsigned()->nullable();
+            $table->integer('delivery_place_country_id')->unsigned()->nullable();
+			$table->integer('delivery_place_city_id')->unsigned()->nullable();
             $table->string('delivery_deadline');
             $table->string('duration_of_user')->nullable();
             $table->string('preferences');
@@ -27,9 +28,28 @@ class CreateContructionMachineryBookingsTable extends Migration
             $table->string('amount')->nullable();
             $table->string('description')->nullable();
             $table->string('status');
+			$table->integer('country_id')->unsigned();
             $table->timestamps();
         });
-
+		
+		 Schema::table('contruction_machinaries_bookings', function(Blueprint $table) {
+			$table->foreign('country_id','fk_foreign_ccid')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		 
+		 Schema::table('contruction_machinaries_bookings', function(Blueprint $table) {
+			$table->foreign('delivery_place_country_id','fk_foreign_cf_ctid')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		 
+		Schema::table('contruction_machinaries_bookings', function(Blueprint $table) {
+			$table->foreign('delivery_place_city_id','fk_foreign_ct_ctid')->references('id')->on('cities')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		
         Schema::table('contruction_machinaries_bookings', function(Blueprint $table) {
 			$table->foreign('contruction_machinary_id' ,'fk_foreign_c_cid')->references('id')->on('construction_machinaries')
 						->onDelete('CASCADE')

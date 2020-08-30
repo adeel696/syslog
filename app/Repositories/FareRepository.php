@@ -39,6 +39,7 @@ class FareRepository {
 		if(isset($inputs['vehicle_id']))
 			$db_fare->vehicle_id = $inputs['vehicle_id'];
         $db_fare->type_of_vehicle = $inputs['type_of_vehicle'];
+		$db_fare->country_id = $inputs['country_id'];
         if(isset($inputs['from_city']))
 			$db_fare->from_city = $inputs['from_city'];
 		if(isset($inputs['to_city']))
@@ -56,18 +57,21 @@ class FareRepository {
     {
 		if($id==null)
 		{
-			$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->orderBy('created_at', 'DESC')->get();
+			if(\Session::get('admin_country_id')!=NULL)
+				$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'country_id', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->Where('country_id',\Session::get('admin_country_id'))->orderBy('created_at', 'DESC')->get();
+			else
+				$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'country_id', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->Where('country_id',\Session::get('country_id'))->orderBy('created_at', 'DESC')->get();
 		}
 		else
 		{
-			$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->findOrFail($id);
+			$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'country_id', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->findOrFail($id);
 		}
         return $info_Fare;
     }
 	
 	public function getPageFare($start, $limit, $order, $dir)
     {
-		$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->orderBy('created_at', 'DESC')->offset($start)->limit($limit)->orderBy($order,$dir)->get();
+		$info_Fare = $this->db_fare->select('id', 'contruction_machinary_id', 'vehicle_id', 'type_of_vehicle', 'country_id', 'from_city', 'to_city', 'capacity', 'insurances_amount', 'loading_price', 'offloading_price', 'fare')->orderBy('created_at', 'DESC')->offset($start)->limit($limit)->orderBy($order,$dir)->get();
 		
         return $info_Fare;
     }

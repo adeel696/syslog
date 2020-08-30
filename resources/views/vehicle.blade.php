@@ -105,6 +105,7 @@
          <div class="col-lg-6" >
          {!! Form::open([ 'url' => '/vehicle', 'files' => true, 'id' => 'main-form' ]) !!}
                <input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
+               <input type="hidden" name="country_id" value="{{ $country_id }}" />
                <input type="hidden" name="vehicle_id" id="vehicle_id" />
                <div id="othersExtraDiv">
                       
@@ -137,7 +138,7 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label>{{ utf8_encode(__('static.Origine')) }}</label>
-                      <select name="country" id="country1" class="form-control select2">
+                      <select name="from_country" id="country1" class="form-control select2">
                      	<?php
 							foreach(App\Models\Country::All() as $Country)
 							{
@@ -163,7 +164,7 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label>{{ utf8_encode(__('static.Destination')) }}</label>
-                      <select name="country" id="country2" class="form-control checkFare select2">
+                      <select name="to_country" id="country2" class="form-control checkFare select2">
                       	<?php
 							foreach(App\Models\Country::All() as $Country)
 							{

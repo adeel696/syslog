@@ -28,7 +28,7 @@
         <div class="mt-0">
           <div class="container">
             <div class="row">
-                @foreach(App\Models\Gooddeal::Where('is_publish',1)->Get() as $Gooddeal)
+                @foreach(App\Models\Gooddeal::Where('country_id',$country_id)->Where('is_publish',1)->Get() as $Gooddeal)
                     <div class="col-md-4" >
                         <div class="item-box-blog">
                           <div class="item-box-blog-image">

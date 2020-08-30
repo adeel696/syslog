@@ -167,6 +167,9 @@ class FareController extends Controller
 				return utf8_encode(__('static.Construction'))." ".utf8_encode(__('static.Machines'));
 			}
         })
+		->editColumn('country_id', function ($info_Fares) {
+			return $info_Fares->Country()->First()->name;
+        })
 		->editColumn('from_city', function ($info_Fares) {
 			if($info_Fares->type_of_vehicle == 1)
 				return $info_Fares->FromCity()->First()->name;

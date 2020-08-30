@@ -91,6 +91,7 @@
              <div class="login-content">
              <form method="POST" action="{{ route('register') }}">
                 @csrf
+                <input type="hidden" name="country_id" value="{{ $country_id }}" />
                 <div class="form-group">
                     <select name="type" class="form-control select-lg typeS">
                         <option value="1" {{ old('type') == 1 ? 'Selected' : '' }}>{{ utf8_encode(__('static.Asset Owner')) }}</option>

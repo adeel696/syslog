@@ -17,7 +17,9 @@ class CreateVehicleBookingsTable extends Migration
             $table->increments('id');
 			$table->integer('vehicle_id')->unsigned()->nullable();
             $table->text('type_of_vehicle')->nullable();
-            $table->integer('place_of_departure_city_id')->unsigned()->nullable();
+            $table->integer('place_of_departure_country_id')->unsigned()->nullable();
+            $table->integer('place_of_arrival_country_id')->unsigned()->nullable();
+			$table->integer('place_of_departure_city_id')->unsigned()->nullable();
             $table->integer('place_of_arrival_city_id')->unsigned()->nullable();
             $table->string('capacity');
             $table->string('preferences')->nullable();
@@ -33,10 +35,28 @@ class CreateVehicleBookingsTable extends Migration
             $table->string('amount')->nullable();
             $table->string('description')->nullable();
             $table->string('status');
+			$table->integer('country_id')->unsigned();
             $table->timestamps();
         });
 
+	
+		Schema::table('vehicle_bookings', function(Blueprint $table) {
+			$table->foreign('country_id')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		
         Schema::table('vehicle_bookings', function(Blueprint $table) {
+			$table->foreign('place_of_departure_country_id')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+        Schema::table('vehicle_bookings', function(Blueprint $table) {
+			$table->foreign('place_of_arrival_country_id')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		Schema::table('vehicle_bookings', function(Blueprint $table) {
 			$table->foreign('place_of_departure_city_id')->references('id')->on('cities')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');

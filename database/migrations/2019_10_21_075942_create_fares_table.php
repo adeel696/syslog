@@ -18,7 +18,8 @@ class CreateFaresTable extends Migration
             $table->integer('contruction_machinary_id')->unsigned()->nullable();
 			$table->integer('vehicle_id')->unsigned()->nullable();
             $table->text('type_of_vehicle')->nullable();
-            $table->integer('from_city')->unsigned()->nullable();
+            $table->integer('country_id')->unsigned()->nullable();
+			$table->integer('from_city')->unsigned()->nullable();
             $table->integer('to_city')->unsigned()->nullable();
             $table->string('capacity');
             $table->string('insurances_amount');
@@ -37,6 +38,11 @@ class CreateFaresTable extends Migration
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });
+		Schema::table('fares', function(Blueprint $table) {
+			$table->foreign('country_id')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+		});
     }
 
     /**

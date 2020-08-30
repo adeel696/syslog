@@ -42,6 +42,8 @@ class BookingRepository {
 		$db_warehouse_booking->approx_storage_time = $inputs['approx_storage_time'];
 		if(isset($inputs['preference_text']))
 			$db_warehouse_booking->preference_text = $inputs['preference_text'];
+		if(isset($inputs['warehouse_country_id']))
+			$db_warehouse_booking->warehouse_country_id = $inputs['warehouse_country_id'];
 		if(isset($inputs['city_id']))
 			$db_warehouse_booking->city_id = $inputs['city_id'];
 		$db_warehouse_booking->user_id = $inputs['user_id'];
@@ -49,6 +51,8 @@ class BookingRepository {
 			$db_warehouse_booking->amount = $inputs['amount'];
 		if(isset($inputs['designation']))
 			$db_warehouse_booking->description = $inputs['designation'];
+		
+		$db_warehouse_booking->country_id = $inputs['country_id'];
 		$db_warehouse_booking->status = $inputs['status'];
 		$db_warehouse_booking->save();
 		return $db_warehouse_booking;
@@ -59,6 +63,9 @@ class BookingRepository {
 		//dd($inputs);
 		$db_vehicle_booking = new $this->db_vehicle_booking;
 		$db_vehicle_booking->vehicle_id = $inputs['vehicle_id'];
+		$db_vehicle_booking->country_id = $inputs['country_id'];
+		$db_vehicle_booking->place_of_departure_country_id = $inputs['to_country'];
+		$db_vehicle_booking->place_of_arrival_country_id = $inputs['from_country'];
 		$db_vehicle_booking->place_of_departure_city_id = $inputs['to_city'];
 		$db_vehicle_booking->place_of_arrival_city_id = $inputs['from_city'];
 		$db_vehicle_booking->capacity = isset($inputs['capacity']) ? $inputs['capacity'] : '';
@@ -104,6 +111,8 @@ class BookingRepository {
 			$db_construction_machine_booking->duration_of_user = $inputs['duration_of_user'];
 		if(isset($inputs['others']))
 			$db_construction_machine_booking->others = $inputs['others'];
+		if(isset($inputs['delivery_place_country_id']))
+			$db_construction_machine_booking->delivery_place_country_id = $inputs['delivery_place_country_id'];
 		if(isset($inputs['delivery_place_city_id']))
 			$db_construction_machine_booking->delivery_place_city_id = $inputs['delivery_place_city_id'];
 		$db_construction_machine_booking->user_id = $inputs['user_id'];
@@ -111,6 +120,7 @@ class BookingRepository {
 			$db_construction_machine_booking->amount = $inputs['amount'];
 		if(isset($inputs['description']))
 			$db_construction_machine_booking->description = $inputs['description'];
+		$db_construction_machine_booking->country_id = $inputs['country_id'];
 		$db_construction_machine_booking->status = $inputs['status'];
 		$db_construction_machine_booking->save();
 		return $db_construction_machine_booking;
@@ -132,13 +142,22 @@ class BookingRepository {
 		switch($type)
 		{
 			case "1":
-				$info_Booking = $this->db_vehicle_booking->orderBy('created_at', 'DESC');
+				if(\Session::get('admin_country_id')!=NULL)
+					$info_Booking = $this->db_vehicle_booking->Where('country_id',\Session::get('admin_country_id'))->orderBy('created_at', 'DESC');
+				else
+					$info_Booking = $this->db_vehicle_booking->Where('country_id',\Session::get('country_id'))->orderBy('created_at', 'DESC');
 			break;
 			case "2":
-				$info_Booking = $this->db_construction_machine_booking->orderBy('created_at', 'DESC');
+				if(\Session::get('admin_country_id')!=NULL)
+					$info_Booking = $this->db_construction_machine_booking->Where('country_id',\Session::get('admin_country_id'))->orderBy('created_at', 'DESC');
+				else
+					$info_Booking = $this->db_construction_machine_booking->Where('country_id',\Session::get('country_id'))->orderBy('created_at', 'DESC');
 			break;
 			case "3":
-				$info_Booking = $this->db_warehouse_booking->orderBy('created_at', 'DESC');
+				if(\Session::get('admin_country_id')!=NULL)
+					$info_Booking = $this->db_warehouse_booking->Where('country_id',\Session::get('admin_country_id'))->orderBy('created_at', 'DESC');
+				else
+					$info_Booking = $this->db_warehouse_booking->Where('country_id',\Session::get('country_id'))->orderBy('created_at', 'DESC');
 			break;
 		}
 		
@@ -164,13 +183,19 @@ class BookingRepository {
 	
 	public function getUserOffers()
     {
-		$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'quantity', 'others', 'created_at', 'updated_at')->orderBy('created_at', 'DESC')->get();
+		$info_Booking = $this->db_user_offer->select('user_offers.id', 'user_offers.user_id','user_offers.offer_id', 'user_offers.quantity', 'user_offers.others', 'user_offers.created_at', 'user_offers.updated_at')
+		->join('offers', 'user_offers.offer_id', '=', 'offers.id')
+		->Where('offers.country_id',\Session::get('admin_country_id'))
+		->orderBy('created_at', 'DESC')->get();
         return $info_Booking;
     }
 	
 	public function getUserOffersByUser($user_id)
     {
-		$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'quantity', 'others', 'created_at', 'updated_at')->where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
+		if(\Session::get('admin_country_id')!=NULL)
+			$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'quantity', 'others', 'created_at', 'updated_at')->Where('country_id',\Session::get('admin_country_id'))->where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
+		else
+			$info_Booking = $this->db_user_offer->select('id', 'user_id','offer_id', 'quantity', 'others', 'created_at', 'updated_at')->Where('country_id',\Session::get('country_id'))->where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
         return $info_Booking;
     }
 	

@@ -30,8 +30,14 @@ class CreateOffersTable extends Migration
 			$table->string('reference')->nullable();
 			$table->string('others')->nullable();
 			$table->string('amount')->nullable();
+			$table->integer('country_id')->unsigned()->nullable();
             $table->timestamps();
         });
+		Schema::table('offers', function(Blueprint $table) {
+			$table->foreign('country_id')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+		});
     }
 
     /**

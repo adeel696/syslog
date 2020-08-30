@@ -23,12 +23,25 @@ class CreateWarehouseBookingsTable extends Migration
             $table->string('preferences');
             $table->string('preference_text')->nullable();
 			$table->string('approx_storage_time')->nullable();
+			$table->integer('warehouse_country_id')->unsigned()->nullable();
 			$table->integer('city_id')->unsigned()->nullable();
 			$table->integer('user_id')->unsigned()->nullable();
             $table->string('amount')->nullable();
             $table->string('description')->nullable();
             $table->string('status');
+			$table->integer('country_id')->unsigned();
             $table->timestamps();
+        });
+		
+		Schema::table('warehouse_bookings', function(Blueprint $table) {
+			$table->foreign('warehouse_country_id')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		Schema::table('warehouse_bookings', function(Blueprint $table) {
+			$table->foreign('country_id')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
         });
 		
 		Schema::table('warehouse_bookings', function(Blueprint $table) {

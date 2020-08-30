@@ -23,7 +23,7 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/cms/gooddeal/create') }}"><i class="fa fa-plus"></i></a>
+                            <!--<a class="btn btn-xs btn-icon btn-circle btn-grey" href="{{ url('/cms/gooddeal/create') }}"><i class="fa fa-plus"></i></a>-->
                         </div>
                         <h4 class="panel-title">{{ utf8_encode(__('static.Goods')) }} {{ utf8_encode(__('static.Deals')) }}</h4>
                     </div>

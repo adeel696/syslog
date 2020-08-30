@@ -30,8 +30,15 @@ class CreateUsersTable extends Migration
 			$table->smallInteger('type')->nullable();
 			$table->smallInteger('parent_id')->nullable();
 			$table->string('avatar')->nullable();
+			$table->integer('country_id')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
+        });
+		
+		Schema::table('users', function(Blueprint $table) {
+			$table->foreign('country_id')->references('id')->on('countries')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
         });
     }
 

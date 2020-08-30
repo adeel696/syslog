@@ -55,6 +55,7 @@
                                     <th>{{ utf8_encode(__('static.ID')) }}</th>
                                     <th>{{ utf8_encode(__('static.Name')) }}</th>
                                     <th>{{ utf8_encode(__('static.Type')) }}</th>
+                                    <th>{{ utf8_encode(__('static.Country')) }}</th>
                                     <th>{{ utf8_encode(__('static.From')) }} {{ utf8_encode(__('static.City')) }}</th>
                                     <th>{{ utf8_encode(__('static.To')) }} {{ utf8_encode(__('static.City')) }}</th>
                                     <th>{{ utf8_encode(__('static.Capacity')) }}</th>
@@ -90,6 +91,7 @@
 			{ data: 'id', name: 'id' },
 			{ data: 'machine_name', name: 'machine_name' },
       		{ data: 'type_of_vehicle', name: 'type_of_vehicle' },
+			{ data: 'country_id', name: 'country_id' },
 			{ data: 'from_city', name: 'from_city' },
 			{ data: 'to_city', name: 'to_city' },
 			{ data: 'capacity', name: 'capacity' },

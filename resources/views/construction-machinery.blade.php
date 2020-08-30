@@ -130,11 +130,12 @@
             {!! Form::open([ 'url' => '/construction-machinery', 'files' => true, 'id' => 'main-form' ]) !!}
                <input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
                <input type="hidden" name="contruction_machinary_id" id="contruction_machinary_id" value = '1' />
+               <input type="hidden" name="country_id" value="{{ $country_id }}" />
                <input type="hidden" name="type_of_machinery">
                <div class="form-group row">
                   <div class="col-md-6">
                       <label><?php echo utf8_encode("Lieu de livraison"); ?></label>
-                      <select name="country" id="country1" class="form-control select2">
+                      <select name="delivery_place_country_id" id="country1" class="form-control select2">
                      	<?php
 							foreach(App\Models\Country::All() as $Country)
 							{
@@ -194,6 +195,7 @@
             {!! Form::open([ 'url' => '/construction-machinery', 'files' => true, 'id' => 'main-form' ]) !!}
                <input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
                <input type="hidden" name="contruction_machinary_id" id="contruction_machinary_id-other" value = '1' />
+               <input type="hidden" name="country_id" value="{{ $country_id }}" />
                <div class="form-group row">
                   <div class="col-md-12">
                      <select name="type_of_machinery" class="form-control">
@@ -207,7 +209,7 @@
                <div class="form-group row">
                   <div class="col-md-6">
                       <label><?php echo utf8_encode("Lieu de livraison"); ?></label>
-                      <select name="country" id="country2" class="form-control select2">
+                      <select name="delivery_place_country_id" id="country2" class="form-control select2">
                      	<?php
 							foreach(App\Models\Country::All() as $Country)
 							{

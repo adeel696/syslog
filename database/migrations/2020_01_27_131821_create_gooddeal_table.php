@@ -20,11 +20,17 @@ class CreateGooddealTable extends Migration
             $table->string('image')->nullable();
 			$table->integer('user_id')->unsigned()->nullable();
 			$table->smallInteger('is_publish')->nullable();
+			$table->integer('country_id')->unsigned()->nullable();
             $table->timestamps();
         });
 		
 		Schema::table('gooddeals', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
+						->onDelete('CASCADE')
+						->onUpdate('CASCADE');
+        });
+		Schema::table('gooddeals', function(Blueprint $table) {
+			$table->foreign('country_id')->references('id')->on('countries')
 						->onDelete('CASCADE')
 						->onUpdate('CASCADE');
         });

@@ -48,6 +48,19 @@
                     </div>
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
+                          <label>{{ utf8_encode(__('static.Country')) }}</label>
+						  <?php
+							$defaultSelection = [];
+							foreach(App\Models\Country::All() as $Country)
+							{
+								$defaultSelection = $defaultSelection +  array($Country->id => ($Country->name));
+							}
+						  ?>
+						  {!! Form::select('country_id', $defaultSelection, null, ['class' => 'form-control', 'id' => 'countryCity']) !!}
+                       </div>
+                    </div>
+                    <div class="row">
+                       <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">
                           <label>{{ utf8_encode(__('static.From')) }} {{ utf8_encode(__('static.City')) }}</label>
 						  <?php
 							$defaultSelection = ["" => utf8_encode(__('static.Select'))." ".utf8_encode(__('static.City'))];

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use App\Models\Country;
 
 class LoginController extends Controller
 {
@@ -48,6 +49,13 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 	
+	protected function authenticated($request, $user)
+    {
+		$info_Country = Country::FindOrFail($request->country_id);
+        \Session::put('admin_country_id',$info_Country->id);
+		\Session::put('admin_country_name', $info_Country->name);
+		\Session::put('admin_flag', $info_Country->flag);
+    }
 	/**
      * Show the application's login form.
      *

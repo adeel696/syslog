@@ -25,7 +25,7 @@
         <div class="mt-5">
           <div class="container">
             <div class="row">
-            @foreach(App\Models\Offer::Where('type',1)->Get() as $offer)
+            @foreach(App\Models\Offer::Where('country_id',$country_id)->Where('type',1)->Get() as $offer)
               <div class="col-md-4" >
                 <div class="item-box-blog">
                   <div class="item-box-blog-image">
@@ -79,7 +79,7 @@
         <div class="mt-5">
           <div class="container">
             <div class="row">
-            @foreach(App\Models\Offer::Where('type',2)->Get() as $offer)
+            @foreach(App\Models\Offer::Where('country_id',$country_id)->Where('type',2)->Get() as $offer)
             <div class="col-md-4" >
                 <div class="item-box-blog">
                   <div class="item-box-blog-image">
@@ -133,7 +133,7 @@
         <div class="mt-5">
           <div class="container">
             <div class="row">
-            @foreach(App\Models\Offer::Where('type',3)->Get() as $offer)
+            @foreach(App\Models\Offer::Where('country_id',$country_id)->Where('type',3)->Get() as $offer)
             <div class="col-md-4" >
                 <div class="item-box-blog">
                   <div class="item-box-blog-image">
@@ -187,7 +187,7 @@
         <div class="mt-5">
           <div class="container">
             <div class="row">
-            @foreach(App\Models\Offer::Where('type',4)->Get() as $offer)
+            @foreach(App\Models\Offer::Where('country_id',$country_id)->Where('type',4)->Get() as $offer)
             <div class="col-md-4" >
                 <div class="item-box-blog">
                   <div class="item-box-blog-image">

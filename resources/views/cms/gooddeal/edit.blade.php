@@ -23,6 +23,7 @@
                 <!-- begin panel -->
                 <div class="panel p-20">
                     {!! Form::model($info_Gooddeal, ['method' => 'PATCH', 'files' => true, 'url' => ['/cms/gooddeal', $info_Gooddeal->id], 'id' => 'main-form']) !!}
+                    <input type="hidden" name="country_id" value="{{ $country_id }}" />
                     <input type="hidden" name="user_id" value="{{ Auth::User()->id }}" />
                     <div class="row">
                        <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6 form-group">

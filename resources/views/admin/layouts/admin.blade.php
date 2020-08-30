@@ -60,6 +60,13 @@
 				
 				<!-- begin navbar-right -->
 				<ul class="nav navbar-nav navbar-right">
+                	<li>
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="image">
+                                <img src="{{ url('Flags').'/'.Session::get('admin_flag') }}" width="20px" /> {{ Session::get('admin_country_name') }}
+                            </span>
+                        </a>
+                    </li>
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                             @if(Auth::Guard('admin')->User()->avatar != "")

@@ -62,6 +62,7 @@ class GooddealRepository {
 		$db_gooddeal->description  = (isset($inputs['description']) ? $inputs['description'] : "");
 		$db_gooddeal->image = $imageName;
 		$db_gooddeal->user_id  = (isset($inputs['user_id']) ? $inputs['user_id'] : "");
+		$db_gooddeal->country_id  = $inputs['country_id'];
 		$db_gooddeal->is_publish = 0;
 			
 		$db_gooddeal->save();
@@ -72,7 +73,10 @@ class GooddealRepository {
     {
 		if($id==null)
 		{
-			$info_Gooddeal = $this->db_gooddeal->select('id', 'title','description','image','user_id', 'is_publish')->orderBy('created_at', 'DESC')->get();
+			if(\Session::get('admin_country_id')!=NULL)
+				$info_Gooddeal = $this->db_gooddeal->select('id', 'title','description','image','user_id', 'is_publish')->Where('country_id',\Session::get('admin_country_id'))->orderBy('created_at', 'DESC')->get();
+			else
+				$info_Gooddeal = $this->db_gooddeal->select('id', 'title','description','image','user_id', 'is_publish')->Where('country_id',\Session::get('country_id'))->orderBy('created_at', 'DESC')->get();
 		}
 		else
 		{

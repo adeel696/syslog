@@ -30,6 +30,7 @@
          <div class="col-lg-6" >
             {!! Form::open([ 'url' => '/warehouse', 'files' => true, 'id' => 'main-form' ]) !!}
                <input type="hidden" name="user_id" id="user_id" value="<?php echo (Auth::User() != NULL) ? Auth::User()->id : "" ?>" />
+               <input type="hidden" name="country_id" value="{{ $country_id }}" />
                <div class="form-group row">
                   <div class="col-md-12">
                      <label>Type de produits:</label>
@@ -107,17 +108,34 @@
                
                <div class="form-group row">
                   <div class="col-md-6">
-						<label><?php echo utf8_encode("Préférences:"); ?></label>
-                        <input type="text" name="preference_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences"); ?>" />
-                        <input type="hidden" name="preferences" value="1" />
+                      <label>{{ utf8_encode(__('static.Destination')) }}</label>
+                      <select name="warehouse_country_id" id="country" class="form-control checkFare select2">
+                      	<?php
+							foreach(App\Models\Country::All() as $Country)
+							{
+								if($Country->id == $country_id)
+									echo '<option selected value="'.$Country->id.'">'.$Country->name.'</option>';
+								else
+									echo '<option value="'.$Country->id.'">'.$Country->name.'</option>';
+							}
+					  	?>
+                      </select>
                   </div>
                   <div class="col-md-6">
 						<label>{{ utf8_encode(__('static.City')) }}</label>
-                        <select name="city_id" class="form-control select2">
+                        <select name="city_id" id="cities" class="form-control select2">
                             @foreach(App\Models\City::Where('country_id',$country_id)->Get() as $city)
                                 <?php echo '<option value='."'".''.$city->id."'".'>'. ($city->name).'</option>' ?>
                             @endforeach
                          </select>
+                  </div>
+               </div>
+               
+               <div class="form-group row">
+                  <div class="col-md-6">
+						<label><?php echo utf8_encode("Préférences:"); ?></label>
+                        <input type="text" name="preference_text" class="form-control" placeholder="<?php echo utf8_encode("Préférences"); ?>" />
+                        <input type="hidden" name="preferences" value="1" />
                   </div>
                </div>
                
@@ -139,6 +157,23 @@
 <script>
 	$("html, body").animate({ scrollTop: $('#default').offset().top-200 }, 600);
 	
+	$('#country').change(function(){
+    	var url = "{{url('getCities')}}"+'?id='+$(this).val();
+		$.ajax({
+               url: url,
+               type:"GET",
+               dataType:"json",
+               success:function(response) {
+					$("#cities").empty();
+					$.each(response,function(key,value){
+						$("#cities").append('<option value="'+value.id+'">'+value.name+'</option>');
+					});
+					$(".select2").select2();
+               },
+               error: function (jqXHR, textStatus, errorThrown)
+               { alert(errorThrown) }
+         }); 
+    });
 	var City = '';
 	var Others = '';
 	$("#preferencesDiv").html(City);

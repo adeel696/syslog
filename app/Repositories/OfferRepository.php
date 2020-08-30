@@ -59,6 +59,7 @@ class OfferRepository {
 			}
 		}
 		$db_offer->title = (isset($inputs['title']) ? $inputs['title'] : "");	
+		$db_offer->country_id = $inputs['country_id'];
 		$db_offer->description  = (isset($inputs['description']) ? $inputs['description'] : "");
 		$db_offer->image = $imageName;
 		$db_offer->type  = (isset($inputs['type']) ? $inputs['type'] : "");
@@ -82,7 +83,10 @@ class OfferRepository {
     {
 		if($id==null)
 		{
-			$info_Offer = $this->db_offer->select('id', 'title','description','image','type','insurance_type','range_of_age_of_vehicule','value_of_vehicle','power','designation','packaging','caracteristics','brand','reference','others','amount')->orderBy('created_at', 'DESC')->get();
+			if(\Session::get('admin_country_id')!=NULL)
+				$info_Offer = $this->db_offer->select('id', 'title','description','image','type','insurance_type','range_of_age_of_vehicule','value_of_vehicle','power','designation','packaging','caracteristics','brand','reference','others','amount')->Where('country_id',\Session::get('admin_country_id'))->orderBy('created_at', 'DESC')->get();
+			else
+				$info_Offer = $this->db_offer->select('id', 'title','description','image','type','insurance_type','range_of_age_of_vehicule','value_of_vehicle','power','designation','packaging','caracteristics','brand','reference','others','amount')->Where('country_id',\Session::get('country_id'))->orderBy('created_at', 'DESC')->get();
 		}
 		else
 		{

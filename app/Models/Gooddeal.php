@@ -13,7 +13,7 @@ class Gooddeal extends Model
     //timestamps
     public $timestamp = true;
 
-    protected $fillable = ['title','description','image','user_id', 'is_publish'];
+    protected $fillable = ['title','description','image','user_id', 'is_publish', 'country_id'];
 	
 	public function User()
 	{

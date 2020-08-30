@@ -33,6 +33,7 @@
             <div class="login-content">
              <form method="POST" action="{{ route('register') }}">
                 @csrf
+                <input type="hidden" name="country_id" value="{{ $country_id }}" />
                 <div class="form-group">
                     <select name="type" class="form-control select-lg">
                         <option value="1">{{ utf8_encode(__('static.Asset Owner')) }}</option>
